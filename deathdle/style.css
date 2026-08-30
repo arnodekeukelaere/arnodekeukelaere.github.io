@@ -1,0 +1,417 @@
+:root {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    color: #f2f3f5;
+    background: #1e1f22;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top,
+            #303136 0%,
+            #1e1f22 55%);
+
+    overflow: hidden;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+#app {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 24px;
+}
+
+.screen {
+    width: min(760px, 100%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+.loading-icon {
+    font-size: 56px;
+    margin-bottom: 12px;
+}
+
+h1 {
+    margin: 0;
+
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+p {
+    color: #b5bac1;
+}
+
+/* ------------------------------------------------------- */
+/* GAME */
+/* ------------------------------------------------------- */
+
+.game {
+    width: min(760px, 100%);
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.progress {
+    color: #b5bac1;
+    font-weight: 600;
+}
+
+/* ------------------------------------------------------- */
+/* MESSAGE */
+/* ------------------------------------------------------- */
+
+.message-card {
+    background: #2b2d31;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.25);
+
+    text-align: left;
+}
+
+.message-author {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 12px;
+
+    color: #f2f3f5;
+    font-weight: 700;
+}
+
+.message-content {
+    color: #dbdee1;
+
+    font-size: 16px;
+    line-height: 1.45;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.message-link {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    color: #00a8fc;
+    font-size: 13px;
+
+    text-decoration: none;
+}
+
+.message-link:hover {
+    text-decoration: underline;
+}
+
+/* ------------------------------------------------------- */
+/* SLIDER */
+/* ------------------------------------------------------- */
+
+.slider-section {
+    display: grid;
+
+    grid-template-columns: 1fr auto;
+
+    gap: 18px;
+
+    align-items: center;
+
+    padding: 12px 0;
+}
+
+.slider-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.slider {
+    width: 100%;
+
+    appearance: none;
+
+    height: 8px;
+
+    border-radius: 999px;
+
+    background: #4e5058;
+
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: none;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    background: #5865f2;
+
+    border: 3px solid #ffffff;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.35);
+
+    cursor: grab;
+}
+
+.slider::-webkit-slider-thumb:active {
+    cursor: grabbing;
+}
+
+.slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    background: #5865f2;
+
+    border: 3px solid #ffffff;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.35);
+
+    cursor: grab;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+
+    color: #949ba4;
+
+    font-size: 12px;
+}
+
+.guess-year {
+    min-width: 78px;
+
+    text-align: center;
+
+    font-size: 28px;
+    font-weight: 800;
+
+    color: #ffffff;
+}
+
+/* ------------------------------------------------------- */
+/* BUTTON */
+/* ------------------------------------------------------- */
+
+.primary-button {
+    width: 100%;
+
+    border: 0;
+    border-radius: 8px;
+
+    padding: 13px 18px;
+
+    background: #5865f2;
+    color: white;
+
+    font-weight: 700;
+
+    transition:
+        background 0.15s ease,
+        transform 0.05s ease;
+}
+
+.primary-button:hover {
+    background: #4752c4;
+}
+
+.primary-button:active {
+    transform: translateY(1px);
+}
+
+.primary-button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+/* ------------------------------------------------------- */
+/* ANSWER */
+/* ------------------------------------------------------- */
+
+.answer-card {
+    background: #232428;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    text-align: center;
+}
+
+.answer-year {
+    font-size: 42px;
+    font-weight: 900;
+}
+
+.answer-difference {
+    color: #b5bac1;
+
+    margin-top: 5px;
+}
+
+.answer-score {
+    margin-top: 12px;
+
+    font-size: 20px;
+    font-weight: 800;
+}
+
+/* ------------------------------------------------------- */
+/* FINAL */
+/* ------------------------------------------------------- */
+
+.final-screen {
+    width: min(600px, 100%);
+
+    text-align: center;
+}
+
+.final-icon {
+    font-size: 64px;
+}
+
+.final-title {
+    margin-top: 8px;
+
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.final-score {
+    margin-top: 10px;
+
+    font-size: 34px;
+    font-weight: 900;
+}
+
+.final-subtitle {
+    color: #b5bac1;
+}
+
+.result-list {
+    margin-top: 24px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.result-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    font-size: 22px;
+}
+
+/* ------------------------------------------------------- */
+/* ERROR */
+/* ------------------------------------------------------- */
+
+.error {
+    color: #f23f42;
+}
+
+.small {
+    font-size: 13px;
+    color: #949ba4;
+}
+
+/* ------------------------------------------------------- */
+/* MOBILE */
+/* ------------------------------------------------------- */
+
+@media (max-width: 560px) {
+    #app {
+        padding: 16px;
+    }
+
+    .message-card {
+        padding: 16px;
+    }
+
+    .slider-section {
+        grid-template-columns: 1fr;
+    }
+
+    .guess-year {
+        order: -1;
+    }
+}
