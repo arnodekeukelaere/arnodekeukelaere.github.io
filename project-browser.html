@@ -338,7 +338,7 @@
     let projects = [];
 
     const filters = {
-      Type: ["Personal", "Professional"],
+      Type: ["Personal", "Professional", "School"],
       Engine: ["Unity", "Unreal", "Other"],
       Language: ["C#", "C++"],
       Platform: ["PC", "Console", "Mobile"],
@@ -507,10 +507,12 @@
         desc.textContent = p.description;
         info.appendChild(desc);
 
-        const date = document.createElement("p");
-        date.textContent = "Release date: " + p.release;
-        date.className = "release-date";
-        info.appendChild(date);
+        if (p.release) {
+          const date = document.createElement("p");
+          date.textContent = "Release date: " + p.release;
+          date.className = "release-date";
+          info.appendChild(date);
+        }
 
         // Render tags
         const tagsDiv = document.createElement("div");

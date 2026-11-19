@@ -27,7 +27,8 @@
     "thumbnail": "https://drive.google.com/uc?export=view&id=1t76t_ePveabrVbXau5uhEcKRNH4sYs5H",
     "driveViewer": "https://drive.google.com/file/d/1t76t_ePveabrVbXau5uhEcKRNH4sYs5H/view",
     "tags": ["Professional", "C#", "Unity", "2020s"],
-    "platforms": ["Mobile"]
+    "platforms": ["Mobile"],
+    "company": "d3t"
   },
   {
     "title": "Vampire: The Masquerade - Bloodhunt",
@@ -37,7 +38,8 @@
     "thumbnail": "https://drive.google.com/uc?export=view&id=1G_RjQ7v68WaMPw2m0nbQo_YXP7MF6sKR",
     "driveViewer": "https://drive.google.com/file/d/1G_RjQ7v68WaMPw2m0nbQo_YXP7MF6sKR/view",
     "tags": ["Professional", "C++", "Unreal", "2020s"],
-    "platforms": ["PC", "Console"]
+    "platforms": ["PC", "Console"],
+    "company": "d3t"
   },
   {
     "title": "Mafia II: Definitive Edition",
@@ -47,7 +49,8 @@
     "thumbnail": "https://lh3.googleusercontent.com/d/1pOwXrDkbjVrzr9DrUZsXCH_zupkAtBfP",
     "driveViewer": "https://drive.google.com/file/d/1pOwXrDkbjVrzr9DrUZsXCH_zupkAtBfP/view",
     "tags": ["Professional", "C++", "Other", "2020s"],
-    "platforms": ["PC", "Console"]
+    "platforms": ["PC", "Console"],
+    "company": "d3t"
   },
   {
     "title": "Fundels",
@@ -57,7 +60,8 @@
     "thumbnail": "https://lh3.googleusercontent.com/d/1xcSyw_hpPMbwmdsFBM_HjtPPXqZe5zIt",
     "driveViewer": "https://drive.google.com/file/d/1xcSyw_hpPMbwmdsFBM_HjtPPXqZe5zIt/view",
     "tags": ["Professional", "C#", "Unity", "2010s"],
-    "platforms": ["Mobile"]
+    "platforms": ["Mobile"],
+    "company": "Cartamundi Digtal"
   },
   {
     "title": "Spielespass",
@@ -67,7 +71,8 @@
     "thumbnail": "https://lh3.googleusercontent.com/d/1crpPlmteajPE-1GNiSIlbjdzfD5JU1TP",
     "driveViewer": "https://drive.google.com/file/d/1crpPlmteajPE-1GNiSIlbjdzfD5JU1TP/view",
     "tags": ["Professional", "C#", "Unity", "2010s"],
-    "platforms": ["Mobile"]
+    "platforms": ["Mobile"],
+    "company": "Cartamundi Digtal"
   },
   {
     "title": "De Stemmels",
@@ -77,7 +82,8 @@
     "thumbnail": "https://lh3.googleusercontent.com/d/1R5PCZ05WlkIvF7A2GCe8Unqz1yCXgfes",
     "driveViewer": "https://drive.google.com/file/d/1R5PCZ05WlkIvF7A2GCe8Unqz1yCXgfes/view",
     "tags": ["Professional", "C#", "Unity", "2010s"],
-    "platforms": ["Mobile"]
+    "platforms": ["Mobile"],
+    "company": "Cartamundi Digtal"
   },
   {
     "title": "404",
@@ -127,5 +133,76 @@
     "driveViewer": "https://drive.google.com/file/d/1HfhxB2Cyl2IDerna93NqqUvP-wRUTNqJ/view?usp=drive_link",
     "tags": ["Personal", "C#", "Unity", "2020s"],
     "platforms": ["PC"]
+  },
+  {
+    "title": "Elaru",
+    "url": "https://sites.google.com/view/arno-de-keukelaere/school-projects/elaru",
+    "description": "Sci-fi virtual reality stealth game made in Unity.",
+    "thumbnail": "https://drive.google.com/uc?export=download&id=1hFT5dwW_7D34Ip7IGmsxZdoIpI0THSiF",
+    "driveViewer": "https://drive.google.com/file/d/1hFT5dwW_7D34Ip7IGmsxZdoIpI0THSiF/view?usp=drive_link",
+    "tags": ["School", "C#", "Unity", "2010s"],
+    "platforms": ["PC"]
+  },
+  {
+    "title": "Hel's Hatred",
+    "url": "https://sites.google.com/view/arno-de-keukelaere/school-projects/hels-hatred",
+    "description": "Hack n' Slash village pillaging game made in Unity.",
+    "thumbnail": "https://drive.google.com/uc?export=download&id=1VGOr2svjamKQNTXzTPJMU17LE5QfIFFV",
+    "driveViewer": "https://drive.google.com/file/d/1VGOr2svjamKQNTXzTPJMU17LE5QfIFFV/view?usp=drive_link",
+    "tags": ["School", "C#", "Unity", "2010s"],
+    "platforms": ["PC", "Web"]
+  },
+  {
+    "title": "Sweet Deceit",
+    "url": "https://sites.google.com/view/arno-de-keukelaere/school-projects/sweet-deceit",
+    "description": "Halloween themed puzzle game made in Unity.",
+    "thumbnail": "https://drive.google.com/uc?export=download&id=1ikww_Yf5S9KgsuvLI_V-50bt1UoHA8J7",
+    "driveViewer": "https://drive.google.com/file/d/1ikww_Yf5S9KgsuvLI_V-50bt1UoHA8J7/view?usp=drive_link",
+    "tags": ["School", "C#", "Unity", "2010s"],
+    "platforms": ["PC"]
+  },
+  {
+    "title": "Grot Verhaal",
+    "url": "https://sites.google.com/view/arno-de-keukelaere/school-projects/grot-verhaal",
+    "description": "A Cave Story tribute C++ game.",
+    "thumbnail": "https://drive.google.com/uc?export=download&id=1opELqcTC0D_f86mbsaJf4Iemm7grl05y",
+    "driveViewer": "https://drive.google.com/file/d/1opELqcTC0D_f86mbsaJf4Iemm7grl05y/view?usp=drive_link",
+    "tags": ["School", "C++", "2010s"],
+    "platforms": ["PC"]
+  },
+  {
+    "title": "Arnoid",
+    "url": "https://sites.google.com/view/arno-de-keukelaere/school-projects/arnoid",
+    "description": "Arkanoid for Android made with Cocos2d-x.",
+    "thumbnail": "https://drive.google.com/uc?export=download&id=1C9GLQXAu9doJM8j-U5oDkz_5X0r4hRLv",
+    "driveViewer": "https://drive.google.com/file/d/1C9GLQXAu9doJM8j-U5oDkz_5X0r4hRLv/view?usp=drive_link",
+    "tags": ["School", "C++", "Unity", "2010s"],
+    "platforms": ["Mobile"]
+  },
+  {
+    "title": "Oil Rig BF9",
+    "url": "https://sites.google.com/view/arno-de-keukelaere/school-projects/oil-rig-bf9",
+    "description": "Unreal Tournament custom map.",
+    "thumbnail": "https://drive.google.com/uc?export=download&id=10tfvb72kVSopvWQE45FQNvL2r09Kkq0g",
+    "driveViewer": "https://drive.google.com/file/d/10tfvb72kVSopvWQE45FQNvL2r09Kkq0g/view?usp=drive_link",
+    "tags": ["School", "Unreal", "2010s"],
+    "platforms": ["PC"]
+  },
+  {
+    "title": "Particle FX Scene",
+    "url": "https://sites.google.com/view/arno-de-keukelaere/school-projects/particle-fx-scene",
+    "description": "Unreal Engine 4 particle effects.",
+    "thumbnail": "https://drive.google.com/uc?export=download&id=167od_hqAxlKsSya-5lxCjPtp2_J8CDVe",
+    "driveViewer": "https://drive.google.com/file/d/167od_hqAxlKsSya-5lxCjPtp2_J8CDVe/view?usp=drive_link",
+    "tags": ["School", "Unreal", "2010s"],
+    "platforms": ["PC"]
+  },
+  {
+    "title": "3D Models",
+    "url": "https://sites.google.com/view/arno-de-keukelaere/school-projects/3d-models",
+    "description": "3dsMax modeling and PBR texturing.",
+    "thumbnail": "https://drive.google.com/uc?export=download&id=1idbEudZg0jxJQv0AMACdQIpHIz7Lh_47",
+    "driveViewer": "https://drive.google.com/file/d/1idbEudZg0jxJQv0AMACdQIpHIz7Lh_47/view?usp=drive_link",
+    "tags": ["School", "Unreal", "2010s"]
   }
 ]
