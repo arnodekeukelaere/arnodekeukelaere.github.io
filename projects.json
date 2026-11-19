@@ -1,5 +1,15 @@
 [
   {
+    "title": "Ball After Life",
+    "url": "https://sites.google.com/view/arno-de-keukelaere/personal-projects/ball-after-life",
+    "description": "A pinball game about the after life being a game of chance made for a game jam.",
+    "release": 2026,
+    "thumbnail": "https://drive.google.com/uc?export=download&id=1i0pCcS4fYZoEkFPuInzMYv4g3Dl1udzo",
+    "driveViewer": "https://drive.google.com/file/d/1i0pCcS4fYZoEkFPuInzMYv4g3Dl1udzo/view",
+    "tags": ["Personal", "C#", "s&box", "2020s"],
+    "platforms": ["PC"]
+  },
+  {
     "title": "Keep Munching Y'all",
     "url": "https://sites.google.com/view/arno-de-keukelaere/personal-projects/keep-munching-yall",
     "description": "Third-person pizza-throwing zombie feeding game. Gather items and deliver pizzas directly into zombies’ mouths to survive.",
