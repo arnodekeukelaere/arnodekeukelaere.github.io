@@ -1,79 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="test.css">
   <title>School Projects</title>
   <style>
+    /* Fallback styles in case test.css doesn't load properly */
     body {
       font-family: 'Roboto', Arial, sans-serif;
-      font-size: 16px;
+      font-size: 20px;
       line-height: 1.15;
       margin: 20px;
       background: white;
       color: #333;
     }
 
-    p,
-    li {
-      margin-top: 6px;
-      margin-bottom: 0px;
-      font-size: 16px;
-    }
-
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: 'Roboto', Arial, sans-serif;
-      line-height: 1.15;
-      margin-top: 6px;
-      margin-bottom: 0px;
-    }
-
-    * {
-      box-sizing: border-box;
-      line-height: 1.15;
-      font-family: 'Roboto', Arial, sans-serif;
-    }
-
     .portfolio-wrapper {
-      border: 1px solid #ccc;
-      padding: 20px;
-      border-radius: 0px;
+      /* Removed border and padding */
+      padding: 0;
+      border: none;
     }
 
     .page-header {
       margin-bottom: 20px;
     }
 
+    h1 {
+      font-size: 42px;
+      color: black;
+      line-height: 2;
+      font-family: Roboto;
+      font-weight: 800;
+    }
+
     .page-title {
-      font-size: 28px;
-      font-weight: bold;
+      font-size: 33px;
+      font-weight: 900;
+      font-style: normal;
+      font-variant: normal;
+      line-height: 1.2;
+      text-align: left;
+      text-indent: 0.0pt;
       color: #000;
       margin-bottom: 10px;
     }
 
     .page-description {
-      font-size: 16px;
-      line-height: 1.5;
-      color: #555;
+      font-size: 20px;
+      color: #000;
       margin-bottom: 20px;
     }
 
     .projects {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      /* Changed to grid for 2-column layout */
+      grid-template-columns: 1fr 1fr;
+      /* 2-column layout */
       gap: 15px;
+      /* Removed border */
+      border: none;
     }
 
     .project {
       display: flex;
       align-items: flex-start;
       gap: 15px;
-      border: 1px solid #ccc;
+      /* Removed border */
       padding: 10px;
       text-decoration: none;
       color: black;
@@ -82,7 +77,8 @@
     }
 
     .project:hover {
-      box-shadow: inset 0 3px 0 0 black;
+      /* Removed hover effect that adds border */
+      box-shadow: none;
       border-color: black;
     }
 
@@ -91,8 +87,8 @@
     }
 
     .thumbnail {
-      width: 124px;
-      height: 124px;
+      width: 200px;
+      height: 200px;
       background: lightgray;
       flex-shrink: 0;
       object-fit: cover;
@@ -100,82 +96,66 @@
 
     .project-info {
       flex: 1;
+      padding: 8px;
     }
 
     .project h2 {
       margin: 0;
-      font-size: 20px;
+      font-size: 24px;
       text-decoration: underline;
       text-decoration-color: transparent;
+      color: #000;
+      font-family: Roboto;
+      font-weight: 900;
+      font-style: normal;
+      font-variant: normal;
+      line-height: 1.38;
+      text-align: left;
+      text-indent: 0.0pt;
     }
 
     .project p {
       margin: 5px 0;
+      font-size: 20px;
+      color: #000;
+    }
+
+    .release-date {
+      color: lightgray;
+      font-size: 20px;
+      margin-top: 5px;
     }
 
     .project a {
       color: black;
     }
 
-    .release-date {
-      color: darkgray;
-      font-size: 16px;
-    }
-
-    .tags {
-      margin-top: 8px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .tag {
-      padding: 4px 8px;
-      background: #ebebeb;
-      font-size: 14px;
-      color: #555;
-    }
-
-    .links-section {
-      margin-top: 30px;
-      padding-top: 20px;
-      border-top: 1px solid #ccc;
-    }
-
-    .links-section h3 {
-      margin-bottom: 15px;
-    }
-
-    .links-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .link-item {
-      padding: 8px 12px;
-      background: #f5f5f5;
-      border-left: 3px solid #000;
+    .return-to-home {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
       text-decoration: none;
       color: #000;
-      display: flex;
-      align-items: center;
+      display: inline-block;
     }
 
-    .link-item:hover {
+    .return-to-home:hover {
       background: #e0e0e0;
-      border-left-color: #333;
     }
 
-    /* Tablet and mobile responsive */
-    @media (max-width: 768px) {
+    /* Tablet: single column, moderately small thumbnails */
+    @media (max-width: 1200px) {
       .projects {
-        gap: 10px;
+        grid-template-columns: 1fr;
+        /* Single column on tablets */
       }
+    }
 
-      .project {
-        flex-direction: column;
-        align-items: stretch;
+    /* Phone: single column, tiny thumbnails */
+    @media (max-width: 600px) {
+      .projects {
+        grid-template-columns: 1fr;
       }
 
       .thumbnail {
@@ -188,25 +168,20 @@
 
 <body>
   <div class="portfolio-wrapper">
+    <h1>School projects</h1>
+
     <div class="page-header">
       <h1 class="page-title">Digital Arts & Entertainment (DAE)</h1>
       <p class="page-description">
-        In 2018, I graduated from this university with a bachelor's degree in game development.
+        In 2018, I graduated from this university with a bachelor's degree in game development.<br>
         On this page, I've compiled some of my favourite projects that I worked on during my years there!
       </p>
     </div>
 
     <div class="projects" id="projects"></div>
 
-    <div class="links-section">
-      <h3>Other things to click on</h3>
-      <div class="links-list">
-        <a href="project-browser.html" class="link-item">Interactive project browser</a>
-        <a href="professional-work.html" class="link-item">Overview of my professional work in the game industry</a>
-        <a href="personal-projects.html" class="link-item">Overview of my personal/hobby projects</a>
-        <a href="https://www.linkedin.com/in/arno-de-keukelaere/" target="_blank" class="link-item">My LinkedIn page</a>
-      </div>
-    </div>
+    <!-- Return to home button instead of "Other things to click on" section -->
+    <!-- <a href="home.html" class="return-to-home">Return to Home</a> -->
   </div>
 
   <script>
@@ -337,32 +312,6 @@
           info.appendChild(date);
         }
 
-        // Render tags
-        const tagsDiv = document.createElement("div");
-        tagsDiv.className = "tags";
-
-        // Add project tags (excluding the main "School" tag)
-        project.tags.forEach(t => {
-          if (t !== "School") { // Skip the main tag
-            const span = document.createElement("span");
-            span.className = "tag";
-            span.textContent = t;
-            tagsDiv.appendChild(span);
-          }
-        });
-
-        // Render platforms if they exist
-        if (project.platforms) {
-          project.platforms.forEach(f => {
-            const span = document.createElement('span');
-            span.className = 'tag';
-            span.textContent = f;
-            tagsDiv.appendChild(span);
-          });
-        }
-
-        info.appendChild(tagsDiv);
-
         a.appendChild(info);
         container.appendChild(a);
       });
@@ -386,4 +335,5 @@
     initPortfolio();
   </script>
 </body>
+
 </html>
