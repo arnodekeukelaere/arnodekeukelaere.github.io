@@ -8,6 +8,19 @@
   <link rel="stylesheet" href="shared-styles.css">
   <title>Home</title>
   <style>
+    .links-section {
+      margin-top: 30px;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .project h2 {
+      font-family: Roboto, Arial, sans-serif;
+      font-weight: 900;
+      color: #000;
+    }
+  </style>
+  <style>
     /* Common project styling */
     .projects {
       display: grid;
@@ -32,10 +45,10 @@
     <div class="links-section">
       <h3>Other things to click on</h3>
       <ul class="links-list">
-        <li><a href="project-browser.html" class="link-item">Interactive project browser</a></li>
-        <li><a href="professional-work.html" class="link-item">Overview of my professional work in the game industry</a>
+        <li><a href="https://sites.google.com/view/arno-de-keukelaere/project-browser" class="link-item">Interactive project browser</a></li>
+        <li><a href="https://sites.google.com/view/arno-de-keukelaere/professional-work" class="link-item">Overview of my professional work in the game industry</a>
         </li>
-        <li><a href="personal-projects.html" class="link-item">Overview of my personal/hobby projects</a></li>
+        <li><a href="https://sites.google.com/view/arno-de-keukelaere/personal-projects" class="link-item">Overview of my personal/hobby projects</a></li>
         <li><a href="https://www.linkedin.com/in/arno-de-keukelaere/" target="_blank" class="link-item">My LinkedIn
             page</a></li>
       </ul>
@@ -154,6 +167,26 @@
 
         const info = document.createElement("div");
         info.className = "project-info";
+
+        // Add category tag above the title
+        if (project.tags && project.tags.length > 0) {
+          const category = document.createElement("p");
+          category.style.fontWeight = "bold";
+          category.style.margin = "0 0 5px 0";
+          category.style.color = "#000";
+
+          // Determine category text based on tags
+          if (project.tags.includes("Professional")) {
+            category.textContent = "Professional work:";
+          } else if (project.tags.includes("Personal")) {
+            category.textContent = "Personal project:";
+          } else if (project.tags.includes("School")) {
+            category.textContent = "School project:";
+          } else {
+            category.textContent = "Project:";
+          }
+          info.appendChild(category);
+        }
 
         const title = document.createElement("h2");
         title.textContent = project.title;
