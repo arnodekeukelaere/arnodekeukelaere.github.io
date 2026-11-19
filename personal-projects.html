@@ -19,11 +19,11 @@
     }
 
     .period-header {
-      margin-top: 30px;
-      margin-bottom: 15px;
-      padding-bottom: 5px;
+      /* margin-top: 60px; */
+      /* margin-bottom: 15px; */
+      /* padding-bottom: 5px; */
       /* Removed border */
-      border-bottom: none;
+      /* border-bottom: none; */
     }
 
     .projects {
@@ -187,8 +187,15 @@
       });
 
       // Render each period group
-      sortedPeriods.forEach(period => {
+      sortedPeriods.forEach((period, index) => {
         const periodProjects = projectsByPeriod[period];
+
+        // Add spacing element before all groups except the first one
+        if (index > 0) {
+          const spacingElement = document.createElement("div");
+          spacingElement.style.marginTop = "60px";
+          container.appendChild(spacingElement);
+        }
 
         // Create period header
         const periodHeader = document.createElement("div");

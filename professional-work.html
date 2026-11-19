@@ -19,11 +19,11 @@
     }
 
     .company-header {
-      /* margin-top: 30px; */
+      /* margin-top: 60px; */
       /* margin-bottom: 15px; */
       /* padding-bottom: 5px; */
       /* Removed border */
-      border-bottom: none;
+      /* border-bottom: none; */
     }
 
     .projects {
@@ -186,6 +186,13 @@
           title: companyName,
           description: `Information about ${companyName} will be added here.`
         };
+
+        // Add spacing element before all groups except the first one
+        if (companyProjects.length > 0 && Object.keys(projectsByCompany).indexOf(companyName) > 0) {
+          const spacingElement = document.createElement("div");
+          spacingElement.style.marginTop = "60px";
+          container.appendChild(spacingElement);
+        }
 
         // Create company header
         const companyHeader = document.createElement("div");
