@@ -10,11 +10,11 @@
     /* Fallback styles in case test.css doesn't load properly */
     body {
       font-family: 'Roboto', Arial, sans-serif;
-      font-size: 16px;
+      font-size: 20px;
       line-height: 1.15;
       margin: 20px;
       background: white;
-      color: #333;
+      color: black;
     }
 
     .portfolio-wrapper {
@@ -31,8 +31,17 @@
       border-bottom: none;
     }
 
-    .company-title {
-      font-size: 24px;
+    h1 {
+      font-size: 42px;
+      color: black;
+      line-height: 2;
+      font-family: Roboto;
+      font-weight: 800;
+      margin: 0 0 20px 0;
+    }
+
+    .page-title {
+      font-size: 33px;
       font-weight: 900;
       font-style: normal;
       font-variant: normal;
@@ -40,11 +49,12 @@
       text-align: left;
       text-indent: 0.0pt;
       color: #000;
+      margin-bottom: 10px;
     }
 
-    .company-description {
-      font-size: 20px; /* Changed to 20px as requested */
-      color: #000; /* Changed to black font color */
+    .page-description {
+      font-size: 20px;
+      color: #000;
       margin-bottom: 20px;
     }
 
@@ -64,14 +74,8 @@
       padding: 10px;
       text-decoration: none;
       color: black;
-      transition: box-shadow 0.125s ease;
+      transition: all 0.3s ease;
       position: relative;
-    }
-
-    .project:hover {
-      /* Removed hover effect that adds border */
-      box-shadow: none;
-      border-color: black;
     }
 
     .project:hover h2 {
@@ -88,14 +92,15 @@
 
     .project-info {
       flex: 1;
+      padding: 8px;
     }
 
     .project h2 {
       margin: 0;
-      font-size: 20px; /* Changed to 20px as requested */
+      font-size: 24px;
       text-decoration: underline;
       text-decoration-color: transparent;
-      color: #000; /* Changed to black font color */
+      color: #000;
       font-family: Roboto;
       font-weight: 900;
       font-style: normal;
@@ -107,12 +112,12 @@
 
     .project p {
       margin: 5px 0;
-      font-size: 20px; /* Changed to 20px as requested */
-      color: #000; /* Changed to black font color */
+      font-size: 20px;
+      color: #000;
     }
 
     .release-date {
-      color: lightgray; /* Changed to light gray as requested */
+      color: lightgray;
       font-size: 20px;
       margin-top: 5px;
     }
@@ -161,7 +166,7 @@
     <div class="projects" id="projects"></div>
 
     <!-- Return to home button instead of "Other things to click on" section -->
-    <a href="home.html" class="return-to-home">Return to Home</a>
+    <!-- <a href="home.html" class="return-to-home">Return to Home</a> -->
   </div>
 
   <script>
