@@ -35,36 +35,42 @@
           <a href="/project-browser.html">🔍 Project Browser</a>
         </div>
       </li>
-
-      <li class="has-submenu">
+            
+        <li class="has-submenu">
         <div class="menu-row">
-          <button type="button" class="submenu-toggle" aria-label="Expand Professional Work">
-            <span class="chevron">▸</span>
-          </button>
-          <a href="/professional-work.html">💼 Professional Work</a>
+            <button type="button" class="submenu-toggle" aria-label="Expand Professional Work" aria-expanded="false">
+            <svg class="chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 6 15 12 9 18"></polyline>
+            </svg>
+            </button>
+            <a href="/professional-work.html">💼 Professional Work</a>
         </div>
         <ul class="submenu" data-category="Professional"></ul>
-      </li>
+        </li>
 
-      <li class="has-submenu">
+        <li class="has-submenu">
         <div class="menu-row">
-          <button type="button" class="submenu-toggle" aria-label="Expand Personal Projects">
-            <span class="chevron">▸</span>
-          </button>
-          <a href="/personal-projects.html">💖 Personal Projects</a>
+            <button type="button" class="submenu-toggle" aria-label="Expand Personal Projects" aria-expanded="false">
+            <svg class="chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 6 15 12 9 18"></polyline>
+            </svg>
+            </button>
+            <a href="/personal-projects.html">💖 Personal Projects</a>
         </div>
         <ul class="submenu" data-category="Personal"></ul>
-      </li>
+        </li>
 
-      <li class="has-submenu">
+        <li class="has-submenu">
         <div class="menu-row">
-          <button type="button" class="submenu-toggle" aria-label="Expand School Projects">
-            <span class="chevron">▸</span>
-          </button>
-          <a href="/school-projects.html">🎓 School Projects</a>
+            <button type="button" class="submenu-toggle" aria-label="Expand School Projects" aria-expanded="false">
+            <svg class="chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 6 15 12 9 18"></polyline>
+            </svg>
+            </button>
+            <a href="/school-projects.html">🎓 School Projects</a>
         </div>
         <ul class="submenu" data-category="School"></ul>
-      </li>
+        </li>
 
       <li>
         <div class="menu-row">
