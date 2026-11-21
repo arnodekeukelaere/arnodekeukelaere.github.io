@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../shared-styles.css">
+  <link rel="stylesheet" href="../shared-gallery.css">
+  <link rel="stylesheet" href="industrial-cleansing.css">
   <title>Industrial Cleansing</title>
   <style>
     .project-detail {
@@ -31,7 +33,7 @@
       margin: 0 auto 20px;
       display: block;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .project-description {
@@ -89,7 +91,8 @@
   </style>
 </head>
 
-<body>
+
+<body class="page-industrial-cleansing">
   <div id="site-nav"></div>
 
   <div class="project-detail">
@@ -97,9 +100,10 @@
       <h1 class="project-title">Industrial Cleansing</h1>
     </div>
 
-    <img id="projectThumbnail" class="project-thumbnail" src="" alt="Industrial Cleansing thumbnail">
 
-    <p id="projectDescription" class="project-description">Physics sim object cleaning game. You get 33 seconds to clean each batch of objects.</p>
+
+    <p id="projectDescription" class="project-description">Physics sim object cleaning game. You get 33 seconds to clean
+      each batch of objects.</p>
 
     <div class="project-meta">
       <div class="meta-item">
@@ -117,17 +121,50 @@
     </div>
 
     <div class="project-content">
-      <p>This physics simulation game challenges players to clean batches of objects within a 33-second time limit. It's a test of both speed and precision.</p>
+      <div class="yt-embed">
+        <iframe src="https://www.youtube.com/embed/slYdmt1qO0s" title="Keep Munching Y'all gameplay video"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="project-content">
+      <h2>Info</h2>
+      <p>A top-down 2.5D physics-based game where you use your mouse and keyboard to grab objects, move them to a
+        central sink, and clean away strange “growths” using a variety of cleansing tools. Built in a weekend and
+        refined over the following weeks and available free to play on s&box!</p>
+      <h2>Tech</h2>
+      <ul>
+        <li>C#</li>
+        <li>s&box</li>
+        <li>Affinity Photo 2</li>
+        <li>Audacity</li>
+        <li>Various AI tools for productivity</li>
+      </ul>
+      <h2>Gallery</h2>
+      <div class="image-gallery">
+        <div class="gallery-item"><img
+            src="https://cdn.sbox.game/org/clubthirtythree/industrialcleansing/screenshots/102e14b2-2d58-44f7-8591-55a94e055e42.jpg"
+            alt="Industrial Cleansing 1"></div>
+        <div class="gallery-item"><img
+            src="https://cdn.sbox.game/org/clubthirtythree/industrialcleansing/screenshots/9e7c58c5-8602-46ae-9b0b-3637d26e8112.jpg"
+            alt="Industrial Cleansing 2"></div>
+        <div class="gallery-item"><img
+            src="https://cdn.sbox.game/org/clubthirtythree/industrialcleansing/screenshots/c264ea7a-459e-4119-b46f-c691d2dcf82e.jpg"
+            alt="Industrial Cleansing 3"></div>
+      </div>
     </div>
 
     <div class="project-links">
-      <a id="liveLink" href="https://sites.google.com/view/arno-de-keukelaere/personal-projects/industrial-cleansing" target="_blank">Play Online</a>
-      <a id="sourceLink" href="#" target="_blank">Source Code</a>
-      <a id="documentationLink" href="#" target="_blank">Documentation</a>
+      <a id="liveLink" href="https://sbox.game/clubthirtythree/industrialcleansing" target="_blank">s&box game page</a>
+      <a id="sourceLink" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3831618864" target="_blank">Steam
+        workshop page</a>
     </div>
   </div>
 
   <script src="../layout.js"></script>
+  <script src="../shared-gallery.js"></script>
 
   <script>
     // This script will be populated with individual project data

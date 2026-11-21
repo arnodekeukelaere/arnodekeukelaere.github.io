@@ -8,6 +8,7 @@
     href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Space+Grotesk:wght@500;700&family=Roboto:wght@400;700;900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="../shared-styles.css">
+  <link rel="stylesheet" href="../shared-gallery.css">
   <link rel="stylesheet" href="keep-munching-yall.css">
   <title>Keep Munching Y'all</title>
 </head>
@@ -55,7 +56,7 @@
 
     <div class="project-content">
       <div class="project-section">
-        <h2>About This Project</h2>
+        <h2>Info</h2>
         <p>A third-person wave-based roguelite pizza throwing game about feeding "customers" in a world taken over by
           people infected with a gluttony virus.</p>
         <p>Inspired by one of my favourite games at the time, Risk of Rain 2, and created in s&box with the intent of
@@ -75,20 +76,20 @@
       </div>
 
       <div class="project-section">
-        <h2>Image Gallery</h2>
+        <h2>Gallery</h2>
         <div class="image-gallery">
           <div class="gallery-item"><img
               src="https://cdn.sbox.game/org/clubthirtythree/keepmunchingyall/screenshots/a0424929-20fd-4bc5-b8d2-f5c32ea8d850.jpg"
-              alt="Gameplay screenshot 1"></div>
+              alt="Keep Munching Y'all 1"></div>
           <div class="gallery-item"><img
               src="https://cdn.sbox.game/org/clubthirtythree/keepmunchingyall/screenshots/5403fde7-ab6f-49ba-b041-65a08a141bd1.jpg"
-              alt="Gameplay screenshot 2"></div>
+              alt="Keep Munching Y'all 2"></div>
           <div class="gallery-item"><img
               src="https://cdn.sbox.game/org/clubthirtythree/keepmunchingyall/screenshots/e7cd8628-4054-47a2-a1be-6264a127a894.jpg"
-              alt="Gameplay screenshot 3"></div>
+              alt="Keep Munching Y'all 3"></div>
           <div class="gallery-item"><img
               src="https://cdn.sbox.game/org/clubthirtythree/keepmunchingyall/screenshots/61438606-3946-4e45-80fc-e772054abd9b.jpg"
-              alt="Gameplay screenshot 4"></div>
+              alt="Keep Munching Y'all 4"></div>
         </div>
       </div>
     </div>
@@ -101,6 +102,7 @@
   </div>
 
   <script src="../layout.js"></script>
+  <script src="../shared-gallery.js"></script>
 
   <script>
     // This script will be populated with individual project data
@@ -149,86 +151,6 @@
 
     initProject();
   </script>
-
-<!-- Fullscreen Lightbox Modal -->
-<div class="munch-lightbox" id="munchLightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
-  <button type="button" class="munch-lightbox__close" id="lightboxClose" aria-label="Close image viewer">X</button>
-  <button type="button" class="munch-lightbox__btn munch-lightbox__prev" id="lightboxPrev" aria-label="Previous image">‹</button>
-
-  <div class="munch-lightbox__stage" id="lightboxStage">
-    <img class="munch-lightbox__img" id="lightboxImg" src="" alt="">
-    <div class="munch-lightbox__caption" id="lightboxCaption"></div>
-  </div>
-
-  <button type="button" class="munch-lightbox__btn munch-lightbox__next" id="lightboxNext" aria-label="Next image">›</button>
-</div>
-
-<script>
-  (() => {
-    const galleryImgs = Array.from(document.querySelectorAll('.image-gallery .gallery-item img'));
-    const lightbox = document.getElementById('munchLightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxCaption = document.getElementById('lightboxCaption');
-    const stage = document.getElementById('lightboxStage');
-    const btnClose = document.getElementById('lightboxClose');
-    const btnPrev = document.getElementById('lightboxPrev');
-    const btnNext = document.getElementById('lightboxNext');
-
-    if (!galleryImgs.length || !lightbox) return;
-
-    let currentIndex = 0;
-
-    function render(index) {
-      currentIndex = (index + galleryImgs.length) % galleryImgs.length;
-      const sourceImg = galleryImgs[currentIndex];
-      lightboxImg.src = sourceImg.currentSrc || sourceImg.src;
-      lightboxImg.alt = sourceImg.alt || `Screenshot ${currentIndex + 1}`;
-      lightboxCaption.textContent = `${currentIndex + 1} / ${galleryImgs.length} — ${lightboxImg.alt}`;
-    }
-
-    function open(index) {
-      render(index);
-      lightbox.classList.add('is-open');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function close() {
-      lightbox.classList.remove('is-open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    galleryImgs.forEach((img, idx) => {
-      img.closest('.gallery-item').addEventListener('click', () => open(idx));
-    });
-
-    btnClose.addEventListener('click', close);
-    btnPrev.addEventListener('click', (e) => {
-      e.stopPropagation();
-      render(currentIndex - 1);
-    });
-    btnNext.addEventListener('click', (e) => {
-      e.stopPropagation();
-      render(currentIndex + 1);
-    });
-
-    // Click dark backdrop (outside the image/caption) to close
-    lightbox.addEventListener('click', (e) => {
-      if (!stage.contains(e.target)) {
-        close();
-      }
-    });
-
-    // Keyboard navigation: Left / Right / Escape
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox.classList.contains('is-open')) return;
-      if (e.key === 'Escape') close();
-      if (e.key === 'ArrowLeft') render(currentIndex - 1);
-      if (e.key === 'ArrowRight') render(currentIndex + 1);
-    });
-  })();
-</script>
 
   <div id="site-footer"></div>
 </body>
