@@ -14,7 +14,7 @@
       <path d="M3 17h18"></path>
     </svg>
     </button>
-    <a href="home.html" class="navbar-brand">Arno's game dev portfolio</a>
+    <a href="/home.html" class="navbar-brand">Arno's game dev portfolio</a>
   </nav>
 
   <!-- Navigation Menu -->
@@ -25,14 +25,14 @@
       <li>
         <div class="menu-row">
           <span class="submenu-spacer" aria-hidden="true"></span>
-          <a href="home.html">🏠 Home</a>
+          <a href="/home.html">🏠 Home</a>
         </div>
       </li>
 
       <li>
         <div class="menu-row">
           <span class="submenu-spacer" aria-hidden="true"></span>
-          <a href="project-browser.html">🔍 Project Browser</a>
+          <a href="/project-browser.html">🔍 Project Browser</a>
         </div>
       </li>
 
@@ -41,7 +41,7 @@
           <button type="button" class="submenu-toggle" aria-label="Expand Professional Work">
             <span class="chevron">▸</span>
           </button>
-          <a href="professional-work.html">💼 Professional Work</a>
+          <a href="/professional-work.html">💼 Professional Work</a>
         </div>
         <ul class="submenu" data-category="Professional"></ul>
       </li>
@@ -51,7 +51,7 @@
           <button type="button" class="submenu-toggle" aria-label="Expand Personal Projects">
             <span class="chevron">▸</span>
           </button>
-          <a href="personal-projects.html">💖 Personal Projects</a>
+          <a href="/personal-projects.html">💖 Personal Projects</a>
         </div>
         <ul class="submenu" data-category="Personal"></ul>
       </li>
@@ -61,7 +61,7 @@
           <button type="button" class="submenu-toggle" aria-label="Expand School Projects">
             <span class="chevron">▸</span>
           </button>
-          <a href="school-projects.html">🎓 School Projects</a>
+          <a href="/school-projects.html">🎓 School Projects</a>
         </div>
         <ul class="submenu" data-category="School"></ul>
       </li>
@@ -218,11 +218,28 @@
       showTags = false,
     } = options;
 
+    const rawUrl = (project.url || "#").trim();
     const a = document.createElement("a");
     a.href = project.url || "#";
     a.className = "project";
-    a.target = "_blank";
-    a.rel = "noopener";
+
+    const isExternal = (() => {
+      if (!rawUrl || rawUrl.startsWith("#")) return false;
+      if (!rawUrl.startsWith("http://") && !rawUrl.startsWith("https://")) {
+        return false;
+      }
+      try {
+        return new URL(a.href).hostname !== window.location.hostname;
+      } catch {
+        return true;
+      }
+    })();
+
+    if (isExternal) {
+      // only _blank when project leads outside of website
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+    }
 
     const thumb = document.createElement("img");
     thumb.className = "thumbnail";
@@ -294,32 +311,137 @@
     if (saved !== null) return saved === "true";
     return window.matchMedia("(prefers-color-scheme: dark)").matches;
   }
-
   function applyDarkMode(isDark) {
+    const effectiveDark = Boolean(isDark);
+
+    const header = document.querySelector(".site-nav");
+    const navBar = document.querySelector(".navbar");
+    const navBarBrand = document.querySelector(".navbar-brand");
+    const hamburgerMenu = document.querySelector(".hamburger-menu");
+    const hamburgerIcon = document.querySelector(".hamburger-icon");
+    const navMenu = document.querySelector(".nav-menu");
+    const closeBtn = document.querySelector(".close-btn");
+    const submenuToggles = document.querySelectorAll(".submenu-toggle");
+    const menuRows = document.querySelectorAll(".menu-row");
+    const navLinks = document.querySelectorAll(".nav-menu a");
     const footer = document.querySelector(".site-footer");
     const darkFooter = document.querySelector(".dark-mode-footer");
     const toggleBtn = document.getElementById("darkModeToggle");
-    const bg = isDark ? "#181A1B" : "white";
-    const fg = isDark ? "#E8E6E3" : "black";
 
-    document.body.style.backgroundColor = bg;
-    document.body.style.color = fg;
-    if (footer) footer.style.backgroundColor = bg;
-    if (darkFooter) darkFooter.style.backgroundColor = bg;
+    const bg = effectiveDark ? "#181A1B" : "white";
+    const navbarBg = effectiveDark ? "#181A1B" : "white";
+    const navbarFg = effectiveDark ? "white" : "#181A1B";
+    const brandFg = effectiveDark ? "white" : "black";
+    const brandHoverFg = effectiveDark ? "#4da6ff" : "darkblue";
+    const hamburgerFg = effectiveDark ? "white" : "black";
+    const menuBg = effectiveDark ? "#181A1B" : "white";
+    const closeBtnFg = effectiveDark ? "white" : "black";
+    const rowHoverBg = effectiveDark
+      ? "rgba(255, 255, 255, 0.06)"
+      : "rgba(0, 0, 0, 0.05)";
+    const toggleFg = effectiveDark ? "#cecece" : "#333";
+    const toggleHoverBg = effectiveDark
+      ? "rgba(255, 255, 255, 0.08)"
+      : "rgba(0, 0, 0, 0.08)";
+    const toggleHoverFg = effectiveDark ? "white" : "black";
+    const linkFg = effectiveDark ? "#e0e0e0" : "black";
+    const linkHoverFg = effectiveDark ? "lightsteelblue" : "darkblue";
+    const activeIndicatorBg = effectiveDark ? "#ffffff" : "#000000";
+
+    // Drives .menu-row:has(a.active)::before and .submenu li:has(a.active)::before
+    document.documentElement.style.setProperty(
+      "--active-indicator-bg",
+      activeIndicatorBg,
+    );
+
+    if (header) {
+      header.style.backgroundColor = navbarBg;
+      header.style.color = navbarFg;
+    }
+
+    if (navBar) {
+      navBar.style.backgroundColor = navbarBg;
+      navBar.style.color = navbarFg;
+    }
+
+    if (navBarBrand) {
+      navBarBrand.style.color = brandFg;
+      navBarBrand.onmouseenter = () => {
+        navBarBrand.style.color = brandHoverFg;
+      };
+      navBarBrand.onmouseleave = () => {
+        navBarBrand.style.color = brandFg;
+      };
+    }
+
+    if (hamburgerMenu) {
+      hamburgerMenu.style.color = hamburgerFg;
+    }
+    if (hamburgerIcon) {
+      hamburgerIcon.style.color = hamburgerFg;
+    }
+
+    if (navMenu) {
+      navMenu.style.backgroundColor = menuBg;
+      navMenu.style.color = linkFg;
+    }
+
+    if (closeBtn) {
+      closeBtn.style.color = closeBtnFg;
+    }
+
+    menuRows.forEach((row) => {
+      row.style.backgroundColor = "";
+      row.onmouseenter = () => {
+        row.style.backgroundColor = rowHoverBg;
+      };
+      row.onmouseleave = () => {
+        row.style.backgroundColor = "";
+      };
+    });
+
+    submenuToggles.forEach((btn) => {
+      btn.style.color = toggleFg;
+      btn.style.backgroundColor = "";
+      btn.onmouseenter = () => {
+        btn.style.backgroundColor = toggleHoverBg;
+        btn.style.color = toggleHoverFg;
+      };
+      btn.onmouseleave = () => {
+        btn.style.backgroundColor = "";
+        btn.style.color = toggleFg;
+      };
+    });
+
+    navLinks.forEach((link) => {
+      link.style.color = linkFg;
+      link.onmouseenter = () => {
+        link.style.color = linkHoverFg;
+      };
+      link.onmouseleave = () => {
+        link.style.color = linkFg;
+      };
+    });
+
+    if (footer) {
+      footer.style.backgroundColor = bg;
+    }
+    if (darkFooter) {
+      darkFooter.style.backgroundColor = bg;
+    }
 
     document.documentElement.setAttribute(
       "data-theme",
-      isDark ? "dark" : "light",
+      effectiveDark ? "dark" : "light",
     );
-    document.body.setAttribute("data-theme", isDark ? "dark" : "light");
-    if (toggleBtn) toggleBtn.innerHTML = isDark ? "☀️" : "🌙";
+    document.body.setAttribute("data-theme", effectiveDark ? "dark" : "light");
+    if (toggleBtn) toggleBtn.innerHTML = effectiveDark ? "☀️" : "🌙";
 
-    localStorage.setItem("darkMode", String(isDark));
+    localStorage.setItem("darkMode", String(effectiveDark));
     document.dispatchEvent(
-      new CustomEvent("themechange", { detail: { isDark } }),
+      new CustomEvent("themechange", { detail: { isDark: effectiveDark } }),
     );
   }
-
   function initDarkMode() {
     const toggleBtn = document.getElementById("darkModeToggle");
     applyDarkMode(getSavedDarkMode());
@@ -363,7 +485,7 @@
 
   async function populateNavbarSubmenus(closeMenu) {
     try {
-      const projects = await fetchJson("projects.json");
+      const projects = await fetchJson("/projects.json");
 
       document
         .querySelectorAll(".nav-menu .submenu[data-category]")
@@ -391,7 +513,19 @@
           matchingProjects.forEach((project) => {
             const li = document.createElement("li");
             const a = document.createElement("a");
-            const href = project.url || "#";
+            const rawHref = (project.url || "#").trim();
+
+            let href = rawHref;
+            if (
+              rawHref &&
+              !rawHref.startsWith("http://") &&
+              !rawHref.startsWith("https://") &&
+              !rawHref.startsWith("#") &&
+              !rawHref.startsWith("/")
+            ) {
+              // Prefix with "/" so it resolves from the site root instead of the current subfolder
+              href = `/${rawHref.replace(/^\.?\//, "")}`;
+            }
 
             a.href = href;
             a.textContent = project.title;

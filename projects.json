@@ -1,7 +1,7 @@
 [
   {
     "title": "Ball After Life",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/personal-projects/ball-after-life",
+    "url": "personal-projects/ball-after-life.html",
     "description": "A pinball game about the after life being a game of chance made for a game jam.",
     "release": 2026,
     "thumbnail": "https://drive.google.com/uc?export=download&id=1i0pCcS4fYZoEkFPuInzMYv4g3Dl1udzo",
@@ -10,8 +10,8 @@
     "platforms": ["PC"]
   },
   {
-    "title": "Keep Munching Y'all",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/personal-projects/keep-munching-yall",
+    "title": "Keep Munching Y’all",
+    "url": "personal-projects/keep-munching-yall.html",
     "description": "Third-person pizza-throwing zombie feeding game. Gather items and deliver pizzas directly into zombies’ mouths to survive.",
     "release": 2026,
     "thumbnail": "https://drive.google.com/uc?export=view&id=1s6aYkBtUPTVOWzwGixSMWN9kXoZDb0Wb",
@@ -21,7 +21,7 @@
   },
   {
     "title": "Fifa Heroes",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/professional-work/fifa-heroes",
+    "url": "professional-work/fifa-heroes.html",
     "description": "Arcade football with superpowers.",
     "release": 2026,
     "thumbnail": "https://drive.google.com/uc?export=view&id=1t76t_ePveabrVbXau5uhEcKRNH4sYs5H",
@@ -32,7 +32,7 @@
   },
   {
     "title": "Vampire: The Masquerade - Bloodhunt",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/professional-work/vampire-the-masquerade-bloodhunt",
+    "url": "professional-work/vampire-the-masquerade-bloodhunt.html",
     "description": "Battle royale game with vampires set in the World of Darkness universe.",
     "release": 2022,
     "thumbnail": "https://drive.google.com/uc?export=view&id=1G_RjQ7v68WaMPw2m0nbQo_YXP7MF6sKR",
@@ -43,7 +43,7 @@
   },
   {
     "title": "Mafia II: Definitive Edition",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/professional-work/mafia-ii-definitive-edition",
+    "url": "professional-work/mafia-ii-definitive-edition.html",
     "description": "Remaster of the 2010 action-adventure game Mafia II.",
     "release": 2020,
     "thumbnail": "https://lh3.googleusercontent.com/d/1pOwXrDkbjVrzr9DrUZsXCH_zupkAtBfP",
@@ -54,7 +54,7 @@
   },
   {
     "title": "Fundels",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/professional-work/fundels",
+    "url": "professional-work/fundels.html",
     "description": "Audio book app for children's books on iOS and Android.",
     "release": 2019,
     "thumbnail": "https://lh3.googleusercontent.com/d/1xcSyw_hpPMbwmdsFBM_HjtPPXqZe5zIt",
@@ -65,7 +65,7 @@
   },
   {
     "title": "Spielespass",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/professional-work/spielespass",
+    "url": "professional-work/spielespass.html",
     "description": "A collection of Hasbro and Mattel mobile games for Android.",
     "release": 2018,
     "thumbnail": "https://lh3.googleusercontent.com/d/1crpPlmteajPE-1GNiSIlbjdzfD5JU1TP",
@@ -76,7 +76,7 @@
   },
   {
     "title": "De Stemmels",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/professional-work/de-stemmels",
+    "url": "professional-work/de-stemmels.html",
     "description": "VR/AR educational boardgame for iOS and Android.",
     "release": 2023,
     "thumbnail": "https://lh3.googleusercontent.com/d/1R5PCZ05WlkIvF7A2GCe8Unqz1yCXgfes",
@@ -97,7 +97,7 @@
   },
   {
     "title": "Neko-Pakku Crash!",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/personal-projects/neko-pakku-crash",
+    "url": "personal-projects/neko-pakku-crash.html",
     "description": "Simple 2D 'Hop and bop' platformer.",
     "release": 2014,
     "thumbnail": "https://lh3.googleusercontent.com/d/16g6X6TCmK77H9Vt0Oeazs9IRVH-Gs1nO",
@@ -116,7 +116,7 @@
   },
   {
     "title": "Industrial Cleansing",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/personal-projects/industrial-cleansing",
+    "url": "personal-projects/industrial-cleansing.html",
     "description": "Physics sim object cleaning game. You get 33 seconds to clean each batch of objects.",
     "release": 2025,
     "thumbnail": "https://lh3.googleusercontent.com/d/15V3wha3wV2KCw-Hnm3om08BGbDRjGiy4",
@@ -126,7 +126,7 @@
   },
   {
     "title": "Labyrinth",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/personal-projects/labyrinth",
+    "url": "personal-projects/labyrinth.html",
     "description": "A 48-hour game jam game, made with colleges from d3t, about escaping a labyrinth plagued by a minotaur.",
     "release": 2022,
     "thumbnail": "https://lh3.googleusercontent.com/d/1HfhxB2Cyl2IDerna93NqqUvP-wRUTNqJ",
@@ -136,7 +136,7 @@
   },
   {
     "title": "Elaru",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/school-projects/elaru",
+    "url": "school-projects/elaru.html",
     "description": "Sci-fi virtual reality stealth game made in Unity.",
     "thumbnail": "https://drive.google.com/uc?export=download&id=1hFT5dwW_7D34Ip7IGmsxZdoIpI0THSiF",
     "driveViewer": "https://drive.google.com/file/d/1hFT5dwW_7D34Ip7IGmsxZdoIpI0THSiF/view?usp=drive_link",
@@ -145,7 +145,7 @@
   },
   {
     "title": "Hel's Hatred",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/school-projects/hels-hatred",
+    "url": "school-projects/hels-hatred.html",
     "description": "Hack n' Slash village pillaging game made in Unity.",
     "thumbnail": "https://drive.google.com/uc?export=download&id=1VGOr2svjamKQNTXzTPJMU17LE5QfIFFV",
     "driveViewer": "https://drive.google.com/file/d/1VGOr2svjamKQNTXzTPJMU17LE5QfIFFV/view?usp=drive_link",
@@ -154,7 +154,7 @@
   },
   {
     "title": "Sweet Deceit",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/school-projects/sweet-deceit",
+    "url": "school-projects/sweet-deceit.html",
     "description": "Halloween themed puzzle game made in Unity.",
     "thumbnail": "https://drive.google.com/uc?export=download&id=1ikww_Yf5S9KgsuvLI_V-50bt1UoHA8J7",
     "driveViewer": "https://drive.google.com/file/d/1ikww_Yf5S9KgsuvLI_V-50bt1UoHA8J7/view?usp=drive_link",
@@ -163,7 +163,7 @@
   },
   {
     "title": "Grot Verhaal",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/school-projects/grot-verhaal",
+    "url": "school-projects/grot-verhaal.html",
     "description": "A Cave Story tribute C++ game.",
     "thumbnail": "https://drive.google.com/uc?export=download&id=1opELqcTC0D_f86mbsaJf4Iemm7grl05y",
     "driveViewer": "https://drive.google.com/file/d/1opELqcTC0D_f86mbsaJf4Iemm7grl05y/view?usp=drive_link",
@@ -172,7 +172,7 @@
   },
   {
     "title": "Arnoid",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/school-projects/arnoid",
+    "url": "school-projects/arnoid.html",
     "description": "Arkanoid for Android made with Cocos2d-x.",
     "thumbnail": "https://drive.google.com/uc?export=download&id=1C9GLQXAu9doJM8j-U5oDkz_5X0r4hRLv",
     "driveViewer": "https://drive.google.com/file/d/1C9GLQXAu9doJM8j-U5oDkz_5X0r4hRLv/view?usp=drive_link",
@@ -181,7 +181,7 @@
   },
   {
     "title": "Oil Rig BF9",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/school-projects/oil-rig-bf9",
+    "url": "school-projects/oil-rig-bf9.html",
     "description": "Unreal Tournament custom map.",
     "thumbnail": "https://drive.google.com/uc?export=download&id=10tfvb72kVSopvWQE45FQNvL2r09Kkq0g",
     "driveViewer": "https://drive.google.com/file/d/10tfvb72kVSopvWQE45FQNvL2r09Kkq0g/view?usp=drive_link",
@@ -190,7 +190,7 @@
   },
   {
     "title": "Particle FX Scene",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/school-projects/particle-fx-scene",
+    "url": "school-projects/particle-fx-scene.html",
     "description": "Unreal Engine 4 particle effects.",
     "thumbnail": "https://drive.google.com/uc?export=download&id=167od_hqAxlKsSya-5lxCjPtp2_J8CDVe",
     "driveViewer": "https://drive.google.com/file/d/167od_hqAxlKsSya-5lxCjPtp2_J8CDVe/view?usp=drive_link",
@@ -199,7 +199,7 @@
   },
   {
     "title": "3D Models",
-    "url": "https://sites.google.com/view/arno-de-keukelaere/school-projects/3d-models",
+    "url": "school-projects/3d-models.html",
     "description": "3dsMax modeling and PBR texturing.",
     "thumbnail": "https://drive.google.com/uc?export=download&id=1idbEudZg0jxJQv0AMACdQIpHIz7Lh_47",
     "driveViewer": "https://drive.google.com/file/d/1idbEudZg0jxJQv0AMACdQIpHIz7Lh_47/view?usp=drive_link",
