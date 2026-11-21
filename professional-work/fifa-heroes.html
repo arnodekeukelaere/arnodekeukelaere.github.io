@@ -6,87 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../shared-styles.css">
+  <!-- <link rel="stylesheet" href="fifa-heroes.css"> -->
   <title>Fifa Heroes</title>
-  <style>
-    .project-detail {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .project-header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .project-title {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-
-    .project-thumbnail {
-      width: 100%;
-      max-width: 600px;
-      height: auto;
-      margin: 0 auto 20px;
-      display: block;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .project-description {
-      font-size: 1.1em;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 30px;
-      padding: 15px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-    }
-
-    .meta-item {
-      flex: 1;
-      min-width: 150px;
-    }
-
-    .meta-label {
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #666;
-    }
-
-    .project-content {
-      margin-top: 30px;
-    }
-
-    .project-links {
-      margin-top: 20px;
-      padding: 15px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-    }
-
-    .project-links a {
-      display: inline-block;
-      margin-right: 15px;
-      margin-bottom: 10px;
-      padding: 8px 15px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-
-    .project-links a:hover {
-      background-color: #0056b3;
-    }
-  </style>
 </head>
 
 <body>
@@ -95,33 +16,73 @@
   <div class="project-detail">
     <div class="project-header">
       <h1 class="project-title">Fifa Heroes</h1>
+      <p class="project-subtitle">Arcade football with superpowers</p>
+      <img id="projectThumbnail" class="project-thumbnail" src="" alt="Fifa Heroes thumbnail">
     </div>
-
-    <img id="projectThumbnail" class="project-thumbnail" src="" alt="Fifa Heroes thumbnail">
 
     <p id="projectDescription" class="project-description">Arcade football with superpowers.</p>
 
     <div class="project-meta">
       <div class="meta-item">
         <div class="meta-label">Release Year</div>
-        <div id="releaseYear">2026</div>
+        <div id="releaseYear" class="meta-value">2026</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Platforms</div>
-        <div id="platforms">Mobile</div>
+        <div id="platforms" class="meta-value">Mobile</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Technologies</div>
-        <div id="tags">C#, Unity</div>
+        <div id="tags" class="meta-value">C#, Unity</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Company</div>
-        <div id="company">d3t</div>
+        <div id="company" class="meta-value">d3t</div>
       </div>
     </div>
 
     <div class="project-content">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/Wbd-7QTnHyY"
+                title="FIFA Heroes Gameplay Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+
       <p>Fifa Heroes is an arcade football game with superpowers. This was a mobile game project developed at d3t.</p>
+
+      <div class="project-section">
+        <h2>What I Did</h2>
+        <h3>AI Programming</h3>
+        <ul>
+          <li>Advising on AI integration</li>
+          <li>Unity Behavior Tree implementation</li>
+        </ul>
+
+        <h3>Gameplay Programming</h3>
+        <ul>
+          <li>Gameplay bug fixes</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Tech Stack</h2>
+        <ul>
+          <li>C#</li>
+          <li>Unity 6</li>
+          <li>P4V</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>External Links</h2>
+        <p>Available on:</p>
+        <ul>
+          <li><a href="https://play.google.com/store/apps/details?id=com.solace.fifaheroes&hl=en_GB&pli=1" target="_blank">Google Play</a></li>
+          <li><a href="https://apps.apple.com/gb/app/fifa-heroes-football-action/id6760320099" target="_blank">App Store</a></li>
+          <li><a href="https://www.playfifaheroes.com/" target="_blank">Website</a></li>
+        </ul>
+      </div>
     </div>
 
     <div class="project-links">
