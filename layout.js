@@ -3,9 +3,16 @@
   <!-- Navigation Bar -->
   <nav class="navbar">
     <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
+    <svg
+      class="hamburger-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path d="M3 7h18"></path>
+      <path d="M3 12h18"></path>
+      <path d="M3 17h18"></path>
+    </svg>
     </button>
     <a href="home.html" class="navbar-brand">Arno's game dev portfolio</a>
   </nav>
