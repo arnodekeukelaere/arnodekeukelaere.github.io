@@ -133,21 +133,21 @@
     ];
   }
 
-  function appendDriveDebugLink(imgEl, driveViewerUrl) {
+  function toggleDriveDebugLink(imgEl, driveViewerUrl, show) {
     const parent = imgEl.parentNode;
-    if (!parent || parent.querySelector(".drive-debug") || !driveViewerUrl)
+    if (!parent) return;
+    const existing = parent.querySelector(".drive-debug");
+
+    if (!show) {
+      if (existing) existing.remove();
       return;
+    }
+
+    if (existing || !driveViewerUrl) return;
     const dbg = document.createElement("div");
     dbg.className = "drive-debug";
     dbg.innerHTML = `<a href="${driveViewerUrl}" target="_blank" rel="noopener">Open image in Drive (check sharing)</a>`;
     parent.appendChild(dbg);
-  }
-
-  function removeDriveDebugLink(imgEl) {
-    const parent = imgEl.parentNode;
-    if (!parent) return;
-    const dbg = parent.querySelector(".drive-debug");
-    if (dbg) dbg.remove();
   }
 
   function loadImageWithFallback(imgEl, originalUrl, driveViewerUrl) {
@@ -166,7 +166,7 @@
     let idx = 0;
     const tryNext = () => {
       if (idx >= candidates.length) {
-        appendDriveDebugLink(imgEl, driveViewerUrl);
+        toggleDriveDebugLink(imgEl, driveViewerUrl, true);
         return;
       }
       const url = candidates[idx++];
@@ -181,7 +181,7 @@
         if (settled) return;
         settled = true;
         clearTimeout(timeoutId);
-        removeDriveDebugLink(imgEl);
+        toggleDriveDebugLink(imgEl, driveViewerUrl, false);
       };
       imgEl.onerror = () => {
         if (settled) return;
@@ -192,6 +192,90 @@
       imgEl.src = url;
     };
     tryNext();
+  }
+
+  // ---------- Shared Project Card & Data Helpers ----------
+  function createProjectCard(project, options = {}) {
+    const {
+      showCategory = false,
+      showRelease = true,
+      showTags = false,
+    } = options;
+
+    const a = document.createElement("a");
+    a.href = project.url || "#";
+    a.className = "project";
+    a.target = "_blank";
+    a.rel = "noopener";
+
+    const thumb = document.createElement("img");
+    thumb.className = "thumbnail";
+    thumb.alt = project.title || "Project thumbnail";
+    thumb.src =
+      "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+    a.appendChild(thumb);
+    loadImageWithFallback(thumb, project.thumbnail, project.driveViewer);
+
+    const info = document.createElement("div");
+    info.className = "project-info";
+
+    if (showCategory && project.tags && project.tags.length > 0) {
+      const categoryLabels = {
+        Professional: "Professional work:",
+        Personal: "Personal project:",
+        School: "School project:",
+      };
+      const category = document.createElement("p");
+      category.style.fontWeight = "bold";
+      category.style.margin = "0 0 5px 0";
+      category.style.color = "#000";
+
+      const matchedTag = project.tags.find((tag) => categoryLabels[tag]);
+      category.textContent = matchedTag
+        ? categoryLabels[matchedTag]
+        : "Project:";
+      info.appendChild(category);
+    }
+
+    const title = document.createElement("h2");
+    title.textContent = project.title;
+    info.appendChild(title);
+
+    const desc = document.createElement("p");
+    desc.textContent = project.description;
+    info.appendChild(desc);
+
+    if (showRelease && project.release) {
+      const date = document.createElement("p");
+      date.textContent = "Release date: " + project.release;
+      date.className = "release-date";
+      info.appendChild(date);
+    }
+
+    if (showTags) {
+      const tagsDiv = document.createElement("div");
+      tagsDiv.className = "tags";
+
+      [...(project.tags || []), ...(project.platforms || [])].forEach(
+        (label) => {
+          const span = document.createElement("span");
+          span.className = "tag";
+          span.textContent = label;
+          tagsDiv.appendChild(span);
+        },
+      );
+
+      info.appendChild(tagsDiv);
+    }
+
+    a.appendChild(info);
+    return a;
+  }
+
+  async function fetchJson(url) {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`Failed to load ${url}`);
+    return response.json();
   }
 
   // ---------- Shared Dark Mode Helpers ----------
@@ -205,22 +289,20 @@
     const footer = document.querySelector(".site-footer");
     const darkFooter = document.querySelector(".dark-mode-footer");
     const toggleBtn = document.getElementById("darkModeToggle");
+    const bg = isDark ? "#181A1B" : "white";
+    const fg = isDark ? "#E8E6E3" : "black";
 
-    if (isDark) {
-      document.body.style.backgroundColor = "#181A1B";
-      document.body.style.color = "#E8E6E3";
-      if (footer) footer.style.backgroundColor = "#181A1B";
-      if (darkFooter) darkFooter.style.backgroundColor = "#181A1B";
-      document.body.setAttribute("data-theme", "dark");
-      if (toggleBtn) toggleBtn.innerHTML = "☀️";
-    } else {
-      document.body.style.backgroundColor = "white";
-      document.body.style.color = "black";
-      if (footer) footer.style.backgroundColor = "white";
-      if (darkFooter) darkFooter.style.backgroundColor = "white";
-      document.body.setAttribute("data-theme", "light");
-      if (toggleBtn) toggleBtn.innerHTML = "🌙";
-    }
+    document.body.style.backgroundColor = bg;
+    document.body.style.color = fg;
+    if (footer) footer.style.backgroundColor = bg;
+    if (darkFooter) darkFooter.style.backgroundColor = bg;
+
+    document.documentElement.setAttribute(
+      "data-theme",
+      isDark ? "dark" : "light",
+    );
+    document.body.setAttribute("data-theme", isDark ? "dark" : "light");
+    if (toggleBtn) toggleBtn.innerHTML = isDark ? "☀️" : "🌙";
 
     localStorage.setItem("darkMode", String(isDark));
     document.dispatchEvent(
@@ -241,6 +323,12 @@
   }
 
   // ---------- Shared Navbar Helpers ----------
+  function normalizePageName(path) {
+    const raw = (path || "").split("/").pop().split(/[?#]/)[0];
+    const decoded = decodeURIComponent(raw) || "home.html";
+    return decoded === "index.html" ? "home.html" : decoded;
+  }
+
   function initNavbar() {
     const hamburger = document.querySelector(".hamburger-menu");
     const navMenu = document.querySelector(".nav-menu");
@@ -301,19 +389,13 @@
       });
     });
 
-    const rawPage = window.location.pathname.split("/").pop() || "home.html";
-    let currentPage =
-      decodeURIComponent(rawPage.split(/[?#]/)[0]) || "home.html";
-    if (currentPage === "index.html") currentPage = "home.html";
+    const currentPage = normalizePageName(window.location.pathname);
 
     document.querySelectorAll(".nav-menu a").forEach((link) => {
       const href = link.getAttribute("href");
       if (!href || href.startsWith("http") || href.startsWith("#")) return;
 
-      let linkPage = decodeURIComponent(href.split("/").pop().split(/[?#]/)[0]);
-      if (linkPage === "index.html") linkPage = "home.html";
-
-      if (linkPage === currentPage) {
+      if (normalizePageName(href) === currentPage) {
         link.classList.add("active");
         const parentSubmenu = link.closest(".has-submenu");
         if (parentSubmenu) setSubmenuState(parentSubmenu, true);
@@ -329,6 +411,8 @@
     isDarkMode: () => document.body.getAttribute("data-theme") === "dark",
     extractDriveId,
     loadImageWithFallback,
+    createProjectCard,
+    fetchJson,
   };
 
   // Run automatically on every page

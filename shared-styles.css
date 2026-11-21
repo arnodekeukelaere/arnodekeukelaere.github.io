@@ -569,17 +569,6 @@ h1 {
   }
 
   .no-results p {
-    /* display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;*/
-    /* background: #5C5A55 !important; */
-    /* border: 1px solid #facc15;  */
-    /* amber-400 style */
-
-    /* margin: 1rem 0;
-      text-align: center;
-      font-size: 0.95rem; */
     color: #FACC15 !important;
   }
 

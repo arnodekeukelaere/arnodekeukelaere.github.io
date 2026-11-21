@@ -59,8 +59,9 @@
       const container = document.getElementById("projects");
       container.innerHTML = "";
 
-      // Filter projects to only include Professional ones
-      const professionalProjects = projects.filter(p => p.tags && p.tags.includes("Professional"));
+      const professionalProjects = projects.filter(
+        p => p.tags && p.tags.includes("Professional")
+      );
 
       // Group projects by company
       const projectsByCompany = {};
@@ -79,14 +80,12 @@
           description: `Information about ${companyName} will be added here.`
         };
 
-        // Add spacing before all company groups except the first one
         if (companyProjects.length > 0 && index > 0) {
           const spacingElement = document.createElement("div");
           spacingElement.style.marginTop = "60px";
           container.appendChild(spacingElement);
         }
 
-        // Create company header
         const companyHeader = document.createElement("div");
         companyHeader.className = "company-header";
 
@@ -102,44 +101,11 @@
 
         container.appendChild(companyHeader);
 
-        // Render projects for this company
         companyProjects.forEach(project => {
-          const a = document.createElement("a");
-          a.href = project.url || "#";
-          a.className = "project";
-          a.target = "_blank";
-          a.rel = "noopener";
-
-          const thumb = document.createElement("img");
-          thumb.className = "thumbnail";
-          thumb.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
-          a.appendChild(thumb);
-          window.SiteUtils.loadImageWithFallback(thumb, project.thumbnail, project.driveViewer);
-
-          const info = document.createElement("div");
-          info.className = "project-info";
-
-          const title = document.createElement("h2");
-          title.textContent = project.title;
-          info.appendChild(title);
-
-          const desc = document.createElement("p");
-          desc.textContent = project.description;
-          info.appendChild(desc);
-
-          if (project.release) {
-            const date = document.createElement("p");
-            date.textContent = "Release date: " + project.release;
-            date.className = "release-date";
-            info.appendChild(date);
-          }
-
-          a.appendChild(info);
-          container.appendChild(a);
+          container.appendChild(window.SiteUtils.createProjectCard(project));
         });
       });
 
-      // Add spacing element at the very bottom of the page
       const bottomSpacing = document.createElement("div");
       bottomSpacing.style.marginTop = "60px";
       container.appendChild(bottomSpacing);
@@ -147,24 +113,16 @@
 
     // ---------- initialization via Fetch ----------
     async function initPortfolio() {
+      const container = document.getElementById("projects");
       try {
-        const [projectsResponse, companiesResponse] = await Promise.all([
-          fetch("projects.json"),
-          fetch("companies.json")
-        ]);
-
-        if (!projectsResponse.ok) throw new Error("Failed to load projects.json");
-        if (!companiesResponse.ok) throw new Error("Failed to load companies.json");
-
         [projects, companies] = await Promise.all([
-          projectsResponse.json(),
-          companiesResponse.json()
+          window.SiteUtils.fetchJson("projects.json"),
+          window.SiteUtils.fetchJson("companies.json")
         ]);
-
         renderProjects();
       } catch (error) {
         console.error("Error fetching data:", error);
-        document.getElementById("projects").innerHTML =
+        container.innerHTML =
           `<p style="color: red;">Could not load project data. Make sure you are running via a local server.</p>`;
       }
     }
