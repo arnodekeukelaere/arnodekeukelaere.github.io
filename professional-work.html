@@ -8,41 +8,12 @@
   <link rel="stylesheet" href="shared-styles.css">
   <title>Professional work</title>
   <style>
-    /* Fallback styles in case test.css doesn't load properly */
-    body {
-      font-family: 'Roboto', Arial, sans-serif;
-      font-size: 20px;
-      line-height: 1.15;
-      background: white;
-      color: black;
-    }
-
-    .company-header {
-      /* margin-top: 60px; */
-      /* margin-bottom: 15px; */
-      /* padding-bottom: 5px; */
-      /* Removed border */
-      /* border-bottom: none; */
-    }
-
     .projects {
       display: flex;
       flex-direction: column;
       gap: 15px;
       /* Removed border */
       border: none;
-    }
-
-    .project {
-      display: flex;
-      align-items: flex-start;
-      gap: 15px;
-      /* Removed border */
-      padding: 10px;
-      text-decoration: none;
-      color: black;
-      transition: all 0.3s ease;
-      position: relative;
     }
 
     /* Tablet and mobile responsive */
@@ -272,9 +243,57 @@
 
     // Run initialization on load
     initPortfolio();
+
+    // Dark mode toggle functionality
+    document.addEventListener('DOMContentLoaded', function () {
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      if (darkModeToggle) {
+        // Check for saved theme preference or default to dark mode
+        const isDarkMode = localStorage.getItem('darkMode') === 'true' ||
+          (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+        function setDarkMode(isDark) {
+          if (isDark) {
+            document.body.style.backgroundColor = '#181A1B';
+            document.body.style.color = '#E8E6E3';
+            document.querySelector('.site-footer').style.backgroundColor = '#181A1B';
+            document.querySelector('.dark-mode-footer').style.backgroundColor = '#181A1B';
+            document.body.setAttribute('data-theme', 'dark');
+            // Update icon to sun for dark mode
+            darkModeToggle.innerHTML = '☀️';
+          } else {
+            document.body.style.backgroundColor = 'white';
+            document.body.style.color = 'black';
+            document.querySelector('.site-footer').style.backgroundColor = 'white';
+            document.querySelector('.dark-mode-footer').style.backgroundColor = 'white';
+            // Update icon to moon for light mode
+            darkModeToggle.innerHTML = '🌙';
+            document.body.setAttribute('data-theme', 'light');
+          }
+
+          // Save preference
+          localStorage.setItem('darkMode', isDark);
+        }
+
+        // Set initial theme
+        setDarkMode(isDarkMode);
+
+        // Toggle theme on button click
+        darkModeToggle.addEventListener('click', function () {
+          const currentIsDark = localStorage.getItem('darkMode') === 'true';
+          setDarkMode(!currentIsDark);
+        });
+      }
+    });
   </script>
 
   <!-- Footer with social links -->
+  <footer class="dark-mode-footer">
+    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+      🌙
+    </button>
+  </footer>
+
   <footer class="site-footer">
     <div class="social-links">
       <a href="http://www.linkedin.com/in/arno-de-keukelaere" target="_blank" rel="noopener" aria-label="LinkedIn">

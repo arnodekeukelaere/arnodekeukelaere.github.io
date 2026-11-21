@@ -20,7 +20,7 @@
 
     .portfolio-wrapper {
       /* Removed border and padding */
-      padding: 0;
+      /* padding: 0; */
       border: none;
     }
 
@@ -223,21 +223,73 @@
 
     // Run initialization on load
     initPortfolio();
+
+    // Dark mode toggle functionality
+    document.addEventListener('DOMContentLoaded', function () {
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      if (darkModeToggle) {
+        // Check for saved theme preference or default to dark mode
+        const isDarkMode = localStorage.getItem('darkMode') === 'true' ||
+          (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+        function setDarkMode(isDark) {
+          if (isDark) {
+            document.body.style.backgroundColor = '#181A1B';
+            document.body.style.color = '#E8E6E3';
+            document.querySelector('.site-footer').style.backgroundColor = '#181A1B';
+            document.querySelector('.dark-mode-footer').style.backgroundColor = '#181A1B';
+            document.body.setAttribute('data-theme', 'dark');
+            // Update icon to sun for dark mode
+            darkModeToggle.innerHTML = '☀️';
+          } else {
+            document.body.style.backgroundColor = 'white';
+            document.body.style.color = 'black';
+            document.querySelector('.site-footer').style.backgroundColor = 'white';
+            document.querySelector('.dark-mode-footer').style.backgroundColor = 'white';
+            document.body.setAttribute('data-theme', 'light');
+            // Update icon to moon for light mode
+            darkModeToggle.innerHTML = '🌙';
+          }
+
+          // Save preference
+          localStorage.setItem('darkMode', isDark);
+        }
+
+        // Set initial theme
+        setDarkMode(isDarkMode);
+
+        // Toggle theme on button click
+        darkModeToggle.addEventListener('click', function () {
+          const currentIsDark = localStorage.getItem('darkMode') === 'true';
+          setDarkMode(!currentIsDark);
+        });
+      }
+    });
   </script>
 
   <!-- Footer with social links -->
+  <footer class="dark-mode-footer">
+    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+      🌙
+    </button>
+  </footer>
+
   <footer class="site-footer">
     <div class="social-links">
       <a href="http://www.linkedin.com/in/arno-de-keukelaere" target="_blank" rel="noopener" aria-label="LinkedIn">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" width="24" height="24">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" width="24"
+          height="24">
       </a>
       <a href="https://arnodk.itch.io/" target="_blank" rel="noopener" aria-label="Itch.io">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io" width="24" height="24">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io" width="24"
+          height="24">
       </a>
-      <a href="https://sbox.game/clubthirtythree/~packages?type=game" target="_blank" rel="noopener" aria-label="Sandbox">
+      <a href="https://sbox.game/clubthirtythree/~packages?type=game" target="_blank" rel="noopener"
+        aria-label="Sandbox">
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/sandbox.svg" alt="Sandbox" width="24" height="24">
       </a>
-      <a href="https://www.youtube.com/playlist?list=PL-5o8zOni7f-ntX9gvucEsez4_Bsc1_W_" target="_blank" rel="noopener" aria-label="YouTube">
+      <a href="https://www.youtube.com/playlist?list=PL-5o8zOni7f-ntX9gvucEsez4_Bsc1_W_" target="_blank" rel="noopener"
+        aria-label="YouTube">
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube" width="24" height="24">
       </a>
     </div>
