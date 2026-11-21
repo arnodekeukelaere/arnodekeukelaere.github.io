@@ -11,18 +11,16 @@ body.page-keep-munching {
   background-image:
     linear-gradient(to bottom,
       rgba(255, 227, 26, 0) 0%,
-      rgba(255, 227, 26, 1) 75%,
+      rgba(255, 227, 26, 1) 25%,
       rgba(255, 227, 26, 1) 100%),
     url("https://lh3.googleusercontent.com/d/1P6KO4etlk8-wNywxZiNBvu-rIUuuAiLn");
   background-size:
     100% 100vh,
     1024px 1054px;
   background-position: center;
-  background-repeat:
-    no-repeat,
-    repeat;
+  background-repeat: repeat-x;
   background-position:
-    top center,
+    center center,
     24px 24px;
 }
 
@@ -103,6 +101,80 @@ body.page-keep-munching .meta-item {
   border-radius: 12px;
 }
 
+body.page-keep-munching .meta-button {
+  flex: 1;
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #fffdf2; */
+  /* padding: 0.75rem 1rem; */
+  /* border: 3px solid #1d120d; */
+  /* border-radius: 12px; */
+}
+
+body.page-keep-munching .meta-button button {
+  width: 100%;
+  font-family: 'Fredoka', 'Roboto', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #fffdf2;
+  background-color: #d9381e;
+  padding: 0.85rem 1.25rem;
+  border: 3px solid #1d120d;
+  border-radius: 999px;
+  box-shadow: 4px 4px 0px #1d120d;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease, color 0.12s ease;
+}
+
+body.page-keep-munching .meta-button button:hover {
+  background-color: #1d120d;
+  color: #ffe31a;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #1d120d;
+}
+
+body.page-keep-munching .meta-button button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #1d120d;
+}
+
+body.page-keep-munching .meta-button a {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Fredoka', 'Roboto', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-decoration: none;
+  color: #fffdf2;
+  background-color: #d9381e;
+  padding: 0.85rem 1.25rem;
+  border: 3px solid #1d120d;
+  border-radius: 999px;
+  box-shadow: 4px 4px 0px #1d120d;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease, color 0.12s ease;
+}
+
+body.page-keep-munching .meta-button a:hover {
+  background-color: #1d120d;
+  color: #ffe31a;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #1d120d;
+}
+
+body.page-keep-munching .meta-button a:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #1d120d;
+}
+
 body.page-keep-munching .meta-label {
   font-family: 'Fredoka', 'Roboto', sans-serif;
   font-size: 0.85rem;
@@ -150,6 +222,41 @@ body.page-keep-munching .project-links a:active {
   box-shadow: 1px 1px 0px #1d120d;
 }
 
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.gallery-item {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 6px 6px 0px #1d120d;
+  height: 250px;
+  background-color: #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
 
 /* ==========================================================================
    SHARED STYLE OVERRIDES
@@ -161,6 +268,7 @@ body.page-keep-munching .project-links a:active {
 .social-links {
   background-color: #ffe31a;
 }
+
 /* 
 [data-theme="dark"] {
   p {

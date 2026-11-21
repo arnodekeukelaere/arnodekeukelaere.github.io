@@ -317,6 +317,7 @@
     if (saved !== null) return saved === "true";
     return window.matchMedia("(prefers-color-scheme: dark)").matches;
   }
+
   function applyDarkMode(isDark) {
     const effectiveDark = Boolean(isDark);
 
@@ -350,14 +351,30 @@
       ? "rgba(255, 255, 255, 0.08)"
       : "rgba(0, 0, 0, 0.08)";
     const toggleHoverFg = effectiveDark ? "white" : "black";
-    const linkFg = effectiveDark ? "#e0e0e0" : "black";
+    const linkFg = effectiveDark ? "white" : "black";
     const linkHoverFg = effectiveDark ? "lightsteelblue" : "darkblue";
     const activeIndicatorBg = effectiveDark ? "#ffffff" : "#000000";
+    const submenuBg = effectiveDark
+      ? "rgba(255, 255, 255, 0.015)"
+      : "rgba(0, 0, 0, 0.03)";
+    const submenuHoverBg = effectiveDark
+      ? "rgba(255, 255, 255, 0.015)"
+      : "rgba(0, 0, 0, 0.05)";
 
     // Drives .menu-row:has(a.active)::before and .submenu li:has(a.active)::before
     document.documentElement.style.setProperty(
       "--active-indicator-bg",
       activeIndicatorBg,
+    );
+    document.documentElement.style.setProperty("--nav-link-fg", linkFg);
+    document.documentElement.style.setProperty(
+      "--nav-link-hover-fg",
+      linkHoverFg,
+    );
+    document.documentElement.style.setProperty("--submenu-bg", submenuBg);
+    document.documentElement.style.setProperty(
+      "--submenu-hover-bg",
+      submenuHoverBg,
     );
 
     if (header) {
@@ -448,6 +465,7 @@
       new CustomEvent("themechange", { detail: { isDark: effectiveDark } }),
     );
   }
+
   function initDarkMode() {
     const toggleBtn = document.getElementById("darkModeToggle");
     applyDarkMode(getSavedDarkMode());

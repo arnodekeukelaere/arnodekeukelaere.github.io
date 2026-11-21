@@ -440,7 +440,7 @@ h1 {
 
 /* Links */
 .nav-menu a {
-  color: black;
+  color: var(--nav-link-fg, black);
   text-decoration: none;
   font-size: 20px;
   font-family: 'Roboto', Arial, sans-serif;
@@ -452,14 +452,19 @@ h1 {
 }
 
 .nav-menu a:hover {
-  color: darkblue;
+  color: lightsteelblue;
   text-decoration: underline;
+}
+
+/* Only when --active-indicator-bg is actively provided */
+.nav-menu.has-active-indicator a:hover {
+  color: darkblue;
 }
 
 /* Google Sites Active Page Indicator (Left-edge black rectangle) */
 .menu-row:has(a.active),
 .submenu li:has(a.active) {
-  background-color: rgba(0, 0, 0, 0.06);
+  /* background-color: rgba(0, 0, 0, 0.06); */
 }
 
 .menu-row:has(a.active)::before,
@@ -470,13 +475,13 @@ h1 {
   top: 6px;
   bottom: 6px;
   width: 5px;
-  background-color: var(--active-indicator-bg, #000000);
+  background-color: var(--active-indicator-bg, black);
   border-radius: 0 3px 3px 0;
 }
 
 .nav-menu a.active {
   font-weight: 700;
-  color: black;
+  color: var(--nav-link-hover-fg, black);
 }
 
 /* Collapsible Submenu */
@@ -484,7 +489,7 @@ h1 {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: var(--submenu-bg, rgba(0, 0, 0, 0.03));
 }
 
 .has-submenu.open>.submenu {
@@ -496,13 +501,13 @@ h1 {
 }
 
 .submenu li:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: var(--submenu-hover-bg, rgba(0, 0, 0, 0.05));
 }
 
 /* Indent child links cleanly under parent text */
 .submenu a {
   padding: 10px 16px 10px 64px;
-  font-size: 16px;
+  /* font-size: 16px; */
 }
 
 /* Overlay for menu */
@@ -527,6 +532,28 @@ h1 {
 /* Content padding to account for fixed navbar */
 .content-padding {
   padding-top: 70px;
+}
+
+.yt-embed {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  /* overrides any inherited max-width constraint */
+  height: auto;
+  max-height: none;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 8px;
+  /* optional */
+  background-color: #000;
+}
+
+.yt-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* Dark mode style */

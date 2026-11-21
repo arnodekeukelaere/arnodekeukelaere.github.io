@@ -10,127 +10,93 @@
   <link rel="stylesheet" href="../shared-styles.css">
   <link rel="stylesheet" href="keep-munching-yall.css">
   <title>Keep Munching Y'all</title>
-  <style>
-    .project-detail {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .project-header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .project-title {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-
-    .project-thumbnail {
-      width: 100%;
-      max-width: 600px;
-      height: auto;
-      margin: 0 auto 20px;
-      display: block;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .project-description {
-      font-size: 1.1em;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 30px;
-      padding: 15px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-    }
-
-    .meta-item {
-      flex: 1;
-      min-width: 150px;
-    }
-
-    .meta-label {
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #666;
-    }
-
-    .project-content {
-      margin-top: 30px;
-    }
-
-    .project-links {
-      margin-top: 20px;
-      padding: 15px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-    }
-
-    .project-links a {
-      display: inline-block;
-      margin-right: 15px;
-      margin-bottom: 10px;
-      padding: 8px 15px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-
-    .project-links a:hover {
-      background-color: #0056b3;
-    }
-  </style>
 </head>
 
 <body class="page-keep-munching">
   <div id="site-nav"></div>
 
   <div class="project-detail">
-    <div class="project-header"> 
-      <img src="https://lh3.googleusercontent.com/d/1HAlY2kbk5npyfABzLLlAfg5zynUHiqWy" style="width:512px"/>
-      <!-- <h1 class="project-title">Keep Munching Y'all</h1> -->
+    <div class="project-header">
+      <img src="https://lh3.googleusercontent.com/d/1HAlY2kbk5npyfABzLLlAfg5zynUHiqWy" style="width:512px" />
+      <!-- <p class="project-subtitle">Third-person pizza-throwing zombie feeding game</p> -->
     </div>
 
-    <!-- <img id="projectThumbnail" class="project-thumbnail" src="" alt="Keep Munching Y'all thumbnail"> -->
-
     <p id="projectDescription" class="project-description">Third-person pizza-throwing zombie feeding game. Gather items
-      and deliver pizzas directly into zombies' mouths to survive.</p>
+      and deliver pizzas directly into zombies’ mouths to survive.</p>
 
     <div class="project-meta">
       <div class="meta-item">
         <div class="meta-label">Release Year</div>
-        <div id="releaseYear">2026</div>
+        <div id="releaseYear" class="meta-value">2026</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Platforms</div>
-        <div id="platforms">PC</div>
+        <div id="platforms" class="meta-value">PC</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Technologies</div>
-        <div id="tags">C#, s&box</div>
+        <div id="tags" class="meta-value">C#, s&box</div>
+      </div>
+      <div class="meta-button">
+        <a href="https://sbox.game/clubthirtythree/keepmunchingyall" target="_blank" rel="noopener noreferrer">
+          Click to play (requires s&amp;box)
+        </a>
       </div>
     </div>
 
     <div class="project-content">
-      <p>This game is a fun third-person pizza-throwing zombie feeding experience. Players must gather items and deliver
-        pizzas directly into zombies' mouths to survive the horde.</p>
+      <div class="yt-embed">
+        <iframe src="https://www.youtube.com/embed/7gtIcd8m6CE" title="Keep Munching Y'all gameplay video"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="project-content">
+      <div class="project-section">
+        <h2>About This Project</h2>
+        <p>A third-person wave-based roguelite pizza throwing game about feeding "customers" in a world taken over by
+          people infected with a gluttony virus.</p>
+        <p>Inspired by one of my favourite games at the time, Risk of Rain 2, and created in s&box with the intent of
+          exploring some of the platform integration like community maps.</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Tech</h2>
+        <ul>
+          <li>C#</li>
+          <li>s&box</li>
+          <li>Affinity Photo 2</li>
+          <li>Affinity Designer 2</li>
+          <li>Audacity</li>
+          <li>Various AI tools for productivity</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Image Gallery</h2>
+        <div class="image-gallery">
+          <div class="gallery-item"><img
+              src="https://cdn.sbox.game/org/clubthirtythree/keepmunchingyall/screenshots/a0424929-20fd-4bc5-b8d2-f5c32ea8d850.jpg"
+              alt="Gameplay screenshot 1"></div>
+          <div class="gallery-item"><img
+              src="https://cdn.sbox.game/org/clubthirtythree/keepmunchingyall/screenshots/5403fde7-ab6f-49ba-b041-65a08a141bd1.jpg"
+              alt="Gameplay screenshot 2"></div>
+          <div class="gallery-item"><img
+              src="https://cdn.sbox.game/org/clubthirtythree/keepmunchingyall/screenshots/e7cd8628-4054-47a2-a1be-6264a127a894.jpg"
+              alt="Gameplay screenshot 3"></div>
+          <div class="gallery-item"><img
+              src="https://cdn.sbox.game/org/clubthirtythree/keepmunchingyall/screenshots/61438606-3946-4e45-80fc-e772054abd9b.jpg"
+              alt="Gameplay screenshot 4"></div>
+        </div>
+      </div>
     </div>
 
     <div class="project-links">
-      <a id="liveLink" href="https://sites.google.com/view/arno-de-keukelaere/personal-projects/keep-munching-yall"
-        target="_blank">Play Online</a>
-      <a id="sourceLink" href="#" target="_blank">Source Code</a>
-      <a id="documentationLink" href="#" target="_blank">Documentation</a>
+      <a id="liveLink" href="https://sbox.game/clubthirtythree/keepmunchingyall" target="_blank">s&box game page</a>
+      <a id="sourceLink" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3831636346" target="_blank">Steam
+        workshop page</a>
     </div>
   </div>
 
@@ -155,7 +121,7 @@
           document.getElementById('tags').textContent = techTags.length > 0 ? techTags.join(', ') : '-';
 
           if (project.thumbnail) {
-            const img = document.getElementById('projectThumbnail');
+            const img = document.querySelector('.project-thumbnail');
             img.src = project.thumbnail;
             img.alt = project.title + " thumbnail";
           }
