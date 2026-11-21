@@ -145,6 +145,34 @@ body.page-industrial-cleansing .project-content p {
     margin: 0;
 }
 
+/* Info and Tech 2-column layout */
+body.page-industrial-cleansing .info-tech-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+body.page-industrial-cleansing .info-section,
+body.page-industrial-cleansing .tech-section {
+    background-color: #121418;
+    padding: 20px;
+    border: 2px solid #2e333b;
+    border-radius: 4px;
+}
+
+body.page-industrial-cleansing .info-section h2,
+body.page-industrial-cleansing .tech-section h2 {
+    margin-top: 0;
+    color: #ff3308;
+    border-bottom: 2px solid #ff3308;
+    padding-bottom: 10px;
+    font-family: 'Chakra Petch', 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
 /* Action Controls Bar */
 body.page-industrial-cleansing .project-links {
     margin-top: 1.75rem;
@@ -229,4 +257,20 @@ body.page-industrial-cleansing {
     --lightbox-caption-color: #ff471a;
     --lightbox-caption-border: 2px solid #ff3308;
     --lightbox-font: 'Share Tech Mono', 'Roboto', monospace;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    body.page-industrial-cleansing .info-tech-container {
+        grid-template-columns: 1fr;
+    }
+
+    body.page-industrial-cleansing .project-detail {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+
+    body.page-industrial-cleansing .project-title {
+        font-size: clamp(1.5rem, 4vw, 2.25rem);
+    }
 }

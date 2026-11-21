@@ -184,6 +184,35 @@ body.page-keep-munching .meta-label {
   margin-bottom: 0.25rem;
 }
 
+/* Info and Tech 2-column layout */
+body.page-keep-munching .info-tech-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+body.page-keep-munching .info-section,
+body.page-keep-munching .tech-section {
+  background-color: #fffdf2;
+  padding: 20px;
+  border: 4px solid #1d120d;
+  border-radius: 18px;
+  box-shadow: 6px 6px 0px #1d120d;
+}
+
+body.page-keep-munching .info-section h2,
+body.page-keep-munching .tech-section h2 {
+  margin-top: 0;
+  color: black;
+  border-bottom: 2px solid #1d120d;
+  padding-bottom: 10px;
+  font-family: 'Fredoka', 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 /* Action buttons */
 body.page-keep-munching .project-links {
   margin-top: 1.5rem;
@@ -222,46 +251,6 @@ body.page-keep-munching .project-links a:active {
   box-shadow: 1px 1px 0px #1d120d;
 }
 
-/* .image-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin: 30px 0;
-}
-
-.gallery-item {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  box-shadow: 6px 6px 0px #1d120d;
-  height: 250px;
-  background-color: #e9ecef;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.05);
-}
-
-.gallery-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-} */
-
-
-/* ==========================================================================
- Gallery 
-========================================================================== */
 /* Override shared gallery for Keep Munching Y'all */
 body.page-keep-munching {
   --gallery-section-bg: #fffdf2;
@@ -295,6 +284,22 @@ body.page-keep-munching {
   --lightbox-font: 'Fredoka', 'Roboto', sans-serif;
 }
 
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  body.page-keep-munching .info-tech-container {
+    grid-template-columns: 1fr;
+  }
+
+  body.page-keep-munching .project-detail {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  body.page-keep-munching .project-title {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+  }
+}
+
 /* ==========================================================================
    SHARED STYLE OVERRIDES
    ========================================================================== */
@@ -306,7 +311,7 @@ body.page-keep-munching {
   background-color: #ffe31a;
 }
 
-/* 
+/*
 [data-theme="dark"] {
   p {
     color: black !important;

@@ -67,6 +67,29 @@
       margin-top: 30px;
     }
 
+    .info-tech-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .info-section,
+    .tech-section {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .info-section h2,
+    .tech-section h2 {
+      margin-top: 0;
+      color: #333;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 10px;
+    }
+
     .project-links {
       margin-top: 20px;
       padding: 15px;
@@ -88,6 +111,12 @@
     .project-links a:hover {
       background-color: #0056b3;
     }
+
+    @media (max-width: 768px) {
+      .info-tech-container {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -102,21 +131,20 @@
 
 
 
-    <p id="projectDescription" class="project-description">Physics sim object cleaning game. You get 33 seconds to clean
-      each batch of objects.</p>
+    <p id="projectDescription" class="project-description">-</p>
 
     <div class="project-meta">
       <div class="meta-item">
+        <div class="meta-label">Type</div>
+        <div id="tags">-</div>
+      </div>
+      <div class="meta-item">
         <div class="meta-label">Release Year</div>
-        <div id="releaseYear">2025</div>
+        <div id="releaseYear">-</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Platforms</div>
-        <div id="platforms">PC</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Technologies</div>
-        <div id="tags">C#, s&box</div>
+        <div id="platforms">-</div>
       </div>
     </div>
 
@@ -130,18 +158,24 @@
     </div>
 
     <div class="project-content">
-      <h2>Info</h2>
-      <p>A top-down 2.5D physics-based game where you use your mouse and keyboard to grab objects, move them to a
-        central sink, and clean away strange “growths” using a variety of cleansing tools. Built in a weekend and
-        refined over the following weeks and available free to play on s&box!</p>
-      <h2>Tech</h2>
-      <ul>
-        <li>C#</li>
-        <li>s&box</li>
-        <li>Affinity Photo 2</li>
-        <li>Audacity</li>
-        <li>Various AI tools for productivity</li>
-      </ul>
+      <div class="info-tech-container">
+        <div class="info-section">
+          <h2>Info</h2>
+          <p>A top-down 2.5D physics-based game where you use your mouse and keyboard to grab objects, move them to a
+            central sink, and clean away strange “growths” using a variety of cleansing tools. Built in a weekend and
+            refined over the following weeks and available free to play on s&box!</p>
+        </div>
+        <div class="tech-section">
+          <h2>Tech</h2>
+          <ul>
+            <li>C#</li>
+            <li>s&box</li>
+            <li>Affinity Photo 2</li>
+            <li>Audacity</li>
+            <li>Various AI tools for productivity</li>
+          </ul>
+        </div>
+      </div>
       <h2>Gallery</h2>
       <div class="image-gallery">
         <div class="gallery-item"><img
@@ -179,32 +213,41 @@
           document.getElementById('releaseYear').textContent = project.release || '-';
           document.getElementById('platforms').textContent = project.platforms ? project.platforms.join(', ') : '-';
 
+          // Determine project type based on tags
           const tags = project.tags || [];
-          // Filter out category tags (Personal, Professional, School)
-          const techTags = tags.filter(tag => !['Personal', 'Professional', 'School', '2010s', '2020s'].includes(tag));
-          document.getElementById('tags').textContent = techTags.length > 0 ? techTags.join(', ') : '-';
+          let projectType = "Personal project"; // default
 
-          if (project.thumbnail) {
-            const img = document.getElementById('projectThumbnail');
-            img.src = project.thumbnail;
-            img.alt = project.title + " thumbnail";
+          if (tags.includes("Professional")) {
+            projectType = "Professional work";
+          } else if (tags.includes("School")) {
+            projectType = "School";
+          } else if (tags.includes("Personal")) {
+            projectType = "Personal project";
           }
 
-          // Set links
-          const liveLink = document.getElementById('liveLink');
-          const sourceLink = document.getElementById('sourceLink');
-          const documentationLink = document.getElementById('documentationLink');
+          document.getElementById('tags').textContent = projectType;
 
-          if (project.url && project.url !== "#") {
-            liveLink.href = project.url;
-            liveLink.style.display = "inline-block";
-          } else {
-            liveLink.style.display = "none";
-          }
+          // if (project.thumbnail) {
+          //   const img = document.getElementById('projectThumbnail');
+          //   img.src = project.thumbnail;
+          //   img.alt = project.title + " thumbnail";
+          // }
 
-          // Hide source and documentation links by default
-          sourceLink.style.display = "none";
-          documentationLink.style.display = "none";
+          // // Set links
+          // const liveLink = document.getElementById('liveLink');
+          // const sourceLink = document.getElementById('sourceLink');
+          // const documentationLink = document.getElementById('documentationLink');
+
+          // if (project.url && project.url !== "#") {
+          //   liveLink.href = project.url;
+          //   liveLink.style.display = "inline-block";
+          // } else {
+          //   liveLink.style.display = "none";
+          // }
+
+          // // Hide source and documentation links by default
+          // sourceLink.style.display = "none";
+          // documentationLink.style.display = "none";
         }
       } catch (error) {
         console.error("Error loading project data:", error);

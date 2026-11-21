@@ -22,21 +22,20 @@
       <!-- <p class="project-subtitle">Third-person pizza-throwing zombie feeding game</p> -->
     </div>
 
-    <p id="projectDescription" class="project-description">Third-person pizza-throwing zombie feeding game. Gather items
-      and deliver pizzas directly into zombies’ mouths to survive.</p>
+    <p id="projectDescription" class="project-description">-</p>
 
     <div class="project-meta">
       <div class="meta-item">
+        <div class="meta-label">Type</div>
+        <div id="tags" class="meta-value">-</div>
+      </div>
+      <div class="meta-item">
         <div class="meta-label">Release Year</div>
-        <div id="releaseYear" class="meta-value">2026</div>
+        <div id="releaseYear" class="meta-value">-</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Platforms</div>
-        <div id="platforms" class="meta-value">PC</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Technologies</div>
-        <div id="tags" class="meta-value">C#, s&box</div>
+        <div id="platforms" class="meta-value">-</div>
       </div>
       <div class="meta-button">
         <a href="https://sbox.game/clubthirtythree/keepmunchingyall" target="_blank" rel="noopener noreferrer">
@@ -55,24 +54,26 @@
     </div>
 
     <div class="project-content">
-      <div class="project-section">
-        <h2>Info</h2>
-        <p>A third-person wave-based roguelite pizza throwing game about feeding "customers" in a world taken over by
-          people infected with a gluttony virus.</p>
-        <p>Inspired by one of my favourite games at the time, Risk of Rain 2, and created in s&box with the intent of
-          exploring some of the platform integration like community maps.</p>
-      </div>
+      <div class="info-tech-container">
+        <div class="info-section">
+          <h2>Info</h2>
+          <p>A third-person wave-based roguelite pizza throwing game about feeding "customers" in a world taken over by
+            people infected with a gluttony virus.</p>
+          <p>Inspired by one of my favourite games at the time, Risk of Rain 2, and created in s&box with the intent of
+            exploring some of the platform integration like community maps.</p>
+        </div>
 
-      <div class="project-section">
-        <h2>Tech</h2>
-        <ul>
-          <li>C#</li>
-          <li>s&box</li>
-          <li>Affinity Photo 2</li>
-          <li>Affinity Designer 2</li>
-          <li>Audacity</li>
-          <li>Various AI tools for productivity</li>
-        </ul>
+        <div class="tech-section">
+          <h2>Tech</h2>
+          <ul>
+            <li>C#</li>
+            <li>s&box</li>
+            <li>Affinity Photo 2</li>
+            <li>Affinity Designer 2</li>
+            <li>Audacity</li>
+            <li>Various AI tools for productivity</li>
+          </ul>
+        </div>
       </div>
 
       <div class="project-section">
@@ -109,40 +110,50 @@
     async function initProject() {
       try {
         const projects = await window.SiteUtils.fetchJson("../projects.json");
-        const project = projects.find(p => p.title === "Keep Munching Y'all");
+        const project = projects.find(p => p.title === "Keep Munching Y’all");
+        // const project = projects.find(p => p.title?.includes("Keep Munching"));
 
         if (project) {
-          document.querySelector('.project-title').textContent = project.title;
+          // document.querySelector('.project-title').textContent = project.title;
           document.getElementById('projectDescription').textContent = project.description;
           document.getElementById('releaseYear').textContent = project.release || '-';
           document.getElementById('platforms').textContent = project.platforms ? project.platforms.join(', ') : '-';
 
+          // Determine project type based on tags
           const tags = project.tags || [];
-          // Filter out category tags (Personal, Professional, School)
-          const techTags = tags.filter(tag => !['Personal', 'Professional', 'School', '2010s', '2020s'].includes(tag));
-          document.getElementById('tags').textContent = techTags.length > 0 ? techTags.join(', ') : '-';
+          let projectType = "Personal project"; // default
 
-          if (project.thumbnail) {
-            const img = document.querySelector('.project-thumbnail');
-            img.src = project.thumbnail;
-            img.alt = project.title + " thumbnail";
+          if (tags.includes("Professional")) {
+            projectType = "Professional work";
+          } else if (tags.includes("School")) {
+            projectType = "School";
+          } else if (tags.includes("Personal")) {
+            projectType = "Personal project";
           }
 
-          // Set links
-          const liveLink = document.getElementById('liveLink');
-          const sourceLink = document.getElementById('sourceLink');
-          const documentationLink = document.getElementById('documentationLink');
+          document.getElementById('tags').textContent = projectType;
 
-          if (project.url && project.url !== "#") {
-            liveLink.href = project.url;
-            liveLink.style.display = "inline-block";
-          } else {
-            liveLink.style.display = "none";
-          }
+          // if (project.thumbnail) {
+          //   const img = document.querySelector('.project-thumbnail');
+          //   img.src = project.thumbnail;
+          //   img.alt = project.title + " thumbnail";
+          // }
 
-          // Hide source and documentation links by default
-          sourceLink.style.display = "none";
-          documentationLink.style.display = "none";
+          // // Set links
+          // const liveLink = document.getElementById('liveLink');
+          // const sourceLink = document.getElementById('sourceLink');
+          // const documentationLink = document.getElementById('documentationLink');
+
+          // if (project.url && project.url !== "#") {
+          //   liveLink.href = project.url;
+          //   liveLink.style.display = "inline-block";
+          // } else {
+          //   liveLink.style.display = "none";
+          // }
+
+          // // Hide source and documentation links by default
+          // sourceLink.style.display = "none";
+          // documentationLink.style.display = "none";
         }
       } catch (error) {
         console.error("Error loading project data:", error);
