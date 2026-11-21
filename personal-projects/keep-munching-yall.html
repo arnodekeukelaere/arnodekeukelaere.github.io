@@ -150,6 +150,86 @@
     initProject();
   </script>
 
+<!-- Fullscreen Lightbox Modal -->
+<div class="munch-lightbox" id="munchLightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+  <button type="button" class="munch-lightbox__close" id="lightboxClose" aria-label="Close image viewer">X</button>
+  <button type="button" class="munch-lightbox__btn munch-lightbox__prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+
+  <div class="munch-lightbox__stage" id="lightboxStage">
+    <img class="munch-lightbox__img" id="lightboxImg" src="" alt="">
+    <div class="munch-lightbox__caption" id="lightboxCaption"></div>
+  </div>
+
+  <button type="button" class="munch-lightbox__btn munch-lightbox__next" id="lightboxNext" aria-label="Next image">›</button>
+</div>
+
+<script>
+  (() => {
+    const galleryImgs = Array.from(document.querySelectorAll('.image-gallery .gallery-item img'));
+    const lightbox = document.getElementById('munchLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const stage = document.getElementById('lightboxStage');
+    const btnClose = document.getElementById('lightboxClose');
+    const btnPrev = document.getElementById('lightboxPrev');
+    const btnNext = document.getElementById('lightboxNext');
+
+    if (!galleryImgs.length || !lightbox) return;
+
+    let currentIndex = 0;
+
+    function render(index) {
+      currentIndex = (index + galleryImgs.length) % galleryImgs.length;
+      const sourceImg = galleryImgs[currentIndex];
+      lightboxImg.src = sourceImg.currentSrc || sourceImg.src;
+      lightboxImg.alt = sourceImg.alt || `Screenshot ${currentIndex + 1}`;
+      lightboxCaption.textContent = `${currentIndex + 1} / ${galleryImgs.length} — ${lightboxImg.alt}`;
+    }
+
+    function open(index) {
+      render(index);
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    galleryImgs.forEach((img, idx) => {
+      img.closest('.gallery-item').addEventListener('click', () => open(idx));
+    });
+
+    btnClose.addEventListener('click', close);
+    btnPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      render(currentIndex - 1);
+    });
+    btnNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      render(currentIndex + 1);
+    });
+
+    // Click dark backdrop (outside the image/caption) to close
+    lightbox.addEventListener('click', (e) => {
+      if (!stage.contains(e.target)) {
+        close();
+      }
+    });
+
+    // Keyboard navigation: Left / Right / Escape
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('is-open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') render(currentIndex - 1);
+      if (e.key === 'ArrowRight') render(currentIndex + 1);
+    });
+  })();
+</script>
+
   <div id="site-footer"></div>
 </body>
 
