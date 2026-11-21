@@ -344,7 +344,6 @@
 
   <script>
     // ---------- data ----------
-
     let projects = [];
 
     const filters = {
@@ -363,87 +362,6 @@
       Platform: new Set(),
       Period: new Set(["2020s"])
     };
-
-    // ---------- helpers ----------
-    function extractDriveId(url) {
-      if (!url) return null;
-      let m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-      if (m) return m[1];
-      m = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
-      if (m) return m[1];
-      if (/^[a-zA-Z0-9_-]{10,}$/.test(url)) return url;
-      return null;
-    }
-
-    function makeDriveCandidates(fileId) {
-      if (!fileId) return [];
-      return [
-        `https://drive.google.com/uc?export=view&id=${fileId}`,
-        `https://drive.google.com/thumbnail?id=${fileId}`,
-        `https://drive.googleusercontent.com/uc?id=${fileId}&export=download`,
-        `https://drive.google.com/uc?export=download&id=${fileId}`
-      ];
-    }
-
-    function loadImageWithFallback(imgEl, originalUrl, driveViewerUrl) {
-      const candidates = [];
-      if (originalUrl) candidates.push(originalUrl);
-      const driveId = extractDriveId(originalUrl || driveViewerUrl);
-      if (driveId) {
-        makeDriveCandidates(driveId).forEach(c => {
-          if (!candidates.includes(c)) candidates.push(c);
-        });
-      }
-      const placeholder = "https://via.placeholder.com/200?text=Image+unavailable";
-      if (!candidates.includes(placeholder)) candidates.push(placeholder);
-
-      let idx = 0;
-      const tryNext = () => {
-        if (idx >= candidates.length) {
-          appendDriveDebugLink(imgEl, driveViewerUrl);
-          return;
-        }
-        const url = candidates[idx++];
-        let settled = false;
-        const timeoutId = setTimeout(() => {
-          if (settled) return;
-          settled = true;
-          tryNext();
-        }, 5000);
-        imgEl.onload = () => {
-          if (settled) return;
-          settled = true;
-          clearTimeout(timeoutId);
-          removeDriveDebugLink(imgEl);
-        };
-        imgEl.onerror = () => {
-          if (settled) return;
-          settled = true;
-          clearTimeout(timeoutId);
-          tryNext();
-        };
-        imgEl.src = url;
-      };
-      tryNext();
-    }
-
-    function appendDriveDebugLink(imgEl, driveViewerUrl) {
-      const parent = imgEl.parentNode;
-      if (!parent) return;
-      if (parent.querySelector('.drive-debug')) return;
-      if (!driveViewerUrl) return;
-      const dbg = document.createElement('div');
-      dbg.className = 'drive-debug';
-      dbg.innerHTML = `<a href="${driveViewerUrl}" target="_blank" rel="noopener">Open image in Drive (check sharing)</a>`;
-      parent.appendChild(dbg);
-    }
-
-    function removeDriveDebugLink(imgEl) {
-      const parent = imgEl.parentNode;
-      if (!parent) return;
-      const dbg = parent.querySelector('.drive-debug');
-      if (dbg) dbg.remove();
-    }
 
     // ---------- UI rendering ----------
     function renderFilters() {
@@ -478,7 +396,7 @@
       const container = document.getElementById("projects");
       container.innerHTML = "";
 
-      let filtered = projects.filter(p => {
+      const filtered = projects.filter(p => {
         return (!activeFilters.Type.size || [...activeFilters.Type].some(f => p.tags.includes(f)))
           && (!activeFilters.Engine.size || [...activeFilters.Engine].some(f => {
             if (f === "Other") {
@@ -504,7 +422,7 @@
         thumb.className = "thumbnail";
         thumb.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
         a.appendChild(thumb);
-        loadImageWithFallback(thumb, p.thumbnail, p.driveViewer);
+        window.SiteUtils.loadImageWithFallback(thumb, p.thumbnail, p.driveViewer);
 
         const info = document.createElement("div");
         info.className = "project-info";
@@ -524,27 +442,18 @@
           info.appendChild(date);
         }
 
-        // Render tags
+        // Render tags & platforms
         const tagsDiv = document.createElement("div");
         tagsDiv.className = "tags";
-        p.tags.forEach(t => {
+
+        [...(p.tags || []), ...(p.platforms || [])].forEach(label => {
           const span = document.createElement("span");
           span.className = "tag";
-          span.textContent = t;
+          span.textContent = label;
           tagsDiv.appendChild(span);
         });
 
-        // Render platforms
-        if (p.platforms) {
-          p.platforms.forEach(f => {
-            const span = document.createElement('span');
-            span.className = 'tag';
-            span.textContent = f;
-            tagsDiv.appendChild(span);
-          });
-        }
         info.appendChild(tagsDiv);
-
         a.appendChild(info);
         container.appendChild(a);
       });
@@ -555,13 +464,18 @@
     function checkResults() {
       const results = document.querySelectorAll('.project');
       const noResults = document.getElementById('no-results');
+      if (!noResults) return;
 
-      if (results.length === 0) {
-        noResults.classList.remove('hidden');
-      } else {
-        noResults.classList.add('hidden');
-      }
+      noResults.classList.toggle('hidden', results.length > 0);
     }
+
+    document.getElementById('reset-filters')?.addEventListener('click', () => {
+      for (const key in activeFilters) {
+        activeFilters[key].clear();
+      }
+      renderFilters();
+      renderProjects();
+    });
 
     // ---------- initialization via Fetch ----------
     async function initPortfolio() {
@@ -574,131 +488,13 @@
         renderProjects();
       } catch (error) {
         console.error('Error fetching projects:', error);
-        document.getElementById("projects").innerHTML = `<p style="color: red;">Could not load project data. Make sure you are running via a local server.</p>`;
+        document.getElementById("projects").innerHTML =
+          `<p style="color: red;">Could not load project data. Make sure you are running via a local server.</p>`;
       }
     }
 
-    // Run initialization on load
     initPortfolio();
-
-    // Navigation menu toggle functionality
-    document.addEventListener('DOMContentLoaded', function () {
-      const hamburger = document.querySelector('.hamburger-menu');
-      const navMenu = document.querySelector('.nav-menu');
-      const overlay = document.querySelector('.overlay');
-      const closeBtn = document.querySelector('.close-btn');
-
-      function closeMenu() {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        if (overlay) overlay.classList.remove('active');
-      }
-
-      function toggleMenu() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        if (overlay) overlay.classList.toggle('active');
-      }
-
-      if (hamburger && navMenu) {
-        hamburger.addEventListener('click', toggleMenu);
-
-        if (closeBtn) {
-          closeBtn.addEventListener('click', closeMenu);
-        }
-
-        if (overlay) {
-          overlay.addEventListener('click', closeMenu);
-        }
-
-        // Close menu when clicking on a navigation link
-        const navLinks = document.querySelectorAll('.nav-menu a');
-        navLinks.forEach(link => {
-          link.addEventListener('click', function () {
-            closeMenu();
-          });
-        });
-      }
-
-      // Expand/collapse submenus when clicking the toggle button
-      const submenuToggles = document.querySelectorAll('.submenu-toggle');
-      submenuToggles.forEach(toggle => {
-        toggle.addEventListener('click', function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-          const parentItem = toggle.closest('.has-submenu');
-          if (parentItem) {
-            parentItem.classList.toggle('open');
-          }
-        });
-      });
-
-      // Mark the current page with .active and expand its parent submenu if nested
-      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-      const allMenuLinks = document.querySelectorAll('.nav-menu a');
-      allMenuLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href && href === currentPage) {
-          link.classList.add('active');
-          const parentSubmenu = link.closest('.has-submenu');
-          if (parentSubmenu) {
-            parentSubmenu.classList.add('open');
-          }
-        }
-      });
-    });
-
-    document.getElementById('reset-filters').addEventListener('click', () => {
-      for (const key in activeFilters) {
-        activeFilters[key].clear();
-      }
-      renderFilters();
-      renderProjects();
-    });
-
-    // Dark mode toggle functionality
-    document.addEventListener('DOMContentLoaded', function () {
-      const darkModeToggle = document.getElementById('darkModeToggle');
-      if (darkModeToggle) {
-        // Check for saved theme preference or default to dark mode
-        const isDarkMode = localStorage.getItem('darkMode') === 'true' ||
-          (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-
-        function setDarkMode(isDark) {
-          if (isDark) {
-            document.body.style.backgroundColor = '#181A1B';
-            document.body.style.color = '#E8E6E3';
-            document.querySelector('.site-footer').style.backgroundColor = '#181A1B';
-            document.querySelector('.dark-mode-footer').style.backgroundColor = '#181A1B';
-            // Update icon to sun for dark mode
-            darkModeToggle.innerHTML = '☀️';
-            document.body.setAttribute('data-theme', 'dark');
-          } else {
-            document.body.style.backgroundColor = 'white';
-            document.body.style.color = 'black';
-            document.querySelector('.site-footer').style.backgroundColor = 'white';
-            document.querySelector('.dark-mode-footer').style.backgroundColor = 'white';
-            // Update icon to moon for light mode
-            darkModeToggle.innerHTML = '🌙';
-            document.body.setAttribute('data-theme', 'light');
-          }
-
-          // Save preference
-          localStorage.setItem('darkMode', isDark);
-        }
-
-        // Set initial theme
-        setDarkMode(isDarkMode);
-
-        // Toggle theme on button click
-        darkModeToggle.addEventListener('click', function () {
-          const currentIsDark = localStorage.getItem('darkMode') === 'true';
-          setDarkMode(!currentIsDark);
-        });
-      }
-    });
   </script>
-
   <div id="site-footer"></div>
 
 </body>
