@@ -43,10 +43,7 @@
           </button>
           <a href="professional-work.html">💼 Professional Work</a>
         </div>
-        <ul class="submenu">
-          <li><a href="project-a.html">Project A</a></li>
-          <li><a href="project-b.html">Project B</a></li>
-        </ul>
+        <ul class="submenu" data-category="Professional"></ul>
       </li>
 
       <li class="has-submenu">
@@ -56,9 +53,7 @@
           </button>
           <a href="personal-projects.html">💖 Personal Projects</a>
         </div>
-        <ul class="submenu">
-          <li><a href="personal-1.html">Personal Game 1</a></li>
-        </ul>
+        <ul class="submenu" data-category="Personal"></ul>
       </li>
 
       <li class="has-submenu">
@@ -68,9 +63,7 @@
           </button>
           <a href="school-projects.html">🎓 School Projects</a>
         </div>
-        <ul class="submenu">
-          <li><a href="school-1.html">Capstone Project</a></li>
-        </ul>
+        <ul class="submenu" data-category="School"></ul>
       </li>
 
       <li>
@@ -202,6 +195,22 @@
   }
 
   // ---------- Shared Project Card & Data Helpers ----------
+  const jsonCache = new Map();
+
+  function fetchJson(url) {
+    if (!jsonCache.has(url)) {
+      const request = fetch(url).then((response) => {
+        if (!response.ok) {
+          jsonCache.delete(url);
+          throw new Error(`Failed to load ${url}`);
+        }
+        return response.json();
+      });
+      jsonCache.set(url, request);
+    }
+    return jsonCache.get(url);
+  }
+
   function createProjectCard(project, options = {}) {
     const {
       showCategory = false,
@@ -279,12 +288,6 @@
     return a;
   }
 
-  async function fetchJson(url) {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error(`Failed to load ${url}`);
-    return response.json();
-  }
-
   // ---------- Shared Dark Mode Helpers ----------
   function getSavedDarkMode() {
     const saved = localStorage.getItem("darkMode");
@@ -336,6 +339,81 @@
     return decoded === "index.html" ? "home.html" : decoded;
   }
 
+  function setSubmenuState(parentItem, isOpen) {
+    if (!parentItem) return;
+    parentItem.classList.toggle("open", isOpen);
+    const toggle = parentItem.querySelector(".submenu-toggle");
+    if (toggle) toggle.setAttribute("aria-expanded", String(isOpen));
+  }
+
+  function highlightActiveNavLinks() {
+    const currentPage = normalizePageName(window.location.pathname);
+
+    document.querySelectorAll(".nav-menu a").forEach((link) => {
+      const href = link.getAttribute("href");
+      if (!href || href.startsWith("http") || href.startsWith("#")) return;
+
+      if (normalizePageName(href) === currentPage) {
+        link.classList.add("active");
+        const parentSubmenu = link.closest(".has-submenu");
+        if (parentSubmenu) setSubmenuState(parentSubmenu, true);
+      }
+    });
+  }
+
+  async function populateNavbarSubmenus(closeMenu) {
+    try {
+      const projects = await fetchJson("projects.json");
+
+      document
+        .querySelectorAll(".nav-menu .submenu[data-category]")
+        .forEach((submenu) => {
+          const category = submenu.getAttribute("data-category");
+          const matchingProjects = projects
+            .filter((p) => p.tags && p.tags.includes(category))
+            .sort((a, b) => (b.release || 0) - (a.release || 0));
+
+          submenu.innerHTML = "";
+
+          // If a category has no sub-projects, swap the toggle button for a spacer
+          const parentItem = submenu.closest(".has-submenu");
+          if (matchingProjects.length === 0 && parentItem) {
+            const toggle = parentItem.querySelector(".submenu-toggle");
+            if (toggle) {
+              const spacer = document.createElement("span");
+              spacer.className = "submenu-spacer";
+              spacer.setAttribute("aria-hidden", "true");
+              toggle.replaceWith(spacer);
+            }
+            return;
+          }
+
+          matchingProjects.forEach((project) => {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            const href = project.url || "#";
+
+            a.href = href;
+            a.textContent = project.title;
+
+            if (href.startsWith("http")) {
+              a.target = "_blank";
+              a.rel = "noopener";
+            }
+
+            a.addEventListener("click", closeMenu);
+            li.appendChild(a);
+            submenu.appendChild(li);
+          });
+        });
+
+      // Re-run active link highlighting so injected sub-pages get .active & auto-expand
+      highlightActiveNavLinks();
+    } catch (error) {
+      console.error("Error populating navbar submenus:", error);
+    }
+  }
+
   function initNavbar() {
     const hamburger = document.querySelector(".hamburger-menu");
     const navMenu = document.querySelector(".nav-menu");
@@ -355,13 +433,6 @@
     function toggleMenu() {
       const isOpen = navMenu ? !navMenu.classList.contains("active") : false;
       setMenuState(isOpen);
-    }
-
-    function setSubmenuState(parentItem, isOpen) {
-      if (!parentItem) return;
-      parentItem.classList.toggle("open", isOpen);
-      const toggle = parentItem.querySelector(".submenu-toggle");
-      if (toggle) toggle.setAttribute("aria-expanded", String(isOpen));
     }
 
     if (navMenu) {
@@ -396,18 +467,8 @@
       });
     });
 
-    const currentPage = normalizePageName(window.location.pathname);
-
-    document.querySelectorAll(".nav-menu a").forEach((link) => {
-      const href = link.getAttribute("href");
-      if (!href || href.startsWith("http") || href.startsWith("#")) return;
-
-      if (normalizePageName(href) === currentPage) {
-        link.classList.add("active");
-        const parentSubmenu = link.closest(".has-submenu");
-        if (parentSubmenu) setSubmenuState(parentSubmenu, true);
-      }
-    });
+    highlightActiveNavLinks();
+    populateNavbarSubmenus(closeMenu);
   }
 
   // Expose callable helpers to individual pages
