@@ -107,13 +107,14 @@ $bevel-pressed:
   }
 }
 
-// 4. Base Styles
-* {
-  box-sizing: border-box;
-}
+// 4. Base Styles (scoped to .page-labyrinth to avoid clashing with shared-styles.css)
+.page-labyrinth {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-body {
-//   margin: 0;
   font-family: $font-body;
   font-size: 1.15rem;
   line-height: 1.65;
@@ -133,34 +134,39 @@ body {
       transparent 6px
     );
   min-height: 100vh;
-}
 
-h1,
-h2,
-h3 {
-  margin-top: 0;
-  letter-spacing: 0.08em;
-  line-height: 1.15;
-}
+  h1,
+  h2,
+  h3 {
+    margin-top: 0;
+    letter-spacing: 0.08em;
+    line-height: 1.15;
+  }
 
-h2 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  margin-bottom: 1.25rem;
-  border-bottom: 1px solid rgba($color-gold-mid, 0.3);
-  padding-bottom: 0.4rem;
-  @include gold-metallic-text;
+  h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid rgba($color-gold-mid, 0.3);
+    padding-bottom: 0.4rem;
+    @include gold-metallic-text;
+  }
 }
 
 // 5. Project Detail Layout
-.project-detail {
-  max-width: 1050px;
+.page-labyrinth .project-detail {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2.5rem 1.5rem 4rem;
 }
 
-.project-header {
+.page-labyrinth .project-header {
   text-align: center;
   margin-bottom: 2rem;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 
   .project-title {
     font-size: clamp(2.75rem, 6.5vw, 4.5rem);
@@ -170,33 +176,16 @@ h2 {
   }
 }
 
-// 6. Framed Media Containers (Thumbnail, Video, Screenshots)
-.media-frame {
-  @include labyrinth-frame;
-  overflow: hidden;
-}
-
-.hero-media {
-  max-width: 780px;
-  margin: 0 auto 2rem;
-
-  .project-thumbnail {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-}
-
-.project-description {
-  max-width: 780px;
+.page-labyrinth .project-description {
+  max-width: 1200px;
   margin: 0 auto 2.5rem;
   text-align: center;
   font-size: 1.25rem;
   color: $color-parchment-text;
 }
 
-// 7. Metadata Box
-.project-meta {
+// 6. Metadata Box
+.page-labyrinth .project-meta {
   @include labyrinth-frame;
   display: flex;
   flex-wrap: wrap;
@@ -227,123 +216,45 @@ h2 {
   }
 }
 
-// 8. Overview Content
-.project-content {
+// 7. Overview Content
+.page-labyrinth .project-content {
   margin-bottom: 3rem;
 }
 
-// 9. Responsive YouTube Video Embed
-.project-video-section {
+// 8. Screenshot Gallery Grid (Compatible with .image-gallery + .gallery-item)
+.page-labyrinth .project-gallery-section {
   margin-bottom: 3rem;
 
-  .video-wrapper {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; // 16:9 Aspect Ratio
-    height: 0;
-
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-  }
-}
-
-// 10. Screenshot Gallery Grid
-.project-gallery-section {
-  margin-bottom: 3rem;
-
-  .screenshot-grid {
+  .image-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.75rem;
   }
 
   .gallery-item {
+    @include labyrinth-frame;
+    position: relative;
+    z-index: 1;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s ease;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease;
 
     &:hover {
       transform: translateY(-3px);
+      border-color: $color-gold-mid;
     }
 
     img {
+      position: relative;
+      z-index: 1;
       width: 100%;
       height: auto;
       display: block;
-      border-bottom: 2px solid $color-iron-frame;
-    }
-
-    figcaption {
-      padding: 0.75rem 1rem;
-      font-family: $font-display;
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-      text-align: center;
-      color: $color-gold-bright;
-      background-color: #0d0d10;
-    }
-  }
-}
-
-// 11. Project Links & Classic Beveled Buttons
-.project-links {
-  @include labyrinth-frame;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1.75rem;
-  margin-top: 2rem;
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 220px;
-    padding: 0.75rem 1.75rem;
-    font-family: $font-body;
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: $color-ink-black;
-    text-decoration: none;
-    background-color: $color-stone-btn;
-    border: 2px solid #000000;
-    border-radius: 0;
-    box-shadow: $bevel-button;
-    cursor: pointer;
-    transition: background-color 0.1s ease;
-
-    &:hover {
-      background-color: $color-stone-hover;
-    }
-
-    &:active {
-      box-shadow: $bevel-pressed;
-    }
-
-    &--gold {
-      background: linear-gradient(
-        180deg,
-        $color-gold-bright 0%,
-        $color-gold-mid 100%
-      );
-      box-shadow:
-        inset 2px 2px 0px #fff2a6,
-        inset -2px -2px 0px $color-gold-shadow;
-      font-family: $font-display;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-
-      &:hover {
-        filter: brightness(1.08);
-      }
+      cursor: pointer;
     }
   }
 }

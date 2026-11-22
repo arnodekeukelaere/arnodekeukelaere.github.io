@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../shared-styles.css">
-  <!-- Point to the compiled CSS file generated from labyrinth.scss -->
+  <link rel="stylesheet" href="../shared-gallery.css">
   <link rel="stylesheet" href="labyrinth.css">
   <title>Labyrinth</title>
 </head>
@@ -15,95 +15,78 @@
 
   <main class="project-detail">
     <header class="project-header">
-      <h1 class="project-title">Labyrinth</h1>
+      <img src="https://lh3.googleusercontent.com/d/1ygFk3YV1CX-TBy7S5TuSXg8l7NCIT5se" alt="Labyrinth Logo"
+        style="width:512px; max-width:100%;" />
     </header>
 
-    <div class="media-frame hero-media">
-      <img id="projectThumbnail" class="project-thumbnail"
-        src="https://placehold.co/900x450/141417/c79e32?text=Labyrinth+Key+Art" alt="Labyrinth thumbnail">
-    </div>
-
     <p id="projectDescription" class="project-description">
-      A 48-hour game jam game, made with colleagues from d3t, about escaping a labyrinth plagued by a minotaur.
+      -
     </p>
 
     <!-- Metadata Panel -->
     <section class="project-meta">
       <div class="meta-item">
+        <div class="meta-label">Project type</div>
+        <div id="tags" class="meta-value">-</div>
+      </div>
+      <div class="meta-item">
         <div class="meta-label">Release Year</div>
-        <div id="releaseYear" class="meta-value">2022</div>
+        <div id="releaseYear" class="meta-value">-</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Platforms</div>
-        <div id="platforms" class="meta-value">PC</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Technologies</div>
-        <div id="tags" class="meta-value">C#, Unity</div>
+        <div id="platforms" class="meta-value">-</div>
       </div>
     </section>
 
     <!-- Overview Content -->
     <section class="project-content">
-      <h2>Overview</h2>
+      <h2>Gameplay</h2>
       <p>
-        This was a 48-hour game jam project created in collaboration with colleagues from d3t. The game features an
-        escape-the-labyrinth theme with a relentless minotaur antagonist hunting players through darkened stone
-        corridors.
+        Networked Unity game where one player plays the minotaur roaming the labyrinth finding intruders and the other
+        plays the poor soul trying to escape it.
+
+        It's currently not available to play publicly since it has costs associated with it for the networking.
       </p>
+
+      <h2>What I did</h2>
+      <p>
+        Gameplay and UI programming.
+
+        For this jam I challenged myself to learn features of Unity I've never used before, that being:
+      </p>
+      <ul>
+        <li>UI Toolkit</li>
+        <li>Netcode for Gameobjects</li>
+        <li>Relay (for server hosting)</li>
+      </ul>
     </section>
 
-    <!-- YouTube Gameplay Video Embed -->
-    <section class="project-video-section">
-      <h2>Gameplay Trailer</h2>
-      <div class="media-frame video-wrapper">
-        <!-- Replace VIDEO_ID in the src URL with your actual YouTube video ID -->
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Labyrinth Gameplay Video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </section>
-
-    <!-- Placeholder Screenshot Gallery -->
+    <!-- Gallery (Matches shared-gallery structure) -->
     <section class="project-gallery-section">
-      <h2>Screenshots</h2>
-      <div class="screenshot-grid">
-        <figure class="media-frame gallery-item">
-          <img src="https://lh3.googleusercontent.com/d/1Duk_fBYOeyNufaHKTRYjrEzs6Yq01RY-" alt="Labyrinth Main Menu">
-          <figcaption>Main Menu &amp; Lobby Selection</figcaption>
-        </figure>
-        <figure class="media-frame gallery-item">
-          <img src="https://lh3.googleusercontent.com/d/1Mw_Z6aEGNMn_2fhtvaZwsoTD4ISjwUnx"
-            alt="Labyrinth Stone Corridors">
-          <figcaption>Exploring the Torchlit Corridors</figcaption>
-        </figure>
-        <figure class="media-frame gallery-item">
-          <img src="https://lh3.googleusercontent.com/d/1RCzAZ7moVC4N5rv-cCewWx4LObsipyD3" alt="Minotaur Encounter">
-          <figcaption>Evading the Minotaur</figcaption>
-        </figure>
-        <figure class="media-frame gallery-item">
-          <img src="https://lh3.googleusercontent.com/d/1Sx8D_JmMnVIba8Y7Lz3uz4VEcr_F-uUc" alt="LAN Multiplayer">
-          <figcaption>Co-op Escape via LAN</figcaption>
-        </figure>
-        <figure class="media-frame gallery-item">
-          <img src="https://lh3.googleusercontent.com/d/1O5EWKS_DkqYHxqN77xG2hWEKyLU6iK10" alt="LAN Multiplayer">
-          <figcaption>Co-op Escape via LAN</figcaption>
-        </figure>
+      <h2>Gallery</h2>
+      <div class="image-gallery">
+        <div class="gallery-item">
+          <img src="https://lh3.googleusercontent.com/d/1Duk_fBYOeyNufaHKTRYjrEzs6Yq01RY-" alt="Labyrinth 1">
+        </div>
+        <div class="gallery-item">
+          <img src="https://lh3.googleusercontent.com/d/1Mw_Z6aEGNMn_2fhtvaZwsoTD4ISjwUnx" alt="Labyrinth 2">
+        </div>
+        <div class="gallery-item">
+          <img src="https://lh3.googleusercontent.com/d/1RCzAZ7moVC4N5rv-cCewWx4LObsipyD3" alt="Labyrinth 3">
+        </div>
+        <div class="gallery-item">
+          <img src="https://lh3.googleusercontent.com/d/1Sx8D_JmMnVIba8Y7Lz3uz4VEcr_F-uUc" alt="Labyrinth 4">
+        </div>
+        <div class="gallery-item">
+          <img src="https://lh3.googleusercontent.com/d/1O5EWKS_DkqYHxqN77xG2hWEKyLU6iK10" alt="Labyrinth 5">
+        </div>
       </div>
-    </section>
-
-    <!-- Action Links (Styled as Classic Beveled RPG Buttons) -->
-    <section class="project-links">
-      <a id="liveLink" class="btn btn--gold"
-        href="https://sites.google.com/view/arno-de-keukelaere/personal-projects/labyrinth" target="_blank">Play
-        Online</a>
-      <a id="sourceLink" class="btn" href="#" target="_blank">Source Code</a>
-      <a id="documentationLink" class="btn" href="#" target="_blank">Documentation</a>
     </section>
   </main>
 
   <script src="../layout.js"></script>
+  <script src="../shared-gallery.js"></script>
 
   <script>
     async function initProject() {
@@ -112,34 +95,22 @@
         const project = projects.find(p => p.title === "Labyrinth");
 
         if (project) {
-          document.querySelector('.project-title').textContent = project.title;
           document.getElementById('projectDescription').textContent = project.description;
           document.getElementById('releaseYear').textContent = project.release || '-';
           document.getElementById('platforms').textContent = project.platforms ? project.platforms.join(', ') : '-';
 
           const tags = project.tags || [];
-          const techTags = tags.filter(tag => !['Personal', 'Professional', 'School', '2010s', '2020s'].includes(tag));
-          document.getElementById('tags').textContent = techTags.length > 0 ? techTags.join(', ') : '-';
+          let projectType = "Personal project";
 
-          if (project.thumbnail) {
-            const img = document.getElementById('projectThumbnail');
-            img.src = project.thumbnail;
-            img.alt = project.title + " thumbnail";
+          if (tags.includes("Professional")) {
+            projectType = "Professional work";
+          } else if (tags.includes("School")) {
+            projectType = "School";
+          } else if (tags.includes("Personal")) {
+            projectType = "Personal project";
           }
 
-          const liveLink = document.getElementById('liveLink');
-          const sourceLink = document.getElementById('sourceLink');
-          const documentationLink = document.getElementById('documentationLink');
-
-          if (project.url && project.url !== "#") {
-            liveLink.href = project.url;
-            liveLink.style.display = "inline-flex";
-          } else {
-            liveLink.style.display = "none";
-          }
-
-          sourceLink.style.display = "none";
-          documentationLink.style.display = "none";
+          document.getElementById('tags').textContent = projectType;
         }
       } catch (error) {
         console.error("Error loading project data:", error);
