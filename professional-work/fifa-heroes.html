@@ -8,6 +8,39 @@
   <link rel="stylesheet" href="../shared-styles.css">
   <!-- <link rel="stylesheet" href="fifa-heroes.css"> -->
   <title>Fifa Heroes</title>
+  <style>
+    :root {
+      --hero-bg-url: url('https://lh3.googleusercontent.com/d/1uW3bHRy5-UuN_pt_SbvHOIo9bKvxv6JW');
+      --hero-fade-to: white;
+    }
+
+    html[data-theme="dark"] {
+      --hero-fade-to: #181A1B;
+    }
+
+    body {
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      /* Cancels body's margin-top: 80px so the image meets the very top edge */
+      top: -80px;
+      left: 0;
+      right: 0;
+      height: 55vw;
+      background:
+        linear-gradient(to bottom, transparent 40%, var(--hero-fade-to) 100%),
+        var(--hero-bg-url) top center / 100% auto no-repeat;
+      pointer-events: none;
+    }
+
+    /* Keep page content above the fade layer without creating a dark background wall over it */
+    body> :not(script):not(style) {
+      position: relative;
+    }
+  </style>
 </head>
 
 <body>
@@ -15,80 +48,84 @@
 
   <div class="project-detail">
     <div class="project-header">
-      <h1 class="project-title">Fifa Heroes</h1>
-      <p class="project-subtitle">Arcade football with superpowers</p>
-      <img id="projectThumbnail" class="project-thumbnail" src="" alt="Fifa Heroes thumbnail">
+      <img class="project-title" src="https://lh3.googleusercontent.com/d/1DP4GxOdCtz9DtwjGzwK-j1qC5KhJSR5G" />
     </div>
 
-    <p id="projectDescription" class="project-description">Arcade football with superpowers.</p>
+    <div class="project-description-row">
+      <p id="projectDescription" class="project-description">Arcade football with superpowers.</p>
+      <div class="project-store-actions">
+        <a href="https://play.google.com/store/apps/details?id=com.solace.fifaheroes&hl=en_GB&pli=1"
+          class="project-store-btn project-store-btn--android big" aria-label="Download on Android" target="_blank">
+          Download on Android
+        </a>
+        <a href="https://apps.apple.com/gb/app/fifa-heroes-football-action/id6760320099"
+          class="project-store-btn project-store-btn--ios big" aria-label="Download on iOS" target="_blank">
+          Download on iOS
+        </a>
+      </div>
+    </div>
 
     <div class="project-meta">
       <div class="meta-item">
+        <div class="meta-label">Project type</div>
+        <div id="tags" class="meta-value">-</div>
+      </div>
+      <div class="meta-item">
         <div class="meta-label">Release Year</div>
-        <div id="releaseYear" class="meta-value">2026</div>
+        <div id="releaseYear" class="meta-value">-</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Platforms</div>
-        <div id="platforms" class="meta-value">Mobile</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Technologies</div>
-        <div id="tags" class="meta-value">C#, Unity</div>
+        <div id="platforms" class="meta-value">-</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Company</div>
-        <div id="company" class="meta-value">d3t</div>
+        <div id="company" class="meta-value">-</div>
       </div>
     </div>
 
     <div class="project-content">
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/Wbd-7QTnHyY"
-                title="FIFA Heroes Gameplay Video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+      <div class="yt-embed">
+        <iframe src="https://www.youtube.com/embed/HLcp7ri-XrU" title="FIFA Heroes Gameplay Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
       </div>
 
-      <p>Fifa Heroes is an arcade football game with superpowers. This was a mobile game project developed at d3t.</p>
+      <div class="grid-row">
 
-      <div class="project-section">
-        <h2>What I Did</h2>
-        <h3>AI Programming</h3>
-        <ul>
-          <li>Advising on AI integration</li>
-          <li>Unity Behavior Tree implementation</li>
-        </ul>
+        <div class="project-section">
+          <h2>What I did</h2>
+          <h3>AI Programming</h3>
+          <ul>
+            <li>Advising on AI integration</li>
+            <li>Unity Behavior Tree implementation</li>
+          </ul>
 
-        <h3>Gameplay Programming</h3>
-        <ul>
-          <li>Gameplay bug fixes</li>
-        </ul>
+          <h3>Gameplay Programming</h3>
+          <ul>
+            <li>Gameplay bug fixes</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2>Tech</h2>
+          <ul>
+            <li>C#</li>
+            <li>Unity 6</li>
+            <li>P4V</li>
+          </ul>
+        </div>
+
       </div>
 
-      <div class="project-section">
-        <h2>Tech Stack</h2>
-        <ul>
-          <li>C#</li>
-          <li>Unity 6</li>
-          <li>P4V</li>
-        </ul>
-      </div>
-
-      <div class="project-section">
-        <h2>External Links</h2>
-        <p>Available on:</p>
-        <ul>
-          <li><a href="https://play.google.com/store/apps/details?id=com.solace.fifaheroes&hl=en_GB&pli=1" target="_blank">Google Play</a></li>
-          <li><a href="https://apps.apple.com/gb/app/fifa-heroes-football-action/id6760320099" target="_blank">App Store</a></li>
-          <li><a href="https://www.playfifaheroes.com/" target="_blank">Website</a></li>
-        </ul>
-      </div>
     </div>
 
     <div class="project-links">
-      <a id="liveLink" href="https://sites.google.com/view/arno-de-keukelaere/professional-work/fifa-heroes" target="_blank">Play Online</a>
-      <a id="sourceLink" href="#" target="_blank">Source Code</a>
-      <a id="documentationLink" href="#" target="_blank">Documentation</a>
+      <a id="liveLink" href="https://play.google.com/store/apps/details?id=com.solace.fifaheroes&hl=en_GB&pli=1"
+        target="_blank">Google Play</a>
+      <a id="sourceLink" href="https://apps.apple.com/gb/app/fifa-heroes-football-action/id6760320099"
+        target="_blank">App store</a>
+      <a id="website" href="https://www.playfifaheroes.com/" target="_blank">Official website</a>
     </div>
   </div>
 
@@ -108,32 +145,19 @@
           document.getElementById('platforms').textContent = project.platforms ? project.platforms.join(', ') : '-';
           document.getElementById('company').textContent = project.company || '-';
 
+          // Determine project type based on tags
           const tags = project.tags || [];
-          // Filter out category tags (Personal, Professional, School)
-          const techTags = tags.filter(tag => !['Personal', 'Professional', 'School', '2010s', '2020s'].includes(tag));
-          document.getElementById('tags').textContent = techTags.length > 0 ? techTags.join(', ') : '-';
+          let projectType = "Personal project"; // default
 
-          if (project.thumbnail) {
-            const img = document.getElementById('projectThumbnail');
-            img.src = project.thumbnail;
-            img.alt = project.title + " thumbnail";
+          if (tags.includes("Professional")) {
+            projectType = "Professional work";
+          } else if (tags.includes("School")) {
+            projectType = "School";
+          } else if (tags.includes("Personal")) {
+            projectType = "Personal project";
           }
 
-          // Set links
-          const liveLink = document.getElementById('liveLink');
-          const sourceLink = document.getElementById('sourceLink');
-          const documentationLink = document.getElementById('documentationLink');
-
-          if (project.url && project.url !== "#") {
-            liveLink.href = project.url;
-            liveLink.style.display = "inline-block";
-          } else {
-            liveLink.style.display = "none";
-          }
-
-          // Hide source and documentation links by default
-          sourceLink.style.display = "none";
-          documentationLink.style.display = "none";
+          document.getElementById('tags').textContent = projectType;
         }
       } catch (error) {
         console.error("Error loading project data:", error);

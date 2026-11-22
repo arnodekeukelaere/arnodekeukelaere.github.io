@@ -4,130 +4,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="shared-styles.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=JetBrains+Mono:wght@400;600;700&family=Roboto:wght@400;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/shared-styles.css">
+  <link rel="stylesheet" href="/shared-gallery.css">
   <title>Project Detail</title>
-  <style>
-    .project-detail {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .project-header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .project-title {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-
-    .project-thumbnail {
-      width: 100%;
-      max-width: 600px;
-      height: auto;
-      margin: 0 auto 20px;
-      display: block;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .project-description {
-      font-size: 1.1em;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 30px;
-      padding: 15px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-    }
-
-    .meta-item {
-      flex: 1;
-      min-width: 150px;
-    }
-
-    .meta-label {
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #666;
-    }
-
-    .project-content {
-      margin-top: 30px;
-    }
-
-    .project-links {
-      margin-top: 20px;
-      padding: 15px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-    }
-
-    .project-links a {
-      display: inline-block;
-      margin-right: 15px;
-      margin-bottom: 10px;
-      padding: 8px 15px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-
-    .project-links a:hover {
-      background-color: #0056b3;
-    }
-  </style>
 </head>
 
 <body>
   <div id="site-nav"></div>
 
-  <div class="project-detail">
+  <main class="project-detail">
     <div class="project-header">
-      <h1 class="project-title">Project Title</h1>
+      <img class="project-title" src="" alt="Project logo" />
+      <p class="project-subtitle"></p>
     </div>
 
-    <img id="projectThumbnail" class="project-thumbnail" src="" alt="Project thumbnail">
+    <!-- Main Machine Console Container -->
+    <div class="machine-console">
+      <div class="description-play-row">
+        <p id="projectDescription" class="project-description"></p>
 
-    <p id="projectDescription" class="project-description"></p>
-
-    <div class="project-meta">
-      <div class="meta-item">
-        <div class="meta-label">Release Year</div>
-        <div id="releaseYear">-</div>
+        <a href="#" target="_blank" rel="noopener" class="btn-click-to-play">
+          <span class="play-label">Click to Play</span>
+          <span class="play-eyebrow">Eyebrow</span>
+        </a>
       </div>
-      <div class="meta-item">
-        <div class="meta-label">Platforms</div>
-        <div id="platforms">-</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Technologies</div>
-        <div id="tags">-</div>
-      </div>
-    </div>
 
-    <div class="project-content">
-      <!-- Project content would go here -->
-    </div>
+      <!-- Quadrant-Style Metadata Grid -->
+      <div class="project-meta">
+        <div class="meta-item">
+          <div class="meta-label">Project type</div>
+          <div id="tags" class="meta-value"></div>
+        </div>
+        <div class="meta-item is-lit">
+          <div class="meta-label">Release Year</div>
+          <div id="releaseYear" class="meta-value">-</div>
+        </div>
+        <div class="meta-item is-lit">
+          <div class="meta-label">Platforms</div>
+          <div id="platforms" class="meta-value">-</div>
+        </div>
+      </div>
 
-    <div class="project-links">
-      <a id="liveLink" href="#" target="_blank">Play Online</a>
-      <a id="sourceLink" href="#" target="_blank">Source Code</a>
-      <a id="documentationLink" href="#" target="_blank">Documentation</a>
+      <!-- Embedded YouTube Video Section -->
+      <section class="project-video-section" aria-labelledby="videoHeading">
+        <h2 id="videoHeading">Demo video</h2>
+        <div class="video-frame">
+          <iframe src="" title="Project Demo Video" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </section>
+
+      <!-- Info & Tech Breakdown -->
+      <div class="project-content">
+        <h2>Gameplay</h2>
+        <p></p>
+
+        <h2>Development</h2>
+        <p></p>
+
+        <h2>Tech</h2>
+        <ul class="tech-list">
+          <li></li>
+        </ul>
+      </div>
+
+      <!-- Gallery Section (Compatible with shared-gallery.css / shared-gallery.js) -->
+      <section class="project-gallery-section" aria-labelledby="galleryHeading">
+        <h2 id="galleryHeading">Screenshots</h2>
+        <div id="projectGallery" class="image-gallery project-gallery">
+          <!-- Gallery items will be populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- External Links -->
+      <div class="project-links">
+        <a id="liveLink" class="btn-terminal" href="#" target="_blank" rel="noopener">s&amp;box Game Page</a>
+        <a id="workshopLink" class="btn-terminal" href="#" target="_blank" rel="noopener">Steam Workshop Page</a>
+      </div>
     </div>
-  </div>
+  </main>
 
   <script src="layout.js"></script>
+  <script src="shared-gallery.js"></script>
 
   <script>
     // This script will be populated with individual project data
@@ -137,26 +100,27 @@
         const project = projects.find(p => p.title === "PROJECT_TITLE_PLACEHOLDER");
 
         if (project) {
-          document.querySelector('.project-title').textContent = project.title;
-          document.getElementById('projectDescription').textContent = project.description;
+          // Update title and subtitle
+          document.querySelector('.project-title').src = project.thumbnail || '';
+          document.querySelector('.project-title').alt = project.title + " logo";
+          document.querySelector('.project-subtitle').textContent = project.description;
+
+          // Update meta information
           document.getElementById('releaseYear').textContent = project.release || '-';
           document.getElementById('platforms').textContent = project.platforms ? project.platforms.join(', ') : '-';
 
+          // Update tags
           const tags = project.tags || [];
           // Filter out category tags (Personal, Professional, School)
           const techTags = tags.filter(tag => !['Personal', 'Professional', 'School', '2010s', '2020s'].includes(tag));
           document.getElementById('tags').textContent = techTags.length > 0 ? techTags.join(', ') : '-';
 
-          if (project.thumbnail) {
-            const img = document.getElementById('projectThumbnail');
-            img.src = project.thumbnail;
-            img.alt = project.title + " thumbnail";
-          }
+          // Update description
+          document.getElementById('projectDescription').textContent = project.description || '-';
 
           // Set links
           const liveLink = document.getElementById('liveLink');
-          const sourceLink = document.getElementById('sourceLink');
-          const documentationLink = document.getElementById('documentationLink');
+          const workshopLink = document.getElementById('workshopLink');
 
           if (project.url && project.url !== "#") {
             liveLink.href = project.url;
@@ -165,9 +129,57 @@
             liveLink.style.display = "none";
           }
 
-          // Hide source and documentation links by default
-          sourceLink.style.display = "none";
-          documentationLink.style.display = "none";
+          // Update workshop link if available
+          if (project.workshopUrl) {
+            workshopLink.href = project.workshopUrl;
+            workshopLink.style.display = "inline-block";
+          } else {
+            workshopLink.style.display = "none";
+          }
+
+          // Update video section if available
+          const videoFrame = document.querySelector('.video-frame');
+          if (project.videoUrl) {
+            const iframe = videoFrame.querySelector('iframe');
+            iframe.src = project.videoUrl;
+            videoFrame.style.display = "block";
+          } else {
+            videoFrame.parentElement.style.display = "none";
+          }
+
+          // Update tech list
+          if (techTags.length > 0) {
+            const techList = document.querySelector('.tech-list');
+            techList.innerHTML = '';
+            techTags.forEach(tag => {
+              const li = document.createElement('li');
+              li.textContent = tag;
+              techList.appendChild(li);
+            });
+          }
+
+          // Update gallery section if available
+          if (project.gallery) {
+            const galleryContainer = document.getElementById('projectGallery');
+            galleryContainer.innerHTML = '';
+
+            project.gallery.forEach(item => {
+              const galleryItem = document.createElement('div');
+              galleryItem.className = 'gallery-item';
+
+              const img = document.createElement('img');
+              img.src = item.image;
+              img.alt = item.caption || '';
+
+              const caption = document.createElement('span');
+              caption.className = 'gallery-caption';
+              caption.textContent = item.caption || '';
+
+              galleryItem.appendChild(img);
+              galleryItem.appendChild(caption);
+              galleryContainer.appendChild(galleryItem);
+            });
+          }
         }
       } catch (error) {
         console.error("Error loading project data:", error);
