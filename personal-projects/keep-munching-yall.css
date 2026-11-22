@@ -79,6 +79,107 @@ body.page-keep-munching .project-content {
   margin-bottom: 1.5rem;
 }
 
+/* 2-column layout: wider description + capped CTA column */
+body.page-keep-munching .project-description-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, auto);
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+body.page-keep-munching .project-description-container .project-description {
+  margin: 0;
+  /* height: 100%; */
+  display: flex;
+  align-items: center;
+}
+
+body.page-keep-munching .project-description-container .meta-button {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  body.page-keep-munching .project-description-container {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* Standout Sticker CTA for "Click to play" (capped at max-width) */
+body.page-keep-munching .project-description-container .meta-button.play a {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  width: fit-content;
+  max-width: 450px;
+  height: auto;
+  padding: 1.2rem 1.75rem;
+  color: #1d120d;
+  background-color: #ffe31a;
+  text-decoration: none;
+  text-align: center;
+  border: 4px solid #1d120d;
+  border-radius: 22px;
+  box-shadow:
+    0 0 0 4px #fffdf2,
+    0 0 0 7px #1d120d,
+    8px 8px 0px #f5821f;
+}
+
+body.page-keep-munching .meta-button.play .play-label {
+  font-family: 'Fredoka', 'Roboto', sans-serif;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+
+body.page-keep-munching .meta-button.play .play-sub {
+  font-family: 'Space Grotesk', 'Roboto', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #1d120d;
+  background-color: #fffdf2;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  border: 3px solid #1d120d;
+}
+
+body.page-keep-munching .project-description-container .meta-button.play a:hover,
+body.page-keep-munching .project-description-container .meta-button.play a:focus-visible {
+  background-color: #1d120d;
+  color: #ffe31a;
+  transform: translate(-3px, -3px) scale(1.02);
+  box-shadow:
+    0 0 0 4px #ffe31a,
+    0 0 0 7px #1d120d,
+    11px 11px 0px #f5821f;
+  outline: none;
+}
+
+body.page-keep-munching .project-description-container .meta-button.play a:hover .play-sub,
+body.page-keep-munching .project-description-container .meta-button.play a:focus-visible .play-sub {
+  background-color: #f5821f;
+  color: #1d120d;
+}
+
+body.page-keep-munching .project-description-container .meta-button.play a:active {
+  transform: translate(2px, 2px) scale(0.99);
+  box-shadow:
+    0 0 0 3px #fffdf2,
+    0 0 0 6px #1d120d,
+    3px 3px 0px #f5821f;
+}
+
 /* Metadata cards */
 body.page-keep-munching .project-meta {
   display: flex;
@@ -107,10 +208,11 @@ body.page-keep-munching .meta-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: #fffdf2; */
-  /* padding: 0.75rem 1rem; */
-  /* border: 3px solid #1d120d; */
-  /* border-radius: 12px; */
+  margin-bottom: 0;
+}
+
+body.page-keep-munching .meta-button a {
+  width: 100%;
 }
 
 body.page-keep-munching .meta-button button {
