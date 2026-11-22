@@ -563,7 +563,8 @@ html[data-theme="dark"]:not(:has(body.page-keep-munching,
     body.page-industrial-cleansing,
     body.page-neko-pakku-crash,
     body.page-labyrinth,
-    body.page-ball-after-life)) {
+    body.page-ball-after-life,
+    body.page-vampire-the-masquerade-bloodhunt)) {
 
   background-color: #181A1B;
 
@@ -659,6 +660,50 @@ html[data-theme="dark"]:not(:has(body.page-keep-munching,
     border-color: white;
     box-shadow: inset 0 3px 0 0 white;
     /* black top line */
+  }
+
+  /* project dark mode */
+  .project-meta,
+  .project-section,
+  .project-links,
+  .project-description-row {
+    background-color: #181A1B;
+    border-color: #464646;
+  }
+
+  li,
+  .meta-value {
+    color: white;
+  }
+
+  .project-section h2 {
+    border-bottom-color: #464646;
+  }
+
+  .project-subtitle,
+  .meta-label {
+    color: #b0b0b0 !important;
+  }
+
+  .project-thumbnail,
+  .video-container,
+  .yt-embed {
+    border-color: #464646;
+  }
+
+  .project-links a,
+  .project-store-btn {
+    background-color: white;
+    color: black !important;
+    border-color: white;
+  }
+
+  .project-links a:hover,
+  .project-store-btn:hover {
+    background-color: #181A1B;
+    color: white !important;
+    border-color: white;
+    box-shadow: inset 0 3px 0 0 white;
   }
 }
 
@@ -949,57 +994,6 @@ html[data-theme="dark"]:not(:has(body.page-keep-munching,
   color: black;
   border-color: black;
   box-shadow: inset 0 3px 0 0 black;
-}
-
-/* Dark mode overrides for project detail */
-html[data-theme="dark"]:not(:has(body.page-keep-munching,
-    body.page-industrial-cleansing,
-    body.page-neko-pakku-crash,
-    body.page-labyrinth,
-    body.page-ball-after-life)) {
-
-  .project-meta,
-  .project-section,
-  .project-links,
-  .project-description-row {
-    background-color: #181A1B;
-    border-color: #464646;
-  }
-
-  li,
-  .meta-value {
-    color: white;
-  }
-
-  .project-section h2 {
-    border-bottom-color: #464646;
-  }
-
-  .project-subtitle,
-  .meta-label {
-    color: #b0b0b0 !important;
-  }
-
-  .project-thumbnail,
-  .video-container,
-  .yt-embed {
-    border-color: #464646;
-  }
-
-  .project-links a,
-  .project-store-btn {
-    background-color: white;
-    color: black !important;
-    border-color: white;
-  }
-
-  .project-links a:hover,
-  .project-store-btn:hover {
-    background-color: #181A1B;
-    color: white !important;
-    border-color: white;
-    box-shadow: inset 0 3px 0 0 white;
-  }
 }
 
 /* Responsive adjustments */

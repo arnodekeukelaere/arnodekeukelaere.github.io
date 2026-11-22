@@ -200,6 +200,7 @@ body.page-ball-after-life .btn-click-to-play:active {
   margin-bottom: 2.4rem;
   background-color: transparent;
   padding: 0px;
+  border-width: 0;
 }
 @media (max-width: 640px) {
   .project-meta {

@@ -292,6 +292,7 @@ body.page-ball-after-life .btn-click-to-play {
   margin-bottom: 2.4rem;
   background-color: transparent;
   padding: 0px;
+  border-width: 0;
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
   }
@@ -419,12 +420,17 @@ body.page-ball-after-life .btn-click-to-play {
     background-color: $color-crypt-dim;
     border: $border-crypt;
     overflow: hidden;
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
 
     &:hover {
       transform: translateY(-3px);
       border-color: $color-glacial-blue;
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.9), 0 0 22px rgba($color-glacial-blue, 0.22);
+      box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.9),
+        0 0 22px rgba($color-glacial-blue, 0.22);
 
       .gallery-caption {
         background-color: $color-spectral-lit;
@@ -455,7 +461,9 @@ body.page-ball-after-life .btn-click-to-play {
       text-transform: uppercase;
       color: $color-dread-stone;
       border-top: 1px solid rgba($color-glacial-blue, 0.16);
-      transition: background-color 0.25s ease, color 0.25s ease;
+      transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
     }
   }
 }
