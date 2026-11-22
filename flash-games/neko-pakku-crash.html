@@ -38,79 +38,55 @@
             margin-bottom: 1.5rem;
         }
 
-        /*
-         * The wrapper is responsive, but the actual Ruffle player
-         * remains permanently at its native 1280x720 resolution.
-         */
         .game-wrapper {
             position: relative;
-
             width: 100%;
             max-width: 1280px;
-
             aspect-ratio: 16 / 9;
-
             margin: 0 auto;
-
             background: #000;
-
             overflow: hidden;
-
             border: 3px solid #588544;
             box-shadow: 4px 4px 0 #0d1217;
-
             box-sizing: border-box;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-crisp-edges;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
         }
 
-        /*
-         * This element is always exactly 1280x720.
-         * We only change its CSS transform to visually scale it.
-         */
         #flash-game {
             position: absolute;
-
             width: 1280px;
             height: 720px;
-
             left: 50%;
             top: 50%;
-
             transform-origin: center center;
-
             transform: translate(-50%, -50%) scale(1);
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
         }
 
-        /*
-         * Keep Ruffle itself permanently at the SWF's
-         * native resolution.
-         */
-        #flash-game ruffle-player {
+        #flash-game ruffle-player,
+        #flash-game canvas {
             display: block;
-
             width: 1280px !important;
             height: 720px !important;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-crisp-edges;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
         }
 
-        /*
-         * When the wrapper enters browser fullscreen,
-         * the wrapper fills the viewport.
-         *
-         * The Ruffle player still stays 1280x720.
-         */
         .game-wrapper:fullscreen {
             width: 100vw;
             height: 100vh;
-
             max-width: none;
-
             aspect-ratio: auto;
-
             margin: 0;
             padding: 0;
-
             border: none;
             box-shadow: none;
-
             display: block;
         }
 
@@ -119,26 +95,16 @@
             height: 720px;
         }
 
-        /*
-         * Fullscreen button is deliberately BELOW the game
-         * rather than over the Ruffle player.
-         */
         #fullscreen-button {
             display: block;
-
             margin: 12px auto 0;
-
             padding: 8px 16px;
-
             font-family: 'Roboto', Arial, sans-serif;
             font-size: 20px;
             font-weight: bold;
-
             cursor: pointer;
-
             background-color: #1ad1ff;
             border: 2px solid #0d1217;
-
             color: #0d1217;
         }
 
@@ -149,7 +115,6 @@
         .game-controls {
             display: flex;
             justify-content: center;
-
             margin-top: 1.5rem;
         }
 
@@ -161,7 +126,6 @@
 
 <body>
 
-    <!-- Shared navigation -->
     <div id="site-nav"></div>
 
     <main class="game-container">
@@ -172,19 +136,14 @@
             Play the original Neko-Pakku Crash! Flash game.
         </p>
 
-        <!-- Game -->
         <div class="game-wrapper">
-
             <div id="flash-game"></div>
-
         </div>
 
-        <!-- Fullscreen button -->
         <button id="fullscreen-button" type="button">
             ⛶ Fullscreen
         </button>
 
-        <!-- Back to project -->
         <div class="game-controls">
             <a href="../personal-projects/neko-pakku-crash.html" class="btn">
                 Back to Project Page
@@ -193,10 +152,7 @@
 
     </main>
 
-    <!-- Shared site layout -->
     <script src="../layout.js"></script>
-
-    <!-- Ruffle -->
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 
     <script>
@@ -207,57 +163,37 @@
         const flashGame = document.getElementById("flash-game");
         const fullscreenButton = document.getElementById("fullscreen-button");
 
-        /*
-         * Keep the Ruffle player permanently at the SWF's
-         * native 1280x720 resolution.
-         */
         player.style.width = "1280px";
         player.style.height = "720px";
         player.style.display = "block";
+        player.style.imageRendering = "pixelated";
 
         flashGame.appendChild(player);
 
-        /*
-         * Load the original SWF.
-         */
         player.ruffle().load({
             url: "../assets/games/neko-pakku-crash/636474_Neko-Pakku_Crash!113[1].swf",
-
-            /*
-             * Let Ruffle render the original SWF at its
-             * native aspect ratio.
-             */
             scale: "showAll",
             letterbox: "on",
-
+            quality: "low",
             allowFullscreen: true
+        }).catch((err) => {
+            console.error("Failed to load SWF:", err);
         });
 
-        /*
-         * Visually scale the fixed 1280x720 game to fit
-         * whatever size the wrapper currently has.
-         *
-         * IMPORTANT:
-         * This does NOT resize Ruffle.
-         * It only applies a CSS transform.
-         */
         function scaleGame() {
             const width = gameWrapper.clientWidth;
             const height = gameWrapper.clientHeight;
+            if (!width || !height) return;
 
-            const scale = Math.min(
-                width / 1280,
-                height / 720
-            );
+            const rawScale = Math.min(width / 1280, height / 720);
+            // Snap to integer scale when >= 1x to avoid fractional pixel shimmer;
+            // use exact fit scale when smaller than native 1280x720.
+            const scale = rawScale >= 1 ? Math.floor(rawScale) : rawScale;
 
             flashGame.style.transform =
                 `translate(-50%, -50%) scale(${scale})`;
         }
 
-        /*
-         * Toggle browser fullscreen on the wrapper,
-         * rather than fullscreening Ruffle itself.
-         */
         fullscreenButton.addEventListener("click", async () => {
             try {
                 if (!document.fullscreenElement) {
@@ -270,34 +206,15 @@
             }
         });
 
-        /*
-         * Update the button text whenever fullscreen
-         * state changes, then recalculate the visual scale.
-         */
         document.addEventListener("fullscreenchange", () => {
+            fullscreenButton.textContent = document.fullscreenElement
+                ? "✕ Exit Fullscreen"
+                : "⛶ Fullscreen";
 
-            if (document.fullscreenElement) {
-                fullscreenButton.textContent = "✕ Exit Fullscreen";
-            } else {
-                fullscreenButton.textContent = "⛶ Fullscreen";
-            }
-
-            /*
-             * Wait until the browser has applied the
-             * new fullscreen dimensions.
-             */
             requestAnimationFrame(scaleGame);
         });
 
-        /*
-         * Recalculate the visual scale whenever the
-         * browser/window changes size.
-         */
         window.addEventListener("resize", scaleGame);
-
-        /*
-         * Initial scaling.
-         */
         scaleGame();
     </script>
 
