@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neko-Pakku Crash! - Flash Game Player</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../shared-styles.css">
+
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #18222c;
+            color: white;
+        }
+
+        .game-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .game-header {
+            margin-bottom: 2rem;
+        }
+
+        .game-title {
+            font-size: 2.5rem;
+            color: #1ad1ff;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 0 #0d1217;
+        }
+
+        .game-description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #e8eef2;
+        }
+
+        /*
+         * Original SWF resolution: 1280x720
+         * Aspect ratio: 16:9
+         */
+        .game-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1280px;
+            aspect-ratio: 16 / 9;
+            margin: 0 auto;
+
+            background: #000;
+
+            overflow: hidden;
+
+            border: 3px solid #588544;
+            box-shadow: 4px 4px 0px #0d1217;
+            border-radius: 0;
+        }
+
+        #flash-game {
+            width: 100%;
+            height: 100%;
+        }
+
+        #flash-game ruffle-player {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /*
+         * Fullscreen button sits BELOW the game.
+         */
+        #fullscreen-button {
+            display: block;
+
+            margin: 12px auto 0;
+
+            font-size: 20px;
+            cursor: pointer;
+
+            padding: 8px 16px;
+
+            background-color: #1ad1ff;
+            border: 2px solid #0d1217;
+            color: #0d1217;
+
+            border-radius: 0;
+
+            font-family: 'Roboto', Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        #fullscreen-button:hover {
+            background-color: #f5d742;
+        }
+
+        /*
+         * Browser fullscreen mode.
+         *
+         * The wrapper fills the screen, but the actual
+         * game remains 16:9 and is centered.
+         */
+        .game-wrapper:fullscreen {
+            width: 100vw;
+            height: 100vh;
+
+            max-width: none;
+            aspect-ratio: auto;
+
+            margin: 0;
+            padding: 0;
+
+            border: none;
+            box-shadow: none;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #000;
+        }
+
+        .game-wrapper:fullscreen #flash-game {
+            width: 100vw;
+            height: auto;
+
+            aspect-ratio: 16 / 9;
+            max-height: 100vh;
+        }
+
+        .game-wrapper:fullscreen #flash-game ruffle-player {
+            width: 100%;
+            height: 100%;
+        }
+
+        /*
+         * Hide the fullscreen button while fullscreen.
+         */
+        .game-wrapper:fullscreen+#fullscreen-button {
+            display: none;
+        }
+
+        .game-controls {
+            margin: 2rem 0;
+
+            display: flex;
+            justify-content: center;
+
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+
+            font-family: 'Roboto', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+
+            text-transform: uppercase;
+            text-decoration: none;
+
+            padding: 0.75rem 1.5rem;
+
+            background-color: #e62e2e;
+            color: white;
+
+            border: 3px solid #0d1217;
+
+            box-shadow:
+                inset -3px -3px 0 #8f1818,
+                inset 3px 3px 0 #ff6b6b,
+                4px 4px 0 #0d1217;
+
+            border-radius: 0;
+
+            transition:
+                transform 0.08s steps(2),
+                box-shadow 0.08s steps(2),
+                background-color 0.08s steps(2);
+        }
+
+        .btn:hover {
+            background-color: #ff3b3b;
+
+            transform: translate(-2px, -2px);
+
+            box-shadow:
+                inset -3px -3px 0 rgba(0, 0, 0, 0.25),
+                inset 3px 3px 0 #fff3a1,
+                6px 6px 0 #0d1217;
+        }
+
+        .btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0 #0d1217;
+        }
+
+        .back-link {
+            margin-top: 2rem;
+
+            display: inline-block;
+
+            color: #1ad1ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+
+            .game-container {
+                padding: 1rem;
+            }
+
+            .game-title {
+                font-size: 2rem;
+            }
+
+            .game-wrapper {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            #fullscreen-button {
+                font-size: 18px;
+                padding: 7px 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="site-nav"></div>
+
+    <div class="game-container">
+
+        <div class="game-header">
+
+            <h1 class="game-title">
+                Neko-Pakku Crash!
+            </h1>
+
+            <p class="game-description">
+                Play the original Flash version of this platformer game.
+                Use arrow keys to move and jump, spacebar to interact with objects.
+            </p>
+
+        </div>
+
+
+        <!-- Flash Game -->
+
+        <div class="game-wrapper">
+
+            <div id="flash-game"></div>
+
+        </div>
+
+
+        <!-- Fullscreen button -->
+
+        <button id="fullscreen-button" type="button" aria-label="Toggle fullscreen">
+            ⛶ Fullscreen
+        </button>
+
+
+        <!-- Other controls -->
+
+        <div class="game-controls">
+
+            <a href="../personal-projects/neko-pakku-crash.html" class="btn">
+                Back to Project Page
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Site navigation -->
+
+    <script src="../layout.js"></script>
+
+
+    <!-- Ruffle Flash Emulator -->
+
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+
+
+    <script>
+        /*
+         * Create Ruffle player
+         */
+
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+
+
+        /*
+         * Make Ruffle fill the 16:9 game container.
+         */
+
+        player.style.width = "100%";
+        player.style.height = "100%";
+        player.style.display = "block";
+
+
+        /*
+         * Add Ruffle to the page.
+         */
+
+        document
+            .getElementById("flash-game")
+            .appendChild(player);
+
+
+        /*
+         * Load the original Flash game.
+         *
+         * The SWF itself is 1280x720.
+         */
+
+        player.ruffle().load({
+
+            url: "../assets/games/neko-pakku-crash/636474_Neko-Pakku_Crash!113[1].swf",
+
+            scale: "showAll",
+
+            letterbox: "on",
+
+            allowFullscreen: true
+
+        });
+
+
+        /*
+         * Fullscreen handling.
+         *
+         * We fullscreen the surrounding game container
+         * rather than asking Ruffle to fullscreen itself.
+         *
+         * This avoids changing the Ruffle player's internal
+         * dimensions when entering/exiting fullscreen.
+         */
+
+        const gameWrapper =
+            document.querySelector(".game-wrapper");
+
+        const fullscreenButton =
+            document.getElementById("fullscreen-button");
+
+
+        fullscreenButton.addEventListener("click", async () => {
+
+            try {
+
+                if (!document.fullscreenElement) {
+
+                    await gameWrapper.requestFullscreen();
+
+                } else {
+
+                    await document.exitFullscreen();
+
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Fullscreen error:",
+                    error
+                );
+
+            }
+
+        });
+
+
+        /*
+         * Update button text when fullscreen state changes.
+         */
+
+        document.addEventListener("fullscreenchange", () => {
+
+            if (document.fullscreenElement) {
+
+                fullscreenButton.textContent =
+                    "✕ Exit Fullscreen";
+
+            } else {
+
+                fullscreenButton.textContent =
+                    "⛶ Fullscreen";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
