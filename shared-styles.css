@@ -960,7 +960,8 @@ html[data-theme="dark"]:not(:has(body.page-keep-munching,
 
   .project-meta,
   .project-section,
-  .project-links {
+  .project-links,
+  .project-description-row {
     background-color: #181A1B;
     border-color: #464646;
   }

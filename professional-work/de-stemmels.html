@@ -8,126 +8,134 @@
   <link rel="stylesheet" href="../shared-styles.css">
   <title>De Stemmels</title>
   <style>
+    :root {
+      --hero-bg-url: url('https://lh3.googleusercontent.com/d/1adjXZhqwChkd5Rz63tkLo9K6newPSZml');
+      --hero-fade-to: white;
+    }
+
+    html[data-theme="dark"] {
+      --hero-fade-to: #181A1B;
+    }
+
+    body {
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      /* Cancels body's margin-top: 80px so the image meets the very top edge */
+      top: -580px;
+      left: 0;
+      right: 0;
+      height: 55vw;
+      background:
+        linear-gradient(to bottom, transparent 40%, var(--hero-fade-to) 100%),
+        var(--hero-bg-url) top center / 100% auto no-repeat;
+      pointer-events: none;
+    }
+
+    /* Keep page content above the fade layer without creating a dark background wall over it */
+    body> :not(script):not(style) {
+      position: relative;
+    }
+
     .project-detail {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .project-header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .project-title {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-
-    .project-thumbnail {
-      width: 100%;
-      max-width: 600px;
-      height: auto;
-      margin: 0 auto 20px;
-      display: block;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .project-description {
-      font-size: 1.1em;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 30px;
-      padding: 15px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-    }
-
-    .meta-item {
-      flex: 1;
-      min-width: 150px;
-    }
-
-    .meta-label {
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #666;
-    }
-
-    .project-content {
-      margin-top: 30px;
-    }
-
-    .project-links {
-      margin-top: 20px;
-      padding: 15px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-    }
-
-    .project-links a {
-      display: inline-block;
-      margin-right: 15px;
-      margin-bottom: 10px;
-      padding: 8px 15px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-
-    .project-links a:hover {
-      background-color: #0056b3;
+      margin-top: 550px;
     }
   </style>
 </head>
+
 
 <body>
   <div id="site-nav"></div>
 
   <div class="project-detail">
-    <div class="project-header">
-      <h1 class="project-title">De Stemmels</h1>
+
+    <div class="project-description-row">
+      <p id="projectDescription" class="project-description">-</p>
+      <div class="project-store-actions">
+        <a href="https://play.google.com/store/apps/details?id=com.cartamundidigital.hedgehog"
+          class="project-store-btn project-store-btn--android big" aria-label="Download on Android" target="_blank">
+          Download on Android
+        </a>
+        <a href="https://apps.apple.com/us/app/stemmels/id1607332202"
+          class="project-store-btn project-store-btn--ios big" aria-label="Download on iOS" target="_blank">
+          Download on iOS
+        </a>
+      </div>
     </div>
-
-    <img id="projectThumbnail" class="project-thumbnail" src="" alt="De Stemmels thumbnail">
-
-    <p id="projectDescription" class="project-description">VR/AR educational boardgame for iOS and Android.</p>
 
     <div class="project-meta">
       <div class="meta-item">
+        <div class="meta-label">Project type</div>
+        <div id="tags" class="meta-value">-</div>
+      </div>
+      <div class="meta-item">
         <div class="meta-label">Release Year</div>
-        <div id="releaseYear">2023</div>
+        <div id="releaseYear" class="meta-value">-</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Platforms</div>
-        <div id="platforms">Mobile</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Technologies</div>
-        <div id="tags">C#, Unity</div>
+        <div id="platforms" class="meta-value">-</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Company</div>
-        <div id="company">Cartamundi Digtal</div>
+        <div id="company" class="meta-value">-</div>
       </div>
     </div>
 
     <div class="project-content">
-      <p>De Stemmels is a VR/AR educational boardgame for iOS and Android. This was an educational project developed at Cartamundi Digital.</p>
+      <div class="yt-embed">
+        <iframe src="https://www.youtube.com/embed/uqxR1A9dBso" title="FIFA Heroes Gameplay Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+
+      <div class="project-section">
+        <h2>Info</h2>
+        <p>A prototype for a VR/AR game where kids get to use the STEM methodology to learn whilst playing with a board
+          game and cards.
+
+          This game was later released in 2023. The prototype I worked on together with the other interns was worked on
+          in 2018.</p>
+      </div>
+
+      <div class="grid-row">
+
+        <div class="project-section">
+          <h2>What I did</h2>
+          <ul>
+            <li>Worked together in a team to create a prototype</li>
+            <li>Game design</li>
+            <li>Gameplay programming</li>
+            <li>UI programming</li>
+            <li>Tool programming</li>
+            <ul>
+              <li>Created a localisation manager</li>
+              <li>Created an overview window with info about the current game state </li>
+            </ul>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2>Tech</h2>
+          <ul>
+            <li>C#</li>
+            <li>Unity 6</li>
+            <li>Vuforia</li>
+          </ul>
+        </div>
+
+      </div>
+
     </div>
 
     <div class="project-links">
-      <a id="liveLink" href="https://sites.google.com/view/arno-de-keukelaere/professional-work/de-stemmels" target="_blank">Play Online</a>
-      <a id="sourceLink" href="#" target="_blank">Source Code</a>
-      <a id="documentationLink" href="#" target="_blank">Documentation</a>
+      <a id="liveLink" href="https://play.google.com/store/apps/details?id=com.cartamundidigital.hedgehog&hl=en_GB"
+        target="_blank">Google Play</a>
+      <a id="sourceLink" href="https://apps.apple.com/us/app/stemmels/id1607332202" target="_blank">App store</a>
+      <a id="website" href="https://www.stemmels.com/" target="_blank">Official website</a>
     </div>
   </div>
 
@@ -141,38 +149,24 @@
         const project = projects.find(p => p.title === "De Stemmels");
 
         if (project) {
-          document.querySelector('.project-title').textContent = project.title;
           document.getElementById('projectDescription').textContent = project.description;
           document.getElementById('releaseYear').textContent = project.release || '-';
           document.getElementById('platforms').textContent = project.platforms ? project.platforms.join(', ') : '-';
           document.getElementById('company').textContent = project.company || '-';
 
+          // Determine project type based on tags
           const tags = project.tags || [];
-          // Filter out category tags (Personal, Professional, School)
-          const techTags = tags.filter(tag => !['Personal', 'Professional', 'School', '2010s', '2020s'].includes(tag));
-          document.getElementById('tags').textContent = techTags.length > 0 ? techTags.join(', ') : '-';
+          let projectType = "Personal project"; // default
 
-          if (project.thumbnail) {
-            const img = document.getElementById('projectThumbnail');
-            img.src = project.thumbnail;
-            img.alt = project.title + " thumbnail";
+          if (tags.includes("Professional")) {
+            projectType = "Professional work";
+          } else if (tags.includes("School")) {
+            projectType = "School";
+          } else if (tags.includes("Personal")) {
+            projectType = "Personal project";
           }
 
-          // Set links
-          const liveLink = document.getElementById('liveLink');
-          const sourceLink = document.getElementById('sourceLink');
-          const documentationLink = document.getElementById('documentationLink');
-
-          if (project.url && project.url !== "#") {
-            liveLink.href = project.url;
-            liveLink.style.display = "inline-block";
-          } else {
-            liveLink.style.display = "none";
-          }
-
-          // Hide source and documentation links by default
-          sourceLink.style.display = "none";
-          documentationLink.style.display = "none";
+          document.getElementById('tags').textContent = projectType;
         }
       } catch (error) {
         console.error("Error loading project data:", error);

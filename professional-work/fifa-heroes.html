@@ -139,7 +139,7 @@
         const project = projects.find(p => p.title === "Fifa Heroes");
 
         if (project) {
-          document.querySelector('.project-title').textContent = project.title;
+          // document.querySelector('.project-title').textContent = project.title;
           document.getElementById('projectDescription').textContent = project.description;
           document.getElementById('releaseYear').textContent = project.release || '-';
           document.getElementById('platforms').textContent = project.platforms ? project.platforms.join(', ') : '-';
