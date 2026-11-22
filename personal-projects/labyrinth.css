@@ -172,4 +172,97 @@
   height: auto;
   display: block;
   cursor: pointer;
+}
+
+.page-labyrinth .info-tech-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.page-labyrinth .info-section,
+.page-labyrinth .team-section {
+  padding: 34px;
+  position: relative;
+  background-color: #141417;
+  border: 5px solid #2d2e32;
+  box-shadow: inset 2px 2px 0px #5a5c63, inset -2px -2px 0px #000000, 0 12px 30px rgba(0, 0, 0, 0.85);
+}
+.page-labyrinth .info-section::before, .page-labyrinth .info-section::after,
+.page-labyrinth .team-section::before,
+.page-labyrinth .team-section::after {
+  content: "";
+  position: absolute;
+  left: -5px;
+  right: -5px;
+  height: 16px;
+  pointer-events: none;
+  z-index: 2;
+}
+.page-labyrinth .info-section::before,
+.page-labyrinth .team-section::before {
+  top: -5px;
+  background: linear-gradient(135deg, #f3d55b 0%, #6e5010 50%, transparent 51%) top left/16px 16px no-repeat, linear-gradient(225deg, #f3d55b 0%, #6e5010 50%, transparent 51%) top right/16px 16px no-repeat;
+}
+.page-labyrinth .info-section::after,
+.page-labyrinth .team-section::after {
+  bottom: -5px;
+  background: linear-gradient(45deg, #f3d55b 0%, #6e5010 50%, transparent 51%) bottom left/16px 16px no-repeat, linear-gradient(315deg, #f3d55b 0%, #6e5010 50%, transparent 51%) bottom right/16px 16px no-repeat;
+}
+.page-labyrinth .info-section h2,
+.page-labyrinth .team-section h2 {
+  margin-top: 0;
+  color: #c79e32;
+  border-bottom: 1px solid rgba(199, 158, 50, 0.3);
+  padding-bottom: 0.4rem;
+  font-family: "Cinzel", "Trajan Pro", Georgia, serif;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #f3d55b 0%, #c79e32 52%, #6e5010 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.95));
+}
+.page-labyrinth .info-section ul,
+.page-labyrinth .team-section ul {
+  margin: 0;
+}
+.page-labyrinth .info-section ul li,
+.page-labyrinth .team-section ul li {
+  list-style: none;
+  position: relative;
+  padding-left: 1.65rem;
+  margin-bottom: 0.55rem;
+}
+.page-labyrinth .info-section ul li::before,
+.page-labyrinth .team-section ul li::before {
+  content: "";
+  position: absolute;
+  left: 0.25rem;
+  top: 0.52em;
+  width: 0.52rem;
+  height: 0.52rem;
+  background: linear-gradient(135deg, #f3d55b 0%, #c79e32 100%);
+  border: 1px solid #6e5010;
+  transform: rotate(45deg);
+}
+.page-labyrinth .info-section a,
+.page-labyrinth .team-section a {
+  color: #f3d55b;
+  text-decoration: underline;
+  text-decoration-color: rgba(199, 158, 50, 0.65);
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease, filter 0.15s ease;
+}
+.page-labyrinth .info-section a:hover, .page-labyrinth .info-section a:focus-visible,
+.page-labyrinth .team-section a:hover,
+.page-labyrinth .team-section a:focus-visible {
+  color: #d4d4d4;
+  text-decoration-color: #f3d55b;
+  filter: drop-shadow(0 0 6px rgba(243, 213, 91, 0.35));
+}
+.page-labyrinth .info-section a:visited,
+.page-labyrinth .team-section a:visited {
+  color: #c79e32;
 }/*# sourceMappingURL=labyrinth.css.map */

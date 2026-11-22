@@ -27,7 +27,7 @@
     <section class="project-meta">
       <div class="meta-item">
         <div class="meta-label">Project type</div>
-        <div id="tags" class="meta-value">-</div>
+        <div id="tags" class="meta-value">Personal project, Game jam</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Release Year</div>
@@ -45,10 +45,10 @@
       <p>
         Networked Unity game where one player plays the minotaur roaming the labyrinth finding intruders and the other
         plays the poor soul trying to escape it.
-
-        It's currently not available to play publicly since it has costs associated with it for the networking.
       </p>
+      <p>(It's currently not available to play publicly since it has costs associated with it for the networking)</p>
 
+      </br>
       <h2>What I did</h2>
       <p>
         Gameplay and UI programming.
@@ -60,6 +60,28 @@
         <li>Netcode for Gameobjects</li>
         <li>Relay (for server hosting)</li>
       </ul>
+
+      </br>
+      
+      <div class="info-tech-container">
+        <div class="info-section">
+          <h2>Tech</h2>
+          <ul>
+            <li>Unity</li>
+            <li>Affinity Photo</li>
+          </ul>
+        </div>
+        <div class="team-section">
+          <h2>Team</h2>
+          <ul>
+            <li><strong>Programmer:</strong> <a href="https://www.linkedin.com/in/marek-kocvara/" target="_blank"
+                rel="noopener noreferrer">Marek Kočvara</a></li>
+            <li><strong>Composer:</strong> <a href="https://soundcloud.com/soundsofthewild" target="_blank"
+                rel="noopener noreferrer">Zakery Smith (SoundsOfTheWild)</a></li>
+          </ul>
+        </div>
+      </div>
+
     </section>
 
     <!-- Gallery (Matches shared-gallery structure) -->
@@ -99,16 +121,16 @@
           document.getElementById('releaseYear').textContent = project.release || '-';
           document.getElementById('platforms').textContent = project.platforms ? project.platforms.join(', ') : '-';
 
-          const tags = project.tags || [];
-          let projectType = "Personal project";
+          // const tags = project.tags || [];
+          // let projectType = "Personal project";
 
-          if (tags.includes("Professional")) {
-            projectType = "Professional work";
-          } else if (tags.includes("School")) {
-            projectType = "School";
-          } else if (tags.includes("Personal")) {
-            projectType = "Personal project";
-          }
+          // if (tags.includes("Professional")) {
+          //   projectType = "Professional work";
+          // } else if (tags.includes("School")) {
+          //   projectType = "School";
+          // } else if (tags.includes("Personal")) {
+          //   projectType = "Personal project";
+          // }
 
           document.getElementById('tags').textContent = projectType;
         }
