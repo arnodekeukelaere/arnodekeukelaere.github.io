@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Crimson+Pro:wght@400;600;700&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Crimson Pro", "Times New Roman", serif;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: #d8d4c8;
+  background-color: #09090b;
+  background-image: radial-gradient(circle at 50% 15%, rgba(45, 45, 50, 0.25) 0%, rgba(9, 9, 11, 0.98) 75%), repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.012) 0px, rgba(255, 255, 255, 0.012) 2px, transparent 2px, transparent 6px);
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(199, 158, 50, 0.3);
+  padding-bottom: 0.4rem;
+  font-family: "Cinzel", "Trajan Pro", Georgia, serif;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #f3d55b 0%, #c79e32 52%, #6e5010 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.95));
+}
+
+.project-detail {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.project-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.project-header .project-title {
+  font-size: clamp(2.75rem, 6.5vw, 4.5rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-family: "Cinzel", "Trajan Pro", Georgia, serif;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #f3d55b 0%, #c79e32 52%, #6e5010 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.95));
+}
+
+.media-frame {
+  position: relative;
+  background-color: #141417;
+  border: 5px solid #2d2e32;
+  box-shadow: inset 2px 2px 0px #5a5c63, inset -2px -2px 0px #000000, 0 12px 30px rgba(0, 0, 0, 0.85);
+}
+.media-frame::before, .media-frame::after {
+  content: "";
+  position: absolute;
+  left: -5px;
+  right: -5px;
+  height: 16px;
+  pointer-events: none;
+  z-index: 2;
+}
+.media-frame::before {
+  top: -5px;
+  background: linear-gradient(135deg, #f3d55b 0%, #6e5010 50%, transparent 51%) top left/16px 16px no-repeat, linear-gradient(225deg, #f3d55b 0%, #6e5010 50%, transparent 51%) top right/16px 16px no-repeat;
+}
+.media-frame::after {
+  bottom: -5px;
+  background: linear-gradient(45deg, #f3d55b 0%, #6e5010 50%, transparent 51%) bottom left/16px 16px no-repeat, linear-gradient(315deg, #f3d55b 0%, #6e5010 50%, transparent 51%) bottom right/16px 16px no-repeat;
+}
+.media-frame {
+  overflow: hidden;
+}
+
+.hero-media {
+  max-width: 780px;
+  margin: 0 auto 2rem;
+}
+.hero-media .project-thumbnail {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-description {
+  max-width: 780px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+  font-size: 1.25rem;
+  color: #d8d4c8;
+}
+
+.project-meta {
+  position: relative;
+  background-color: #141417;
+  border: 5px solid #2d2e32;
+  box-shadow: inset 2px 2px 0px #5a5c63, inset -2px -2px 0px #000000, 0 12px 30px rgba(0, 0, 0, 0.85);
+}
+.project-meta::before, .project-meta::after {
+  content: "";
+  position: absolute;
+  left: -5px;
+  right: -5px;
+  height: 16px;
+  pointer-events: none;
+  z-index: 2;
+}
+.project-meta::before {
+  top: -5px;
+  background: linear-gradient(135deg, #f3d55b 0%, #6e5010 50%, transparent 51%) top left/16px 16px no-repeat, linear-gradient(225deg, #f3d55b 0%, #6e5010 50%, transparent 51%) top right/16px 16px no-repeat;
+}
+.project-meta::after {
+  bottom: -5px;
+  background: linear-gradient(45deg, #f3d55b 0%, #6e5010 50%, transparent 51%) bottom left/16px 16px no-repeat, linear-gradient(315deg, #f3d55b 0%, #6e5010 50%, transparent 51%) bottom right/16px 16px no-repeat;
+}
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2.5rem;
+}
+.project-meta .meta-item {
+  flex: 1;
+  min-width: 160px;
+  text-align: center;
+}
+.project-meta .meta-label {
+  font-family: "Cinzel", "Trajan Pro", Georgia, serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #c79e32;
+  margin-bottom: 0.35rem;
+}
+.project-meta .meta-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #d8d4c8;
+}
+
+.project-content {
+  margin-bottom: 3rem;
+}
+
+.project-video-section {
+  margin-bottom: 3rem;
+}
+.project-video-section .video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+.project-video-section .video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.project-gallery-section {
+  margin-bottom: 3rem;
+}
+.project-gallery-section .screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+}
+.project-gallery-section .gallery-item {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+.project-gallery-section .gallery-item:hover {
+  transform: translateY(-3px);
+}
+.project-gallery-section .gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 2px solid #2d2e32;
+}
+.project-gallery-section .gallery-item figcaption {
+  padding: 0.75rem 1rem;
+  font-family: "Cinzel", "Trajan Pro", Georgia, serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+  color: #f3d55b;
+  background-color: #0d0d10;
+}
+
+.project-links {
+  position: relative;
+  background-color: #141417;
+  border: 5px solid #2d2e32;
+  box-shadow: inset 2px 2px 0px #5a5c63, inset -2px -2px 0px #000000, 0 12px 30px rgba(0, 0, 0, 0.85);
+}
+.project-links::before, .project-links::after {
+  content: "";
+  position: absolute;
+  left: -5px;
+  right: -5px;
+  height: 16px;
+  pointer-events: none;
+  z-index: 2;
+}
+.project-links::before {
+  top: -5px;
+  background: linear-gradient(135deg, #f3d55b 0%, #6e5010 50%, transparent 51%) top left/16px 16px no-repeat, linear-gradient(225deg, #f3d55b 0%, #6e5010 50%, transparent 51%) top right/16px 16px no-repeat;
+}
+.project-links::after {
+  bottom: -5px;
+  background: linear-gradient(45deg, #f3d55b 0%, #6e5010 50%, transparent 51%) bottom left/16px 16px no-repeat, linear-gradient(315deg, #f3d55b 0%, #6e5010 50%, transparent 51%) bottom right/16px 16px no-repeat;
+}
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.75rem;
+  margin-top: 2rem;
+}
+.project-links .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;
+  padding: 0.75rem 1.75rem;
+  font-family: "Crimson Pro", "Times New Roman", serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #111111;
+  text-decoration: none;
+  background-color: #9b9b9b;
+  border: 2px solid #000000;
+  border-radius: 0;
+  box-shadow: inset 2px 2px 0px #d4d4d4, inset -2px -2px 0px #4a4a4a;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+.project-links .btn:hover {
+  background-color: #b3b3b3;
+}
+.project-links .btn:active {
+  box-shadow: inset 2px 2px 0px #4a4a4a, inset -2px -2px 0px #d4d4d4;
+}
+.project-links .btn--gold {
+  background: linear-gradient(180deg, #f3d55b 0%, #c79e32 100%);
+  box-shadow: inset 2px 2px 0px #fff2a6, inset -2px -2px 0px #6e5010;
+  font-family: "Cinzel", "Trajan Pro", Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.project-links .btn--gold:hover {
+  filter: brightness(1.08);
+}/*# sourceMappingURL=labyrinth.css.map */

@@ -4,133 +4,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../shared-styles.css">
+  <!-- Point to the compiled CSS file generated from labyrinth.scss -->
+  <link rel="stylesheet" href="labyrinth.css">
   <title>Labyrinth</title>
-  <style>
-    .project-detail {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .project-header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .project-title {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-
-    .project-thumbnail {
-      width: 100%;
-      max-width: 600px;
-      height: auto;
-      margin: 0 auto 20px;
-      display: block;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .project-description {
-      font-size: 1.1em;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 30px;
-      padding: 15px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-    }
-
-    .meta-item {
-      flex: 1;
-      min-width: 150px;
-    }
-
-    .meta-label {
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #666;
-    }
-
-    .project-content {
-      margin-top: 30px;
-    }
-
-    .project-links {
-      margin-top: 20px;
-      padding: 15px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-    }
-
-    .project-links a {
-      display: inline-block;
-      margin-right: 15px;
-      margin-bottom: 10px;
-      padding: 8px 15px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-
-    .project-links a:hover {
-      background-color: #0056b3;
-    }
-  </style>
 </head>
 
-<body>
+<body class="page-labyrinth">
   <div id="site-nav"></div>
 
-  <div class="project-detail">
-    <div class="project-header">
+  <main class="project-detail">
+    <header class="project-header">
       <h1 class="project-title">Labyrinth</h1>
+    </header>
+
+    <div class="media-frame hero-media">
+      <img id="projectThumbnail" class="project-thumbnail"
+        src="https://placehold.co/900x450/141417/c79e32?text=Labyrinth+Key+Art" alt="Labyrinth thumbnail">
     </div>
 
-    <img id="projectThumbnail" class="project-thumbnail" src="" alt="Labyrinth thumbnail">
+    <p id="projectDescription" class="project-description">
+      A 48-hour game jam game, made with colleagues from d3t, about escaping a labyrinth plagued by a minotaur.
+    </p>
 
-    <p id="projectDescription" class="project-description">A 48-hour game jam game, made with colleges from d3t, about escaping a labyrinth plagued by a minotaur.</p>
-
-    <div class="project-meta">
+    <!-- Metadata Panel -->
+    <section class="project-meta">
       <div class="meta-item">
         <div class="meta-label">Release Year</div>
-        <div id="releaseYear">2022</div>
+        <div id="releaseYear" class="meta-value">2022</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Platforms</div>
-        <div id="platforms">PC</div>
+        <div id="platforms" class="meta-value">PC</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Technologies</div>
-        <div id="tags">C#, Unity</div>
+        <div id="tags" class="meta-value">C#, Unity</div>
       </div>
-    </div>
+    </section>
 
-    <div class="project-content">
-      <p>This was a 48-hour game jam project created in collaboration with colleagues from d3t. The game features an escape-the-labyrinth theme with a minotaur antagonist.</p>
-    </div>
+    <!-- Overview Content -->
+    <section class="project-content">
+      <h2>Overview</h2>
+      <p>
+        This was a 48-hour game jam project created in collaboration with colleagues from d3t. The game features an
+        escape-the-labyrinth theme with a relentless minotaur antagonist hunting players through darkened stone
+        corridors.
+      </p>
+    </section>
 
-    <div class="project-links">
-      <a id="liveLink" href="https://sites.google.com/view/arno-de-keukelaere/personal-projects/labyrinth" target="_blank">Play Online</a>
-      <a id="sourceLink" href="#" target="_blank">Source Code</a>
-      <a id="documentationLink" href="#" target="_blank">Documentation</a>
-    </div>
-  </div>
+    <!-- YouTube Gameplay Video Embed -->
+    <section class="project-video-section">
+      <h2>Gameplay Trailer</h2>
+      <div class="media-frame video-wrapper">
+        <!-- Replace VIDEO_ID in the src URL with your actual YouTube video ID -->
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Labyrinth Gameplay Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Placeholder Screenshot Gallery -->
+    <section class="project-gallery-section">
+      <h2>Screenshots</h2>
+      <div class="screenshot-grid">
+        <figure class="media-frame gallery-item">
+          <img src="https://lh3.googleusercontent.com/d/1Duk_fBYOeyNufaHKTRYjrEzs6Yq01RY-" alt="Labyrinth Main Menu">
+          <figcaption>Main Menu &amp; Lobby Selection</figcaption>
+        </figure>
+        <figure class="media-frame gallery-item">
+          <img src="https://lh3.googleusercontent.com/d/1Mw_Z6aEGNMn_2fhtvaZwsoTD4ISjwUnx"
+            alt="Labyrinth Stone Corridors">
+          <figcaption>Exploring the Torchlit Corridors</figcaption>
+        </figure>
+        <figure class="media-frame gallery-item">
+          <img src="https://lh3.googleusercontent.com/d/1RCzAZ7moVC4N5rv-cCewWx4LObsipyD3" alt="Minotaur Encounter">
+          <figcaption>Evading the Minotaur</figcaption>
+        </figure>
+        <figure class="media-frame gallery-item">
+          <img src="https://lh3.googleusercontent.com/d/1Sx8D_JmMnVIba8Y7Lz3uz4VEcr_F-uUc" alt="LAN Multiplayer">
+          <figcaption>Co-op Escape via LAN</figcaption>
+        </figure>
+        <figure class="media-frame gallery-item">
+          <img src="https://lh3.googleusercontent.com/d/1O5EWKS_DkqYHxqN77xG2hWEKyLU6iK10" alt="LAN Multiplayer">
+          <figcaption>Co-op Escape via LAN</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Action Links (Styled as Classic Beveled RPG Buttons) -->
+    <section class="project-links">
+      <a id="liveLink" class="btn btn--gold"
+        href="https://sites.google.com/view/arno-de-keukelaere/personal-projects/labyrinth" target="_blank">Play
+        Online</a>
+      <a id="sourceLink" class="btn" href="#" target="_blank">Source Code</a>
+      <a id="documentationLink" class="btn" href="#" target="_blank">Documentation</a>
+    </section>
+  </main>
 
   <script src="../layout.js"></script>
 
   <script>
-    // This script will be populated with individual project data
     async function initProject() {
       try {
         const projects = await window.SiteUtils.fetchJson("../projects.json");
@@ -143,7 +118,6 @@
           document.getElementById('platforms').textContent = project.platforms ? project.platforms.join(', ') : '-';
 
           const tags = project.tags || [];
-          // Filter out category tags (Personal, Professional, School)
           const techTags = tags.filter(tag => !['Personal', 'Professional', 'School', '2010s', '2020s'].includes(tag));
           document.getElementById('tags').textContent = techTags.length > 0 ? techTags.join(', ') : '-';
 
@@ -153,19 +127,17 @@
             img.alt = project.title + " thumbnail";
           }
 
-          // Set links
           const liveLink = document.getElementById('liveLink');
           const sourceLink = document.getElementById('sourceLink');
           const documentationLink = document.getElementById('documentationLink');
 
           if (project.url && project.url !== "#") {
             liveLink.href = project.url;
-            liveLink.style.display = "inline-block";
+            liveLink.style.display = "inline-flex";
           } else {
             liveLink.style.display = "none";
           }
 
-          // Hide source and documentation links by default
           sourceLink.style.display = "none";
           documentationLink.style.display = "none";
         }

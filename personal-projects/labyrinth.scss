@@ -1,0 +1,349 @@
+// ==========================================================================
+// LABYRINTH - PROJECT PAGE & DARK FANTASY RPG STYLESHEET
+// ==========================================================================
+
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Crimson+Pro:wght@400;600;700&display=swap");
+
+// 1. Color Variables
+$color-abyss-black: #09090b;
+$color-obsidian-slate: #141417;
+$color-iron-frame: #2d2e32;
+$color-iron-highlight: #5a5c63;
+
+$color-gold-bright: #f3d55b;
+$color-gold-mid: #c79e32;
+$color-gold-shadow: #6e5010;
+
+$color-stone-btn: #9b9b9b;
+$color-stone-hover: #b3b3b3;
+$color-stone-light: #d4d4d4;
+$color-stone-dark: #4a4a4a;
+$color-ink-black: #111111;
+$color-parchment-text: #d8d4c8;
+
+// 2. Typography & Bevels
+$font-display: "Cinzel", "Trajan Pro", Georgia, serif;
+$font-body: "Crimson Pro", "Times New Roman", serif;
+
+$shadow-deep: 0 12px 30px rgba(0, 0, 0, 0.85);
+$bevel-panel:
+  inset 2px 2px 0px $color-iron-highlight,
+  inset -2px -2px 0px #000000;
+$bevel-button:
+  inset 2px 2px 0px $color-stone-light,
+  inset -2px -2px 0px $color-stone-dark;
+$bevel-pressed:
+  inset 2px 2px 0px $color-stone-dark,
+  inset -2px -2px 0px $color-stone-light;
+
+// 3. Mixins
+@mixin gold-metallic-text {
+  font-family: $font-display;
+  text-transform: uppercase;
+  background: linear-gradient(
+    180deg,
+    $color-gold-bright 0%,
+    $color-gold-mid 52%,
+    $color-gold-shadow 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.95));
+}
+
+@mixin labyrinth-frame {
+  position: relative;
+  background-color: $color-obsidian-slate;
+  border: 5px solid $color-iron-frame;
+  box-shadow: $bevel-panel, $shadow-deep;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: -5px;
+    right: -5px;
+    height: 16px;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  &::before {
+    top: -5px;
+    background:
+      linear-gradient(
+          135deg,
+          $color-gold-bright 0%,
+          $color-gold-shadow 50%,
+          transparent 51%
+        )
+        top left / 16px 16px no-repeat,
+      linear-gradient(
+          225deg,
+          $color-gold-bright 0%,
+          $color-gold-shadow 50%,
+          transparent 51%
+        )
+        top right / 16px 16px no-repeat;
+  }
+
+  &::after {
+    bottom: -5px;
+    background:
+      linear-gradient(
+          45deg,
+          $color-gold-bright 0%,
+          $color-gold-shadow 50%,
+          transparent 51%
+        )
+        bottom left / 16px 16px no-repeat,
+      linear-gradient(
+          315deg,
+          $color-gold-bright 0%,
+          $color-gold-shadow 50%,
+          transparent 51%
+        )
+        bottom right / 16px 16px no-repeat;
+  }
+}
+
+// 4. Base Styles
+* {
+  box-sizing: border-box;
+}
+
+body {
+//   margin: 0;
+  font-family: $font-body;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: $color-parchment-text;
+  background-color: $color-abyss-black;
+  background-image:
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(45, 45, 50, 0.25) 0%,
+      rgba(9, 9, 11, 0.98) 75%
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.012) 0px,
+      rgba(255, 255, 255, 0.012) 2px,
+      transparent 2px,
+      transparent 6px
+    );
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid rgba($color-gold-mid, 0.3);
+  padding-bottom: 0.4rem;
+  @include gold-metallic-text;
+}
+
+// 5. Project Detail Layout
+.project-detail {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.project-header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  .project-title {
+    font-size: clamp(2.75rem, 6.5vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    @include gold-metallic-text;
+  }
+}
+
+// 6. Framed Media Containers (Thumbnail, Video, Screenshots)
+.media-frame {
+  @include labyrinth-frame;
+  overflow: hidden;
+}
+
+.hero-media {
+  max-width: 780px;
+  margin: 0 auto 2rem;
+
+  .project-thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.project-description {
+  max-width: 780px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+  font-size: 1.25rem;
+  color: $color-parchment-text;
+}
+
+// 7. Metadata Box
+.project-meta {
+  @include labyrinth-frame;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2.5rem;
+
+  .meta-item {
+    flex: 1;
+    min-width: 160px;
+    text-align: center;
+  }
+
+  .meta-label {
+    font-family: $font-display;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $color-gold-mid;
+    margin-bottom: 0.35rem;
+  }
+
+  .meta-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: $color-parchment-text;
+  }
+}
+
+// 8. Overview Content
+.project-content {
+  margin-bottom: 3rem;
+}
+
+// 9. Responsive YouTube Video Embed
+.project-video-section {
+  margin-bottom: 3rem;
+
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; // 16:9 Aspect Ratio
+    height: 0;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  }
+}
+
+// 10. Screenshot Gallery Grid
+.project-gallery-section {
+  margin-bottom: 3rem;
+
+  .screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.75rem;
+  }
+
+  .gallery-item {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-bottom: 2px solid $color-iron-frame;
+    }
+
+    figcaption {
+      padding: 0.75rem 1rem;
+      font-family: $font-display;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-align: center;
+      color: $color-gold-bright;
+      background-color: #0d0d10;
+    }
+  }
+}
+
+// 11. Project Links & Classic Beveled Buttons
+.project-links {
+  @include labyrinth-frame;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.75rem;
+  margin-top: 2rem;
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    padding: 0.75rem 1.75rem;
+    font-family: $font-body;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: $color-ink-black;
+    text-decoration: none;
+    background-color: $color-stone-btn;
+    border: 2px solid #000000;
+    border-radius: 0;
+    box-shadow: $bevel-button;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+
+    &:hover {
+      background-color: $color-stone-hover;
+    }
+
+    &:active {
+      box-shadow: $bevel-pressed;
+    }
+
+    &--gold {
+      background: linear-gradient(
+        180deg,
+        $color-gold-bright 0%,
+        $color-gold-mid 100%
+      );
+      box-shadow:
+        inset 2px 2px 0px #fff2a6,
+        inset -2px -2px 0px $color-gold-shadow;
+      font-family: $font-display;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+
+      &:hover {
+        filter: brightness(1.08);
+      }
+    }
+  }
+}
