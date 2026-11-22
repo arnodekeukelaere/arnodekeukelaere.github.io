@@ -557,7 +557,9 @@ h1 {
 }
 
 /* Dark mode style */
-html[data-theme="dark"]:not(:has(body.page-keep-munching, body.page-industrial-cleansing)) {
+html[data-theme="dark"]:not(:has(body.page-keep-munching,
+    body.page-industrial-cleansing,
+    body.page-neko-pakku-crash)) {
 
   background-color: #181A1B;
 
