@@ -22,14 +22,12 @@
 
     <div class="project-description-container">
       <p id="projectDescription" class="project-description">-</p>
-      <a id="playNowButton" href="#" target="_blank" class="play-now-button">Play now (flash)</a>
-      <a id="downloadNowButton" href="https://mega.nz/file/qcggxS6S#3WSq53jNywVjecLszWS1oUH6cdEuYddNwRF4RWjVaa0"
-        target="_blank" class="play-now-button">Download now</a>
+      <a id="playNowButton" href="../flash-games/neko-pakku-crash-modern.html" target="_blank" class="play-now-button">Play now</a>
     </div>
 
     <div class="project-meta">
       <div class="meta-item">
-        <div class="meta-label">Type</div>
+        <div class="meta-label">Project type</div>
         <div id="tags">-</div>
       </div>
       <div class="meta-item">
@@ -70,7 +68,6 @@
           href="https://www.newgrounds.com/portal/rip/636474" target="_blank">here</a>.
       </p>
 
-
       <h2 class="section-title">Tech</h2>
       <ul>
         <li><strong>Engine:</strong> Stencyl</li>
@@ -78,7 +75,7 @@
         <li><strong>Audio Tools:</strong> Bfxr, Audacity</li>
       </ul>
 
-      <h2>Gallery</h2>
+      <h2 class="section-title">Gallery</h2>
       <div class="image-gallery">
         <div class="gallery-item"><img src="https://lh3.googleusercontent.com/d/1zhTC-Lvp3s79Zkx3O3qbTnSfvhHgZad3"
             alt="Neko-Pakku Crash! 1">
@@ -101,8 +98,10 @@
       </div>
 
       <div class="project-links">
-        <a id="liveLink" href="https://mega.nz/file/qcggxS6S#3WSq53jNywVjecLszWS1oUH6cdEuYddNwRF4RWjVaa0"
-          target="_blank">Play now (Flash)</a>
+        <div class="gameplay-mechanics">
+          <p>Note: playing the downloaded version requires a: <a href="https://www.newgrounds.com/flash/player"
+              target="_blank">flash player</a></p>
+        </div>
         <a id="downloadLink1" href="https://mega.nz/file/qcggxS6S#3WSq53jNywVjecLszWS1oUH6cdEuYddNwRF4RWjVaa0"
           target="_blank">Download (Mega.nz)</a>
         <a id="downloadLink2"
@@ -127,29 +126,20 @@
           document.getElementById('releaseYear').textContent = project.release || '-';
           // document.getElementById('platforms').textContent = project.platforms ? project.platforms.join(', ') : '-';
 
+          // Determine project type based on tags
           const tags = project.tags || [];
-          // Filter out category tags (Personal, Professional, School)
-          const techTags = tags.filter(tag => !['Personal', 'Professional', 'School', '2010s', '2020s'].includes(tag));
-          document.getElementById('tags').textContent = techTags.length > 0 ? techTags.join(', ') : '-';
+          let projectType = "Personal project"; // default
 
-          // Set links
-          const liveLink = document.getElementById('liveLink');
-          const downloadLink1 = document.getElementById('downloadLink1');
-          const downloadLink2 = document.getElementById('downloadLink2');
-          const playNowButton = document.getElementById('playNowButton');
-
-          if (project.url && project.url !== "#") {
-            liveLink.href = project.url;
-            liveLink.style.display = "inline-block";
-            playNowButton.href = project.url;  // Set the play now button to same URL
-          } else {
-            liveLink.style.display = "none";
-            playNowButton.style.display = "none";  // Hide play now button if no URL
+          if (tags.includes("Professional")) {
+            projectType = "Professional work";
+          } else if (tags.includes("School")) {
+            projectType = "School";
+          } else if (tags.includes("Personal")) {
+            projectType = "Personal project";
           }
 
-          // Show download links (they are always visible now)
-          downloadLink1.style.display = "inline-block";
-          downloadLink2.style.display = "inline-block";
+          document.getElementById('tags').textContent = projectType;
+
         }
       } catch (error) {
         console.error("Error loading project data:", error);
