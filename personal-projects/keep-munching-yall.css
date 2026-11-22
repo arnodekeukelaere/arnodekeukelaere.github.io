@@ -34,37 +34,7 @@ body.page-keep-munching .project-detail {
 body.page-keep-munching .project-header {
   text-align: center;
   margin-bottom: 2rem;
-}
-
-body.page-keep-munching .project-title {
-  display: inline-block;
-  font-family: 'Fredoka', 'Roboto', sans-serif;
-  font-size: clamp(2.2rem, 5vw, 3.75rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  line-height: 1.05;
-  color: #ffe31a;
-  background-color: #1d120d;
-  padding: 0.75rem 1.5rem;
-  border: 4px solid #1d120d;
-  border-radius: 24px;
-  box-shadow: 6px 6px 0px #1d120d;
-  transform: rotate(-1.5deg);
-  margin-bottom: 1rem;
-}
-
-/* Thumbnail framed like a comic sticker */
-body.page-keep-munching .project-thumbnail {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  margin: 0 auto 1.5rem;
-  display: block;
-  border: 4px solid #1d120d;
-  border-radius: 20px;
-  box-shadow: 8px 8px 0px #1d120d;
-  background-color: #fffdf2;
+  box-shadow: 0 0;
 }
 
 body.page-keep-munching .project-description,
@@ -109,7 +79,6 @@ body.page-keep-munching .project-description-container .meta-button {
   }
 }
 
-/* Standout Sticker CTA for "Click to play" (capped at max-width) */
 body.page-keep-munching .project-description-container .meta-button.play a {
   display: inline-flex;
   flex-direction: column;
@@ -126,10 +95,6 @@ body.page-keep-munching .project-description-container .meta-button.play a {
   text-align: center;
   border: 4px solid #1d120d;
   border-radius: 22px;
-  box-shadow:
-    0 0 0 4px #fffdf2,
-    0 0 0 7px #1d120d,
-    8px 8px 0px #f5821f;
 }
 
 body.page-keep-munching .meta-button.play .play-label {

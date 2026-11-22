@@ -186,8 +186,9 @@ h1 {
   position: fixed;
   bottom: 0;
   right: 0;
-  padding: 15px;
-  background-color: #181A1B;
+  padding: 5px;
+  padding-right: 25px;
+  /* background-color: #181A1B; */
   /* Dark mode default background */
   /* border-top-left-radius: 10px; */
   /* box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.1); */
@@ -206,7 +207,7 @@ h1 {
   bottom: 0;
   left: 0;
   padding: 15px;
-  background-color: #181A1B;
+  /* background-color: #181A1B; */
   /* border-top-right-radius: 10px; */
   /* box-shadow: 2px -2px 5px rgba(0, 0, 0, 0.1); */
   z-index: 1002;
@@ -242,6 +243,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* text-shadow: 0 0 5px rgba(0, 0, 0, 1); */
 }
 
 .dark-mode-toggle svg {
@@ -560,7 +562,8 @@ h1 {
 html[data-theme="dark"]:not(:has(body.page-keep-munching,
     body.page-industrial-cleansing,
     body.page-neko-pakku-crash,
-    body.page-labyrinth)) {
+    body.page-labyrinth,
+    body.page-ball-after-life)) {
 
   background-color: #181A1B;
 

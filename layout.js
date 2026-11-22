@@ -446,12 +446,12 @@
       };
     });
 
-    if (footer) {
-      footer.style.backgroundColor = bg;
-    }
-    if (darkFooter) {
-      darkFooter.style.backgroundColor = bg;
-    }
+    // if (footer) {
+    //   footer.style.backgroundColor = bg;
+    // }
+    // if (darkFooter) {
+    //   darkFooter.style.backgroundColor = bg;
+    // }
 
     document.documentElement.setAttribute(
       "data-theme",

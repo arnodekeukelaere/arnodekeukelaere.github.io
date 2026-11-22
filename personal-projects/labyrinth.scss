@@ -164,6 +164,7 @@ $bevel-pressed:
   margin-bottom: 2rem;
 
   img {
+    min-width: 800px;
     max-width: 100%;
     height: auto;
   }
@@ -293,6 +294,7 @@ $bevel-pressed:
 
   ul {
     margin: 0;
+    padding-left: 0px;
 
     li {
       list-style: none;
