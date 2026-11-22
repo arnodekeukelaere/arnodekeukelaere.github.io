@@ -16,218 +16,8 @@ body.page-industrial-cleansing {
             transparent 2px,
             transparent 96px),
         linear-gradient(180deg, #16191e 0%, #0d0f12 100%);
-}
 
-/* Main Facility Container */
-body.page-industrial-cleansing .project-detail {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #191c21;
-    border: 3px solid #3a404a;
-    border-radius: 6px;
-    box-shadow:
-        inset 0 0 0 2px #0b0d0f,
-        0 14px 32px rgba(0, 0, 0, 0.65);
-}
-
-/* Header & Purge-Red Title Plate */
-body.page-industrial-cleansing .project-header {
-    text-align: center;
-    margin-bottom: 1.75rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 2px solid #2e333b;
-}
-
-body.page-industrial-cleansing .project-title {
-    display: inline-block;
-    margin: 0;
-    padding: 0.55rem 1.5rem;
-    font-family: 'Chakra Petch', 'Roboto', sans-serif;
-    font-size: clamp(2rem, 4.5vw, 3.25rem);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    line-height: 1.1;
-    color: #ff3308;
-    background-color: #120908;
-    border: 3px solid #454c57;
-    border-radius: 4px;
-    box-shadow:
-        inset 0 0 18px rgba(255, 42, 0, 0.22),
-        0 0 16px rgba(255, 42, 0, 0.25),
-        0 6px 0 #0a0b0d;
-    text-shadow: 0 0 12px rgba(255, 51, 8, 0.55);
-}
-
-/* Framed Viewport Thumbnail */
-body.page-industrial-cleansing .project-thumbnail {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    margin: 0 auto 1.75rem;
-    display: block;
-    padding: 8px;
-    background-color: #101215;
-    border: 3px solid #3a404a;
-    border-radius: 6px;
-    box-shadow:
-        inset 0 0 0 2px #23272e,
-        0 10px 24px rgba(0, 0, 0, 0.6);
-}
-
-/* Briefing / Description Readout */
-body.page-industrial-cleansing .project-description {
-    font-family: 'Share Tech Mono', 'Roboto', monospace;
-    font-size: 1.05rem;
-    line-height: 1.65;
-    color: #f4f6f8;
-    background-color: #121418;
-    padding: 1.15rem 1.35rem;
-    margin: 0 0 1.75rem;
-    border: 2px solid #323740;
-    border-left: 5px solid #ff3308;
-    border-radius: 4px;
-    box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.55);
-}
-
-/* Telemetry / Spec Strip */
-body.page-industrial-cleansing .project-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 1.75rem;
-    padding: 1rem;
-    background-color: #121418;
-    border: 2px solid #2e333b;
-    border-radius: 4px;
-}
-
-body.page-industrial-cleansing .meta-item {
-    flex: 1;
-    min-width: 150px;
-    padding: 0.85rem 1rem;
-    background-color: #1d2127;
-    border: 2px solid #383e48;
-    border-radius: 4px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-body.page-industrial-cleansing .meta-label {
-    font-family: 'Chakra Petch', 'Roboto', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: white;
-    margin-bottom: 0.35rem;
-}
-
-body.page-industrial-cleansing .meta-item>div:not(.meta-label) {
-    font-family: 'Share Tech Mono', 'Roboto', monospace;
-    font-size: 1.15rem;
-    color: #ff471a;
-    letter-spacing: 0.04em;
-}
-
-/* Extended Notes / Content Panel */
-body.page-industrial-cleansing .project-content {
-    margin-top: 1.5rem;
-    padding: 1.25rem 1.4rem;
-    background-color: #14171c;
-    border: 2px solid #2e333b;
-    border-radius: 4px;
-    color: #cfd5df;
-    line-height: 1.65;
-}
-
-body.page-industrial-cleansing .project-content p {
-    margin: 0;
-}
-
-/* Info and Tech 2-column layout */
-body.page-industrial-cleansing .info-tech-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-bottom: 30px;
-}
-
-body.page-industrial-cleansing .info-section,
-body.page-industrial-cleansing .tech-section {
-    background-color: #121418;
-    padding: 20px;
-    border: 2px solid #2e333b;
-    border-radius: 4px;
-}
-
-body.page-industrial-cleansing .info-section h2,
-body.page-industrial-cleansing .tech-section h2 {
-    margin-top: 0;
-    color: #ff3308;
-    border-bottom: 2px solid #ff3308;
-    padding-bottom: 10px;
-    font-family: 'Chakra Petch', 'Roboto', sans-serif;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-/* Action Controls Bar */
-body.page-industrial-cleansing .project-links {
-    margin-top: 1.75rem;
-    padding: 1.15rem 1.25rem;
-    background-color: #121418;
-    border: 2px solid #353b45;
-    border-radius: 4px;
-}
-
-body.page-industrial-cleansing .project-links a {
-    display: inline-block;
-    margin-right: 0.85rem;
-    margin-bottom: 0.5rem;
-    padding: 0.65rem 1.25rem;
-    font-family: 'Chakra Petch', 'Roboto', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    text-decoration: none;
-    color: #ffffff;
-    background-color: #b81d00;
-    border: 2px solid #ff471a;
-    border-radius: 4px;
-    box-shadow: 0 4px 0 #0b0c0e, 0 0 12px rgba(255, 42, 0, 0.25);
-    transition: transform 0.1s ease, background-color 0.12s ease, box-shadow 0.12s ease;
-}
-
-body.page-industrial-cleansing .project-links a:hover {
-    background-color: #ff3308;
-    color: #111316;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 0 #0b0c0e, 0 0 18px rgba(255, 51, 8, 0.55);
-}
-
-body.page-industrial-cleansing .project-links a:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 0 #0b0c0e;
-}
-
-/* Secondary / Caution Accent Variant (for documentation or secondary links if shown) */
-body.page-industrial-cleansing .project-links a+a {
-    background-color: #1f5fbf;
-    border-color: #5b96f0;
-    box-shadow: 0 4px 0 #0b0c0e;
-}
-
-body.page-industrial-cleansing .project-links a+a:hover {
-    background-color: #3678db;
-    color: #ffffff;
-    box-shadow: 0 6px 0 #0b0c0e;
-}
-
-/* Override shared gallery for Industrial Cleansing */
-body.page-industrial-cleansing {
+    /* Override shared gallery for Industrial Cleansing */
     --gallery-section-bg: #121418;
     --gallery-section-border: 2px solid #2e333b;
     --gallery-section-radius: 4px;
@@ -257,20 +47,343 @@ body.page-industrial-cleansing {
     --lightbox-caption-color: #ff471a;
     --lightbox-caption-border: 2px solid #ff3308;
     --lightbox-font: 'Share Tech Mono', 'Roboto', monospace;
-}
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-    body.page-industrial-cleansing .info-tech-container {
-        grid-template-columns: 1fr;
+    /* Main Facility Container */
+    .project-detail {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background-color: #191c21;
+        border: 3px solid #3a404a;
+        border-radius: 6px;
+        box-shadow:
+            inset 0 0 0 2px #0b0d0f,
+            0 14px 32px rgba(0, 0, 0, 0.65);
     }
 
-    body.page-industrial-cleansing .project-detail {
+    /* Header & Purge-Red Title Plate */
+    .project-header {
+        text-align: center;
+        margin-bottom: 1.75rem;
+        padding-bottom: 1.25rem;
+        /* border-bottom: 2px solid #2e333b; */
+
+        img {
+            min-width: 800px;
+        }
+    }
+
+    .project-title {
+        display: inline-block;
+        margin: 0;
+        padding: 0.55rem 1.5rem;
+        font-family: 'Chakra Petch', 'Roboto', sans-serif;
+        font-size: clamp(2rem, 4.5vw, 3.25rem);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        line-height: 1.1;
+        color: #ff3308;
+        background-color: #120908;
+        border: 3px solid #454c57;
+        border-radius: 4px;
+        box-shadow:
+            inset 0 0 18px rgba(255, 42, 0, 0.22),
+            0 0 16px rgba(255, 42, 0, 0.25),
+            0 6px 0 #0a0b0d;
+        text-shadow: 0 0 12px rgba(255, 51, 8, 0.55);
+    }
+
+    /* Briefing / Description Readout */
+    .project-description {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: 'Share Tech Mono', 'Roboto', monospace;
+        font-size: 1.05rem;
+        line-height: 1.65;
+        color: #f4f6f8;
+        background-color: #121418;
+        padding: 1.15rem 1.35rem;
+        margin: 0 0 1.75rem;
+        border: 2px solid #323740;
+        border-left: 5px solid #ff3308;
+        border-radius: 4px;
+        box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.55);
+    }
+
+    /* Telemetry / Spec Strip */
+    .project-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.75rem;
         padding: 1rem;
-        margin: 1rem auto;
+        background-color: #121418;
+        border: 2px solid #2e333b;
+        border-radius: 4px;
     }
 
-    body.page-industrial-cleansing .project-title {
-        font-size: clamp(1.5rem, 4vw, 2.25rem);
+    .meta-item {
+        flex: 1;
+        min-width: 150px;
+        padding: 0.85rem 1rem;
+        background-color: #1d2127;
+        border: 2px solid #383e48;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+        >div:not(.meta-label) {
+            font-family: 'Share Tech Mono', 'Roboto', monospace;
+            font-size: 1.15rem;
+            color: #ff471a;
+            letter-spacing: 0.04em;
+        }
+    }
+
+    .meta-label {
+        font-family: 'Chakra Petch', 'Roboto', sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: white;
+        margin-bottom: 0.35rem;
+    }
+
+    /* Extended Notes / Content Panel */
+    .project-content {
+        margin-top: 1.5rem;
+        padding: 1.25rem 1.4rem;
+        background-color: #14171c;
+        border: 2px solid #2e333b;
+        border-radius: 4px;
+        color: #cfd5df;
+        line-height: 1.65;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    /* Info and Tech 2-column layout */
+    .info-tech-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+
+    .info-section,
+    .tech-section {
+        background-color: #121418;
+        padding: 20px;
+        border: 2px solid #2e333b;
+        border-radius: 4px;
+
+    }
+
+    h2 {
+        margin-top: 0;
+        color: #ff3308;
+        border-bottom: 2px solid #ff3308;
+        padding-bottom: 10px;
+        font-family: 'Chakra Petch', 'Roboto', sans-serif;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    /* Action Controls Bar */
+    .project-links {
+        margin-top: 1.75rem;
+        padding: 1.15rem 1.25rem;
+        background-color: #121418;
+        border: 2px solid #353b45;
+        border-radius: 4px;
+
+        a {
+            display: inline-block;
+            margin-right: 0.85rem;
+            margin-bottom: 0.5rem;
+            padding: 0.65rem 1.25rem;
+            font-family: 'Chakra Petch', 'Roboto', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #b81d00;
+            border: 2px solid #ff471a;
+            border-radius: 4px;
+            box-shadow: 0 4px 0 #0b0c0e, 0 0 12px rgba(255, 42, 0, 0.25);
+            transition: transform 0.1s ease, background-color 0.12s ease, box-shadow 0.12s ease;
+
+            &:hover {
+                background-color: #ff3308;
+                color: #111316;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 0 #0b0c0e, 0 0 18px rgba(255, 51, 8, 0.55);
+            }
+
+            &:active {
+                transform: translateY(2px);
+                box-shadow: 0 2px 0 #0b0c0e;
+            }
+
+            +a {
+                background-color: #1f5fbf;
+                border-color: #5b96f0;
+                box-shadow: 0 4px 0 #0b0c0e;
+
+                &:hover {
+                    background-color: #3678db;
+                    color: #ffffff;
+                    box-shadow: 0 6px 0 #0b0c0e;
+                }
+            }
+        }
+    }
+
+    /* 2-column layout: description fills remaining space, button caps at 340px */
+    .project-description-container {
+        display: grid;
+        grid-template-columns: 1fr minmax(260px, 340px);
+        gap: 1.5rem;
+        margin-bottom: 1.75rem;
+        align-items: stretch;
+
+        .project-description {
+            margin-bottom: 0;
+            min-width: 0;
+        }
+
+        .meta-button {
+            margin-bottom: 0;
+            display: flex;
+            align-items: stretch;
+            justify-content: flex-end;
+        }
+    }
+
+    /* Glowing Red LCD Panel CTA for "Play Now" */
+    .meta-button.play {
+        a {
+            box-sizing: border-box;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            text-decoration: none;
+            color: #ff3308;
+            background-color: #0d0706;
+            background-image:
+                repeating-linear-gradient(0deg,
+                    rgba(255, 51, 8, 0.06) 0px,
+                    rgba(255, 51, 8, 0.06) 1px,
+                    transparent 1px,
+                    transparent 4px),
+                radial-gradient(circle at center, rgba(255, 42, 0, 0.16) 0%, rgba(10, 5, 4, 0.96) 85%);
+            border: 3px solid #454c57;
+            border-radius: 4px;
+            box-shadow:
+                inset 0 0 0 2px #090a0c,
+                inset 0 0 22px rgba(255, 42, 0, 0.25),
+                0 0 16px rgba(255, 42, 0, 0.18),
+                0 5px 0 #0a0b0d;
+            transition:
+                transform 0.1s ease,
+                border-color 0.14s ease,
+                box-shadow 0.14s ease,
+                background-color 0.14s ease;
+
+            &:hover,
+            &:focus-visible {
+                background-color: #160907;
+                border-color: #ff471a;
+                transform: translateY(-2px);
+                box-shadow:
+                    inset 0 0 0 2px #090a0c,
+                    inset 0 0 30px rgba(255, 51, 8, 0.42),
+                    0 0 22px rgba(255, 51, 8, 0.45),
+                    0 7px 0 #0a0b0d;
+                outline: none;
+
+                .play-label {
+                    color: #ff5938;
+                    text-shadow:
+                        0 0 10px rgba(255, 89, 56, 0.95),
+                        0 0 24px rgba(255, 42, 0, 0.7);
+                }
+
+                .play-sub {
+                    color: #ffd6cc;
+                    background-color: rgba(255, 51, 8, 0.22);
+                    border-color: #ff471a;
+                }
+            }
+
+            &:active {
+                transform: translateY(2px);
+                box-shadow:
+                    inset 0 0 0 2px #090a0c,
+                    inset 0 0 26px rgba(255, 51, 8, 0.35),
+                    0 2px 0 #0a0b0d;
+            }
+        }
+
+        .play-label {
+            font-family: 'Chakra Petch', 'Roboto', sans-serif;
+            font-size: clamp(1.35rem, 2.3vw, 1.8rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            line-height: 1.1;
+            color: #ff3308;
+            text-shadow:
+                0 0 8px rgba(255, 51, 8, 0.8),
+                0 0 18px rgba(255, 42, 0, 0.45);
+        }
+
+        .play-sub {
+            font-family: 'Share Tech Mono', 'Roboto', monospace;
+            font-size: 0.85rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #ff6b4a;
+            background-color: rgba(255, 42, 0, 0.1);
+            padding: 0.22rem 0.7rem;
+            border: 1px solid rgba(255, 71, 26, 0.45);
+            border-radius: 2px;
+            text-shadow: 0 0 6px rgba(255, 51, 8, 0.55);
+        }
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 768px) {
+        .project-description-container {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .info-tech-container {
+            grid-template-columns: 1fr;
+        }
+
+        .project-detail {
+            padding: 1rem;
+            margin: 1rem auto;
+        }
+
+        .project-title {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+        }
     }
 }

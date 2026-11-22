@@ -9,129 +9,28 @@
   <link rel="stylesheet" href="../shared-gallery.css">
   <link rel="stylesheet" href="industrial-cleansing.css">
   <title>Industrial Cleansing</title>
-  <style>
-    .project-detail {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .project-header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .project-title {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-
-    .project-thumbnail {
-      width: 100%;
-      max-width: 600px;
-      height: auto;
-      margin: 0 auto 20px;
-      display: block;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .project-description {
-      font-size: 1.1em;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 30px;
-      padding: 15px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-    }
-
-    .meta-item {
-      flex: 1;
-      min-width: 150px;
-    }
-
-    .meta-label {
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #666;
-    }
-
-    .project-content {
-      margin-top: 30px;
-    }
-
-    .info-tech-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      margin-bottom: 30px;
-    }
-
-    .info-section,
-    .tech-section {
-      background-color: #f8f9fa;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    }
-
-    .info-section h2,
-    .tech-section h2 {
-      margin-top: 0;
-      color: #333;
-      border-bottom: 2px solid #007bff;
-      padding-bottom: 10px;
-    }
-
-    .project-links {
-      margin-top: 20px;
-      padding: 15px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-    }
-
-    .project-links a {
-      display: inline-block;
-      margin-right: 15px;
-      margin-bottom: 10px;
-      padding: 8px 15px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-
-    .project-links a:hover {
-      background-color: #0056b3;
-    }
-
-    @media (max-width: 768px) {
-      .info-tech-container {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
-
 
 <body class="page-industrial-cleansing">
   <div id="site-nav"></div>
 
   <div class="project-detail">
     <div class="project-header">
-      <h1 class="project-title">Industrial Cleansing</h1>
+      <!-- <h1 class="project-title"> -->
+        <img src="https://lh3.googleusercontent.com/d/1s7uhPyQhUGT276S0KaGXaC-NnGR07csV" style="width:512px" />
+      <!-- </h1> -->
     </div>
 
-
-
-    <p id="projectDescription" class="project-description">-</p>
+    <div class="project-description-container">
+      <p id="projectDescription" class="project-description">-</p>
+      <div class="meta-button play">
+        <a href="steam://run/590830//-rungame%20clubthirtythree.industrialcleansing/" target="_blank"
+          rel="noopener noreferrer">
+          <span class="play-label">▶ Click to play</span>
+          <span class="play-sub">Requires Steam + s&amp;box</span>
+        </a>
+      </div>
+    </div>
 
     <div class="project-meta">
       <div class="meta-item">
@@ -159,13 +58,13 @@
 
     <div class="project-content">
       <div class="info-tech-container">
-        <div class="info-section">
+        <div>
           <h2>Info</h2>
           <p>A top-down 2.5D physics-based game where you use your mouse and keyboard to grab objects, move them to a
             central sink, and clean away strange “growths” using a variety of cleansing tools. Built in a weekend and
             refined over the following weeks and available free to play on s&box!</p>
         </div>
-        <div class="tech-section">
+        <div>
           <h2>Tech</h2>
           <ul>
             <li>C#</li>
@@ -208,7 +107,7 @@
         const project = projects.find(p => p.title === "Industrial Cleansing");
 
         if (project) {
-          document.querySelector('.project-title').textContent = project.title;
+          // document.querySelector('.project-title').textContent = project.title;
           document.getElementById('projectDescription').textContent = project.description;
           document.getElementById('releaseYear').textContent = project.release || '-';
           document.getElementById('platforms').textContent = project.platforms ? project.platforms.join(', ') : '-';
