@@ -152,6 +152,7 @@ body.page-ball-after-life {
   outline-offset: -6px;
   box-shadow: $glow-crypt-frame;
   padding: 2.2rem;
+  padding-bottom: 0;
 
   @media (max-width: 640px) {
     padding: 1.25rem;
