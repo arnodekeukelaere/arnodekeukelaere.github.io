@@ -4,96 +4,181 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=JetBrains+Mono:wght@400;600;700&family=Roboto:wght@400;700;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../shared-styles.css">
+  <link rel="stylesheet" href="../shared-gallery.css">
+  <link rel="stylesheet" href="ball-after-life.css">
   <title>Ball After Life</title>
 </head>
 
-<body>
+<body class="page-ball-after-life">
   <div id="site-nav"></div>
 
-  <div class="project-detail">
+  <main class="project-detail">
+    <!-- Top Arcade HUD Bar -->
+    <div class="arcade-hud-strip">
+      <span class="coin-counter">coins: 8</span>
+      <span class="jam-badge">S&amp;BOX JAM // THREE</span>
+    </div>
+
     <div class="project-header">
-      <h1 class="project-title">Ball After Life</h1>
+      <img class="project-title" src="https://lh3.googleusercontent.com/d/1_DVkznYGmVkeTVDcWGeUoMig4g4VnTFe"
+        alt="Ball After Life Logo" />
+      <p class="project-subtitle">THE AFTERLIFE IS A GAME OF CHANCE</p>
     </div>
 
-    <img id="projectThumbnail" class="project-thumbnail" src="" alt="Ball After Life thumbnail">
+    <!-- Main Machine Console Container -->
+    <div class="machine-console">
+      <div class="description-play-row">
+        <p id="projectDescription" class="project-description">
+          Pinball game about the afterlife being a game of chance. Made for the
+          <a href="https://sbox.game/jam/three" target="_blank" rel="noopener">s&amp;box Jam Three</a>.
+        </p>
 
-    <p id="projectDescription" class="project-description">A pinball game about the after life being a game of chance
-      made for a game jam.</p>
-
-    <div class="project-meta">
-      <div class="meta-item">
-        <div class="meta-label">Release Year</div>
-        <div id="releaseYear">2026</div>
+        <a href="steam://run/590830//-rungame%20clubthirtythree.ball_after_life/" target="_blank" rel="noopener"
+          class="btn-click-to-play">
+          <span class="play-label">Click to Play</span>
+          <span class="play-eyebrow">Requires Steam + s&box</span>
+        </a>
       </div>
-      <div class="meta-item">
-        <div class="meta-label">Platforms</div>
-        <div id="platforms">PC</div>
+
+      <!-- Quadrant-Style Metadata Grid -->
+      <div class="project-meta">
+        <div class="meta-item">
+          <div class="meta-label">Project type</div>
+          <div id="tags" class="meta-value">Personal project, <a href="https://sbox.game/jam/three" target="_blank"
+              rel="noopener">Game jam</a></div>
+        </div>
+        <div class="meta-item is-lit">
+          <div class="meta-label">Release Year</div>
+          <div id="releaseYear" class="meta-value">-</div>
+        </div>
+        <div class="meta-item is-lit">
+          <div class="meta-label">Platforms</div>
+          <div id="platforms" class="meta-value">-</div>
+        </div>
       </div>
-      <div class="meta-item">
-        <div class="meta-label">Technologies</div>
-        <div id="tags">C#, s&box</div>
+
+      <!-- Embedded YouTube Video Section -->
+      <section class="project-video-section" aria-labelledby="videoHeading">
+        <h2 id="videoHeading">Demo video</h2>
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/wTc95AWDjsw" title="Ball After Life Gameplay Video" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </section>
+
+      <!-- Info & Tech Breakdown -->
+      <div class="project-content">
+        <h2>Gameplay</h2>
+        <p>
+          One more reincarnation.
+
+          The cycle of life and death starts anew. You have died, and a game of chance is all that stands between you
+          and your soon-to-be vessel.
+        </p>
+
+        <h2>Development</h2>
+        <p>Before this project, I took pride in making sure to only use AI tools for asking coding questions and minor
+          assistance, but given how much AI-assisted coding tools are starting to creep into my daily workflow in my
+          professional life, I decided to see how difficult it would be to make a game with a fully AI-generated
+          codebase. The way I went about this was a bit ham-fisted, as I just prompted ChatGPT and/or Gemini to generate
+          classes for me and hooked the output up myself in the s&box engine/editor, gradually bug fixing and expanding
+          features.</p>
+
+        <p>By the end of the project, I realised that the problem-solving inherent to coding is my favourite part of
+          game development. I guess you could say the journey is the fun part, so this project has left me wary of
+          making fully AI-generated codebases for my personal projects in the future.</p>
+
+        <h2>Tech</h2>
+        <ul class="tech-list">
+          <li>C#</li>
+          <li>s&amp;box</li>
+          <li>Affinity Photo 2</li>
+          <li>Affinity Designer 2</li>
+          <li>Audacity</li>
+          <li>Various AI tools for productivity</li>
+        </ul>
+      </div>
+
+      <!-- Gallery Section (Compatible with shared-gallery.css / shared-gallery.js) -->
+      <section class="project-gallery-section" aria-labelledby="galleryHeading">
+        <h2 id="galleryHeading">Screenshots</h2>
+        <div id="projectGallery" class="image-gallery project-gallery">
+          <div class="gallery-item">
+            <img src="https://lh3.googleusercontent.com/d/1fiuyFDvlchwsCS3zCKsjusSZwYS2BFmR"
+              alt="Ball After Life pinball machine overview">
+            <span class="gallery-caption">01 // THE MACHINE</span>
+          </div>
+          <div class="gallery-item">
+            <img src="https://lh3.googleusercontent.com/d/1wIlB89VYb-pdEs5HT5Zz4xVb7dCWf5K5"
+              alt="Ball After Life pinball machine backboard">
+            <span class="gallery-caption">02 // FATE &amp; CHANCE</span>
+          </div>
+          <div class="gallery-item">
+            <img src="https://lh3.googleusercontent.com/d/12rWQUTZqE-NZwK8ixiDXhxG9I8wcOjpa"
+              alt="Ball After Life coindoor mechanic">
+            <span class="gallery-caption">03 // JUDGMENT TIERS</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- External Links -->
+      <div class="project-links">
+        <a id="liveLink" class="btn-terminal" href="https://sbox.game/clubthirtythree/ball_after_life" target="_blank"
+          rel="noopener">
+          s&amp;box Game Page
+        </a>
+        <a id="workshopLink" class="btn-terminal"
+          href="https://steamcommunity.com/sharedfiles/filedetails/?id=3831643525" target="_blank" rel="noopener">
+          Steam Workshop Page
+        </a>
       </div>
     </div>
 
-    <div class="project-content">
-      <p>This project was created as a game jam submission. It's a pinball game with a unique twist - the afterlife is
-        portrayed as a game of chance.</p>
+    <!-- Bottom Arcade Control Prompt -->
+    <div class="control-prompt">
+      Press <kbd>UP</kbd> / <kbd>DOWN</kbd> to navigate the machine
     </div>
-
-    <div class="project-links">
-      <a id="liveLink" href="https://sites.google.com/view/arno-de-keukelaere/personal-projects/ball-after-life"
-        target="_blank">Play Online</a>
-      <a id="sourceLink" href="#" target="_blank">Source Code</a>
-      <a id="documentationLink" href="#" target="_blank">Documentation</a>
-    </div>
-  </div>
+  </main>
 
   <script src="../layout.js"></script>
+  <script src="../shared-gallery.js"></script>
 
   <script>
-    // This script will be populated with individual project data
     async function initProject() {
+      const defaultTech = [
+        "C#",
+        "s&box",
+        "Affinity Photo 2",
+        "Affinity Designer 2",
+        "Audacity",
+        "Various AI tools for productivity"
+      ];
+
       try {
         const projects = await window.SiteUtils.fetchJson("../projects.json");
         const project = projects.find(p => p.title === "Ball After Life");
 
         if (project) {
           document.querySelector('.project-title').textContent = project.title;
-          document.getElementById('projectDescription').textContent = project.description;
-          document.getElementById('releaseYear').textContent = project.release || '-';
-          document.getElementById('platforms').textContent = project.platforms ? project.platforms.join(', ') : '-';
-
-          const tags = project.tags || [];
-          // Filter out category tags (Personal, Professional, School)
-          const techTags = tags.filter(tag => !['Personal', 'Professional', 'School', '2010s', '2020s'].includes(tag));
-          document.getElementById('tags').textContent = techTags.length > 0 ? techTags.join(', ') : '-';
-
-          if (project.thumbnail) {
-            const img = document.getElementById('projectThumbnail');
-            img.src = project.thumbnail;
-            img.alt = project.title + " thumbnail";
+          if (project.description) {
+            document.getElementById('projectDescription').textContent = project.description;
           }
+          document.getElementById('releaseYear').textContent = project.release || '2026';
+          document.getElementById('platforms').textContent = project.platforms ? project.platforms.join(', ') : 'PC (s&box)';
 
-          // Set links
-          const liveLink = document.getElementById('liveLink');
-          const sourceLink = document.getElementById('sourceLink');
-          const documentationLink = document.getElementById('documentationLink');
-
-          if (project.url && project.url !== "#") {
-            liveLink.href = project.url;
-            liveLink.style.display = "inline-block";
-          } else {
-            liveLink.style.display = "none";
-          }
-
-          // Hide source and documentation links by default
-          sourceLink.style.display = "none";
-          documentationLink.style.display = "none";
         }
       } catch (error) {
         console.error("Error loading project data:", error);
+        const img = document.getElementById('projectThumbnail');
+        if (!img.getAttribute('src')) img.style.display = "none";
+        document.getElementById('sourceLink').style.display = "none";
+        document.getElementById('documentationLink').style.display = "none";
       }
     }
 

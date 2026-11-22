@@ -1,0 +1,718 @@
+// ==========================================================================
+// BALL AFTER LIFE - DARK HORROR & SPECTRAL WHITE/BLUE STYLESHEET
+// Aesthetic: Grim Sanctum, Stark Spectral White & Ice-Blue Glow
+// ==========================================================================
+
+// Color Tokens
+$color-abyss-pitch: #020304; // Pitch-black horror void
+$color-crypt-shadow: #070e0f; // Deep shadowed shrine / console housing
+$color-spectral-lit: #143336; // Illuminated cold slate-blue surface
+$color-crypt-dim: #091415; // Unlit / shadowed stone tile
+$color-ice-white: #eefcff; // Stark bright white / cold tube highlight
+$color-glacial-blue: #8cfaff; // Bright ice-blue / cyan glow from screenshot
+$color-abyssal-cyan: #24b4be; // Mid-tone cold blue aura
+$color-pale-ash: #cfd8d8; // Muted bone-white body text
+$color-dread-stone: #587476; // Weathered stone inscriptions
+$color-relic-ochre: #e2d87c; // Subtle counter accent from HUD
+
+// Typography & Horror Glows
+$font-horror-serif: "Cinzel", Georgia, serif;
+$font-ledger: "JetBrains Mono", "Roboto", monospace;
+$font-body: "Roboto", Georgia, serif;
+
+$glow-spectral-title:
+  0 0 5px rgba($color-ice-white, 0.9),
+  0 0 16px rgba($color-glacial-blue, 0.8),
+  0 0 38px rgba($color-abyssal-cyan, 0.5),
+  0 4px 18px rgba(0, 0, 0, 0.95);
+
+$glow-crypt-frame:
+  inset 0 0 38px rgba($color-abyssal-cyan, 0.16),
+  0 28px 75px rgba(0, 0, 0, 0.98);
+
+$border-crypt: 1px solid rgba($color-glacial-blue, 0.24);
+$border-crypt-bright: 1px solid rgba($color-ice-white, 0.55);
+
+// Base Page Overrides
+body.page-ball-after-life {
+  margin: 0;
+  min-height: 100vh;
+  font-family: $font-body;
+  color: $color-pale-ash;
+  background-color: $color-abyss-pitch;
+  // Stark cold overhead pool fading into oppressive horror darkness
+  background-image: radial-gradient(
+    ellipse at 50% 12%,
+    rgba($color-glacial-blue, 0.16) 0%,
+    rgba($color-crypt-shadow, 0.55) 32%,
+    $color-abyss-pitch 72%
+  );
+  line-height: 1.7;
+
+  // Heavy dread vignette around the viewport
+  &::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    box-shadow: inset 0 0 135px rgba(0, 0, 0, 0.94);
+    z-index: 999;
+  }
+
+  a {
+    color: $color-glacial-blue;
+    text-decoration: none;
+    border-bottom: 1px solid rgba($color-glacial-blue, 0.45);
+    transition:
+      color 0.25s ease,
+      border-color 0.25s ease,
+      text-shadow 0.25s ease;
+
+    &:hover {
+      color: $color-ice-white;
+      border-bottom-color: $color-ice-white;
+      text-shadow: 0 0 12px rgba($color-glacial-blue, 0.75);
+    }
+  }
+}
+
+// Main Container
+.project-detail {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3.5rem;
+}
+
+// Top HUD / Offering Strip
+.arcade-hud-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba($color-glacial-blue, 0.16);
+  font-family: $font-ledger;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+
+  .coin-counter {
+    color: $color-relic-ochre;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba($color-relic-ochre, 0.35);
+  }
+
+  .jam-badge {
+    color: $color-dread-stone;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+  }
+}
+
+// Spectral Title Header
+.project-header {
+  text-align: center;
+  margin-bottom: 2.25rem;
+
+  .project-title {
+    margin: 0;
+    font-family: $font-horror-serif;
+    font-size: clamp(2.5rem, 6.5vw, 4.6rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: $color-ice-white;
+    text-shadow: $glow-spectral-title;
+    // animation: dread-flicker 8s infinite;
+
+    max-width: 900px;
+  }
+
+  .project-subtitle {
+    margin: 0.7rem 0 0;
+    font-family: $font-ledger;
+    font-size: 0.8rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: $color-glacial-blue;
+    opacity: 0.8;
+    animation: dread-flicker 8s infinite;
+  }
+}
+
+// Dark Relic / Console Housing
+.machine-console {
+  background: linear-gradient(
+    180deg,
+    rgba($color-crypt-shadow, 0.96) 0%,
+    rgba($color-abyss-pitch, 0.99) 100%
+  );
+  border: $border-crypt;
+  outline: 1px solid rgba($color-ice-white, 0.08);
+  outline-offset: -6px;
+  box-shadow: $glow-crypt-frame;
+  padding: 2.2rem;
+
+  @media (max-width: 640px) {
+    padding: 1.25rem;
+    outline-offset: -4px;
+  }
+}
+
+.project-description {
+  font-size: 1.02rem;
+  color: $color-ice-white;
+  background-color: rgba($color-crypt-dim, 0.9);
+  border-left: 2px solid $color-glacial-blue;
+  padding: 1.1rem 1.35rem;
+  margin: 0 0 2.2rem;
+}
+
+// 2-Column Description + Click to Play Row
+.description-play-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+  gap: 1.25rem;
+  margin: 0 0 2.2rem;
+
+  @media (max-width: 680px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.02rem;
+  color: $color-ice-white;
+  background-color: rgba($color-crypt-dim, 0.9);
+  border: $border-crypt;
+  border-left: 2px solid $color-glacial-blue;
+  padding: 1.1rem 1.35rem;
+  margin: 0;
+}
+
+// Spectral "Insert Coin / Click to Play" Button
+body.page-ball-after-life .btn-click-to-play {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 215px;
+  padding: 1rem 1.65rem;
+  text-align: center;
+  text-decoration: none;
+  background: linear-gradient(
+    180deg,
+    rgba($color-spectral-lit, 0.85) 0%,
+    rgba($color-crypt-shadow, 0.98) 100%
+  );
+  border: 1px solid rgba($color-glacial-blue, 0.65);
+  outline: 1px solid rgba($color-ice-white, 0.14);
+  outline-offset: -5px;
+  box-shadow:
+    0 0 22px rgba($color-abyssal-cyan, 0.28),
+    inset 0 0 22px rgba($color-glacial-blue, 0.14);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+  animation: play-btn-pulse 3.2s infinite ease-in-out;
+
+  .play-eyebrow {
+    font-family: $font-ledger;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: $color-relic-ochre;
+    text-shadow: 0 0 8px rgba($color-relic-ochre, 0.4);
+    margin-bottom: 0.3rem;
+  }
+
+  .play-label {
+    font-family: $font-horror-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: $color-ice-white;
+    text-shadow: 0 0 10px rgba($color-glacial-blue, 0.75);
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(
+      180deg,
+      $color-ice-white 0%,
+      $color-glacial-blue 100%
+    );
+    border-color: $color-ice-white;
+    box-shadow:
+      0 0 32px rgba($color-ice-white, 0.75),
+      0 0 55px rgba($color-glacial-blue, 0.55);
+
+    .play-eyebrow {
+      color: $color-crypt-shadow;
+      text-shadow: none;
+    }
+
+    .play-label {
+      color: $color-abyss-pitch;
+      text-shadow: none;
+    }
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+@keyframes play-btn-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 18px rgba($color-abyssal-cyan, 0.24),
+      inset 0 0 18px rgba($color-glacial-blue, 0.12);
+  }
+  50% {
+    box-shadow:
+      0 0 28px rgba($color-glacial-blue, 0.48),
+      inset 0 0 24px rgba($color-ice-white, 0.18);
+  }
+}
+
+// Quadrant Metadata Grid
+.project-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+  margin-bottom: 2.4rem;
+  background-color: transparent;
+  padding: 0px;
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+
+  .meta-item {
+    background-color: $color-crypt-dim;
+    border: $border-crypt;
+    padding: 1.25rem 1.5rem;
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+
+    // &.is-lit,
+    // &:hover {
+    //   background-color: $color-spectral-lit;
+    //   border-color: rgba($color-glacial-blue, 0.65);
+    //   box-shadow:
+    //     inset 0 0 32px rgba($color-glacial-blue, 0.22),
+    //     0 0 18px rgba($color-abyssal-cyan, 0.2);
+
+    //   .meta-label {
+    //     color: $color-ice-white;
+    //     text-shadow: 0 0 8px rgba($color-glacial-blue, 0.6);
+    //   }
+    // }
+
+    .meta-label {
+      font-family: $font-ledger;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: $color-glacial-blue;
+      margin-bottom: 0.35rem;
+    }
+
+    .meta-value {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: $color-ice-white;
+    }
+  }
+}
+
+// Section Headings
+.project-content h2,
+.project-video-section h2,
+.project-gallery-section h2 {
+  font-family: $font-horror-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: $color-ice-white;
+  text-shadow: 0 0 12px rgba($color-glacial-blue, 0.45);
+  border-bottom: 1px solid rgba($color-glacial-blue, 0.28);
+  padding-bottom: 0.55rem;
+  margin: 2.25rem 0 1.2rem;
+}
+
+// Tech Stack Items
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem;
+
+  li {
+    padding: 0.45rem 0.9rem;
+    font-family: $font-ledger;
+    font-size: 0.82rem;
+    background-color: $color-crypt-dim;
+    border: 1px solid rgba($color-glacial-blue, 0.3);
+    color: $color-pale-ash;
+    transition: all 0.25s ease;
+
+    &:hover {
+      background-color: $color-spectral-lit;
+      border-color: $color-glacial-blue;
+      color: $color-ice-white;
+      box-shadow: 0 0 14px rgba($color-glacial-blue, 0.3);
+    }
+  }
+}
+
+// Embedded YouTube Video Section
+.project-video-section {
+  margin-bottom: 2.4rem;
+
+  .video-frame {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    background-color: $color-abyss-pitch;
+    border: 1px solid rgba($color-glacial-blue, 0.45);
+    box-shadow:
+      0 16px 45px rgba(0, 0, 0, 0.95),
+      0 0 26px rgba($color-abyssal-cyan, 0.18);
+    overflow: hidden;
+
+    iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+// Gallery Section
+.project-gallery-section {
+  margin-bottom: 2.4rem;
+
+  .image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .gallery-item {
+    position: relative;
+    margin: 0;
+    background-color: $color-crypt-dim;
+    border: $border-crypt;
+    overflow: hidden;
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      border-color: $color-glacial-blue;
+      box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.9),
+        0 0 22px rgba($color-glacial-blue, 0.22);
+
+      .gallery-caption {
+        background-color: $color-spectral-lit;
+        color: $color-ice-white;
+      }
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      cursor: pointer;
+      filter: contrast(1.08) brightness(0.92);
+      transition: filter 0.25s ease;
+
+      &:hover {
+        filter: contrast(1.12) brightness(1);
+      }
+    }
+
+    .gallery-caption {
+      display: block;
+      padding: 0.65rem 0.9rem;
+      font-family: $font-ledger;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: $color-dread-stone;
+      border-top: 1px solid rgba($color-glacial-blue, 0.16);
+      transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+    }
+  }
+}
+
+// External Links Bar
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1.65rem;
+  border-top: 1px solid rgba($color-glacial-blue, 0.2);
+  background-color: transparent;
+
+  .btn-terminal {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.55rem;
+    font-family: $font-ledger;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: $color-ice-white;
+    background-color: rgba($color-crypt-dim, 0.95);
+    border: $border-crypt-bright;
+    box-shadow: 0 0 16px rgba($color-abyssal-cyan, 0.22);
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: $color-glacial-blue;
+      color: $color-abyss-pitch;
+      border-color: $color-ice-white;
+      text-shadow: none;
+      box-shadow: 0 0 28px rgba($color-glacial-blue, 0.75);
+    }
+  }
+}
+
+// Bottom Navigation Prompt
+.control-prompt {
+  text-align: center;
+  margin-top: 2.2rem;
+  font-family: $font-ledger;
+  font-size: 0.85rem;
+  color: $color-pale-ash;
+
+  kbd {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    font-family: $font-ledger;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: $color-ice-white;
+    background-color: $color-crypt-shadow;
+    border: 1px solid rgba($color-ice-white, 0.65);
+    border-radius: 2px;
+  }
+}
+
+// ==========================================================================
+// POP-UP "CLICK TO PLAY" MODAL (DARK HORROR + SPECTRAL WHITE / ICE-BLUE)
+// ==========================================================================
+
+.play-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba($color-abyssal-cyan, 0.14) 0%,
+      rgba($color-abyss-pitch, 0.92) 70%
+    ),
+    rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+
+    .play-popup-card {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+.play-popup-card {
+  position: relative;
+  max-width: 480px;
+  width: 100%;
+  padding: 2.25rem 2rem;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    rgba($color-spectral-lit, 0.42) 0%,
+    rgba($color-crypt-shadow, 0.98) 45%,
+    rgba($color-abyss-pitch, 1) 100%
+  );
+  border: 1px solid rgba($color-glacial-blue, 0.55);
+  outline: 1px solid rgba($color-ice-white, 0.16);
+  outline-offset: -7px;
+  box-shadow:
+    0 0 45px rgba($color-abyssal-cyan, 0.25),
+    0 25px 70px rgba(0, 0, 0, 0.98),
+    inset 0 0 30px rgba($color-glacial-blue, 0.12);
+  transform: translateY(14px) scale(0.97);
+  opacity: 0;
+  transition:
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease;
+}
+
+.popup-eyebrow {
+  display: block;
+  margin-bottom: 0.65rem;
+  font-family: $font-ledger;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: $color-relic-ochre;
+  text-shadow: 0 0 10px rgba($color-relic-ochre, 0.3);
+}
+
+.popup-title {
+  margin: 0 0 0.85rem;
+  font-family: $font-horror-serif;
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: $color-ice-white;
+  text-shadow: $glow-spectral-title;
+}
+
+.popup-copy {
+  margin: 0 0 1.85rem;
+  font-family: $font-body;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: $color-pale-ash;
+}
+
+.popup-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.btn-play-popup {
+  width: 100%;
+  max-width: 280px;
+  padding: 0.95rem 1.75rem;
+  font-family: $font-horror-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: $color-abyss-pitch;
+  background: linear-gradient(
+    180deg,
+    $color-ice-white 0%,
+    $color-glacial-blue 100%
+  );
+  border: 1px solid $color-ice-white;
+  box-shadow:
+    0 0 22px rgba($color-glacial-blue, 0.65),
+    0 0 42px rgba($color-abyssal-cyan, 0.35);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+  animation: play-pulse 2.8s infinite ease-in-out;
+
+  &:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+    box-shadow:
+      0 0 30px rgba($color-ice-white, 0.85),
+      0 0 55px rgba($color-glacial-blue, 0.6);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+// Unsteady Horror Lamp Flicker
+@keyframes dread-flicker {
+  0%,
+  17%,
+  19%,
+  22%,
+  62%,
+  64%,
+  100% {
+    opacity: 1;
+    text-shadow: $glow-spectral-title;
+  }
+  18%,
+  21% {
+    opacity: 0.65;
+    text-shadow: 0 0 6px rgba($color-glacial-blue, 0.4);
+  }
+  63% {
+    opacity: 0.8;
+    text-shadow: 0 0 10px rgba($color-abyssal-cyan, 0.5);
+  }
+}
+
+.btn-popup-dismiss {
+  padding: 0.4rem 0.9rem;
+  font-family: $font-ledger;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: $color-dread-stone;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    text-shadow 0.2s ease;
+
+  &:hover {
+    color: $color-glacial-blue;
+    text-shadow: 0 0 10px rgba($color-glacial-blue, 0.5);
+  }
+}
+
+@keyframes play-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 18px rgba($color-glacial-blue, 0.5),
+      0 0 36px rgba($color-abyssal-cyan, 0.25);
+  }
+  50% {
+    box-shadow:
+      0 0 28px rgba($color-ice-white, 0.8),
+      0 0 52px rgba($color-glacial-blue, 0.48);
+  }
+}
