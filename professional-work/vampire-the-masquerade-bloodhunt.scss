@@ -1,0 +1,401 @@
+// ==========================================================================
+// VAMPIRE: THE MASQUERADE - BLOODHUNT (vampire-the-masquerade-bloodhunt.scss)
+// Scoped to: body.page-vampire-the-masquerade-bloodhunt
+// ==========================================================================
+
+// 1. Color Palette
+$color-void-black: #080405;
+$color-obsidian-glass: rgba(15, 7, 9, 0.84);
+$color-blood-crimson: #c81423;
+$color-arterial-glow: #ff2a3c;
+$color-dried-garnet: #5e0a12;
+$color-bone-white: #f4efea;
+$color-ash-silver: #a89fa1;
+$color-hairline: rgba(244, 239, 234, 0.16);
+
+// 2. Typography (Matches <head> Google Fonts)
+$font-gothic: "Cinzel", serif;
+$font-display: "Roboto", sans-serif;
+$font-mono: "JetBrains Mono", monospace;
+
+$glow-crimson:
+  0 0 22px rgba(200, 20, 35, 0.5),
+  inset 0 0 14px rgba(200, 20, 35, 0.22);
+$transition-fast: all 0.22s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+// 3. Gothic Filigree Container Mixin
+@mixin gothic-filigree-panel {
+  position: relative;
+  background: $color-obsidian-glass;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(244, 239, 234, 0.45);
+  border-bottom: 1px solid rgba(244, 239, 234, 0.45);
+  border-left: 1px solid $color-hairline;
+  border-right: 1px solid $color-hairline;
+
+  &::before,
+  &::after {
+    content: "\25C6"; // ◆ gothic diamond ornament
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.65rem;
+    line-height: 1;
+    color: $color-bone-white;
+    // background-color: $color-void-black;
+    padding: 0 10px;
+    text-shadow: 0 0 8px $color-arterial-glow;
+    pointer-events: none;
+  }
+
+  &::before {
+    top: -6px;
+  }
+
+  &::after {
+    bottom: -6px;
+  }
+}
+
+// 4. Scoped Page Styles
+body.page-vampire-the-masquerade-bloodhunt {
+  margin: 0;
+  min-height: 100vh;
+  font-family: $font-display;
+  color: $color-ash-silver;
+  background-color: $color-void-black;
+  background-image:
+    radial-gradient(
+      ellipse at 80% 25%,
+      rgba(200, 20, 35, 0.28) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 20% 75%,
+      rgba(94, 10, 18, 0.42) 0%,
+      transparent 60%
+    ),
+    linear-gradient(180deg, #050203 0%, #140508 50%, #060203 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+
+  // Main Container
+  main.project-detail {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  // Header & Logo
+  .project-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+
+    // &::after {
+    //   content: "";
+    //   display: block;
+    //   width: min(420px, 80%);
+    //   height: 1px;
+    //   margin: 1.75rem auto 0;
+    //   background: linear-gradient(
+    //     90deg,
+    //     transparent,
+    //     $color-blood-crimson,
+    //     $color-bone-white,
+    //     $color-blood-crimson,
+    //     transparent
+    //   );
+    // }
+
+    img.project-title {
+      margin-top: 30px;
+      max-width: min(520px, 90%);
+      max-height: 1000px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      // filter: drop-shadow(0 6px 24px rgba(0, 0, 0, 0.9))
+      //   drop-shadow(0 0 18px rgba(200, 20, 35, 0.35));
+    }
+  }
+
+  // Description & Store Action Row
+  .project-description-row {
+    @include gothic-filigree-panel;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.12rem 2rem;
+    margin-bottom: 2.25rem;
+
+    .project-description {
+      flex: 1 1 520px;
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: $color-bone-white;
+    }
+
+    .project-store-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  }
+
+  // Dynamically Injected Store Buttons ("ENTER ELYSIUM" chamfered style)
+  .project-store-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-gothic;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $color-bone-white;
+    padding: 0.85rem 2.2rem;
+    background: linear-gradient(180deg, #b81422 0%, #6e0912 100%);
+    box-shadow: inset 0 0 12px rgba(255, 42, 60, 0.55);
+    clip-path: polygon(
+      14px 0%,
+      calc(100% - 14px) 0%,
+      100% 50%,
+      calc(100% - 14px) 100%,
+      14px 100%,
+      0% 50%
+    );
+    transition: $transition-fast;
+
+    &:hover {
+      background: linear-gradient(
+        180deg,
+        $color-arterial-glow 0%,
+        #8f0c18 100%
+      );
+      filter: drop-shadow(0 0 12px rgba(255, 42, 60, 0.75));
+      transform: translateY(-1px);
+    }
+  }
+
+  // Project Meta Grid (Type, Year, Platforms, Company)
+  .project-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2.75rem;
+    background-color: transparent;
+    border-width: 0;
+
+    .meta-item {
+      position: relative;
+      background: $color-obsidian-glass;
+      border: 1px solid $color-hairline;
+      border-left: 3px solid $color-blood-crimson;
+      padding: 1.1rem 1.35rem;
+      transition: $transition-fast;
+
+      // &:hover {
+      //   border-color: rgba(244, 239, 234, 0.35);
+      //   border-left-color: $color-arterial-glow;
+      //   box-shadow:
+      //     0 6px 20px rgba(0, 0, 0, 0.7),
+      //     0 0 15px rgba(200, 20, 35, 0.2);
+      // }
+
+      .meta-label {
+        font-family: $font-mono;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: $color-blood-crimson;
+        margin-bottom: 0.35rem;
+      }
+
+      .meta-value {
+        font-family: $font-display;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: $color-bone-white;
+        letter-spacing: 0.03em;
+      }
+    }
+  }
+
+  // Main Content Area
+  .project-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.75rem;
+
+    // Responsive 16:9 YouTube Embed Frame
+    .yt-embed {
+      @include gothic-filigree-panel;
+      padding: 0.75rem;
+      box-shadow:
+        0 14px 40px rgba(0, 0, 0, 0.85),
+        0 0 24px rgba(200, 20, 35, 0.2);
+
+      iframe {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        height: auto;
+        border: 1px solid rgba(200, 20, 35, 0.35);
+        background-color: #000;
+      }
+    }
+
+    // Two-Column Grid ("What I did" & "Tech")
+    .grid-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-section {
+      @include gothic-filigree-panel;
+      padding: 2rem;
+      transition: $transition-fast;
+
+      // &:hover {
+      //   border-top-color: $color-arterial-glow;
+      //   border-bottom-color: $color-arterial-glow;
+
+      //   &::before,
+      //   &::after {
+      //     color: $color-arterial-glow;
+      //   }
+      // }
+
+      h2 {
+        font-family: $font-gothic;
+        font-size: 1.45rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: $color-bone-white;
+        margin: 0 0 1rem;
+        padding-bottom: 0.65rem;
+        border-bottom: 1px solid $color-hairline;
+      }
+
+      h3 {
+        font-family: $font-mono;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: $color-blood-crimson;
+        margin: 0 0 0.85rem;
+      }
+
+      // Standard Bullet List ("What I did")
+      ul:not(.tech-list) {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          list-style: none;
+          position: relative;
+          padding-left: 1.35rem;
+          margin-bottom: 0.7rem;
+          line-height: 1.6;
+          color: $color-ash-silver;
+
+          &::before {
+            content: "\25C6"; // ◆ crimson diamond bullet
+            position: absolute;
+            left: 0;
+            top: 0.8em;
+
+            font-size: 0.65rem;
+            color: $color-blood-crimson;
+          }
+
+          &:last-child {
+            // margin-bottom: 0;
+          }
+        }
+      }
+
+      // Tech Stack Tags
+      ul.tech-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+
+        li {
+          font-family: $font-mono;
+          font-size: 0.8rem;
+          font-weight: 600;
+          letter-spacing: 0.05em;
+          color: $color-bone-white;
+          background: rgba(200, 20, 35, 0.14);
+          border: 1px solid rgba(200, 20, 35, 0.45);
+          padding: 0.4rem 0.85rem;
+          transition: $transition-fast;
+
+          // &:hover {
+          //   background: rgba(200, 20, 35, 0.35);
+          //   border-color: $color-arterial-glow;
+          //   box-shadow: 0 0 12px rgba(255, 42, 60, 0.35);
+          // }
+        }
+      }
+    }
+  }
+
+  // External Links Footer Row
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 3rem;
+
+    background-color: transparent;
+    border-width: 0;
+
+    &:empty {
+      display: none;
+    }
+
+    a {
+      font-family: $font-gothic;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: $color-bone-white;
+      background: rgba(16, 7, 9, 0.9);
+      border: 1px solid rgba(244, 239, 234, 0.35);
+      padding: 0.75rem 1.85rem;
+      // clip-path: polygon(
+      //   10px 0%,
+      //   calc(100% - 10px) 0%,
+      //   100% 50%,
+      //   calc(100% - 10px) 100%,
+      //   10px 100%,
+      //   0% 50%
+      // );
+      transition: $transition-fast;
+
+      &:hover {
+        background: rgba(200, 20, 35, 0.35);
+        color: $color-arterial-glow;
+        filter: drop-shadow(0 0 10px rgba(255, 42, 60, 0.5));
+      }
+    }
+  }
+}

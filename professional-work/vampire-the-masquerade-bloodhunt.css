@@ -1,0 +1,302 @@
+@charset "UTF-8";
+body.page-vampire-the-masquerade-bloodhunt {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  color: #a89fa1;
+  background-color: #080405;
+  background-image: radial-gradient(ellipse at 80% 25%, rgba(200, 20, 35, 0.28) 0%, transparent 55%), radial-gradient(ellipse at 20% 75%, rgba(94, 10, 18, 0.42) 0%, transparent 60%), linear-gradient(180deg, #050203 0%, #140508 50%, #060203 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+body.page-vampire-the-masquerade-bloodhunt main.project-detail {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-header img.project-title {
+  margin-top: 30px;
+  max-width: min(520px, 90%);
+  max-height: 1000px;
+  width: auto;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-description-row {
+  position: relative;
+  background: rgba(15, 7, 9, 0.84);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(244, 239, 234, 0.45);
+  border-bottom: 1px solid rgba(244, 239, 234, 0.45);
+  border-left: 1px solid rgba(244, 239, 234, 0.16);
+  border-right: 1px solid rgba(244, 239, 234, 0.16);
+}
+body.page-vampire-the-masquerade-bloodhunt .project-description-row::before, body.page-vampire-the-masquerade-bloodhunt .project-description-row::after {
+  content: "◆";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
+  line-height: 1;
+  color: #f4efea;
+  padding: 0 10px;
+  text-shadow: 0 0 8px #ff2a3c;
+  pointer-events: none;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-description-row::before {
+  top: -6px;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-description-row::after {
+  bottom: -6px;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-description-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.12rem 2rem;
+  margin-bottom: 2.25rem;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-description-row .project-description {
+  flex: 1 1 520px;
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #f4efea;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-description-row .project-store-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-store-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Cinzel", serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #f4efea;
+  padding: 0.85rem 2.2rem;
+  background: linear-gradient(180deg, #b81422 0%, #6e0912 100%);
+  box-shadow: inset 0 0 12px rgba(255, 42, 60, 0.55);
+  clip-path: polygon(14px 0%, calc(100% - 14px) 0%, 100% 50%, calc(100% - 14px) 100%, 14px 100%, 0% 50%);
+  transition: all 0.22s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+body.page-vampire-the-masquerade-bloodhunt .project-store-btn:hover {
+  background: linear-gradient(180deg, #ff2a3c 0%, #8f0c18 100%);
+  filter: drop-shadow(0 0 12px rgba(255, 42, 60, 0.75));
+  transform: translateY(-1px);
+}
+body.page-vampire-the-masquerade-bloodhunt .project-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2.75rem;
+  background-color: transparent;
+  border-width: 0;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-meta .meta-item {
+  position: relative;
+  background: rgba(15, 7, 9, 0.84);
+  border: 1px solid rgba(244, 239, 234, 0.16);
+  border-left: 3px solid #c81423;
+  padding: 1.1rem 1.35rem;
+  transition: all 0.22s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+body.page-vampire-the-masquerade-bloodhunt .project-meta .meta-item .meta-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #c81423;
+  margin-bottom: 0.35rem;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-meta .meta-item .meta-value {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f4efea;
+  letter-spacing: 0.03em;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .yt-embed {
+  position: relative;
+  background: rgba(15, 7, 9, 0.84);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(244, 239, 234, 0.45);
+  border-bottom: 1px solid rgba(244, 239, 234, 0.45);
+  border-left: 1px solid rgba(244, 239, 234, 0.16);
+  border-right: 1px solid rgba(244, 239, 234, 0.16);
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .yt-embed::before, body.page-vampire-the-masquerade-bloodhunt .project-content .yt-embed::after {
+  content: "◆";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
+  line-height: 1;
+  color: #f4efea;
+  padding: 0 10px;
+  text-shadow: 0 0 8px #ff2a3c;
+  pointer-events: none;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .yt-embed::before {
+  top: -6px;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .yt-embed::after {
+  bottom: -6px;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .yt-embed {
+  padding: 0.75rem;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.85), 0 0 24px rgba(200, 20, 35, 0.2);
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .yt-embed iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/9;
+  height: auto;
+  border: 1px solid rgba(200, 20, 35, 0.35);
+  background-color: #000;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .grid-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .project-section {
+  position: relative;
+  background: rgba(15, 7, 9, 0.84);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(244, 239, 234, 0.45);
+  border-bottom: 1px solid rgba(244, 239, 234, 0.45);
+  border-left: 1px solid rgba(244, 239, 234, 0.16);
+  border-right: 1px solid rgba(244, 239, 234, 0.16);
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .project-section::before, body.page-vampire-the-masquerade-bloodhunt .project-content .project-section::after {
+  content: "◆";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
+  line-height: 1;
+  color: #f4efea;
+  padding: 0 10px;
+  text-shadow: 0 0 8px #ff2a3c;
+  pointer-events: none;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .project-section::before {
+  top: -6px;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .project-section::after {
+  bottom: -6px;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .project-section {
+  padding: 2rem;
+  transition: all 0.22s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .project-section h2 {
+  font-family: "Cinzel", serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #f4efea;
+  margin: 0 0 1rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(244, 239, 234, 0.16);
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .project-section h3 {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #c81423;
+  margin: 0 0 0.85rem;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .project-section ul:not(.tech-list) {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .project-section ul:not(.tech-list) li {
+  list-style: none;
+  position: relative;
+  padding-left: 1.35rem;
+  margin-bottom: 0.7rem;
+  line-height: 1.6;
+  color: #a89fa1;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .project-section ul:not(.tech-list) li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  top: 0.8em;
+  font-size: 0.65rem;
+  color: #c81423;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .project-section ul.tech-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-content .project-section ul.tech-list li {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #f4efea;
+  background: rgba(200, 20, 35, 0.14);
+  border: 1px solid rgba(200, 20, 35, 0.45);
+  padding: 0.4rem 0.85rem;
+  transition: all 0.22s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+body.page-vampire-the-masquerade-bloodhunt .project-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 3rem;
+  background-color: transparent;
+  border-width: 0;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-links:empty {
+  display: none;
+}
+body.page-vampire-the-masquerade-bloodhunt .project-links a {
+  font-family: "Cinzel", serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #f4efea;
+  background: rgba(16, 7, 9, 0.9);
+  border: 1px solid rgba(244, 239, 234, 0.35);
+  padding: 0.75rem 1.85rem;
+  transition: all 0.22s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+body.page-vampire-the-masquerade-bloodhunt .project-links a:hover {
+  background: rgba(200, 20, 35, 0.35);
+  color: #ff2a3c;
+  filter: drop-shadow(0 0 10px rgba(255, 42, 60, 0.5));
+}/*# sourceMappingURL=vampire-the-masquerade-bloodhunt.css.map */

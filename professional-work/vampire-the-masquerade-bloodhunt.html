@@ -4,132 +4,132 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=JetBrains+Mono:wght@400;600;700&family=Roboto:wght@400;700;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../shared-styles.css">
+  <link rel="stylesheet" href="vampire-the-masquerade-bloodhunt.css">
   <title>Vampire: The Masquerade - Bloodhunt</title>
   <style>
-    .project-detail {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
+    :root {
+      --hero-bg-url: url('https://lh3.googleusercontent.com/d/1NeBtUzhmBvKDGbugADb34RGuqZ8hNCcG');
     }
 
-    .project-header {
-      text-align: center;
-      margin-bottom: 30px;
+    body.page-vampire-the-masquerade-bloodhunt {
+      position: relative;
+      z-index: 0;
     }
 
-    .project-title {
-      font-size: 2.5em;
-      margin-bottom: 10px;
+    body.page-vampire-the-masquerade-bloodhunt::before {
+      content: "";
+      position: absolute;
+      /* Cancels body's margin-top: 80px so the image meets the very top edge */
+      top: -80px;
+      left: 0;
+      right: 0;
+      height: 55vw;
+      background-image: var(--hero-bg-url);
+      background-position: top center;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      /* Fades the actual image alpha to transparent so the body's crimson smoke shows through */
+      -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      pointer-events: none;
+      z-index: -1;
     }
 
-    .project-thumbnail {
-      width: 100%;
-      max-width: 600px;
-      height: auto;
-      margin: 0 auto 20px;
-      display: block;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .project-description {
-      font-size: 1.1em;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 30px;
-      padding: 15px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-    }
-
-    .meta-item {
-      flex: 1;
-      min-width: 150px;
-    }
-
-    .meta-label {
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #666;
-    }
-
-    .project-content {
-      margin-top: 30px;
-    }
-
-    .project-links {
-      margin-top: 20px;
-      padding: 15px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-    }
-
-    .project-links a {
-      display: inline-block;
-      margin-right: 15px;
-      margin-bottom: 10px;
-      padding: 8px 15px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-
-    .project-links a:hover {
-      background-color: #0056b3;
+    /* Keep page content above the fade layer without creating a dark background wall over it */
+    body.page-vampire-the-masquerade-bloodhunt> :not(script):not(style) {
+      position: relative;
     }
   </style>
 </head>
 
-<body>
+<body class="page-vampire-the-masquerade-bloodhunt">
   <div id="site-nav"></div>
 
-  <div class="project-detail">
+  <main class="project-detail">
     <div class="project-header">
-      <h1 class="project-title">Vampire: The Masquerade - Bloodhunt</h1>
+      <img class="project-title" src="https://lh3.googleusercontent.com/d/13Bpck3sWgdIFL4Fp_F7PKJCmDuVCXibZ"
+        alt="Vampire: The Masquerade - Bloodhunt logo" />
     </div>
 
-    <img id="projectThumbnail" class="project-thumbnail" src="" alt="Vampire: The Masquerade - Bloodhunt thumbnail">
-
-    <p id="projectDescription" class="project-description">Battle royale game with vampires set in the World of Darkness universe.</p>
+    <div class="project-description-row">
+      <p id="projectDescription" class="project-description">-</p>
+      <div class="project-store-actions">
+        <a href="https://store.steampowered.com/app/760160/Vampire_The_Masquerade_Bloodhunt/"
+          class="project-store-btn project-store-btn--android big" aria-label="Download on Android" target="_blank">
+          Steam page
+        </a>
+      </div>
+    </div>
 
     <div class="project-meta">
       <div class="meta-item">
+        <div class="meta-label">Project type</div>
+        <div id="tags" class="meta-value">Professional work</div>
+      </div>
+      <div class="meta-item">
         <div class="meta-label">Release Year</div>
-        <div id="releaseYear">2022</div>
+        <div id="releaseYear" class="meta-value">2022</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Platforms</div>
-        <div id="platforms">PC, Console</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Technologies</div>
-        <div id="tags">C++, Unreal</div>
+        <div id="platforms" class="meta-value">PC, Console</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Company</div>
-        <div id="company">d3t</div>
+        <div id="company" class="meta-value">d3t</div>
       </div>
     </div>
 
     <div class="project-content">
-      <p>Vampire: The Masquerade - Bloodhunt is a battle royale game with vampires set in the World of Darkness universe. This was a major project developed at d3t.</p>
+      <div class="yt-embed">
+        <iframe src="https://www.youtube.com/embed/c9TE9vQuVHQ" title="Vampire: The Masquerade - Bloodhunt Demo Video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="grid-row">
+        <div class="project-section">
+          <h2>What I did</h2>
+          <h3>Gameplay programming</h3>
+          <ul>
+            <li>Gameplay and network bug fixes</li>
+            <li>Player AI (bots)</li>
+            <li>PlayStation 5 saving subsystem</li>
+          </ul>
+          <h3>Localization</h3>
+          <ul>
+            <li>Added a new language</li>
+          </ul>
+          <h3>Tool development (and UI programming)</h3>
+          <ul>
+            <li>Created a tool for use in-game (UE4 & UE5 compatible)</li>
+          </ul>
+        </div>
+
+        <div class="project-section">
+          <h2>Tech</h2>
+          <ul class="tech-list">
+            <li>C++</li>
+            <li>Unreal Engine</li>
+            <li>P4V</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="project-links">
-      <a id="liveLink" href="https://sites.google.com/view/arno-de-keukelaere/professional-work/vampire-the-masquerade-bloodhunt" target="_blank">Play Online</a>
-      <a id="sourceLink" href="#" target="_blank">Source Code</a>
-      <a id="documentationLink" href="#" target="_blank">Documentation</a>
+      <a href="https://store.steampowered.com/app/760160/Vampire_The_Masquerade__Bloodhunt/">Steam page</a>
+      <a href="https://d3tltd.com/new-project-announcement-vampire-the-masquerade-bloodhunt-coming-soon/">d3t
+        article</a>
+      <a href="https://www.bloodhunt.com/">Official website</a>
     </div>
-  </div>
+  </main>
 
   <script src="../layout.js"></script>
 
@@ -141,38 +141,60 @@
         const project = projects.find(p => p.title === "Vampire: The Masquerade - Bloodhunt");
 
         if (project) {
-          document.querySelector('.project-title').textContent = project.title;
-          document.getElementById('projectDescription').textContent = project.description;
+          // Update title and description
+          document.getElementById('projectDescription').textContent = project.description || '-';
+
+          // Update meta information
           document.getElementById('releaseYear').textContent = project.release || '-';
           document.getElementById('platforms').textContent = project.platforms ? project.platforms.join(', ') : '-';
           document.getElementById('company').textContent = project.company || '-';
 
+          // Update tags
           const tags = project.tags || [];
           // Filter out category tags (Personal, Professional, School)
           const techTags = tags.filter(tag => !['Personal', 'Professional', 'School', '2010s', '2020s'].includes(tag));
-          document.getElementById('tags').textContent = techTags.length > 0 ? techTags.join(', ') : '-';
+          document.getElementById('tags').textContent = "Professional work";
 
-          if (project.thumbnail) {
-            const img = document.getElementById('projectThumbnail');
-            img.src = project.thumbnail;
-            img.alt = project.title + " thumbnail";
+          // Set store action buttons if available
+          const storeActionsContainer = document.querySelector('.project-store-actions');
+          if (project.storeUrls && Array.isArray(project.storeUrls)) {
+            storeActionsContainer.innerHTML = '';
+            project.storeUrls.forEach(store => {
+              const btn = document.createElement('a');
+              btn.href = store.url;
+              btn.textContent = store.name;
+              btn.className = 'project-store-btn';
+              btn.target = '_blank';
+              btn.rel = 'noopener';
+              storeActionsContainer.appendChild(btn);
+            });
+          } else if (project.url && project.url.startsWith('http')) {
+            // Fallback to a single link
+            const btn = document.createElement('a');
+            btn.href = project.url;
+            btn.textContent = 'Play Online';
+            btn.className = 'project-store-btn';
+            btn.target = '_blank';
+            btn.rel = 'noopener';
+            storeActionsContainer.appendChild(btn);
           }
 
-          // Set links
-          const liveLink = document.getElementById('liveLink');
-          const sourceLink = document.getElementById('sourceLink');
-          const documentationLink = document.getElementById('documentationLink');
-
-          if (project.url && project.url !== "#") {
-            liveLink.href = project.url;
-            liveLink.style.display = "inline-block";
-          } else {
-            liveLink.style.display = "none";
+          // Update development section if available
+          if (project.development) {
+            const devSection = document.querySelector('.project-section h3');
+            if (devSection) {
+              devSection.textContent = project.development.title || "Development";
+              const ul = devSection.nextElementSibling;
+              if (ul && ul.tagName === 'UL') {
+                ul.innerHTML = '';
+                project.development.points.forEach(point => {
+                  const li = document.createElement('li');
+                  li.textContent = point;
+                  ul.appendChild(li);
+                });
+              }
+            }
           }
-
-          // Hide source and documentation links by default
-          sourceLink.style.display = "none";
-          documentationLink.style.display = "none";
         }
       } catch (error) {
         console.error("Error loading project data:", error);
