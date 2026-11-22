@@ -4,24 +4,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=JetBrains+Mono:wght@400;600;700&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=JetBrains+Mono:wght@400;600;700&family=Roboto:wght@400;700;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../shared-styles.css">
-  <link rel="stylesheet" href="../shared-gallery.css">
+  <link rel="stylesheet" href="mafia-ii-definitive-edition.css">
   <title>Mafia II: Definitive Edition</title>
+  <style>
+    :root {
+      --hero-bg-url: url('https://lh3.googleusercontent.com/d/146gYNm5q6bmnxZgNnd14Fk4_jLUGoz1k');
+    }
+
+    body.page-mafia-ii-definitive-edition {
+      position: relative;
+      z-index: 0;
+    }
+
+    body.page-mafia-ii-definitive-edition::before {
+      content: "";
+      position: absolute;
+      /* Cancels body's margin-top: 80px so the image meets the very top edge */
+      top: -80px;
+      left: 0;
+      right: 0;
+      height: 55vw;
+      background-image: var(--hero-bg-url);
+      background-position: top center;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      /* Fades the actual image alpha to transparent so the black background shows through */
+      -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Keep page content above the fade layer without creating a dark background wall over it */
+    body.page-mafia-ii-definitive-edition> :not(script):not(style) {
+      position: relative;
+    }
+  </style>
 </head>
 
-<body>
+<body class="page-mafia-ii-definitive-edition">
   <div id="site-nav"></div>
 
   <main class="project-detail">
     <div class="project-header">
-      <img class="project-title" src="" alt="Mafia II: Definitive Edition logo" />
+      <img class="project-title" src="https://lh3.googleusercontent.com/d/1hHVbL-b6CrWvF-_htRG_Fu_Wejtc_iXy"
+        alt="Mafia II: Definitive Edition logo" />
     </div>
 
     <div class="project-description-row">
       <p id="projectDescription" class="project-description">Remaster of the 2010 action-adventure game Mafia II.</p>
       <div class="project-store-actions">
-        <!-- Store action buttons will be populated by JavaScript -->
+        <a href="https://store.steampowered.com/app/1030830/Mafia_II_Definitive_Edition/" class="project-store-btn"
+          target="_blank" rel="noopener">Play on Steam</a>
       </div>
     </div>
 
@@ -46,7 +84,8 @@
 
     <div class="project-content">
       <div class="yt-embed">
-        <iframe src="" title="Mafia II: Definitive Edition Demo Video" frameborder="0"
+        <iframe src="https://www.youtube.com/embed/vDdLd9FuuI0" title="Mafia II: Definitive Edition Demo Video"
+          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
         </iframe>
@@ -57,14 +96,31 @@
           <h2>What I did</h2>
           <h3>Development</h3>
           <ul>
-            <li></li>
+            <li>Gameplay programming</li>
+            <ul>
+              <li>Expanded automated testing system features</li>
+              <li>Gameplay bug fixes</li>
+              <li>Implemented PlayStation 4 and Xbox One achievements</li>
+            </ul>
+            <li>Localization</li>
+            <ul>
+              <li>Added new languages through some proprietary tools and C++</li>
+            </ul>
+            <li>UI programming</li>
+            <ul>
+              <li>Added new features to the main menu</li>
+            </ul>
           </ul>
         </div>
 
         <div class="project-section">
           <h2>Tech</h2>
           <ul class="tech-list">
-            <li></li>
+            <li>C++</li>
+            <li>P4V</li>
+            <li>JSON</li>
+            <li>XML</li>
+            <li>ImGui</li>
           </ul>
         </div>
       </div>
@@ -72,11 +128,13 @@
 
     <div class="project-links">
       <!-- External links will be populated by JavaScript -->
+      <a href="https://store.steampowered.com/app/1030830/Mafia_II_Definitive_Edition/" target="_blank">Steam page</a>
+      <a href="https://d3tltd.com/our-work/mafia-ii-definitive-edition/" target="_blank">d3t article</a>
+      <a href="https://www.mafiagame.com/mafia-2/" target="_blank">Official website</a>
     </div>
   </main>
 
   <script src="../layout.js"></script>
-  <script src="../shared-gallery.js"></script>
 
   <script>
     // This script will be populated with individual project data
@@ -87,8 +145,8 @@
 
         if (project) {
           // Update title and description
-          document.querySelector('.project-title').src = project.thumbnail || '';
-          document.querySelector('.project-title').alt = project.title + " logo";
+          // document.querySelector('.project-title').src = project.thumbnail || '';
+          // document.querySelector('.project-title').alt = project.title + " logo";
           document.getElementById('projectDescription').textContent = project.description || '-';
 
           // Update meta information
@@ -101,81 +159,6 @@
           // Filter out category tags (Personal, Professional, School)
           const techTags = tags.filter(tag => !['Personal', 'Professional', 'School', '2010s', '2020s'].includes(tag));
           document.getElementById('tags').textContent = "Professional work";
-
-          // Set store action buttons if available
-          const storeActionsContainer = document.querySelector('.project-store-actions');
-          if (project.storeUrls && Array.isArray(project.storeUrls)) {
-            storeActionsContainer.innerHTML = '';
-            project.storeUrls.forEach(store => {
-              const btn = document.createElement('a');
-              btn.href = store.url;
-              btn.textContent = store.name;
-              btn.className = 'project-store-btn';
-              btn.target = '_blank';
-              btn.rel = 'noopener';
-              storeActionsContainer.appendChild(btn);
-            });
-          } else if (project.url && project.url.startsWith('http')) {
-            // Fallback to a single link
-            const btn = document.createElement('a');
-            btn.href = project.url;
-            btn.textContent = 'Play Online';
-            btn.className = 'project-store-btn';
-            btn.target = '_blank';
-            btn.rel = 'noopener';
-            storeActionsContainer.appendChild(btn);
-          }
-
-          // Set links
-          const linksContainer = document.querySelector('.project-links');
-          if (project.links && Array.isArray(project.links)) {
-            linksContainer.innerHTML = '';
-            project.links.forEach(link => {
-              const a = document.createElement('a');
-              a.href = link.url;
-              a.textContent = link.name;
-              a.target = '_blank';
-              a.rel = 'noopener';
-              linksContainer.appendChild(a);
-            });
-          }
-
-          // Update video section if available
-          const iframe = document.querySelector('.yt-embed iframe');
-          if (project.videoUrl) {
-            iframe.src = project.videoUrl;
-            iframe.style.display = "block";
-          } else {
-            iframe.parentElement.style.display = "none";
-          }
-
-          // Update tech list
-          if (techTags.length > 0) {
-            const techList = document.querySelector('.tech-list');
-            techList.innerHTML = '';
-            techTags.forEach(tag => {
-              const li = document.createElement('li');
-              li.textContent = tag;
-              techList.appendChild(li);
-            });
-          }
-
-          // Update development section if available
-          if (project.development) {
-            const devSection = document.querySelector('.project-section h3');
-            if (devSection) {
-              devSection.textContent = project.development.title || "Development";
-              const ul = devSection.nextElementSibling;
-              if (ul && ul.tagName === 'UL') {
-                ul.innerHTML = '';
-                project.development.points.forEach(point => {
-                  const li = document.createElement('li');
-                  li.textContent = point;
-                  ul.appendChild(li);
-                });
-              }
-            }
-          }
         }
       } catch (error) {
         console.error("Error loading project data:", error);

@@ -68,13 +68,12 @@ body a:not(.play-now-button):not(.project-links a):hover {
 }
 
 .project-title {
-    font-family: 'Press Start 2P', monospace;
-    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
-    color: #1ad1ff;
-    /*[cite: 2]*/
-    text-shadow: 3px 3px 0 #0d1217;
-    margin: 1rem 0 0.5rem;
-    line-height: 1.4;
+    padding: 20px;
+    text-align: center;
+}
+
+.project-title img {
+    image-rendering: pixelated;
 }
 
 .project-thumbnail {

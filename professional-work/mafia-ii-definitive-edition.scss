@@ -1,0 +1,319 @@
+// ==========================================================================
+// MAFIA II: DEFINITIVE EDITION - PROJECT DETAIL STYLESHEET
+// Aesthetic: 1940s/50s Mid-Century Noir, Dark Slate, Crimson & Warm Gold
+// ==========================================================================
+
+// 1. Color Palette Variables (Matched to Mafia II: Definitive Edition art & UI)
+$color-noir-black: #08080a; // Deep obsidian black for page background
+$color-card-surface: #121216; // Dark translucent card surface
+$color-charcoal-slate: #1b1d24; // Elevated slate surfaces
+$color-crimson-red: #b81414; // Signature Roman numeral "II" & accent highlights
+$color-crimson-hover: #d91c1c; // Brighter crimson for hover states
+$color-ember-orange: #d94e1f; // Sunset horizon glow & warm accents
+$color-warm-sepia: #d8c29d; // Warm vintage gold/cream text accent
+$color-steel-blue: #46586e; // Overcast Empire Bay sky & trench coat accents
+$color-pure-white: #ffffff; // High-contrast title & active labels
+$color-muted-text: #b8b4ad; // Secondary readable off-white text
+
+// 2. Typography Tokens (Aligned with page Google Fonts: Cinzel, JetBrains Mono, Roboto)
+$font-display: "Cinzel", Georgia, serif;
+$font-body:
+  "Roboto",
+  system-ui,
+  -apple-system,
+  sans-serif;
+$font-mono: "JetBrains Mono", monospace;
+
+// 3. Layout & Border Tokens
+$border-subtle: 1px solid rgba($color-pure-white, 0.12);
+$border-crimson: 2px solid $color-crimson-red;
+$transition-fast: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+// 4. Page & Container Layout
+body.page-mafia-ii-definitive-edition {
+  background-color: $color-noir-black;
+  color: $color-pure-white;
+  font-family: $font-body;
+
+  .project-detail {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 2.5rem 1.75rem 4rem;
+  }
+
+  // 5. Project Header & Logo
+  .project-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem 0 1.75rem;
+    margin-bottom: 1.5rem;
+
+    .project-title {
+      max-width: min(100%, 520px);
+      max-height: 150px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.85));
+    }
+  }
+
+  // 6. Description & Store Actions Row
+  .project-description-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.35rem 1.65rem;
+    margin-bottom: 1.75rem;
+    background-color: rgba($color-card-surface, 0.85);
+    backdrop-filter: blur(8px);
+    border: $border-subtle;
+    border-left: 4px solid $color-crimson-red;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+
+    .project-description {
+      flex: 1 1 420px;
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.65;
+      color: $color-pure-white;
+    }
+
+    .project-store-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+
+      .project-store-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.55rem;
+        padding: 0.75rem 1.5rem;
+        background-color: $color-crimson-red;
+        color: $color-pure-white;
+        font-family: $font-mono;
+        font-size: 0.88rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: 1px solid $color-crimson-red;
+        box-shadow: 0 4px 14px rgba($color-crimson-red, 0.35);
+        transition: $transition-fast;
+
+        &::before {
+          content: "▶";
+          font-size: 0.75rem;
+          line-height: 1;
+        }
+
+        &:hover {
+          background-color: $color-crimson-hover;
+          border-color: $color-pure-white;
+          color: $color-pure-white;
+          box-shadow: 0 6px 20px rgba($color-crimson-red, 0.55);
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+
+  // 7. Metadata Grid
+  .project-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2.25rem;
+    background-color: transparent;
+    border-width: 0;
+
+    .meta-item {
+      background-color: rgba($color-card-surface, 0.85);
+      backdrop-filter: blur(8px);
+      border: $border-subtle;
+      border-top: 2px solid $color-crimson-red;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    }
+
+    .meta-label {
+      font-family: $font-mono;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: $color-warm-sepia;
+      margin-bottom: 0.35rem;
+    }
+
+    .meta-value {
+      font-family: $font-body;
+      font-size: 1rem;
+      font-weight: 700;
+      color: $color-pure-white;
+    }
+  }
+
+  // 8. Main Content, Video Embed & Two-Column Sections
+  .project-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+
+    .yt-embed {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #000000;
+      border: 1px solid rgba($color-pure-white, 0.16);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.75);
+      overflow: hidden;
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+    }
+
+    .grid-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .project-section {
+      background-color: rgba($color-card-surface, 0.85);
+      backdrop-filter: blur(8px);
+      border: $border-subtle;
+      border-top: 3px solid $color-crimson-red;
+      padding: 1.5rem 1.75rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+
+      h2 {
+        margin: 0 0 0.85rem;
+        padding-bottom: 0.45rem;
+        font-family: $font-display;
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: $color-pure-white;
+        border-bottom: $border-crimson;
+      }
+
+      h3 {
+        margin: 0 0 0.65rem;
+        font-family: $font-mono;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: $color-warm-sepia;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 1.25rem;
+
+        li {
+          margin-bottom: 0.5rem;
+          line-height: 1.55;
+          color: $color-muted-text;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        ul {
+          margin-top: 0.35rem;
+          margin-bottom: 0.65rem;
+        }
+      }
+
+      // Tech tags list styling
+      ul.tech-list {
+        list-style: none;
+        padding-left: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+
+        li {
+          margin-bottom: 0;
+          padding: 0.35rem 0.75rem;
+          background-color: $color-charcoal-slate;
+          color: $color-pure-white;
+          font-family: $font-mono;
+          font-size: 0.78rem;
+          font-weight: 600;
+          letter-spacing: 0.05em;
+          border: 1px solid rgba($color-pure-white, 0.1);
+          border-left: 3px solid $color-crimson-red;
+        }
+      }
+    }
+  }
+
+  // 9. Bottom Project Links
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 2.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba($color-pure-white, 0.15);
+    background-color: transparent;
+    border-width: 0;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.65rem 1.3rem;
+      background-color: $color-charcoal-slate;
+      color: $color-pure-white;
+      font-family: $font-mono;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba($color-pure-white, 0.18);
+      transition: $transition-fast;
+
+      &:hover {
+        background-color: $color-crimson-red;
+        border-color: $color-crimson-red;
+        color: $color-pure-white;
+      }
+    }
+  }
+
+  // 10. Responsive Adjustments
+  @media (max-width: 640px) {
+    .project-detail {
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    .project-header {
+      padding: 0.75rem 0 1.25rem;
+
+      .project-title {
+        max-height: 110px;
+      }
+    }
+
+    .project-description-row,
+    .project-section {
+      padding: 1.25rem;
+    }
+  }
+}

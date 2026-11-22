@@ -1,0 +1,249 @@
+@charset "UTF-8";
+body.page-mafia-ii-definitive-edition {
+  background-color: #08080a;
+  color: #ffffff;
+  font-family: "Roboto", system-ui, -apple-system, sans-serif;
+}
+body.page-mafia-ii-definitive-edition .project-detail {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2.5rem 1.75rem 4rem;
+}
+body.page-mafia-ii-definitive-edition .project-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem 0 1.75rem;
+  margin-bottom: 1.5rem;
+}
+body.page-mafia-ii-definitive-edition .project-header .project-title {
+  max-width: min(100%, 520px);
+  max-height: 150px;
+  width: auto;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.85));
+}
+body.page-mafia-ii-definitive-edition .project-description-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.35rem 1.65rem;
+  margin-bottom: 1.75rem;
+  background-color: rgba(18, 18, 22, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 4px solid #b81414;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+}
+body.page-mafia-ii-definitive-edition .project-description-row .project-description {
+  flex: 1 1 420px;
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: #ffffff;
+}
+body.page-mafia-ii-definitive-edition .project-description-row .project-store-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+body.page-mafia-ii-definitive-edition .project-description-row .project-store-actions .project-store-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #b81414;
+  color: #ffffff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid #b81414;
+  box-shadow: 0 4px 14px rgba(184, 20, 20, 0.35);
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+body.page-mafia-ii-definitive-edition .project-description-row .project-store-actions .project-store-btn::before {
+  content: "▶";
+  font-size: 0.75rem;
+  line-height: 1;
+}
+body.page-mafia-ii-definitive-edition .project-description-row .project-store-actions .project-store-btn:hover {
+  background-color: #d91c1c;
+  border-color: #ffffff;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(184, 20, 20, 0.55);
+  transform: translateY(-2px);
+}
+body.page-mafia-ii-definitive-edition .project-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.25rem;
+  background-color: transparent;
+  border-width: 0;
+}
+body.page-mafia-ii-definitive-edition .project-meta .meta-item {
+  background-color: rgba(18, 18, 22, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 2px solid #b81414;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+body.page-mafia-ii-definitive-edition .project-meta .meta-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d8c29d;
+  margin-bottom: 0.35rem;
+}
+body.page-mafia-ii-definitive-edition .project-meta .meta-value {
+  font-family: "Roboto", system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+body.page-mafia-ii-definitive-edition .project-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+body.page-mafia-ii-definitive-edition .project-content .yt-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+}
+body.page-mafia-ii-definitive-edition .project-content .yt-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+body.page-mafia-ii-definitive-edition .project-content .grid-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
+}
+body.page-mafia-ii-definitive-edition .project-content .project-section {
+  background-color: rgba(18, 18, 22, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 3px solid #b81414;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+body.page-mafia-ii-definitive-edition .project-content .project-section h2 {
+  margin: 0 0 0.85rem;
+  padding-bottom: 0.45rem;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  border-bottom: 2px solid #b81414;
+}
+body.page-mafia-ii-definitive-edition .project-content .project-section h3 {
+  margin: 0 0 0.65rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #d8c29d;
+}
+body.page-mafia-ii-definitive-edition .project-content .project-section ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+body.page-mafia-ii-definitive-edition .project-content .project-section ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.55;
+  color: #b8b4ad;
+}
+body.page-mafia-ii-definitive-edition .project-content .project-section ul li:last-child {
+  margin-bottom: 0;
+}
+body.page-mafia-ii-definitive-edition .project-content .project-section ul ul {
+  margin-top: 0.35rem;
+  margin-bottom: 0.65rem;
+}
+body.page-mafia-ii-definitive-edition .project-content .project-section ul.tech-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+body.page-mafia-ii-definitive-edition .project-content .project-section ul.tech-list li {
+  margin-bottom: 0;
+  padding: 0.35rem 0.75rem;
+  background-color: #1b1d24;
+  color: #ffffff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #b81414;
+}
+body.page-mafia-ii-definitive-edition .project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2.25rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: transparent;
+  border-width: 0;
+}
+body.page-mafia-ii-definitive-edition .project-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.65rem 1.3rem;
+  background-color: #1b1d24;
+  color: #ffffff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+body.page-mafia-ii-definitive-edition .project-links a:hover {
+  background-color: #b81414;
+  border-color: #b81414;
+  color: #ffffff;
+}
+@media (max-width: 640px) {
+  body.page-mafia-ii-definitive-edition .project-detail {
+    padding: 1.5rem 1rem 3rem;
+  }
+  body.page-mafia-ii-definitive-edition .project-header {
+    padding: 0.75rem 0 1.25rem;
+  }
+  body.page-mafia-ii-definitive-edition .project-header .project-title {
+    max-height: 110px;
+  }
+  body.page-mafia-ii-definitive-edition .project-description-row,
+  body.page-mafia-ii-definitive-edition .project-section {
+    padding: 1.25rem;
+  }
+}/*# sourceMappingURL=mafia-ii-definitive-edition.css.map */
