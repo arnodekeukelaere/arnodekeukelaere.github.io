@@ -1,0 +1,427 @@
+// ==========================================================================
+// ELARU - PROJECT DETAIL STYLESHEET (elaru.scss)
+// Adapted to project-detail layout with Dark Sci-Fi, Neon Cyan & Pink accents
+// ==========================================================================
+
+// 1. Color & Surface Tokens
+$color-void-black: #080a0c; // Deep pitch-black panels & cards[cite: 2]
+$color-abyss-teal: #0c181c; // Primary dark teal-slate canvas[cite: 2]
+$color-panel-elevated: #102127; // Slightly raised card/meta surface
+$color-neon-cyan: #1bf7eb; // Glowing neon cyan accents & headings[cite: 2]
+$color-cyan-hover: #66fff7; // Bright cyan hover state
+$color-neon-pink: #d648b8; // Ambient neon pink/magenta from lower-right glow[cite: 2]
+$color-pink-hover: #ff66de; // Brighter neon pink hover state[cite: 2]
+$color-industrial-gold: #c9a236; // Subtle warm highlight accent[cite: 2]
+$color-text-light: #c7d1d6; // Primary readable copy[cite: 2]
+$color-text-muted: #829299; // Labels & captions
+
+// 2. Typography Tokens (Aligned with Google Fonts in HTML: Roboto, Cinzel, JetBrains Mono)
+$font-display:
+  "Roboto",
+  system-ui,
+  -apple-system,
+  sans-serif;
+$font-body:
+  "Roboto",
+  system-ui,
+  -apple-system,
+  sans-serif;
+$font-mono: "JetBrains Mono", monospace;
+$font-accent: "Cinzel", Georgia, serif;
+
+$container-max: 1120px;
+$border-cyan: 1px solid rgba($color-neon-cyan, 0.75);
+$border-pink: 1px solid rgba($color-neon-pink, 0.75);
+$border-subtle: 1px solid rgba($color-neon-cyan, 0.22);
+$glow-primary: 0 0 24px rgba($color-neon-cyan, 0.42);
+$glow-subtle: 0 0 12px rgba($color-neon-cyan, 0.22);
+$glow-pink: 0 0 14px rgba($color-neon-pink, 0.35);
+
+// 3. Mixins
+@mixin sharp-card($bg: $color-void-black, $border: $border-subtle) {
+  background-color: $bg;
+  border: $border;
+  border-radius: 0; // Crisp square geometry matching the UI[cite: 2]
+}
+
+@mixin neon-button-primary {
+  background-color: $color-neon-cyan; //[cite: 2]
+  color: $color-void-black; //[cite: 2]
+  border: 1px solid $color-neon-cyan; //[cite: 2]
+  box-shadow: $glow-primary; //[cite: 2]
+
+  &:hover {
+    background-color: $color-cyan-hover;
+    box-shadow: 0 0 32px rgba($color-neon-cyan, 0.68);
+  }
+}
+
+@mixin neon-button-outline {
+  background-color: rgba($color-void-black, 0.88); //[cite: 2]
+  color: $color-neon-cyan; //[cite: 2]
+  border: $border-cyan; //[cite: 2]
+
+  &:hover {
+    background-color: rgba($color-neon-cyan, 0.12);
+    box-shadow: $glow-subtle;
+  }
+}
+
+@mixin neon-button-pink-outline {
+  background-color: rgba($color-void-black, 0.88); //[cite: 2]
+  color: $color-pink-hover; //[cite: 2]
+  border: $border-pink; //[cite: 2]
+
+  &:hover {
+    background-color: rgba($color-neon-pink, 0.14);
+    border-color: $color-pink-hover;
+    box-shadow: $glow-pink;
+  }
+}
+
+.page-elaru {
+  // 4. Base Page & Main Container
+  background-color: $color-abyss-teal; //[cite: 2]
+  color: $color-text-light; //[cite: 2]
+  font-family: $font-body;
+  line-height: 1.65;
+
+  .project-detail {
+    max-width: $container-max;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4.5rem;
+  }
+
+  // 5. Project Header & Logo
+  .project-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: $border-subtle;
+
+    .project-title {
+      max-height: 96px;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      filter: drop-shadow(0 0 14px rgba($color-neon-cyan, 0.25));
+    }
+  }
+
+  // 6. Description Row & Store Action Buttons
+  .project-description-row {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 2rem;
+    align-items: start;
+    margin-bottom: 2rem;
+
+    @media (max-width: 820px) {
+      grid-template-columns: 1fr;
+    }
+
+    .project-description {
+      @include sharp-card($color-void-black, $border-subtle); //[cite: 2]
+      margin: 0;
+      padding: 1.5rem 1.75rem;
+      font-size: 1rem;
+      color: $color-text-light; //[cite: 2]
+    }
+  }
+
+  .project-store-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .project-store-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 1rem 1.4rem;
+      font-family: $font-display;
+      font-size: 0.9rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      text-decoration: none;
+      border-radius: 0; // Crisp square geometry matching the UI[cite: 2]
+      transition:
+        transform 0.15s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+
+      &:first-child {
+        @include neon-button-primary;
+      }
+
+      &:not(:first-child) {
+        @include neon-button-pink-outline;
+      }
+
+      &:active {
+        transform: translateY(1px);
+      }
+    }
+  }
+
+  // 7. Metadata Strip (Project Type, Release Year, Platforms)
+  .project-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.75rem;
+
+    @media (max-width: 680px) {
+      grid-template-columns: 1fr;
+    }
+
+    .meta-item {
+      @include sharp-card($color-void-black, $border-subtle); //[cite: 2]
+      padding: 1.15rem 1.35rem;
+
+      .meta-label {
+        font-family: $font-mono;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: $color-text-muted;
+        margin-bottom: 0.35rem;
+      }
+
+      .meta-value {
+        font-family: $font-display;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: $color-neon-cyan; //[cite: 2]
+      }
+    }
+  }
+
+  // 8. Main Content, Demo Videos & Two-Column Grid
+  .project-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+  }
+
+  .yt-embed {
+    @include sharp-card($color-void-black, $border-subtle); //[cite: 2]
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+
+    iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+  }
+
+  .grid-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+
+    @media (max-width: 820px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // 9. Project Sections, Lists & Team Breakdown
+  .project-section {
+    @include sharp-card($color-void-black, $border-subtle); //[cite: 2]
+    padding: 2rem 2.25rem;
+
+    h2 {
+      margin: 0 0 1.25rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid rgba($color-neon-cyan, 0.25);
+      font-family: $font-display;
+      font-size: 1.4rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: $color-neon-cyan; //[cite: 2]
+    }
+
+    h3 {
+      margin: 1.1rem 0 0.6rem;
+      font-family: $font-display;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: $color-pink-hover; //[cite: 2]
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.25rem;
+
+      li {
+        margin-bottom: 0.65rem;
+        color: $color-text-light; //[cite: 2]
+
+        &::marker {
+          color: $color-neon-cyan; //[cite: 2]
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      margin-bottom: 0;
+      padding: 0.4rem 0.75rem;
+      background-color: $color-panel-elevated;
+      border: 1px solid rgba($color-neon-cyan, 0.4);
+      font-family: $font-mono;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: $color-neon-cyan; //[cite: 2]
+
+      &:nth-child(3n) {
+        border-color: rgba($color-neon-pink, 0.5);
+        color: $color-pink-hover; //[cite: 2]
+      }
+    }
+  }
+
+  .team-members {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
+    .team-category {
+      background-color: rgba($color-abyss-teal, 0.55); //[cite: 2]
+      border-left: 2px solid $color-neon-cyan; //[cite: 2]
+      padding: 1rem 1.25rem;
+
+      &:nth-child(2) {
+        border-left-color: $color-neon-pink; //[cite: 2]
+
+        h3 {
+          color: $color-pink-hover; //[cite: 2]
+        }
+      }
+
+      h3 {
+        margin-top: 0;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: $color-neon-cyan; //[cite: 2]
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 0;
+
+        li {
+          margin-bottom: 0.4rem;
+          font-size: 0.92rem;
+        }
+      }
+    }
+  }
+
+  // 10. Screenshot Gallery Grid
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1.25rem;
+
+    .gallery-item {
+      @include sharp-card(
+        $color-abyss-teal,
+        1px solid rgba($color-neon-cyan, 0.3)
+      ); //[cite: 2]
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+
+      &:hover {
+        border-color: $color-pink-hover; //[cite: 2]
+        box-shadow: $glow-pink;
+        transform: translateY(-2px);
+      }
+
+      img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        display: block;
+      }
+
+      .gallery-caption {
+        padding: 0.55rem 0.75rem;
+        font-family: $font-mono;
+        font-size: 0.78rem;
+        color: $color-text-muted;
+        background-color: $color-void-black; //[cite: 2]
+        border-top: 1px solid rgba($color-neon-pink, 0.24);
+      }
+    }
+  }
+
+  // 11. External Project Links
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.5rem;
+
+    a {
+      @include neon-button-outline;
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.25rem;
+      font-family: $font-mono;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+
+      &:nth-child(even) {
+        @include neon-button-pink-outline;
+      }
+    }
+  }
+}

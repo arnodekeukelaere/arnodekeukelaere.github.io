@@ -565,7 +565,8 @@ html[data-theme="dark"]:not(:has(body.page-keep-munching,
     body.page-labyrinth,
     body.page-ball-after-life,
     body.page-vampire-the-masquerade-bloodhunt,
-    body.page-mafia-ii-definitive-edition)) {
+    body.page-mafia-ii-definitive-edition,
+    body.page-elaru)) {
 
   background-color: #181A1B;
 

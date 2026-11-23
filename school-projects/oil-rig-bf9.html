@@ -4,130 +4,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=JetBrains+Mono:wght@400;600;700&family=Roboto:wght@400;700;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../shared-styles.css">
+  <link rel="stylesheet" href="../shared-gallery.css">
   <title>Oil Rig BF9</title>
-  <style>
-    .project-detail {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .project-header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .project-title {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-
-    .project-thumbnail {
-      width: 100%;
-      max-width: 600px;
-      height: auto;
-      margin: 0 auto 20px;
-      display: block;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .project-description {
-      font-size: 1.1em;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 30px;
-      padding: 15px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-    }
-
-    .meta-item {
-      flex: 1;
-      min-width: 150px;
-    }
-
-    .meta-label {
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #666;
-    }
-
-    .project-content {
-      margin-top: 30px;
-    }
-
-    .project-links {
-      margin-top: 20px;
-      padding: 15px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-    }
-
-    .project-links a {
-      display: inline-block;
-      margin-right: 15px;
-      margin-bottom: 10px;
-      padding: 8px 15px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-
-    .project-links a:hover {
-      background-color: #0056b3;
-    }
-  </style>
 </head>
 
 <body>
   <div id="site-nav"></div>
 
-  <div class="project-detail">
+  <main class="project-detail">
     <div class="project-header">
-      <h1 class="project-title">Oil Rig BF9</h1>
+      <img class="project-title" src="" alt="Oil Rig BF9 logo" />
     </div>
 
-    <img id="projectThumbnail" class="project-thumbnail" src="" alt="Oil Rig BF9 thumbnail">
-
-    <p id="projectDescription" class="project-description">Unreal Tournament custom map.</p>
+    <div class="project-description-row">
+      <p id="projectDescription" class="project-description">A map created in the Unreal Tournament editor for Unreal Engine 4. Based on various American oil platforms and mixed with an industrial sci-fi theme.</p>
+      <div class="project-store-actions">
+        <!-- Store action buttons will be populated by JavaScript -->
+      </div>
+    </div>
 
     <div class="project-meta">
       <div class="meta-item">
+        <div class="meta-label">Project type</div>
+        <div id="tags" class="meta-value">School project</div>
+      </div>
+      <div class="meta-item">
         <div class="meta-label">Release Year</div>
-        <div id="releaseYear">-</div>
+        <div id="releaseYear" class="meta-value">-</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Platforms</div>
-        <div id="platforms">PC</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Technologies</div>
-        <div id="tags">Unreal</div>
+        <div id="platforms" class="meta-value">PC</div>
       </div>
     </div>
 
     <div class="project-content">
-      <p>Oil Rig BF9 is an Unreal Tournament custom map. This was a school project exploring level design and Unreal Engine.</p>
+      <div class="yt-embed">
+        <iframe src="https://www.youtube.com/embed/6AKSc1a5y4k" title="Oil Rig BF9 Demo Video" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="grid-row">
+        <div class="project-section">
+          <h2>Info</h2>
+          <p>A map created in the Unreal Tournament editor for Unreal Engine 4. Based on various American oil platforms and mixed with an industrial sci-fi theme.</p>
+          <p>This was an exercise in the utilization of various level editing and texturing techniques such as: trim textures, modular building, gray packing, blueprints and shaders in Unreal.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Tech</h2>
+          <ul class="tech-list">
+            <li>3dsMax 2016</li>
+            <li>Unreal Engine 4</li>
+            <li>Adobe Photoshop</li>
+            <li>xNormal</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>Breakdown</h2>
+        <ul>
+          <li>First I created a blockout using simple volumes to play test for several hours and iterate on.</li>
+          <li>After polishing the overall feel and layout of this blockout, I started modeling and unwrapping a handful of meshes and textures.</li>
+          <li>These meshes then got shoved together and scaled in various ways to make a multitude of unique and new shapes in the map.</li>
+          <li>And then lastly, I added various decals and some additional power ups after more play testing.</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Gameplay footage</h2>
+        <div class="yt-embed">
+          <iframe src="https://www.youtube.com/embed/bcxcBYcgsEM" title="Oil Rig BF9 Gameplay Video" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a1.jpg" alt="Oil Rig BF9 screenshot 1">
+            <span class="gallery-caption">Screenshot 1</span>
+          </div>
+          <div class="gallery-item">
+            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a2.jpg" alt="Oil Rig BF9 screenshot 2">
+            <span class="gallery-caption">Screenshot 2</span>
+          </div>
+          <div class="gallery-item">
+            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a3.jpg" alt="Oil Rig BF9 screenshot 3">
+            <span class="gallery-caption">Screenshot 3</span>
+          </div>
+          <div class="gallery-item">
+            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a4.jpg" alt="Oil Rig BF9 screenshot 4">
+            <span class="gallery-caption">Screenshot 4</span>
+          </div>
+          <div class="gallery-item">
+            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a5.jpg" alt="Oil Rig BF9 screenshot 5">
+            <span class="gallery-caption">Screenshot 5</span>
+          </div>
+          <div class="gallery-item">
+            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a6.jpg" alt="Oil Rig BF9 screenshot 6">
+            <span class="gallery-caption">Screenshot 6</span>
+          </div>
+          <div class="gallery-item">
+            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a7.jpg" alt="Oil Rig BF9 screenshot 7">
+            <span class="gallery-caption">Screenshot 7</span>
+          </div>
+          <div class="gallery-item">
+            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a8.jpg" alt="Oil Rig BF9 screenshot 8">
+            <span class="gallery-caption">Screenshot 8</span>
+          </div>
+          <div class="gallery-item">
+            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a9.jpg" alt="Oil Rig BF9 screenshot 9">
+            <span class="gallery-caption">Screenshot 9</span>
+          </div>
+          <div class="gallery-item">
+            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a10.jpg" alt="Oil Rig BF9 screenshot 10">
+            <span class="gallery-caption">Screenshot 10</span>
+          </div>
+          <div class="gallery-item">
+            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a11.jpg" alt="Oil Rig BF9 screenshot 11">
+            <span class="gallery-caption">Screenshot 11</span>
+          </div>
+          <div class="gallery-item">
+            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a12.jpg" alt="Oil Rig BF9 screenshot 12">
+            <span class="gallery-caption">Screenshot 12</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="project-links">
-      <a id="liveLink" href="https://sites.google.com/view/arno-de-keukelaere/school-projects/oil-rig-bf9" target="_blank">Play Online</a>
-      <a id="sourceLink" href="#" target="_blank">Source Code</a>
-      <a id="documentationLink" href="#" target="_blank">Documentation</a>
+      <!-- External links will be populated by JavaScript -->
     </div>
-  </div>
+  </main>
 
   <script src="../layout.js"></script>
+  <script src="../shared-gallery.js"></script>
 
   <script>
     // This script will be populated with individual project data
@@ -137,37 +159,96 @@
         const project = projects.find(p => p.title === "Oil Rig BF9");
 
         if (project) {
-          document.querySelector('.project-title').textContent = project.title;
-          document.getElementById('projectDescription').textContent = project.description;
+          // Update title and description
+          document.querySelector('.project-title').src = project.thumbnail || '';
+          document.querySelector('.project-title').alt = project.title + " logo";
+          document.getElementById('projectDescription').textContent = project.description || '-';
+
+          // Update meta information
           document.getElementById('releaseYear').textContent = project.release || '-';
           document.getElementById('platforms').textContent = project.platforms ? project.platforms.join(', ') : '-';
+          document.getElementById('company').textContent = project.company || '-';
 
+          // Update tags
           const tags = project.tags || [];
           // Filter out category tags (Personal, Professional, School)
           const techTags = tags.filter(tag => !['Personal', 'Professional', 'School', '2010s', '2020s'].includes(tag));
-          document.getElementById('tags').textContent = techTags.length > 0 ? techTags.join(', ') : '-';
+          document.getElementById('tags').textContent = "School project";
 
-          if (project.thumbnail) {
-            const img = document.getElementById('projectThumbnail');
-            img.src = project.thumbnail;
-            img.alt = project.title + " thumbnail";
+          // Set store action buttons if available
+          const storeActionsContainer = document.querySelector('.project-store-actions');
+          if (project.storeUrls && Array.isArray(project.storeUrls)) {
+            storeActionsContainer.innerHTML = '';
+            project.storeUrls.forEach(store => {
+              const btn = document.createElement('a');
+              btn.href = store.url;
+              btn.textContent = store.name;
+              btn.className = 'project-store-btn';
+              btn.target = '_blank';
+              btn.rel = 'noopener';
+              storeActionsContainer.appendChild(btn);
+            });
+          } else if (project.url && project.url.startsWith('http')) {
+            // Fallback to a single link
+            const btn = document.createElement('a');
+            btn.href = project.url;
+            btn.textContent = 'Play Online';
+            btn.className = 'project-store-btn';
+            btn.target = '_blank';
+            btn.rel = 'noopener';
+            storeActionsContainer.appendChild(btn);
           }
 
           // Set links
-          const liveLink = document.getElementById('liveLink');
-          const sourceLink = document.getElementById('sourceLink');
-          const documentationLink = document.getElementById('documentationLink');
-
-          if (project.url && project.url !== "#") {
-            liveLink.href = project.url;
-            liveLink.style.display = "inline-block";
-          } else {
-            liveLink.style.display = "none";
+          const linksContainer = document.querySelector('.project-links');
+          if (project.links && Array.isArray(project.links)) {
+            linksContainer.innerHTML = '';
+            project.links.forEach(link => {
+              const a = document.createElement('a');
+              a.href = link.url;
+              a.textContent = link.name;
+              a.target = '_blank';
+              a.rel = 'noopener';
+              linksContainer.appendChild(a);
+            });
           }
 
-          // Hide source and documentation links by default
-          sourceLink.style.display = "none";
-          documentationLink.style.display = "none";
+          // Update video section if available
+          const iframe = document.querySelector('.yt-embed iframe');
+          if (project.videoUrl) {
+            iframe.src = project.videoUrl;
+            iframe.style.display = "block";
+          } else {
+            iframe.parentElement.style.display = "none";
+          }
+
+          // Update tech list
+          if (techTags.length > 0) {
+            const techList = document.querySelector('.tech-list');
+            techList.innerHTML = '';
+            techTags.forEach(tag => {
+              const li = document.createElement('li');
+              li.textContent = tag;
+              techList.appendChild(li);
+            });
+          }
+
+          // Update development section if available
+          if (project.development) {
+            const devSection = document.querySelector('.project-section h3');
+            if (devSection) {
+              devSection.textContent = project.development.title || "Development";
+              const ul = devSection.nextElementSibling;
+              if (ul && ul.tagName === 'UL') {
+                ul.innerHTML = '';
+                project.development.points.forEach(point => {
+                  const li = document.createElement('li');
+                  li.textContent = point;
+                  ul.appendChild(li);
+                });
+              }
+            }
+          }
         }
       } catch (error) {
         console.error("Error loading project data:", error);
