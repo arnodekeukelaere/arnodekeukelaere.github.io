@@ -466,14 +466,17 @@
     );
   }
 
+  function isDarkMode() {
+    return document.documentElement.getAttribute("data-theme") === "dark";
+  }
+
   function initDarkMode() {
     const toggleBtn = document.getElementById("darkModeToggle");
     applyDarkMode(getSavedDarkMode());
 
     if (toggleBtn) {
       toggleBtn.addEventListener("click", function () {
-        const currentIsDark = localStorage.getItem("darkMode") === "true";
-        applyDarkMode(!currentIsDark);
+        applyDarkMode(!isDarkMode());
       });
     }
   }
@@ -567,6 +570,8 @@
 
       // Re-run active link highlighting so injected sub-pages get .active & auto-expand
       highlightActiveNavLinks();
+      // Re-apply current theme so newly injected submenu links match the active theme
+      applyDarkMode(getSavedDarkMode());
     } catch (error) {
       console.error("Error populating navbar submenus:", error);
     }
