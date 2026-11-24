@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .page-elaru {
   background-color: #0c181c;
   color: #c7d1d6;
@@ -18,7 +19,7 @@
   border-bottom: 1px solid rgba(27, 247, 235, 0.22);
 }
 .page-elaru .project-header .project-title {
-  max-height: 96px;
+  max-height: 10em;
   max-width: 100%;
   width: auto;
   height: auto;
@@ -26,13 +27,22 @@
   -o-object-fit: contain;
      object-fit: contain;
   filter: drop-shadow(0 0 14px rgba(27, 247, 235, 0.25));
+  margin-top: 2em;
 }
 .page-elaru .project-description-row {
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 2rem;
-  align-items: start;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 280px);
+  gap: 1.5rem;
+  align-items: stretch;
+  justify-content: start;
+  width: 100%;
   margin-bottom: 2rem;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
+.page-elaru .project-description-row > * {
+  min-width: 0;
 }
 @media (max-width: 820px) {
   .page-elaru .project-description-row {
@@ -43,40 +53,73 @@
   background-color: #080a0c;
   border: 1px solid rgba(27, 247, 235, 0.22);
   border-radius: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
   margin: 0;
-  padding: 1.5rem 1.75rem;
+  padding: 1.5rem 1.75rem 1.5rem 1.9rem;
   font-size: 1rem;
+  line-height: 1.7;
   color: #c7d1d6;
+  border-left: 3px solid #1bf7eb;
+  box-shadow: inset 0 1px 0 rgba(27, 247, 235, 0.14);
+}
+.page-elaru .project-description-row .project-description::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff66de);
 }
 .page-elaru .project-store-actions {
   display: flex;
   flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  width: 100%;
+  margin-left: 0;
   gap: 1rem;
 }
 .page-elaru .project-store-actions .project-store-btn {
+  position: relative;
   display: inline-flex;
+  flex: 1 1 auto;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  padding: 1rem 1.4rem;
-  font-family: "Roboto", system-ui, -apple-system, sans-serif;
-  font-size: 0.9rem;
-  font-weight: 900;
+  gap: 0.5rem;
+  min-height: 3.5rem;
+  padding: 1.15rem 1.5rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.92rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.09em;
   text-decoration: none;
+  text-align: center;
   border-radius: 0;
-  transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  overflow: hidden;
+  transition: transform 0.14s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 .page-elaru .project-store-actions .project-store-btn:first-child {
   background-color: #1bf7eb;
   color: #080a0c;
   border: 1px solid #1bf7eb;
-  box-shadow: 0 0 24px rgba(27, 247, 235, 0.42);
+  box-shadow: 0 0 22px rgba(27, 247, 235, 0.45), 4px 4px 0 rgba(214, 72, 184, 0.45);
+}
+.page-elaru .project-store-actions .project-store-btn:first-child::after {
+  content: " →";
+  font-weight: 700;
+  transition: transform 0.15s ease;
 }
 .page-elaru .project-store-actions .project-store-btn:first-child:hover {
   background-color: #66fff7;
-  box-shadow: 0 0 32px rgba(27, 247, 235, 0.68);
+  transform: translate(-1px, -1px);
+  box-shadow: 0 0 32px rgba(27, 247, 235, 0.72), 6px 6px 0 rgba(214, 72, 184, 0.65);
+}
+.page-elaru .project-store-actions .project-store-btn:first-child:hover::after {
+  transform: translateX(3px);
 }
 .page-elaru .project-store-actions .project-store-btn:not(:first-child) {
   background-color: rgba(8, 10, 12, 0.88);
@@ -89,13 +132,16 @@
   box-shadow: 0 0 14px rgba(214, 72, 184, 0.35);
 }
 .page-elaru .project-store-actions .project-store-btn:active {
-  transform: translateY(1px);
+  transform: translate(1px, 1px);
 }
 .page-elaru .project-meta {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin-bottom: 2.75rem;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
 }
 @media (max-width: 680px) {
   .page-elaru .project-meta {
@@ -126,7 +172,6 @@
 .page-elaru .project-content {
   display: flex;
   flex-direction: column;
-  gap: 2.25rem;
 }
 .page-elaru .yt-embed {
   background-color: #080a0c;
@@ -161,6 +206,9 @@
   border-radius: 0;
   padding: 2rem 2.25rem;
 }
+.page-elaru .project-section p {
+  color: #c7d1d6;
+}
 .page-elaru .project-section h2 {
   margin: 0 0 1.25rem;
   padding-bottom: 0.6rem;
@@ -170,52 +218,69 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #1bf7eb;
+  color: #d648b8;
 }
 .page-elaru .project-section h3 {
   margin: 1.1rem 0 0.6rem;
   font-family: "Roboto", system-ui, -apple-system, sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
-  color: #ff66de;
+  color: #1bf7eb;
 }
 .page-elaru .project-section h3:first-of-type {
   margin-top: 0;
 }
-.page-elaru .project-section ul {
+.page-elaru .project-section > ul:not(.tech-list) {
   margin: 0;
   padding-left: 1.25rem;
 }
-.page-elaru .project-section ul li {
+.page-elaru .project-section > ul:not(.tech-list) li {
   margin-bottom: 0.65rem;
   color: #c7d1d6;
 }
-.page-elaru .project-section ul li::marker {
+.page-elaru .project-section > ul:not(.tech-list) li::marker {
   color: #1bf7eb;
 }
-.page-elaru .project-section ul li:last-child {
+.page-elaru .project-section > ul:not(.tech-list) li:last-child {
   margin-bottom: 0;
+}
+.page-elaru .tech-category {
+  margin-bottom: 1.5rem;
+}
+.page-elaru .tech-category:last-child {
+  margin-bottom: 0;
+}
+.page-elaru .tech-category h3 {
+  margin-bottom: 0.6rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #829299;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 .page-elaru .tech-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
   list-style: none;
-  padding-left: 0;
+  margin: 0;
+  padding: 0;
 }
 .page-elaru .tech-list li {
-  margin-bottom: 0;
+  display: block;
+  margin: 0;
   padding: 0.4rem 0.75rem;
   background-color: #102127;
   border: 1px solid rgba(27, 247, 235, 0.4);
   font-family: "JetBrains Mono", monospace;
   font-size: 0.82rem;
   font-weight: 600;
+  line-height: 1.4;
   color: #1bf7eb;
 }
-.page-elaru .tech-list li:nth-child(3n) {
-  border-color: rgba(214, 72, 184, 0.5);
-  color: #ff66de;
+.page-elaru .tech-list li::marker {
+  content: "";
 }
 .page-elaru .team-members {
   display: grid;
@@ -232,12 +297,6 @@
   border-left: 2px solid #1bf7eb;
   padding: 1rem 1.25rem;
 }
-.page-elaru .team-members .team-category:nth-child(2) {
-  border-left-color: #d648b8;
-}
-.page-elaru .team-members .team-category:nth-child(2) h3 {
-  color: #ff66de;
-}
 .page-elaru .team-members .team-category h3 {
   margin-top: 0;
   font-size: 0.95rem;
@@ -252,34 +311,77 @@
 .page-elaru .team-members .team-category ul li {
   margin-bottom: 0.4rem;
   font-size: 0.92rem;
+  color: #c7d1d6;
 }
-.page-elaru .gallery-grid {
+.page-elaru .team-members .team-category ul li a {
+  color: #1bf7eb;
+}
+.page-elaru .team-members .team-category ul li a:hover {
+  color: #d648b8;
+}
+.page-elaru .project-section {
+  --gallery-section-bg: #080a0c;
+  --gallery-section-border: 1px solid rgba(27, 247, 235, 0.22);
+  --gallery-section-radius: 0;
+  --gallery-section-shadow: none;
+  --gallery-heading-color: #1bf7eb;
+  --gallery-heading-font: Roboto, system-ui, -apple-system, sans-serif;
+  --gallery-card-bg: #0c181c;
+  --gallery-card-border: 1px solid rgba($color-neon-cyan, 0.3);
+  --gallery-card-radius: 0;
+  --gallery-card-shadow: none;
+  --gallery-card-hover-shadow: 0 0 14px rgba(214, 72, 184, 0.35);
+  --gallery-img-border: none;
+  --gallery-img-radius: 0;
+  --lightbox-backdrop: rgba($color-void-black, 0.94);
+  --lightbox-frame-bg: #080a0c;
+  --lightbox-frame-border: 1px solid rgba($color-neon-cyan, 0.75);
+  --lightbox-frame-shadow: 0 0 24px rgba(27, 247, 235, 0.42);
+  --lightbox-btn-bg: #080a0c;
+  --lightbox-btn-color: #1bf7eb;
+  --lightbox-btn-border: 1px solid rgba($color-neon-cyan, 0.75);
+  --lightbox-btn-hover-bg: rgba($color-neon-pink, 0.16);
+  --lightbox-btn-hover-color: #ff66de;
+  --lightbox-caption-bg: #080a0c;
+  --lightbox-caption-color: #ff66de;
+  --lightbox-caption-border: 1px solid rgba($color-neon-pink, 0.75);
+  --lightbox-font: JetBrains Mono, monospace;
+}
+.page-elaru .project-section:has(.image-gallery.project-gallery) h2,
+.page-elaru .project-gallery-section h2 {
+  color: #d648b8;
+}
+.page-elaru .image-gallery.project-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 1.25rem;
 }
-.page-elaru .gallery-grid .gallery-item {
+.page-elaru .image-gallery.project-gallery .gallery-item {
   background-color: #0c181c;
   border: 1px solid rgba(27, 247, 235, 0.3);
   border-radius: 0;
+  padding: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
-.page-elaru .gallery-grid .gallery-item:hover {
+.page-elaru .image-gallery.project-gallery .gallery-item:hover {
   border-color: #ff66de;
   box-shadow: 0 0 14px rgba(214, 72, 184, 0.35);
   transform: translateY(-2px);
 }
-.page-elaru .gallery-grid .gallery-item img {
+.page-elaru .image-gallery.project-gallery .gallery-item img {
   width: 100%;
   aspect-ratio: 16/10;
   -o-object-fit: cover;
      object-fit: cover;
+  border: none;
+  border-radius: 0;
   display: block;
 }
-.page-elaru .gallery-grid .gallery-item .gallery-caption {
+.page-elaru .image-gallery.project-gallery .gallery-item .gallery-caption {
   padding: 0.55rem 0.75rem;
   font-family: "JetBrains Mono", monospace;
   font-size: 0.78rem;
@@ -287,11 +389,60 @@
   background-color: #080a0c;
   border-top: 1px solid rgba(214, 72, 184, 0.24);
 }
+.page-elaru .shared-lightbox {
+  background-color: rgba(8, 10, 12, 0.94);
+  font-family: "JetBrains Mono", monospace;
+}
+.page-elaru .shared-lightbox .shared-lightbox__img {
+  background-color: #080a0c;
+  border: 1px solid rgba(27, 247, 235, 0.75);
+  border-radius: 0;
+  box-shadow: 0 0 24px rgba(27, 247, 235, 0.42);
+}
+.page-elaru .shared-lightbox .shared-lightbox__caption {
+  color: #ff66de;
+  background-color: #080a0c;
+  border: 1px solid rgba(214, 72, 184, 0.75);
+  border-radius: 0;
+}
+.page-elaru .shared-lightbox .shared-lightbox__btn,
+.page-elaru .shared-lightbox .shared-lightbox__close {
+  color: #1bf7eb;
+  background-color: #080a0c;
+  border: 1px solid rgba(27, 247, 235, 0.75);
+  border-radius: 0;
+}
+.page-elaru .shared-lightbox .shared-lightbox__btn:hover,
+.page-elaru .shared-lightbox .shared-lightbox__close:hover {
+  background-color: rgba(214, 72, 184, 0.16);
+  border-color: #ff66de;
+  color: #ff66de;
+  box-shadow: 0 0 14px rgba(214, 72, 184, 0.35);
+}
+.page-elaru .shared-lightbox .shared-lightbox__img {
+  border-radius: 0;
+}
+.page-elaru .shared-lightbox .shared-lightbox__caption {
+  border-radius: 0;
+}
+.page-elaru .shared-lightbox .shared-lightbox__btn,
+.page-elaru .shared-lightbox .shared-lightbox__close {
+  border-radius: 0;
+}
+.page-elaru .shared-lightbox .shared-lightbox__btn:hover,
+.page-elaru .shared-lightbox .shared-lightbox__close:hover {
+  border-color: #ff66de;
+  color: #ff66de;
+  box-shadow: 0 0 14px rgba(214, 72, 184, 0.35);
+}
 .page-elaru .project-links {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 2.5rem;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
 }
 .page-elaru .project-links a {
   background-color: rgba(8, 10, 12, 0.88);

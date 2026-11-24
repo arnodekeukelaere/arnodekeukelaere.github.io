@@ -11,6 +11,40 @@
   <link rel="stylesheet" href="../shared-gallery.css">
   <link rel="stylesheet" href="elaru.css">
   <title>Elaru</title>
+  <style>
+    :root {
+      --hero-bg-url: url('https://lh3.googleusercontent.com/d/1kQfuShXYLQtTc2vhbvEcyBtIbe_AixIy');
+    }
+
+    body.page-elaru {
+      position: relative;
+      z-index: 0;
+    }
+
+    body.page-elaru::before {
+      content: "";
+      position: absolute;
+      /* Cancels body's margin-top: 80px so the image meets the very top edge */
+      top: -80px;
+      left: 0;
+      right: 0;
+      height: 55vw;
+      background-image: var(--hero-bg-url);
+      background-position: top center;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      /* Fades the actual image alpha to transparent so the body's crimson smoke shows through */
+      -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Keep page content above the fade layer without creating a dark background wall over it */
+    body.page-elaru> :not(script):not(style) {
+      position: relative;
+    }
+  </style>
 </head>
 
 <body class="page-elaru">
@@ -18,14 +52,15 @@
 
   <main class="project-detail">
     <div class="project-header">
-      <img class="project-title" src="" alt="Elaru logo" />
+      <img class="project-title" src="https://lh3.googleusercontent.com/d/1vEWCTodONro8zUVTcsSdJZJOwHFtvgM6"
+        alt="Elaru logo" />
     </div>
 
     <div class="project-description-row">
-      <p id="projectDescription" class="project-description">An ambitious virtual reality stealth adventure game made
-        with a team of 8 students.</p>
+      <p id="projectDescription" class="project-description">-</p>
       <div class="project-store-actions">
-        <!-- Store action buttons will be populated by JavaScript -->
+        <a class="project-store-btn"
+          href="https://mega.nz/file/6JAn0YZC#rS_6n3NRMoYwS6IDjAIj5PyTls_gMUaDs0IMwtBsvrs">Download now</a>
       </div>
     </div>
 
@@ -35,51 +70,96 @@
         <div id="tags" class="meta-value">School project</div>
       </div>
       <div class="meta-item">
-        <div class="meta-label">Release Year</div>
-        <div id="releaseYear" class="meta-value">-</div>
-      </div>
-      <div class="meta-item">
         <div class="meta-label">Platforms</div>
         <div id="platforms" class="meta-value">PC</div>
       </div>
     </div>
 
     <div class="project-content">
-      <div class="yt-embed">
-        <iframe src="https://www.youtube.com/embed/ODlkUqy7Us4" title="Elaru Demo Video 1" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
+
+      <div class="project-section">
+        <h2>Trailer</h2>
+        <div class="yt-embed">
+          <iframe src="https://www.youtube.com/embed/ODlkUqy7Us4" title="Elaru Demo Video 1" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
 
-      <div class="yt-embed">
-        <iframe src="https://www.youtube.com/embed/LAHp9FlVLes" title="Elaru Demo Video 2" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
 
       <div class="grid-row">
         <div class="project-section">
+          <h2>Gameplay</h2>
+          <h3>Escape from robot thugs</h3>
+          <p>
+            Criminal robots have learned of your arrival and are patrolling the streets in search of you!
+          </p>
+          Plan ahead and put together an arsenal before you go on various stealth focused quests with a variety of
+          different objectives. The difficulty is based on h ow well you put together your own ivnentory in preperation
+          for these excursions.
+          <p></p>
+          <h3>Unlock new weapons and skills</h3>
+          <p>Help the local rebellion to gain a tactical advantage over the criminal robots by upgrading your arsenal of
+            weapons and unlocking your companion's abilities.</p>
+          <p>Traverse the city by using the: underground sewer system, streets, vents and even the rooftops all whilst
+            trying to stay out of sight.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Development</h2>
+          <p>
+            An overly ambitious virtual reality stealth adventure game set in an open world made by a team of 8
+            students. Safe to say the
+            team learned a lot about overscoping by the end of this project.
+          </p>
+          <p>
+            I enjoy learning new software, so for this project I learned how to use Adobe Audition for creating sound
+            effects with visual references.</p>
+
+          </br>
+
           <h2>What I did</h2>
-          <h3>Development</h3>
           <ul>
             <li>As project lead and programmer, I generally focused on the game's UX in VR, which consisted mostly of
               polishing the functionality and interaction with the world and weapons.</li>
             <li>Besides UX, I was also in charge of implementing all the audio in the game.</li>
           </ul>
         </div>
+      </div>
 
-        <div class="project-section">
-          <h2>Tech</h2>
+      <div class="project-section">
+        <h2>Tech</h2>
+
+        <div class="tech-category">
+          <h3>Engine & Code</h3>
           <ul class="tech-list">
-            <li>Unity 2017 (C#)</li>
+            <li>Unity 2017</li>
+            <li>C#</li>
             <li>Visual Studio 2017</li>
-            <li>SourceTree</li>
+          </ul>
+        </div>
+
+        <div class="tech-category">
+          <h3>Hardware</h3>
+          <ul class="tech-list">
             <li>HTC Vive</li>
+          </ul>
+        </div>
+
+        <div class="tech-category">
+          <h3>Audio &amp; Art</h3>
+          <ul class="tech-list">
             <li>Audacity</li>
             <li>Adobe Audition</li>
             <li>Adobe Photoshop</li>
+          </ul>
+        </div>
+
+        <div class="tech-category">
+          <h3>Project Management</h3>
+          <ul class="tech-list">
+            <li>SourceTree</li>
             <li>Slack</li>
             <li>Trello</li>
           </ul>
@@ -92,88 +172,75 @@
           <div class="team-category">
             <h3>Artists:</h3>
             <ul>
-              <li>Bram Delaey</li>
-              <li>Matthias Degroote</li>
-              <li>Mieke Yperman</li>
+              <li><a href="https://www.artstation.com/bramdelaey">Bram Delaey</a></li>
+              <li><a href="https://www.artstation.com/matthias_degroote">Matthias Degroote</a></li>
+              <li><a href="https://miekeyperman.wordpress.com/">Mieke Yperman</a></li>
             </ul>
           </div>
           <div class="team-category">
             <h3>Programmers:</h3>
             <ul>
-              <li>Aaron De Belder</li>
-              <li>Dieter Tack</li>
-              <li>Niels Rethy</li>
-              <li>Sam Van de Walle</li>
+              <li><a href="https://aarondebelder.wordpress.com/">Aaron De Belder</a></li>
+              <li><a href="https://dietertack.wordpress.com/">Dieter Tack</a></li>
+              <li><a href="http://www.nielsrethy.com/">Niels Rethy</a></li>
+              <li><a href="https://vandewallesam.wixsite.com/portfolio">Sam Van de Walle</a></li>
             </ul>
           </div>
           <div class="team-category">
             <h3>Composer:</h3>
             <ul>
-              <li>Stan Lee Cole</li>
+              <li><a href="http://www.stan-lee-cole.com/">Stan Lee Cole</a></li>
             </ul>
           </div>
         </div>
       </div>
 
       <div class="project-section">
-        <h2>Gallery</h2>
-        <div id="projectGallery" class="gallery-grid">
+        <h2>Gameplay demo</h3>
+          <div class="yt-embed">
+            <iframe src="https://www.youtube.com/embed/LAHp9FlVLes" title="Elaru Demo Video 2" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+      </div>
+
+      <div class="project-section">
+        <h2>Screenshots</h2>
+        <div id="projectGallery" class="image-gallery project-gallery">
           <div class="gallery-item">
-            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a1.jpg"
-              alt="Elaru screenshot 1">
-            <span class="gallery-caption">Screenshot 1</span>
+            <img src="https://lh3.googleusercontent.com/d/1yDMP3xRJEEXwmzG8gKos7KkaBfec7RoA" alt="Elaru screenshot 1">
           </div>
           <div class="gallery-item">
-            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a2.jpg"
-              alt="Elaru screenshot 2">
-            <span class="gallery-caption">Screenshot 2</span>
+            <img src="https://lh3.googleusercontent.com/d/1gNVzj19tTgQSwLoyDnShAVXVXCuSpptX" alt="Elaru screenshot 2">
           </div>
           <div class="gallery-item">
-            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a3.jpg"
-              alt="Elaru screenshot 3">
-            <span class="gallery-caption">Screenshot 3</span>
+            <img src="https://lh3.googleusercontent.com/d/1jaZvYHJNTO3gfR6fAMqMljcQEhyUEbGV" alt="Elaru screenshot 3">
           </div>
           <div class="gallery-item">
-            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a4.jpg"
-              alt="Elaru screenshot 4">
-            <span class="gallery-caption">Screenshot 4</span>
+            <img src="https://lh3.googleusercontent.com/d/11_6JWZJypWlNmGhsi4NB22OP-IzaihLA" alt="Elaru screenshot 4">
           </div>
           <div class="gallery-item">
-            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a5.jpg"
-              alt="Elaru screenshot 5">
-            <span class="gallery-caption">Screenshot 5</span>
+            <img src="https://lh3.googleusercontent.com/d/1KugSkmsfTPPMpRgbHfoV3D2Dg63OvM2_" alt="Elaru screenshot 5">
           </div>
           <div class="gallery-item">
-            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a6.jpg"
-              alt="Elaru screenshot 6">
-            <span class="gallery-caption">Screenshot 6</span>
+            <img src="https://lh3.googleusercontent.com/d/1VsZCUzSB5xHeOL8QnXu_YkBpbftHzqNw" alt="Elaru screenshot 6">
           </div>
           <div class="gallery-item">
-            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a7.jpg"
-              alt="Elaru screenshot 7">
-            <span class="gallery-caption">Screenshot 7</span>
+            <img src="https://lh3.googleusercontent.com/d/13znnhXZ3vDJEGaIZOQXNROb9et6mnWeu" alt="Elaru screenshot 7">
           </div>
           <div class="gallery-item">
-            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a8.jpg"
-              alt="Elaru screenshot 8">
-            <span class="gallery-caption">Screenshot 8</span>
+            <img src="https://lh3.googleusercontent.com/d/13tx6SUBDVYcyuQhJylbYeGQmp-iE9Y9a" alt="Elaru screenshot 8">
           </div>
           <div class="gallery-item">
-            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a9.jpg"
-              alt="Elaru screenshot 9">
-            <span class="gallery-caption">Screenshot 9</span>
-          </div>
-          <div class="gallery-item">
-            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a10.jpg"
-              alt="Elaru screenshot 10">
-            <span class="gallery-caption">Screenshot 10</span>
+            <img src="https://lh3.googleusercontent.com/d/1xb1WEbmEJxGz4FOp_vKc6vZ6u3luf1u5" alt="Elaru screenshot 9">
           </div>
         </div>
       </div>
     </div>
 
     <div class="project-links">
-      <!-- External links will be populated by JavaScript -->
+      <a href="https://elarublog.wordpress.com/">Dev blog</a>
     </div>
   </main>
 
@@ -189,8 +256,6 @@
 
         if (project) {
           // Update title and description
-          document.querySelector('.project-title').src = project.thumbnail || '';
-          document.querySelector('.project-title').alt = project.title + " logo";
           document.getElementById('projectDescription').textContent = project.description || '-';
 
           // Add additional info to the description if it's Elaru
