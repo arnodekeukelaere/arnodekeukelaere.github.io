@@ -1,0 +1,604 @@
+// ==========================================================================
+// NEKO-PAKKU CRASH! - PIXEL ART PLATFORMER THEME (SCSS)
+// ==========================================================================
+
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");
+
+// 1. Color Palette
+$sky-twilight: #18222c; //[cite: 2]
+$mountain-shadow: #1e2928;
+$panel-slate: #222e3a;
+$panel-dark: #121920;
+$ink-black: #0d1217;
+$earth-brown: #734c33; //[cite: 2]
+$earth-dark: #4a2f1d;
+$grass-green: #588544; //[cite: 2]
+$grass-highlight: #76ad5c; //[cite: 2]
+$hero-cyan: #1ad1ff; //[cite: 2]
+$hero-cyan-glow: #7ce6ff;
+$hud-gold: #f5d742; //[cite: 2]
+$heart-red: #e62e2e; //[cite: 2]
+$heart-dark: #8f1818;
+$cat-grey: #6d7175; //[cite: 2]
+$text-body: #e8eef2;
+$text-white: #ffffff;
+
+// 2. Typography
+$font-title: "Press Start 2P", monospace;
+$font-hud: "Silkscreen", monospace;
+$font-body: "Space Mono", monospace;
+
+// 3. Mixins
+@mixin pixel-panel($bg: $panel-dark, $border: $cat-grey) {
+  background-color: $bg;
+  border: 3px solid $border;
+  box-shadow:
+    inset 0 0 0 3px $panel-dark,
+    4px 4px 0 $ink-black;
+  border-radius: 0;
+}
+
+// 4. Keyframes
+@keyframes heart-hop {
+  0%,
+  100% {
+    transform: translate(-2px, -2px);
+  }
+
+  50% {
+    transform: translate(-2px, -5px);
+  }
+}
+
+// ==========================================================================
+// BASE & LINKS
+// ==========================================================================
+
+body {
+  background-color: $sky-twilight;
+  /**/
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba($sky-twilight, 0.92),
+      rgba($mountain-shadow, 0.96)
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.02) 0px,
+      rgba(255, 255, 255, 0.02) 2px,
+      transparent 2px,
+      transparent 16px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.02) 0px,
+      rgba(255, 255, 255, 0.02) 2px,
+      transparent 2px,
+      transparent 16px
+    );
+  color: $text-body;
+  font-family: $font-body;
+  line-height: 1.7;
+
+  a:not(.play-now-button):not(.project-links a) {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: $grass-highlight; //[cite: 2]
+    text-underline-offset: 3px;
+
+    &:hover {
+      color: $hud-gold; //[cite: 2]
+      text-decoration-color: $hud-gold; //[cite: 2]
+    }
+  }
+}
+
+// ==========================================================================
+// PROJECT CONTAINER & HEADER
+// ==========================================================================
+
+.project-detail {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  @include pixel-panel($panel-slate, $grass-green); //[cite: 2]
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    height: 12px;
+    margin: -2rem -2rem 2rem -2rem;
+    background: linear-gradient(
+      to bottom,
+      $grass-highlight 0%,
+      $grass-green 45%,
+      $earth-brown 45%,
+      $earth-brown 100%
+    ); //[cite: 2]
+    border-bottom: 3px solid $earth-dark;
+  }
+}
+
+.project-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  @include pixel-panel($panel-dark, $cat-grey); //[cite: 2]
+
+  img {
+    max-width: 100%;
+    height: auto;
+    image-rendering: pixelated; //[cite: 2]
+  }
+}
+
+.project-title {
+  padding: 20px;
+  text-align: center;
+
+  margin-top: 80px;
+
+  img {
+    image-rendering: pixelated;
+    max-width: 100%;
+  }
+}
+
+.project-thumbnail {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto 1.5rem;
+  display: block;
+  image-rendering: pixelated; //[cite: 2]
+  border: 3px solid $grass-green; //[cite: 2]
+  box-shadow: 4px 4px 0 $ink-black;
+  border-radius: 0;
+}
+
+// ==========================================================================
+// DESCRIPTION & PRIMARY PLAY CTA
+// ==========================================================================
+
+.project-description-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.project-description {
+  font-size: 1.05rem;
+  color: $text-body;
+  background-color: rgba($panel-dark, 0.7);
+  padding: 1.25rem;
+  border-left: 4px solid $hero-cyan;
+  margin: 0;
+  flex: 1 1 220px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .project-description-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .project-description {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .play-now-button,
+  .project-links #liveLink {
+    display: flex;
+    flex: 0 0 auto;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    padding: 0.85rem 1rem;
+  }
+}
+
+.play-now-button,
+.project-links #liveLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 240px;
+  min-height: 48px;
+  font-family: $font-hud;
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.85rem 1.65rem;
+  background-color: $heart-red; //[cite: 2]
+  color: $text-white;
+  text-shadow: 2px 2px 0 #6e1010;
+  border: 3px solid $ink-black;
+  box-shadow:
+    inset -3px -3px 0 $heart-dark,
+    inset 3px 3px 0 #ff7b7b,
+    4px 4px 0 $ink-black;
+  border-radius: 0;
+  cursor: pointer;
+  transition:
+    transform 0.08s steps(2),
+    box-shadow 0.08s steps(2),
+    background-color 0.08s steps(2),
+    border-color 0.08s steps(2);
+
+  &:hover {
+    color: $text-white;
+    background-color: #ff3b3b; //[cite: 2]
+    border-color: $hud-gold; //[cite: 2]
+    animation: heart-hop 0.4s steps(2) infinite;
+    box-shadow:
+      inset -3px -3px 0 #9e1b1b,
+      inset 3px 3px 0 #fff3a1,
+      6px 6px 0 $ink-black;
+
+    &::after {
+      transform: translateX(3px);
+    }
+  }
+
+  &:active {
+    animation: none;
+    transform: translate(2px, 2px);
+    box-shadow:
+      inset 2px 2px 0 $heart-dark,
+      1px 1px 0 $ink-black;
+  }
+
+  &:focus-visible {
+    outline: 3px solid $hero-cyan; //[cite: 2]
+    outline-offset: 3px;
+  }
+}
+
+// ==========================================================================
+// METADATA HUD BAR
+// ==========================================================================
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.25rem;
+  @include pixel-panel($panel-dark, $hud-gold); //[cite: 2]
+
+  .meta-item {
+    flex: 1;
+    min-width: 180px;
+    padding: 0.5rem 0.75rem;
+    border-left: 3px solid rgba($hud-gold, 0.35); //[cite: 2]
+
+    &:first-child {
+      border-left: none;
+    }
+  }
+
+  .meta-label {
+    font-family: $font-hud;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: $hud-gold; //[cite: 2]
+    letter-spacing: 0.06em;
+    margin-bottom: 0.35rem;
+
+    &::before {
+      content: "▸ ";
+      color: $hero-cyan; //[cite: 2]
+    }
+  }
+
+  #releaseYear,
+  #platforms,
+  #tags {
+    font-family: $font-hud;
+    font-size: 1rem;
+    color: $text-body;
+  }
+}
+
+// ==========================================================================
+// CONTENT, SECTIONS & GAMEPLAY MECHANICS
+// ==========================================================================
+
+.project-content {
+  margin-top: 2rem;
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0.5rem;
+    margin-bottom: 1.5rem;
+
+    li {
+      position: relative;
+      padding-left: 1.6rem;
+      margin-bottom: 0.6rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.55em;
+        width: 8px;
+        height: 8px;
+        background-color: $hero-cyan; //[cite: 2]
+        box-shadow: 2px 2px 0 $ink-black;
+      }
+    }
+  }
+}
+
+.section-title {
+  font-family: $font-title;
+  font-size: 1.15rem;
+  color: $hud-gold; //[cite: 2]
+  text-shadow: 2px 2px 0 $ink-black;
+  border-bottom: 3px solid $grass-green; //[cite: 2]
+  padding-bottom: 0.65rem;
+  margin: 2.25rem 0 1.25rem;
+  letter-spacing: 0.04em;
+}
+
+// ==========================================================================
+// TECH TAG CHIPS (Targets <ul> immediately after the "Tech" .section-title)
+// ==========================================================================
+
+.section-title + ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-left: 0;
+  margin-top: 1rem;
+  margin-bottom: 1.75rem;
+
+  li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.75rem;
+    margin-bottom: 0;
+    background-color: $panel-dark;
+    border: 2px solid $hero-cyan;
+    box-shadow: 3px 3px 0 $ink-black;
+    font-family: $font-hud;
+    font-size: 0.85rem;
+    color: $text-body;
+    transition:
+      transform 0.08s steps(2),
+      border-color 0.08s steps(2),
+      box-shadow 0.08s steps(2);
+
+    // Override the default square list bullet
+    &::before {
+      content: "#";
+      position: static;
+      width: auto;
+      height: auto;
+      background-color: transparent;
+      box-shadow: none;
+      color: $hero-cyan;
+      font-weight: 700;
+    }
+
+    strong {
+      color: $hud-gold;
+      font-weight: 700;
+    }
+
+    // &:hover {
+    //   transform: translate(-2px, -2px);
+    //   border-color: $hud-gold;
+    //   box-shadow: 5px 5px 0 $ink-black;
+
+    //   &::before {
+    //     color: $hud-gold;
+    //   }
+    // }
+  }
+}
+
+.gameplay-mechanics {
+  @include pixel-panel($earth-dark, $earth-brown); //[cite: 2]
+  width: 100%;
+  border-top: 6px solid $grass-green; //[cite: 2]
+  padding-left: 1.5rem;
+  /* padding: 1.5rem; */
+  /* margin: 1.75rem 0; */
+
+  strong {
+    font-family: $font-hud;
+    color: $hud-gold; //[cite: 2]
+  }
+
+  ul li::before {
+    background-color: $grass-highlight; //[cite: 2]
+  }
+}
+
+// ==========================================================================
+// PROJECT LINKS & GALLERY
+// ==========================================================================
+
+.project-links {
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+  @include pixel-panel($panel-dark, $cat-grey);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+
+  .gameplay-mechanics {
+    flex: 1 1 100%;
+    width: auto; // Overrides width: 100% so padding/borders stay inside flex bounds
+    margin: 0;
+    padding: 1rem 1.25rem;
+    box-sizing: border-box;
+
+    p {
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  a:not(#liveLink) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    max-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: $font-hud;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    background-color: #164863;
+    color: $text-white;
+    border: 3px solid $ink-black;
+    box-shadow:
+      inset -3px -3px 0 rgba(0, 0, 0, 0.35),
+      inset 3px 3px 0 rgba($hero-cyan, 0.45),
+      4px 4px 0 $ink-black;
+    border-radius: 0;
+    transition:
+      transform 0.08s steps(2),
+      box-shadow 0.08s steps(2),
+      background-color 0.08s steps(2);
+
+    &:hover {
+      color: $text-white;
+      background-color: #1e6287;
+      border-color: $hud-gold;
+      transform: translate(-2px, -2px);
+      box-shadow:
+        inset -3px -3px 0 rgba(0, 0, 0, 0.35),
+        inset 3px 3px 0 rgba($hero-cyan-glow, 0.5),
+        6px 6px 0 $ink-black;
+    }
+
+    &:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 $ink-black;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .project-links {
+    padding: 1rem;
+    gap: 0.75rem;
+
+    a:not(#liveLink) {
+      flex: 1 1 100%;
+      width: 100%;
+      font-size: 0.85rem;
+      padding: 0.75rem 1rem;
+    }
+  }
+}
+
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+  /* margin: 2rem 0; */
+  /* padding: 1.5rem; */
+  /* background-color: #121920; */
+  /* border: 3px solid #588544; */
+  /* box-shadow: inset 0 0 0 3px #121920, 4px 4px 0 #0d1217; */
+  border-radius: 0;
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  background-color: $panel-slate;
+  border: 3px solid $ink-black;
+  box-shadow: 3px 3px 0 $ink-black;
+  padding: 0.5rem;
+  transition:
+    transform 0.08s steps(2),
+    border-color 0.08s steps(2),
+    box-shadow 0.08s steps(2);
+
+  &:hover {
+    transform: translate(-2px, -2px);
+    border-color: $hud-gold; //[cite: 2]
+    box-shadow: 5px 5px 0 $ink-black;
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    image-rendering: pixelated; //[cite: 2]
+    /* border: 2px solid #4a2f1d; */
+    background-color: $sky-twilight; //[cite: 2]
+    cursor: pointer;
+  }
+
+  .gallery-caption {
+    margin-top: 0.6rem;
+    padding: 0.4rem 0.5rem;
+    background-color: $panel-dark;
+    border-top: 2px solid $grass-green; //[cite: 2]
+    font-family: $font-hud;
+    color: $text-body;
+    font-size: 0.8rem;
+    text-align: center;
+    letter-spacing: 0.03em;
+  }
+}
+
+// ==========================================================================
+// RESPONSIVE
+// ==========================================================================
+
+@media (max-width: 640px) {
+  .project-detail {
+    margin: 1rem;
+    padding: 1.25rem;
+
+    &::before {
+      margin: -1.25rem -1.25rem 1.5rem -1.25rem;
+    }
+  }
+
+  .project-meta .meta-item {
+    border-left: none;
+    border-bottom: 2px solid rgba($hud-gold, 0.25); //[cite: 2]
+    padding-bottom: 0.75rem;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .image-gallery {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}

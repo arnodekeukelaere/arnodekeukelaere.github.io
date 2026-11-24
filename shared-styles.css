@@ -10,8 +10,11 @@ body {
   color: black;
   padding: 0;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-  margin-top: 80px;
+/* Apply padding to content to account for fixed navbar */
+.content-padding {
+  padding-top: 80px;
 }
 
 /* Center the content with max width */
@@ -288,6 +291,38 @@ h1 {
   left: 0;
   right: 0;
   z-index: 1001;
+}
+
+/* Project title logo scaling */
+.project-header img.project-title {
+  max-width: 90%;
+  max-height: 1000px;
+  width: auto;
+  height: auto;
+  -o-object-fit: contain;
+  object-fit: contain;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* Add some padding for better mobile spacing */
+  padding: 0 10px;
+}
+
+/* Mobile-specific adjustments for project logos */
+@media (max-width: 768px) {
+  .project-header img.project-title {
+    max-width: 95%;
+    margin-top: 40px;
+    max-height: 600px;
+    padding: 0 5px;
+  }
+}
+
+/* Ensure project headers are properly centered */
+.project-header {
+  text-align: center;
+  /* Add consistent top spacing for all projects */
+  padding-top: 10px;
 }
 
 .navbar-brand {
@@ -721,6 +756,7 @@ html[data-theme="dark"]:not(:has(body.page-keep-munching,
 .project-detail {
   max-width: 960px;
   margin: 0 auto;
+  padding-top: 80px; /* Account for fixed navbar height */
 }
 
 /* Project header styling (centered) */

@@ -307,20 +307,6 @@ body.page-ball-after-life .btn-click-to-play {
       border-color 0.25s ease,
       box-shadow 0.25s ease;
 
-    // &.is-lit,
-    // &:hover {
-    //   background-color: $color-spectral-lit;
-    //   border-color: rgba($color-glacial-blue, 0.65);
-    //   box-shadow:
-    //     inset 0 0 32px rgba($color-glacial-blue, 0.22),
-    //     0 0 18px rgba($color-abyssal-cyan, 0.2);
-
-    //   .meta-label {
-    //     color: $color-ice-white;
-    //     text-shadow: 0 0 8px rgba($color-glacial-blue, 0.6);
-    //   }
-    // }
-
     .meta-label {
       font-family: $font-ledger;
       font-size: 0.74rem;
@@ -355,30 +341,87 @@ body.page-ball-after-life .btn-click-to-play {
 }
 
 // Tech Stack Items
-.tech-list {
+// ==========================================================================
+// GROUPED TECH TAGS
+// ==========================================================================
+
+.tech-groups {
+  // display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 0 0 1.75rem;
+}
+
+.tech-group {
+  // background-color: rgba($color-crypt-dim, 0.88);
+  // border: $border-crypt;
+  // padding: 1rem 1.15rem;
+  padding: 1rem 0rem;
+  // transition:
+  //   border-color 0.25s ease,
+  //   box-shadow 0.25s ease;
+
+  // &:hover {
+  //   border-color: rgba($color-glacial-blue, 0.45);
+  //   box-shadow: inset 0 0 24px rgba($color-abyssal-cyan, 0.12);
+  // }
+}
+
+.tech-group-label {
+  margin: 0 0 0.75rem;
+  font-family: $font-ledger;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: $color-glacial-blue;
+}
+
+.tech-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
+  gap: 0.5rem;
   list-style: none;
   padding: 0;
-  margin: 0 0 1.75rem;
+  margin: 0;
+}
 
-  li {
-    padding: 0.45rem 0.9rem;
-    font-family: $font-ledger;
-    font-size: 0.82rem;
-    background-color: $color-crypt-dim;
-    border: 1px solid rgba($color-glacial-blue, 0.3);
-    color: $color-pale-ash;
-    transition: all 0.25s ease;
+.tech-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  font-family: $font-ledger;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: $color-ice-white;
+  background: linear-gradient(
+    180deg,
+    rgba($color-spectral-lit, 0.55) 0%,
+    rgba($color-crypt-shadow, 0.95) 100%
+  );
+  border: 1px solid rgba($color-glacial-blue, 0.42);
+  border-radius: 2px;
+  box-shadow:
+    inset 0 0 10px rgba($color-abyssal-cyan, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.65);
+  // transition:
+  //   transform 0.2s ease,
+  //   color 0.2s ease,
+  //   background 0.2s ease,
+  //   border-color 0.2s ease,
+  //   box-shadow 0.2s ease;
 
-    &:hover {
-      background-color: $color-spectral-lit;
-      border-color: $color-glacial-blue;
-      color: $color-ice-white;
-      box-shadow: 0 0 14px rgba($color-glacial-blue, 0.3);
-    }
-  }
+  // &:hover {
+  //   transform: translateY(-1px);
+  //   color: $color-abyss-pitch;
+  //   background: linear-gradient(
+  //     180deg,
+  //     $color-ice-white 0%,
+  //     $color-glacial-blue 100%
+  //   );
+  //   border-color: $color-ice-white;
+  //   box-shadow: 0 0 16px rgba($color-glacial-blue, 0.55);
+  // }
 }
 
 // Embedded YouTube Video Section

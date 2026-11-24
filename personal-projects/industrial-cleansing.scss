@@ -1,0 +1,534 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Share+Tech+Mono&display=swap");
+
+// ==========================================================================
+// INDUSTRIAL CLEANSING - SCOPED PAGE OVERRIDES (SCSS)
+// Aesthetic: Grimy Industrial Facility, Purge LEDs, Hazard & Telemetry Panels
+// ==========================================================================
+
+// Color & Surface Variables
+$ic-bg-void: #0d0f12;
+$ic-bg-dark: #111316;
+$ic-bg-panel: #121418;
+$ic-bg-elevated: #14171c;
+$ic-bg-surface: #16191e;
+$ic-bg-card: #191c21;
+$ic-bg-tile: #1d2127;
+
+$ic-border-dark: #0a0b0d;
+$ic-border-inner: #0b0d0f;
+$ic-border-muted: #2e333b;
+$ic-border-subtle: #323740;
+$ic-border-bar: #353b45;
+$ic-border-tile: #383e48;
+$ic-border-steel: #3a404a;
+$ic-border-bezel: #454c57;
+
+$ic-text-primary: #e6e9ee;
+$ic-text-bright: #f4f6f8;
+$ic-text-muted: #cfd5df;
+$ic-text-white: #ffffff;
+
+$ic-purge-dark: #120908;
+$ic-lcd-bg: #0d0706;
+$ic-lcd-hover: #160907;
+$ic-purge-deep: #b81d00;
+$ic-purge-red: #ff3308;
+$ic-purge-bright: #ff471a;
+$ic-purge-glow-text: #ff5938;
+$ic-purge-sub: #ff6b4a;
+$ic-purge-sub-hover: #ffd6cc;
+$ic-hazard-amber: #e6e9ee;
+
+$ic-caution-blue: #272727;
+$ic-caution-blue-hover: #3678db;
+$ic-caution-blue-border: #5b96f0;
+
+// Typography Variables
+$ic-font-sans: "Roboto", sans-serif;
+$ic-font-display: "Chakra Petch", "Roboto", sans-serif;
+$ic-font-mono: "Share Tech Mono", "Roboto", monospace;
+
+// Mixins
+@mixin lcd-panel($bg: $ic-lcd-bg, $glow-intensity: 0.25) {
+  background-color: $bg;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba($ic-purge-red, 0.06) 0px,
+      rgba($ic-purge-red, 0.06) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at center,
+      rgba(255, 42, 0, 0.16) 0%,
+      rgba(10, 5, 4, 0.96) 85%
+    );
+  border: 3px solid $ic-border-bezel;
+  border-radius: 4px;
+  box-shadow:
+    inset 0 0 0 2px #090a0c,
+    inset 0 0 22px rgba(255, 42, 0, $glow-intensity),
+    0 0 16px rgba(255, 42, 0, 0.18),
+    0 5px 0 $ic-border-dark;
+}
+
+body.page-industrial-cleansing {
+  font-family: $ic-font-sans;
+  color: $ic-text-primary;
+  background-color: $ic-bg-dark;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba($ic-text-white, 0.025) 0px,
+      rgba($ic-text-white, 0.025) 2px,
+      transparent 2px,
+      transparent 96px
+    ),
+    linear-gradient(180deg, $ic-bg-surface 0%, $ic-bg-void 100%);
+
+  // Override shared gallery for Industrial Cleansing
+  --gallery-section-bg: #{$ic-bg-panel};
+  --gallery-section-border: 2px solid #{$ic-border-muted};
+  --gallery-section-radius: 4px;
+  --gallery-section-shadow: inset 0 0 16px rgba(0, 0, 0, 0.55);
+  --gallery-heading-color: #{$ic-hazard-amber};
+  --gallery-heading-font: #{$ic-font-display};
+
+  --gallery-card-bg: #{$ic-bg-tile};
+  --gallery-card-border: 2px solid #{$ic-border-tile};
+  --gallery-card-radius: 4px;
+  --gallery-card-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  --gallery-card-hover-shadow: 0 0 14px rgba(255, 51, 8, 0.35);
+
+  --gallery-img-border: 2px solid #2b3038;
+  --gallery-img-radius: 2px;
+
+  --lightbox-backdrop: rgba(10, 12, 15, 0.94);
+  --lightbox-frame-bg: #{$ic-bg-card};
+  --lightbox-frame-border: 3px solid #{$ic-border-steel};
+  --lightbox-frame-shadow:
+    0 0 24px rgba(255, 51, 8, 0.25), 0 14px 30px rgba(0, 0, 0, 0.75);
+  --lightbox-btn-bg: #{$ic-purge-deep};
+  --lightbox-btn-color: #{$ic-text-white};
+  --lightbox-btn-border: 2px solid #{$ic-purge-bright};
+  --lightbox-btn-hover-bg: #{$ic-purge-red};
+  --lightbox-btn-hover-color: #{$ic-bg-dark};
+  --lightbox-caption-bg: #{$ic-purge-dark};
+  --lightbox-caption-color: #{$ic-purge-bright};
+  --lightbox-caption-border: 2px solid #{$ic-purge-red};
+  --lightbox-font: #{$ic-font-mono};
+
+  // Main Facility Container
+  .project-detail {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: $ic-bg-card;
+    border: 3px solid $ic-border-steel;
+    border-radius: 6px;
+    box-shadow:
+      inset 0 0 0 2px $ic-border-inner,
+      0 14px 32px rgba(0, 0, 0, 0.65);
+
+    .project-header img {
+      max-width: 90%;
+    }
+  }
+
+  // Header & Purge-Red Title Plate
+  .project-header {
+    text-align: center;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
+    margin-top: 2em;
+  }
+
+  .project-title {
+    display: inline-block;
+    margin: 0;
+    padding: 0.55rem 1.5rem;
+    font-family: $ic-font-display;
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.1;
+    color: $ic-purge-red;
+    background-color: $ic-purge-dark;
+    border: 3px solid $ic-border-bezel;
+    border-radius: 4px;
+    box-shadow:
+      inset 0 0 18px rgba(255, 42, 0, 0.22),
+      0 0 16px rgba(255, 42, 0, 0.25),
+      0 6px 0 $ic-border-dark;
+    text-shadow: 0 0 12px rgba(255, 51, 8, 0.55);
+  }
+
+  // Briefing / Description Readout
+  .project-description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: $ic-font-mono;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: $ic-text-bright;
+    background-color: $ic-bg-panel;
+    padding: 1.15rem 1.35rem;
+    margin: 0 0 1.75rem;
+    border: 2px solid $ic-border-subtle;
+    border-left: 5px solid $ic-purge-red;
+    border-radius: 4px;
+    box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.55);
+  }
+
+  // Telemetry / Spec Strip
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+    padding: 1rem;
+    background-color: $ic-bg-panel;
+    border: 2px solid $ic-border-muted;
+    border-radius: 4px;
+  }
+
+  .meta-item {
+    flex: 1;
+    min-width: 150px;
+    padding: 0.85rem 1rem;
+    background-color: $ic-bg-tile;
+    border: 2px solid $ic-border-tile;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 0 rgba($ic-text-white, 0.05);
+
+    > div:not(.meta-label) {
+      font-family: $ic-font-mono;
+      font-size: 1.15rem;
+      color: $ic-purge-bright;
+      letter-spacing: 0.04em;
+    }
+  }
+
+  .meta-label {
+    font-family: $ic-font-display;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $ic-text-white;
+    margin-bottom: 0.35rem;
+  }
+
+  // Extended Notes / Content Panel
+  .project-content {
+    margin-top: 1.5rem;
+    padding: 1.25rem 1.4rem;
+    background-color: $ic-bg-elevated;
+    border: 2px solid $ic-border-muted;
+    border-radius: 4px;
+    color: $ic-text-muted;
+    line-height: 1.65;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  // Info and Tech 2-column layout
+  .info-tech-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  .info-section,
+  .tech-section {
+    // background-color: $ic-bg-panel;
+    // padding: 20px;
+    // border: 2px solid $ic-border-muted;
+    // border-radius: 4px;
+  }
+
+  // Categorized Tech list with industrial telemetry tags
+  .tech-section {
+    margin-bottom: 2rem;
+    .tech-category {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem 0.75rem;
+      margin-top: 0.9rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px dashed $ic-border-tile;
+
+      &:first-of-type {
+        margin-top: 0.85rem;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+    }
+
+    .tech-category-label {
+      margin: 0;
+      min-width: 130px;
+      font-family: $ic-font-display;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: $ic-hazard-amber;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .tech-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.8rem;
+      font-family: $ic-font-mono;
+      font-size: 0.88rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: $ic-text-bright;
+      background-color: $ic-bg-tile;
+      border: 2px solid $ic-border-tile;
+      border-left: 3px solid $ic-purge-bright;
+      border-radius: 3px;
+      box-shadow:
+        inset 0 1px 0 rgba($ic-text-white, 0.05),
+        0 3px 0 $ic-border-dark;
+      transition:
+        transform 0.12s ease,
+        box-shadow 0.12s ease,
+        background-color 0.12s ease,
+        border-color 0.12s ease,
+        color 0.12s ease;
+
+      //   &:nth-child(even) {
+      //     background-color: $ic-bg-card;
+      //   }
+
+      //   &:hover {
+      //     background-color: $ic-purge-dark;
+      //     border-color: $ic-purge-red;
+      //     color: $ic-purge-glow-text;
+      //     transform: translateY(-2px);
+      //     box-shadow:
+      //       0 5px 0 $ic-border-dark,
+      //       0 0 12px rgba($ic-purge-red, 0.35);
+      //   }
+    }
+  }
+
+  h2 {
+    margin-top: 0;
+    color: $ic-purge-red;
+    border-bottom: 2px solid $ic-purge-red;
+    padding-bottom: 10px;
+    font-family: $ic-font-display;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  // Action Controls Bar
+  .project-links {
+    margin-top: 1.75rem;
+    padding: 1.15rem 1.25rem;
+    background-color: $ic-bg-panel;
+    border: 2px solid $ic-border-bar;
+    border-radius: 4px;
+
+    a {
+      display: inline-block;
+      margin-right: 0.85rem;
+      margin-bottom: 0.5rem;
+      padding: 0.65rem 1.25rem;
+      font-family: $ic-font-display;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      text-decoration: none;
+      color: $ic-text-white;
+      background-color: $ic-purge-deep;
+      border: 2px solid $ic-purge-bright;
+      border-radius: 4px;
+      box-shadow:
+        0 4px 0 $ic-border-dark,
+        0 0 12px rgba(255, 42, 0, 0.25);
+      transition:
+        transform 0.1s ease,
+        background-color 0.12s ease,
+        box-shadow 0.12s ease;
+
+      &:hover {
+        background-color: $ic-purge-red;
+        color: $ic-bg-dark;
+        transform: translateY(-2px);
+        box-shadow:
+          0 6px 0 $ic-border-dark,
+          0 0 18px rgba(255, 51, 8, 0.55);
+      }
+
+      &:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 0 $ic-border-dark;
+      }
+
+      + a {
+        background-color: $ic-caution-blue;
+        border-color: $ic-caution-blue-border;
+        box-shadow: 0 4px 0 $ic-border-dark;
+
+        &:hover {
+          background-color: $ic-caution-blue-hover;
+          color: $ic-text-white;
+          box-shadow: 0 6px 0 $ic-border-dark;
+        }
+      }
+    }
+  }
+
+  // 2-column layout: description fills remaining space, button caps at 340px
+  .project-description-container {
+    display: grid;
+    grid-template-columns: 1fr minmax(260px, 340px);
+    gap: 1.5rem;
+    margin-bottom: 1.75rem;
+    align-items: stretch;
+
+    .project-description {
+      margin-bottom: 0;
+      min-width: 0;
+    }
+
+    .meta-button {
+      margin-bottom: 0;
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-end;
+    }
+  }
+
+  // Glowing Red LCD Panel CTA for "Play Now"
+  .meta-button.play {
+    a {
+      @include lcd-panel($ic-lcd-bg, 0.25);
+      box-sizing: border-box;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      width: 100%;
+      padding: 1.25rem 1.5rem;
+      text-decoration: none;
+      color: $ic-purge-red;
+      transition:
+        transform 0.1s ease,
+        border-color 0.14s ease,
+        box-shadow 0.14s ease,
+        background-color 0.14s ease;
+
+      &:hover,
+      &:focus-visible {
+        background-color: $ic-lcd-hover;
+        border-color: $ic-purge-bright;
+        transform: translateY(-2px);
+        box-shadow:
+          inset 0 0 0 2px #090a0c,
+          inset 0 0 30px rgba(255, 51, 8, 0.42),
+          0 0 22px rgba(255, 51, 8, 0.45),
+          0 7px 0 $ic-border-dark;
+        outline: none;
+
+        .play-label {
+          color: $ic-purge-glow-text;
+          text-shadow:
+            0 0 10px rgba(255, 89, 56, 0.95),
+            0 0 24px rgba(255, 42, 0, 0.7);
+        }
+
+        .play-sub {
+          color: $ic-purge-sub-hover;
+          background-color: rgba(255, 51, 8, 0.22);
+          border-color: $ic-purge-bright;
+        }
+      }
+
+      &:active {
+        transform: translateY(2px);
+        box-shadow:
+          inset 0 0 0 2px #090a0c,
+          inset 0 0 26px rgba(255, 51, 8, 0.35),
+          0 2px 0 $ic-border-dark;
+      }
+    }
+
+    .play-label {
+      font-family: $ic-font-display;
+      font-size: clamp(1.35rem, 2.3vw, 1.8rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      line-height: 1.1;
+      color: $ic-purge-red;
+      text-shadow:
+        0 0 8px rgba(255, 51, 8, 0.8),
+        0 0 18px rgba(255, 42, 0, 0.45);
+    }
+
+    .play-sub {
+      font-family: $ic-font-mono;
+      font-size: 0.85rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: $ic-purge-sub;
+      background-color: rgba(255, 42, 0, 0.1);
+      padding: 0.22rem 0.7rem;
+      border: 1px solid rgba(255, 71, 26, 0.45);
+      border-radius: 2px;
+      text-shadow: 0 0 6px rgba(255, 51, 8, 0.55);
+    }
+  }
+
+  // Responsive adjustments for smaller screens
+  @media (max-width: 768px) {
+    .project-description-container {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .info-tech-container {
+      grid-template-columns: 1fr;
+    }
+
+    .project-detail {
+      padding: 1rem;
+      margin: 1rem auto;
+    }
+
+    .project-title {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+    }
+  }
+}

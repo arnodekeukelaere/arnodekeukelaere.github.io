@@ -1,0 +1,478 @@
+// ==========================================================================
+// KEEP MUNCHING Y'ALL - SCOPED PAGE OVERRIDES (SCSS)
+// ==========================================================================
+
+// 1. Palette & Tokens
+$munch-yellow: #ffe31a;
+$munch-lemon: #fff380;
+$munch-ink: #1d120d;
+$munch-crust: #f5821f;
+$munch-sauce: #d9381e;
+$munch-cream: #fffdf2;
+
+$font-display: "Fredoka", "Roboto", sans-serif;
+$font-body: "Space Grotesk", "Roboto", sans-serif;
+
+$border-card: 4px solid $munch-ink;
+$border-item: 3px solid $munch-ink;
+$shadow-card: 6px 6px 0px $munch-ink;
+$shadow-btn: 4px 4px 0px $munch-ink;
+
+// 2. Mixins
+@mixin sticker-surface(
+  $bg: $munch-cream,
+  $border: $border-card,
+  $radius: 18px,
+  $shadow: $shadow-card
+) {
+  background-color: $bg;
+  border: $border;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+@mixin pill-cta(
+  $bg: $munch-sauce,
+  $color: $munch-cream,
+  $hover-bg: $munch-ink,
+  $hover-color: $munch-yellow
+) {
+  font-family: $font-display;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: $color;
+  background-color: $bg;
+  border: $border-item;
+  border-radius: 999px;
+  box-shadow: $shadow-btn;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background-color 0.12s ease,
+    color 0.12s ease;
+
+  &:hover {
+    background-color: $hover-bg;
+    color: $hover-color;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px $munch-ink;
+  }
+
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px $munch-ink;
+  }
+}
+
+// 3. Page Scope
+body.page-keep-munching {
+  font-family: $font-body;
+  color: $munch-ink;
+  background-color: $munch-yellow;
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(255, 227, 26, 0) 0%,
+      rgba(255, 227, 26, 1) 25%,
+      rgba(255, 227, 26, 1) 100%
+    ),
+    url("https://lh3.googleusercontent.com/d/1P6KO4etlk8-wNywxZiNBvu-rIUuuAiLn");
+  background-size:
+    100% 100vh,
+    1024px 1054px;
+  background-repeat: repeat-x;
+  background-position:
+    center center,
+    24px 24px;
+
+  // Shared gallery & lightbox custom properties
+  --gallery-section-bg: #{$munch-cream};
+  --gallery-section-border: #{$border-card};
+  --gallery-section-radius: 18px;
+  --gallery-section-shadow: #{$shadow-card};
+  --gallery-heading-color: #{$munch-ink};
+  --gallery-heading-font: #{$font-display};
+
+  --gallery-card-bg: #{$munch-yellow};
+  --gallery-card-border: #{$border-item};
+  --gallery-card-radius: 14px;
+  --gallery-card-shadow: #{$shadow-btn};
+  --gallery-card-hover-shadow: 6px 6px 0px #{$munch-ink};
+
+  // --gallery-img-border: 2px solid #1d120d;
+  --gallery-img-radius: 10px;
+
+  --lightbox-backdrop: rgba(29, 18, 13, 0.92);
+  --lightbox-frame-bg: #{$munch-yellow};
+  --lightbox-frame-border: #{$border-card};
+  --lightbox-frame-shadow: 8px 8px 0px #{$munch-crust};
+  --lightbox-btn-bg: #{$munch-sauce};
+  --lightbox-btn-color: #{$munch-cream};
+  --lightbox-btn-border: #{$border-item};
+  --lightbox-btn-hover-bg: #{$munch-yellow};
+  --lightbox-btn-hover-color: #{$munch-ink};
+  --lightbox-caption-bg: #{$munch-ink};
+  --lightbox-caption-color: #{$munch-yellow};
+  --lightbox-caption-border: 3px solid #{$munch-yellow};
+  --lightbox-font: #{$font-display};
+
+  // Layout & Header
+  .project-detail {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3.5rem;
+
+    @media (max-width: 768px) {
+      padding: 1rem;
+      margin: 1rem auto;
+    }
+  }
+
+  .project-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1.25rem;
+    margin-top: 2rem;
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 460px;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .project-title {
+      @include sticker-surface($bg: $munch-ink, $radius: 22px);
+      margin: 0;
+      max-width: 900px;
+      padding: 0.75rem 1.5rem;
+      font-family: $font-display;
+      font-size: clamp(2.25rem, 5.5vw, 4rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1.05;
+      color: $munch-yellow;
+
+      @media (max-width: 768px) {
+        font-size: clamp(1.5rem, 4vw, 2.25rem);
+      }
+    }
+
+    .project-subtitle {
+      margin: 0.75rem 0 0;
+      font-family: $font-body;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: $munch-ink;
+    }
+  }
+
+  .project-description,
+  .project-content {
+    @include sticker-surface;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    padding: 1.15rem 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  // 2-Column Description + Click to Play Row
+  .description-play-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: stretch;
+    gap: 1.75rem;
+    margin: 0 0 2.2rem;
+
+    @media (max-width: 680px) {
+      grid-template-columns: 1fr;
+    }
+
+    .project-description {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0;
+    }
+  }
+
+  // 2-Column Description + Click to Play Row
+  .description-play-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: stretch;
+    gap: 1.75rem;
+    margin: 0 0 2.2rem;
+
+    @media (max-width: 680px) {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.25rem;
+    }
+
+    .project-description {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0;
+    }
+  }
+
+  // Wrapper sits cleanly in the grid column; <a> gets the sticker button styling
+  .btn-click-to-play {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    min-width: 0;
+
+    @media (max-width: 680px) {
+      width: 100%;
+      padding: 0 8px 8px 4px; // Gives breathing room for the outer box-shadow ring on mobile
+      box-sizing: border-box;
+    }
+
+    a {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      min-width: 220px;
+      max-width: 450px;
+      padding: 1.2rem 1.75rem;
+      text-align: center;
+      text-decoration: none;
+      color: black;
+      background-color: $munch-yellow;
+      border: $border-card;
+      border-radius: 22px;
+      box-shadow:
+        0 0 0 4px $munch-cream,
+        0 0 0 7px $munch-ink,
+        8px 8px 0px $munch-crust;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease;
+
+      @media (max-width: 680px) {
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+        padding: 1rem 1.15rem;
+      }
+
+      .play-label {
+        font-family: $font-display;
+        font-size: clamp(1.65rem, 6vw, 2.6rem);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        line-height: 1.1;
+      }
+
+      .play-eyebrow {
+        font-family: $font-body;
+        font-size: clamp(0.75rem, 2.8vw, 0.85rem);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: black;
+        background-color: white;
+        padding: 0.2rem 0.7rem;
+        border-radius: 999px;
+        border: $border-card;
+        transition:
+          background-color 0.2s ease,
+          color 0.2s ease;
+      }
+
+      &:hover,
+      &:focus-visible {
+        transform: translateY(-2px);
+        background-color: $munch-ink;
+        color: $munch-yellow;
+        box-shadow:
+          0 0 0 4px $munch-yellow,
+          0 0 0 7px $munch-ink,
+          10px 10px 0px $munch-crust;
+        outline: none;
+
+        .play-eyebrow {
+          background-color: $munch-crust;
+          color: $munch-ink;
+        }
+      }
+
+      &:active {
+        transform: translateY(1px);
+        box-shadow:
+          0 0 0 3px $munch-cream,
+          0 0 0 6px $munch-ink,
+          3px 3px 0px $munch-crust;
+      }
+    }
+  }
+
+  // Metadata cards
+  .project-meta {
+    @include sticker-surface($bg: $munch-lemon);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1.25rem;
+  }
+
+  .meta-item {
+    flex: 1;
+    min-width: 150px;
+    background-color: $munch-cream;
+    padding: 0.75rem 1rem;
+    border: $border-item;
+    border-radius: 12px;
+  }
+
+  .meta-label {
+    font-family: $font-display;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $munch-sauce;
+    margin-bottom: 0.25rem;
+  }
+
+  // Info and Tech 2-column layout
+  .info-tech-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 10px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .info-section,
+  .tech-section,
+  .project-section,
+  .development-section {
+    @include sticker-surface;
+    padding: 20px;
+    border: 0;
+    box-shadow: 0 0;
+
+    h2 {
+      margin-top: 0;
+      color: black;
+      border-bottom: 2px solid $munch-ink;
+      padding-bottom: 10px;
+      font-family: $font-display;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  // Categorized Tech list with comic sticker tags
+  .tech-section .tech-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+
+    .tech-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px dashed rgba($munch-ink, 0.25);
+
+      &:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+    }
+
+    .tech-category {
+      font-family: $font-display;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: $munch-sauce;
+      min-width: 115px;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: inline-flex;
+        align-items: center;
+        font-family: $font-display;
+        font-size: 0.88rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: $munch-ink;
+        background-color: $munch-yellow;
+        padding: 0.35rem 0.85rem;
+        border: $border-item;
+        border-radius: 999px;
+        box-shadow: 3px 3px 0px $munch-ink;
+        transition:
+          transform 0.12s ease,
+          box-shadow 0.12s ease,
+          background-color 0.12s ease,
+          color 0.12s ease;
+
+        // &:nth-child(even) {
+        //   background-color: $munch-lemon;
+        // }
+
+        // &:hover {
+        //   background-color: $munch-ink;
+        //   color: $munch-yellow;
+        //   transform: translate(-2px, -2px);
+        //   box-shadow: 5px 5px 0px $munch-crust;
+        // }
+      }
+    }
+  }
+
+  // Action buttons
+  .project-links {
+    @include sticker-surface($bg: $munch-crust);
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+
+    a {
+      @include pill-cta($hover-bg: $munch-ink, $hover-color: $munch-yellow);
+      display: inline-block;
+      margin-right: 0.85rem;
+      margin-bottom: 0.65rem;
+      padding: 0.65rem 1.25rem;
+      text-decoration: none;
+    }
+  }
+}

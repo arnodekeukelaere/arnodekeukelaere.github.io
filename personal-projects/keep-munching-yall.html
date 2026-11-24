@@ -18,17 +18,17 @@
 
   <div class="project-detail">
     <div class="project-header">
-      <img src="https://lh3.googleusercontent.com/d/1HAlY2kbk5npyfABzLLlAfg5zynUHiqWy" style="width:512px" />
+      <img src="https://lh3.googleusercontent.com/d/1HAlY2kbk5npyfABzLLlAfg5zynUHiqWy" />
       <!-- <p class="project-subtitle">Third-person pizza-throwing zombie feeding game</p> -->
     </div>
 
-    <div class="project-description-container">
+    <div class="description-play-row">
       <p id="projectDescription" class="project-description">-</p>
-      <div class="meta-button play">
+      <div class="btn-click-to-play">
         <a href="steam://run/590830//-rungame%20clubthirtythree.keepmunchingyall/" target="_blank"
           rel="noopener noreferrer">
           <span class="play-label">Click to play</span>
-          <span class="play-sub">Requires Steam + s&amp;box</span>
+          <span class="play-eyebrow">Requires Steam + s&amp;box</span>
         </a>
       </div>
     </div>
@@ -63,21 +63,41 @@
           <h2>Info</h2>
           <p>A third-person wave-based roguelite pizza throwing game about feeding "customers" in a world taken over by
             people infected with a gluttony virus.</p>
+        </div>
+
+
+        <div class="development-section">
+          <h2>Development</h2>
           <p>Inspired by one of my favourite games at the time, Risk of Rain 2, and created in s&box with the intent of
             exploring some of the platform integration like community maps.</p>
         </div>
-
-        <div class="tech-section">
-          <h2>Tech</h2>
-          <ul>
-            <li>C#</li>
-            <li>s&box</li>
-            <li>Affinity Photo 2</li>
-            <li>Affinity Designer 2</li>
-            <li>Audacity</li>
-            <li>Various AI tools for productivity</li>
-          </ul>
-        </div>
+      </div>
+      <div class="tech-section">
+        <h2>Tech</h2>
+        <ul class="tech-categories">
+          <li class="tech-group">
+            <span class="tech-category">Engine & Code</span>
+            <ul class="tech-tags">
+              <li>s&amp;box</li>
+              <li>C#</li>
+              <li>Razor (HTML + CSS + C#) for UI</li>
+            </ul>
+          </li>
+          <li class="tech-group">
+            <span class="tech-category">Art & Audio</span>
+            <ul class="tech-tags">
+              <li>Affinity Photo 2</li>
+              <li>Affinity Designer 2</li>
+              <li>Audacity</li>
+            </ul>
+          </li>
+          <li class="tech-group">
+            <span class="tech-category">Workflow</span>
+            <ul class="tech-tags">
+              <li>Various AI tools (to help with writing code occasionally)</li>
+            </ul>
+          </li>
+        </ul>
       </div>
 
       <div class="project-section">
@@ -136,28 +156,6 @@
           }
 
           document.getElementById('tags').textContent = projectType;
-
-          // if (project.thumbnail) {
-          //   const img = document.querySelector('.project-thumbnail');
-          //   img.src = project.thumbnail;
-          //   img.alt = project.title + " thumbnail";
-          // }
-
-          // // Set links
-          // const liveLink = document.getElementById('liveLink');
-          // const sourceLink = document.getElementById('sourceLink');
-          // const documentationLink = document.getElementById('documentationLink');
-
-          // if (project.url && project.url !== "#") {
-          //   liveLink.href = project.url;
-          //   liveLink.style.display = "inline-block";
-          // } else {
-          //   liveLink.style.display = "none";
-          // }
-
-          // // Hide source and documentation links by default
-          // sourceLink.style.display = "none";
-          // documentationLink.style.display = "none";
         }
       } catch (error) {
         console.error("Error loading project data:", error);

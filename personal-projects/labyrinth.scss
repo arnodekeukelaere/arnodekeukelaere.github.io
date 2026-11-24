@@ -115,6 +115,8 @@ $bevel-pressed:
     box-sizing: border-box;
   }
 
+  margin-top: 3rem;
+
   font-family: $font-body;
   font-size: 1.15rem;
   line-height: 1.65;
@@ -164,7 +166,6 @@ $bevel-pressed:
   margin-bottom: 2rem;
 
   img {
-    min-width: 800px;
     max-width: 100%;
     height: auto;
   }
@@ -261,17 +262,21 @@ $bevel-pressed:
 }
 
 // 9. Tech and Team 2-column layout
+// 9. Tech and Team 2-column layout
 .page-labyrinth .info-tech-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
   margin-bottom: 30px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .page-labyrinth .info-section,
 .page-labyrinth .team-section {
   padding: 34px;
-
   @include labyrinth-frame;
 
   h2 {
@@ -290,36 +295,6 @@ $bevel-pressed:
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.95));
-  }
-
-  ul {
-    margin: 0;
-    padding-left: 0px;
-
-    li {
-      list-style: none;
-      position: relative;
-      padding-left: 1.65rem;
-      margin-bottom: 0.55rem;
-
-      // Remove bullet point animations - keep simple styling
-      &::before {
-        content: "";
-        position: absolute;
-        left: 0.25rem;
-        top: 0.52em;
-        width: 0.52rem;
-        height: 0.52rem;
-        background: linear-gradient(
-          135deg,
-          $color-gold-bright 0%,
-          $color-gold-mid 100%
-        );
-        border: 1px solid $color-gold-shadow;
-        // box-shadow: 0 0 6px rgba($color-gold-bright, 0.35);
-        transform: rotate(45deg);
-      }
-    }
   }
 
   a {
@@ -343,5 +318,108 @@ $bevel-pressed:
     &:visited {
       color: $color-gold-mid;
     }
+  }
+}
+
+// Team list keeps diamond glyph bullets
+.page-labyrinth .team-section {
+  ul {
+    margin: 0;
+    padding-left: 0;
+
+    li {
+      list-style: none;
+      position: relative;
+      padding-left: 1.65rem;
+      margin-bottom: 0.55rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0.25rem;
+        top: 0.52em;
+        width: 0.52rem;
+        height: 0.52rem;
+        background: linear-gradient(
+          135deg,
+          $color-gold-bright 0%,
+          $color-gold-mid 100%
+        );
+        border: 1px solid $color-gold-shadow;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+// Tech section rendered as RPG tag badges
+.page-labyrinth .info-section {
+  .tech-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .tech-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .tech-category {
+    font-family: $font-display;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $color-gold-mid;
+  }
+
+  .tech-tags,
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tech-tag,
+  ul li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0.35rem 0.75rem;
+    font-family: $font-body;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: $color-parchment-text;
+    background: linear-gradient(180deg, #1f2024 0%, #101013 100%);
+    border: 1px solid $color-iron-highlight;
+    box-shadow:
+      inset 1px 1px 0px rgba($color-gold-bright, 0.22),
+      0 2px 4px rgba(0, 0, 0, 0.75);
+    transition:
+      border-color 0.15s ease,
+      color 0.15s ease,
+      transform 0.15s ease;
+
+    &::before {
+      content: "";
+      width: 0.38rem;
+      height: 0.38rem;
+      flex-shrink: 0;
+      background-color: $color-gold-mid;
+      transform: rotate(45deg);
+    }
+
+    // &:hover {
+    //   color: $color-gold-bright;
+    //   border-color: $color-gold-mid;
+    //   transform: translateY(-1px);
+    // }
   }
 }
