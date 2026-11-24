@@ -4,32 +4,56 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title> Unity WebGL Player | 404 </title>
-    <link rel="shortcut icon" href="assets/TemplateData/favicon.ico">
+    <title>Unity WebGL Player | 404</title>
+    <link rel="shortcut icon" href="/assets/TemplateData/favicon.ico">
+    <link rel="stylesheet" href="/assets/TemplateData/style.css">
+    <link rel="stylesheet" href="../shared-styles.css">
 
     <style>
-        html {
+        :root {
+            --navbar-height: 60px;
+            /* Match your .navbar height if different */
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
             overflow: hidden;
         }
 
-        #gameContainer {
-            height: 100%;
+        .webgl-content {
+            position: relative;
+            top: var(--navbar-height);
             width: 100%;
+            height: calc(100vh - var(--navbar-height));
+        }
+
+        #gameContainer {
+            width: 100% !important;
+            height: 100% !important;
         }
     </style>
 
-    <link rel="stylesheet" href="assets/TemplateData/style.css">
-    <script src="assets/games/404/UnityLoader.js"></script>
-    <script>
-        var gameInstance = UnityLoader.instantiate("gameContainer", "assets/games/404/Builds.json");
-    </script>
-
+    <script src="/assets/games/404/UnityLoader.js"></script>
 </head>
 
 <body>
+    <div id="site-nav" class="site-nav"></div>
+
     <div class="webgl-content">
         <div id="gameContainer"></div>
     </div>
+
+    <script src="/layout.js"></script>
+    <script>
+        var gameInstance = UnityLoader.instantiate(
+            "gameContainer",
+            "/assets/games/404/Builds.json"
+        );
+    </script>
 </body>
 
 </html>
