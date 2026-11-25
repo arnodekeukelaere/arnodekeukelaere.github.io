@@ -102,8 +102,6 @@
 
         if (project) {
           // Update title and description
-          document.querySelector('.project-title').src = project.thumbnail || '';
-          document.querySelector('.project-title').alt = project.title + " logo";
           document.getElementById('projectDescription').textContent = project.description || '-';
 
           // Update meta information

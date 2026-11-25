@@ -24,7 +24,8 @@
       <p id="projectDescription" class="project-description">A map created in the Unreal Tournament editor for Unreal
         Engine 4. Based on various American oil platforms and mixed with an industrial sci-fi theme.</p>
       <div class="project-store-actions">
-        <!-- Store action buttons will be populated by JavaScript -->
+        <a href="https://mega.nz/file/DZJE0TRL#TDDBbB70skD8r5XF3L73HqtCFR5A_vwHV0j3FpzpAro"
+          class="project-store-btn project-store-btn--android big" target="_blank">Download map</a>
       </div>
     </div>
 
@@ -56,14 +57,22 @@
             textures, modular building, gray packing, blueprints and shaders in Unreal.</p>
         </div>
 
-        <div class="project-section">
+        <div class="project-section tech-tags">
           <h2>Tech</h2>
-          <ul class="tech-list">
-            <li>3dsMax 2016</li>
-            <li>Unreal Engine 4</li>
-            <li>Adobe Photoshop</li>
-            <li>xNormal</li>
-          </ul>
+          <div class="tech-group">
+            <span class="tech-category">Engine &amp; Code:</span>
+            <ul>
+              <li>Unreal Engine 4</li>
+            </ul>
+          </div>
+          <div class="tech-group">
+            <span class="tech-category">Tools:</span>
+            <ul>
+              <li>3dsMax 2016</li>
+              <li>Adobe Photoshop</li>
+              <li>xNormal</li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -154,6 +163,8 @@
 
     <div class="project-links">
       <!-- External links will be populated by JavaScript -->
+      <a href="https://mega.nz/file/DZJE0TRL#TDDBbB70skD8r5XF3L73HqtCFR5A_vwHV0j3FpzpAro" target="_blank">Download (Mega.nz)</a>
+      <a href="https://sourceforge.net/projects/dm-oilrigdekeukelaere/files/DM-OilRigBF9.rar/download" target="_blank">Download (Sourceforge)</a>
     </div>
   </main>
 
@@ -169,8 +180,6 @@
 
         if (project) {
           // Update title and description
-          document.querySelector('.project-title').src = project.thumbnail || '';
-          document.querySelector('.project-title').alt = project.title + " logo";
           document.getElementById('projectDescription').textContent = project.description || '-';
 
           // Update meta information
