@@ -63,11 +63,9 @@
           </ul>
         </div>
 
-        <div class="project-section">
+        <div class="project-section tech-tags">
           <h2>Tech</h2>
-          <ul class="tech-list">
-            <li></li>
-          </ul>
+          <!-- Tech tags will be populated by JavaScript -->
         </div>
       </div>
     </div>
@@ -153,15 +151,31 @@
             iframe.parentElement.style.display = "none";
           }
 
-          // Update tech list
+          // Update tech list - this will be grouped by categories
           if (techTags.length > 0) {
-            const techList = document.querySelector('.tech-list');
-            techList.innerHTML = '';
+            const techSection = document.querySelector('.project-section.tech-tags');
+            techSection.innerHTML = '<h2>Tech</h2>'; // Keep the heading
+
+            // For simplicity, we'll put all tech tags in one group since we don't have category data
+            // In a real implementation, this would be more complex to categorize properly
+            const techGroup = document.createElement('div');
+            techGroup.className = 'tech-group';
+
+            const techCategory = document.createElement('span');
+            techCategory.className = 'tech-category';
+            techCategory.textContent = 'Tools & Technologies:';
+
+            const techList = document.createElement('ul');
+
             techTags.forEach(tag => {
               const li = document.createElement('li');
               li.textContent = tag;
               techList.appendChild(li);
             });
+
+            techGroup.appendChild(techCategory);
+            techGroup.appendChild(techList);
+            techSection.appendChild(techGroup);
           }
 
           // Update development section if available

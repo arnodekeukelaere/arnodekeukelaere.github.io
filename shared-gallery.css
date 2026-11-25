@@ -5,7 +5,7 @@
 :root {
     --gallery-section-bg: #f5f5f5;
     --gallery-section-border: 2px solid #dcdcdc;
-    --gallery-section-radius: 8px;
+    --gallery-section-radius: 0px;
     --gallery-section-shadow: none;
     --gallery-heading-color: #222222;
     --gallery-heading-font: inherit;
