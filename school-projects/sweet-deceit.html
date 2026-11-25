@@ -17,7 +17,8 @@
 
   <main class="project-detail">
     <div class="project-header">
-      <img class="project-title" src="" alt="Sweet Deceit logo" />
+      <img class="project-title" src="https://lh3.googleusercontent.com/d/1QflquZveST8E1ED9XyIcDHdbD7chWLO5"
+        alt="Sweet Deceit logo" />
     </div>
 
     <div class="project-description-row">
@@ -32,10 +33,6 @@
       <div class="meta-item">
         <div class="meta-label">Project type</div>
         <div id="tags" class="meta-value">School project</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Release Year</div>
-        <div id="releaseYear" class="meta-value">-</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Platforms</div>
@@ -155,8 +152,6 @@
 
         if (project) {
           // Update title and description
-          document.querySelector('.project-title').src = project.thumbnail || '';
-          document.querySelector('.project-title').alt = project.title + " logo";
           document.getElementById('projectDescription').textContent = project.description || '-';
 
           // Update meta information
@@ -169,81 +164,6 @@
           // Filter out category tags (Personal, Professional, School)
           const techTags = tags.filter(tag => !['Personal', 'Professional', 'School', '2010s', '2020s'].includes(tag));
           document.getElementById('tags').textContent = "School project";
-
-          // Set store action buttons if available
-          const storeActionsContainer = document.querySelector('.project-store-actions');
-          if (project.storeUrls && Array.isArray(project.storeUrls)) {
-            storeActionsContainer.innerHTML = '';
-            project.storeUrls.forEach(store => {
-              const btn = document.createElement('a');
-              btn.href = store.url;
-              btn.textContent = store.name;
-              btn.className = 'project-store-btn';
-              btn.target = '_blank';
-              btn.rel = 'noopener';
-              storeActionsContainer.appendChild(btn);
-            });
-          } else if (project.url && project.url.startsWith('http')) {
-            // Fallback to a single link
-            const btn = document.createElement('a');
-            btn.href = project.url;
-            btn.textContent = 'Play Online';
-            btn.className = 'project-store-btn';
-            btn.target = '_blank';
-            btn.rel = 'noopener';
-            storeActionsContainer.appendChild(btn);
-          }
-
-          // Set links
-          const linksContainer = document.querySelector('.project-links');
-          if (project.links && Array.isArray(project.links)) {
-            linksContainer.innerHTML = '';
-            project.links.forEach(link => {
-              const a = document.createElement('a');
-              a.href = link.url;
-              a.textContent = link.name;
-              a.target = '_blank';
-              a.rel = 'noopener';
-              linksContainer.appendChild(a);
-            });
-          }
-
-          // Update video section if available
-          const iframe = document.querySelector('.yt-embed iframe');
-          if (project.videoUrl) {
-            iframe.src = project.videoUrl;
-            iframe.style.display = "block";
-          } else {
-            iframe.parentElement.style.display = "none";
-          }
-
-          // Update tech list
-          if (techTags.length > 0) {
-            const techList = document.querySelector('.tech-list');
-            techList.innerHTML = '';
-            techTags.forEach(tag => {
-              const li = document.createElement('li');
-              li.textContent = tag;
-              techList.appendChild(li);
-            });
-          }
-
-          // Update development section if available
-          if (project.development) {
-            const devSection = document.querySelector('.project-section h3');
-            if (devSection) {
-              devSection.textContent = project.development.title || "Development";
-              const ul = devSection.nextElementSibling;
-              if (ul && ul.tagName === 'UL') {
-                ul.innerHTML = '';
-                project.development.points.forEach(point => {
-                  const li = document.createElement('li');
-                  li.textContent = point;
-                  ul.appendChild(li);
-                });
-              }
-            }
-          }
         }
       } catch (error) {
         console.error("Error loading project data:", error);
