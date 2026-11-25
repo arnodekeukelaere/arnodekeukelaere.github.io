@@ -63,6 +63,7 @@ body.page-vampire-the-masquerade-bloodhunt .project-description-row {
   gap: 1.5rem;
   padding: 1.12rem 2rem;
   margin-bottom: 2.25rem;
+  max-width: 100%;
 }
 body.page-vampire-the-masquerade-bloodhunt .project-description-row .project-description {
   flex: 1 1 520px;

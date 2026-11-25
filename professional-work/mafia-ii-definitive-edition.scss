@@ -77,6 +77,8 @@ body.page-mafia-ii-definitive-edition {
     border-left: 4px solid $color-crimson-red;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
 
+    max-width: 100%;
+
     .project-description {
       flex: 1 1 420px;
       margin: 0;

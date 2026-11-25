@@ -59,8 +59,8 @@
     <div class="project-description-row">
       <p id="projectDescription" class="project-description">-</p>
       <div class="project-store-actions">
-        <a class="project-store-btn"
-          href="https://mega.nz/file/6JAn0YZC#rS_6n3NRMoYwS6IDjAIj5PyTls_gMUaDs0IMwtBsvrs">Download now</a>
+        <a class="project-store-btn" href="https://mega.nz/file/6JAn0YZC#rS_6n3NRMoYwS6IDjAIj5PyTls_gMUaDs0IMwtBsvrs"
+          target="_blank">Download now</a>
       </div>
     </div>
 
@@ -196,13 +196,13 @@
       </div>
 
       <div class="project-section">
-        <h2>Gameplay demo</h3>
-          <div class="yt-embed">
-            <iframe src="https://www.youtube.com/embed/LAHp9FlVLes" title="Elaru Demo Video 2" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
-          </div>
+        <h2>Gameplay demo</h2>
+        <div class="yt-embed">
+          <iframe src="https://www.youtube.com/embed/LAHp9FlVLes" title="Elaru Demo Video 2" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
 
       <div class="project-section">
@@ -257,12 +257,6 @@
         if (project) {
           // Update title and description
           document.getElementById('projectDescription').textContent = project.description || '-';
-
-          // Add additional info to the description if it's Elaru
-          if (project.title === "Elaru") {
-            const additionalInfo = " I enjoy learning new software, so for this project I learned how to use Adobe Audition for creating sound effects with visual references.";
-            document.getElementById('projectDescription').textContent += additionalInfo;
-          }
 
           // Update meta information
           document.getElementById('releaseYear').textContent = project.release || '-';

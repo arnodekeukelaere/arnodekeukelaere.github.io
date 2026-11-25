@@ -127,6 +127,8 @@ $glow-pink: 0 0 14px rgba($color-neon-pink, 0.35);
     border: 0;
     padding: 0;
 
+    max-width: 100%;
+
     > * {
       min-width: 0;
     }
@@ -177,7 +179,7 @@ $glow-pink: 0 0 14px rgba($color-neon-pink, 0.35);
       justify-content: center;
       gap: 0.5rem;
       // width: 100%;
-      min-height: 3.5rem;
+      min-height: 1rem;
       padding: 1.15rem 1.5rem;
       font-family: $font-mono;
       font-size: 0.92rem;
