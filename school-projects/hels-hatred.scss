@@ -1,69 +1,50 @@
 // ==========================================================================
 // HEL'S HATRED - THEME STYLESHEET
-// Aesthetic: Low-Poly Norse Indie Game, Sharp Faceted UI, High-Contrast HUD
-// Dark Obsidian HUD Panel Variant
+// Aesthetic: Low-Poly Norse Indie Game, Clean HUD Prompt Borders
 // ==========================================================================
 
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=JetBrains+Mono:wght@400;600;700&family=Oswald:wght@500;700&family=Roboto:wght@400;700;900&display=swap");
 
-// 1. Color Palette (Sampled from the low-poly Nordic scene & HUD)
-$color-fjord-sky: #49a3b8; // Crisp overcast Nordic teal-blue sky
-$color-fjord-deep: #2d7487; // Deeper sky/water shadow tone
-$color-pine-olive: #636e27; // Faceted pine foliage & hillside moss
-$color-pine-shadow: #384118; // Deep evergreen facet shadow
-$color-obsidian-hud: #0b0d0e; // Stark solid black menu selection bar
-$color-obsidian-card: #14181b; // Elevated dark surface for nested boxes/tags
-$color-bone-white: #f7f6f0; // Chalk/bone white title & active UI text
+// 1. Color Palette
+$color-obsidian-hud: #0b0d0e; // Stark solid black HUD panel fill
+$color-obsidian-card: #121619; // Slightly lifted dark surface for tags/cards
+$color-bone-white: #f7f6f0; // Chalk/bone white text & inner prompt border
 $color-rust-cloak: #1e8b8f; // Deep teal-cyan accent
 $color-ochre-gold: #5ad7e8; // Bright ice-cyan highlight
-$color-slate-iron: #44535c; // Helmet & tunic muted steel blue-grey
+$color-slate-iron: #44535c; // Muted slate accent
+$color-bg-base: #1f2e33; // Calm slate-teal backdrop
+$color-bg-top: #263940; // Subtle upper slate tint
+$color-bg-bottom: #182327; // Subtle lower dark slate tint
 
-// 2. Typography & Low-Poly Geometry Tokens
+// 2. Typography & Tokens
 $font-display: "Oswald", "Roboto", sans-serif;
 $font-runic: "Cinzel", serif;
 $font-mono: "JetBrains Mono", monospace;
 $font-body: "Roboto", system-ui, sans-serif;
 
-$border-faceted: 2px solid $color-obsidian-hud;
-$shadow-panel: 8px 8px 0px rgba($color-obsidian-hud, 0.45);
-$shadow-hud: 1px 2px 0px $color-obsidian-hud;
-$clip-shard: polygon(0 0, 99.2% 1%, 100% 98.8%, 0.6% 100%);
-$clip-banner: polygon(0 0, 100% 0, 96% 100%, 0% 100%);
-
-// 3. Mixins
-@mixin low-poly-facet($bg-light, $bg-dark) {
-  background: linear-gradient(
-    135deg,
-    $bg-light 0%,
-    $bg-light 52%,
-    $bg-dark 52.2%,
-    $bg-dark 100%
-  );
-}
-
-@mixin hud-text-shadow {
-  text-shadow: $shadow-hud;
-}
-
-@mixin angular-panel($bg: rgba($color-obsidian-hud, 0.92)) {
+// Plain white inset border with a black outer border (like the WASD HUD box)
+@mixin hud-inset-box(
+  $bg: rgba($color-obsidian-hud, 0.94),
+  $inset-width: 1.5px,
+  $outer-width: 2px
+) {
   background-color: $bg;
-  border: $border-faceted;
-  clip-path: $clip-shard;
-  box-shadow: $shadow-panel;
+  border: $outer-width solid $color-obsidian-hud;
+  box-shadow: inset 0 0 0 $inset-width rgba($color-bone-white, 0.85);
 }
 
-// 4. Base & Sky-to-Pine Horizon Background
+// 3. Page Backdrop & Base Styles
 body.page-hels-hatred {
   margin: 0;
   font-family: $font-body;
   color: $color-bone-white;
-  background-color: darkslategrey !important;
-  // background-image: linear-gradient(
-  //   180deg,
-  //   $color-fjord-sky 0%,
-  //   #58b0c4 72%,
-  //   rgb(0, 114, 124) 100%
-  // ) !important;
+  background-color: $color-bg-base !important;
+  background-image: linear-gradient(
+    180deg,
+    $color-bg-top 0%,
+    $color-bg-base 55%,
+    $color-bg-bottom 100%
+  ) !important;
   background-attachment: fixed !important;
   line-height: 1.6;
   min-height: 100vh;
@@ -74,7 +55,19 @@ body.page-hels-hatred {
     box-sizing: border-box;
   }
 
-  // 5. Main Layout Container
+  // General inline link style
+  a {
+    color: $color-ochre-gold;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.12s ease;
+
+    &:hover {
+      color: $color-bone-white;
+    }
+  }
+
+  // 4. Main Layout Container
   main.project-detail {
     max-width: 1120px;
     margin: 0 auto;
@@ -82,12 +75,11 @@ body.page-hels-hatred {
     background: transparent;
   }
 
-  // 6. Header & Logo
+  // 5. Header & Logo
   .project-header {
     text-align: center;
+    margin-top: 2em;
     margin-bottom: 2rem;
-
-    margin-top:2em;
 
     .project-title {
       max-width: min(540px, 88vw);
@@ -97,13 +89,12 @@ body.page-hels-hatred {
     }
   }
 
-  // 7. Description Row & Store Actions
+  // 6. Description Row & Store Actions
   .project-description-row {
-    @include angular-panel(rgba($color-obsidian-hud, 0.9));
+    @include hud-inset-box(rgba($color-obsidian-hud, 0.94));
     color: $color-bone-white;
     padding: 1.5rem 2rem;
     margin-bottom: 1.75rem;
-    border-left: 5px solid $color-ochre-gold;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -126,6 +117,7 @@ body.page-hels-hatred {
       .project-store-btn,
       a,
       button {
+        @include hud-inset-box($color-rust-cloak, 1.5px, 2px);
         font-family: $font-display;
         font-size: 2.4rem;
         font-weight: 700;
@@ -133,28 +125,23 @@ body.page-hels-hatred {
         text-transform: uppercase;
         text-decoration: none;
         padding: 0.1rem 1.4rem;
-        background-color: $color-rust-cloak;
         color: $color-bone-white;
-        border: none;
-        border-left: 3px solid $color-ochre-gold;
-        clip-path: $clip-banner;
         min-width: 9em;
         text-align: center;
         cursor: pointer;
         transition:
           background-color 0.12s ease,
-          transform 0.12s ease;
+          color 0.12s ease;
 
         &:hover {
           background-color: $color-ochre-gold;
           color: $color-obsidian-hud;
-          transform: translateX(3px);
         }
       }
     }
   }
 
-  // 8. Project Meta Strip (Project Type & Platforms)
+  // 7. Project Meta Strip
   .project-meta {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -165,16 +152,12 @@ body.page-hels-hatred {
     padding: 0;
 
     .meta-item {
-      background-color: rgba($color-obsidian-hud, 0.9);
-      border-left: 4px solid $color-bone-white;
+      @include hud-inset-box(rgba($color-obsidian-hud, 0.94));
       padding: 0.9rem 1.25rem;
-      transition:
-        background-color 0.12s ease,
-        border-color 0.12s ease;
 
       .meta-label {
         font-family: $font-runic;
-        font-size: 0.75rem;
+        font-size: 0.95rem;
         font-weight: 700;
         letter-spacing: 0.18em;
         text-transform: uppercase;
@@ -193,39 +176,23 @@ body.page-hels-hatred {
     }
   }
 
-  // 9. Project Content, Video Embed & Grid
+  // 8. Project Content, Video Embed & Grid
   .project-content {
     display: flex;
     flex-direction: column;
     gap: 2rem;
   }
 
-  // Custom Faceted Low-Poly YouTube Embed Frame
   .yt-embed {
+    @include hud-inset-box($color-obsidian-hud, 1.5px, 2px);
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
-    background-color: $color-obsidian-hud;
-    border: 3px solid $color-obsidian-hud;
-    border-left: 6px solid $color-ochre-gold;
-    box-shadow: 10px 10px 0px rgba($color-obsidian-hud, 0.45);
     overflow: hidden;
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      z-index: 2;
-      pointer-events: none;
-      @include low-poly-facet($color-rust-cloak, $color-ochre-gold);
-    }
-
     iframe {
-      position: absolute;
-      inset: 0;
+      position: relative;
+      z-index: 1;
       width: 100%;
       height: 100%;
       border: 0;
@@ -239,29 +206,17 @@ body.page-hels-hatred {
     gap: 1.75rem;
   }
 
-  // 10. Content Sections (Dark Obsidian HUD Panels)
+  // 9. Content Sections
   .project-section {
-    @include angular-panel(rgba($color-obsidian-hud, 0.92));
+    @include hud-inset-box(rgba($color-obsidian-hud, 0.94));
     color: $color-bone-white;
     padding: 1.75rem 2rem;
-    position: relative;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 6px;
-      @include low-poly-facet($color-rust-cloak, $color-ochre-gold);
-    }
 
     h2 {
+      @include hud-inset-box($color-obsidian-card, 1px, 2px);
       display: inline-block;
       margin: 0 0 1.25rem;
       padding: 0.35rem 1.15rem;
-      background-color: $color-obsidian-card;
-      border-left: 4px solid $color-ochre-gold;
       font-family: $font-display;
       font-size: 1.45rem;
       font-weight: 700;
@@ -272,7 +227,7 @@ body.page-hels-hatred {
 
     h3 {
       font-family: $font-runic;
-      font-size: 0.9rem;
+      font-size: 1.25rem;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -281,7 +236,7 @@ body.page-hels-hatred {
     }
 
     p {
-      color: rgba($color-bone-white, 0.9);
+      color: rgba($color-bone-white, 0.92);
     }
 
     ul {
@@ -303,7 +258,7 @@ body.page-hels-hatred {
     }
   }
 
-  // 11. Categorized Tech Stack & High-Contrast Tag Pills (Static)
+  // 10. Categorized Tech Stack & Static Tag Pills
   .tech-categories {
     display: flex;
     flex-direction: column;
@@ -314,7 +269,7 @@ body.page-hels-hatred {
     h3 {
       margin: 0 0 0.55rem;
       font-family: $font-runic;
-      font-size: 0.82rem;
+      font-size: 0.97rem;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -331,31 +286,26 @@ body.page-hels-hatred {
     gap: 0.5rem;
 
     li {
+      @include hud-inset-box($color-obsidian-card, 1px, 2px);
       margin: 0 !important;
-      padding: 0.35rem 0.85rem;
+      padding: 0.35rem 0.8rem;
       font-family: $font-mono;
       font-size: 0.82rem;
       font-weight: 600;
       letter-spacing: 0.02em;
       color: $color-bone-white !important;
-      background-color: $color-obsidian-card;
-      border: 1px solid rgba($color-ochre-gold, 0.35);
-      border-left: 3px solid $color-ochre-gold;
-      clip-path: polygon(0 0, 100% 0, 96% 100%, 0 100%);
       cursor: default;
     }
   }
 
-  // 12. Team Section (Dark Faceted Sub-Cards)
+  // 11. Team Section
   .team-members {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
 
     .team-category {
-      background-color: $color-obsidian-card;
-      border: 1px solid rgba($color-bone-white, 0.12);
-      border-left: 3px solid $color-ochre-gold;
+      @include hud-inset-box($color-obsidian-card, 1px, 2px);
       padding: 0.95rem 1.2rem;
 
       h3 {
@@ -373,12 +323,13 @@ body.page-hels-hatred {
           letter-spacing: 0.04em;
           color: $color-bone-white;
           margin-bottom: 0.35rem;
+          margin-left: 1rem;
         }
       }
     }
   }
 
-  // 13. Screenshots / Image Gallery (.image-gallery.project-gallery)
+  // 12. Screenshots / Image Gallery
   .image-gallery,
   .project-gallery,
   #projectGallery {
@@ -387,36 +338,10 @@ body.page-hels-hatred {
     gap: 1.25rem;
 
     .gallery-item {
+      @include hud-inset-box($color-obsidian-card, 1.5px, 2px);
       position: relative;
-      background-color: $color-obsidian-card;
-      border: 2px solid rgba($color-bone-white, 0.18);
-      border-left: 4px solid $color-ochre-gold;
-      box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.55);
       overflow: hidden;
       cursor: pointer;
-      transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease,
-        border-color 0.15s ease;
-
-      &::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border: 1px solid rgba($color-bone-white, 0.12);
-        pointer-events: none;
-      }
-
-      &:hover {
-        transform: translate(-2px, -3px);
-        border-color: $color-ochre-gold;
-        border-left-color: $color-rust-cloak;
-        box-shadow: 7px 7px 0px $color-rust-cloak;
-
-        img {
-          transform: scale(1.04);
-        }
-      }
 
       img {
         display: block;
@@ -424,14 +349,13 @@ body.page-hels-hatred {
         height: 100%;
         aspect-ratio: 16 / 9;
         object-fit: cover;
-        transition: transform 0.2s ease;
       }
 
       .gallery-caption {
         display: block;
         padding: 0.45rem 0.75rem;
-        background-color: $color-obsidian-card;
-        border-top: 2px solid $color-pine-olive;
+        background-color: $color-obsidian-hud;
+        border-top: 1px solid rgba($color-bone-white, 0.85);
         font-family: $font-display;
         font-size: 0.85rem;
         letter-spacing: 0.08em;
@@ -441,7 +365,7 @@ body.page-hels-hatred {
     }
   }
 
-  // 14. External Project Links Bar
+  // 13. External Project Links Bar
   .project-links {
     margin-top: 2rem;
     display: flex;
@@ -452,11 +376,10 @@ body.page-hels-hatred {
     padding: 0;
 
     a {
+      @include hud-inset-box($color-obsidian-hud, 1.5px, 2px);
       display: inline-flex;
       align-items: center;
       padding: 0.65rem 1.35rem;
-      background-color: $color-obsidian-hud;
-      border-left: 4px solid $color-bone-white;
       font-family: $font-display;
       font-size: 1.05rem;
       letter-spacing: 0.08em;
@@ -465,12 +388,11 @@ body.page-hels-hatred {
       color: $color-bone-white;
       transition:
         background-color 0.12s ease,
-        padding-left 0.12s ease;
+        color 0.12s ease;
 
       &:hover {
         background-color: $color-rust-cloak;
-        border-left-color: $color-ochre-gold;
-        padding-left: 1.65rem;
+        color: $color-bone-white;
       }
     }
   }

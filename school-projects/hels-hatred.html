@@ -11,6 +11,40 @@
   <link rel="stylesheet" href="../shared-gallery.css">
   <link rel="stylesheet" href="hels-hatred.css">
   <title>Hel's Hatred</title>
+  <style>
+    :root {
+      --hero-bg-url: url('https://lh3.googleusercontent.com/d/18Ve00ccpg4rejTa7NUadiMABf8WkoI0R');
+    }
+
+    body.page-hels-hatred {
+      position: relative;
+      z-index: 0;
+    }
+
+    body.page-hels-hatred::before {
+      content: "";
+      position: absolute;
+      /* Cancels body's margin-top: 80px so the image meets the very top edge */
+      top: -80px;
+      left: 0;
+      right: 0;
+      height: 55vw;
+      background-image: var(--hero-bg-url);
+      background-position: top center;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      /* Fades the actual image alpha to transparent so the body's crimson smoke shows through */
+      -webkit-mask-image: linear-gradient(to bottom, #26394081 40%, transparent 70%);
+      mask-image: linear-gradient(to bottom, #26394088 10%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Keep page content above the fade layer without creating a dark background wall over it */
+    body.page-hels-hatred> :not(script):not(style) {
+      position: relative;
+    }
+  </style>
 </head>
 
 <body class="page-hels-hatred">
@@ -70,7 +104,7 @@
             <div class="tech-category">
               <h3>Engine &amp; Code</h3>
               <ul class="tech-list">
-                <li>Unity</li>
+                <li>Unity 5.61f1</li>
                 <li>C#</li>
                 <li>PHP</li>
                 <li>Visual Studio 2015</li>
@@ -153,7 +187,7 @@
     </div>
 
     <div class="project-links">
-      <a href="https://daeteam7.wordpress.com/">Development blog</a>
+      <a href="https://daeteam7.wordpress.com/" target="_blank">Development blog</a>
     </div>
   </main>
 
