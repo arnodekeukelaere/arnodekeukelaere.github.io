@@ -1,0 +1,369 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=JetBrains+Mono:wght@400;600;700&family=Oswald:wght@500;700&family=Roboto:wght@400;700;900&display=swap");
+body.page-hels-hatred {
+  margin: 0;
+  font-family: "Roboto", system-ui, sans-serif;
+  color: #f7f6f0;
+  background-color: darkslategrey !important;
+  background-attachment: fixed !important;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+body.page-hels-hatred *,
+body.page-hels-hatred *::before,
+body.page-hels-hatred *::after {
+  box-sizing: border-box;
+}
+body.page-hels-hatred main.project-detail {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  background: transparent;
+}
+body.page-hels-hatred .project-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 2em;
+}
+body.page-hels-hatred .project-header .project-title {
+  max-width: min(540px, 88vw);
+  height: auto;
+  display: inline-block;
+  filter: drop-shadow(2px 4px 0px rgba(11, 13, 14, 0.75));
+}
+body.page-hels-hatred .project-description-row {
+  background-color: rgba(11, 13, 14, 0.9);
+  border: 2px solid #0b0d0e;
+  clip-path: polygon(0 0, 99.2% 1%, 100% 98.8%, 0.6% 100%);
+  box-shadow: 8px 8px 0px rgba(11, 13, 14, 0.45);
+  color: #f7f6f0;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.75rem;
+  border-left: 5px solid #5ad7e8;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  max-width: 100%;
+}
+body.page-hels-hatred .project-description-row .project-description {
+  margin: 0;
+  font-size: 1.08rem;
+  color: #f7f6f0;
+  flex: 1 1 420px;
+}
+body.page-hels-hatred .project-description-row .project-store-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+body.page-hels-hatred .project-description-row .project-store-actions .project-store-btn,
+body.page-hels-hatred .project-description-row .project-store-actions a,
+body.page-hels-hatred .project-description-row .project-store-actions button {
+  font-family: "Oswald", "Roboto", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.1rem 1.4rem;
+  background-color: #1e8b8f;
+  color: #f7f6f0;
+  border: none;
+  border-left: 3px solid #5ad7e8;
+  clip-path: polygon(0 0, 100% 0, 96% 100%, 0% 100%);
+  min-width: 9em;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.12s ease, transform 0.12s ease;
+}
+body.page-hels-hatred .project-description-row .project-store-actions .project-store-btn:hover,
+body.page-hels-hatred .project-description-row .project-store-actions a:hover,
+body.page-hels-hatred .project-description-row .project-store-actions button:hover {
+  background-color: #5ad7e8;
+  color: #0b0d0e;
+  transform: translateX(3px);
+}
+body.page-hels-hatred .project-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.25rem;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
+body.page-hels-hatred .project-meta .meta-item {
+  background-color: rgba(11, 13, 14, 0.9);
+  border-left: 4px solid #f7f6f0;
+  padding: 0.9rem 1.25rem;
+  transition: background-color 0.12s ease, border-color 0.12s ease;
+}
+body.page-hels-hatred .project-meta .meta-item .meta-label {
+  font-family: "Cinzel", serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5ad7e8;
+  margin-bottom: 0.25rem;
+}
+body.page-hels-hatred .project-meta .meta-item .meta-value {
+  font-family: "Oswald", "Roboto", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #f7f6f0;
+}
+body.page-hels-hatred .project-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+body.page-hels-hatred .yt-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-color: #0b0d0e;
+  border: 3px solid #0b0d0e;
+  border-left: 6px solid #5ad7e8;
+  box-shadow: 10px 10px 0px rgba(11, 13, 14, 0.45);
+  overflow: hidden;
+}
+body.page-hels-hatred .yt-embed::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(135deg, #1e8b8f 0%, #1e8b8f 52%, #5ad7e8 52.2%, #5ad7e8 100%);
+}
+body.page-hels-hatred .yt-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+body.page-hels-hatred .grid-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.75rem;
+}
+body.page-hels-hatred .project-section {
+  background-color: rgba(11, 13, 14, 0.92);
+  border: 2px solid #0b0d0e;
+  clip-path: polygon(0 0, 99.2% 1%, 100% 98.8%, 0.6% 100%);
+  box-shadow: 8px 8px 0px rgba(11, 13, 14, 0.45);
+  color: #f7f6f0;
+  padding: 1.75rem 2rem;
+  position: relative;
+}
+body.page-hels-hatred .project-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(135deg, #1e8b8f 0%, #1e8b8f 52%, #5ad7e8 52.2%, #5ad7e8 100%);
+}
+body.page-hels-hatred .project-section h2 {
+  display: inline-block;
+  margin: 0 0 1.25rem;
+  padding: 0.35rem 1.15rem;
+  background-color: #14181b;
+  border-left: 4px solid #5ad7e8;
+  font-family: "Oswald", "Roboto", sans-serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f7f6f0;
+}
+body.page-hels-hatred .project-section h3 {
+  font-family: "Cinzel", serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5ad7e8;
+  margin: 0.5rem 0 0.6rem;
+}
+body.page-hels-hatred .project-section p {
+  color: rgba(247, 246, 240, 0.9);
+}
+body.page-hels-hatred .project-section ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+body.page-hels-hatred .project-section ul li {
+  margin-bottom: 0.65rem;
+  color: rgba(247, 246, 240, 0.92);
+}
+body.page-hels-hatred .project-section ul li:last-child {
+  margin-bottom: 0;
+}
+body.page-hels-hatred .project-section ul li::marker {
+  color: #5ad7e8;
+}
+body.page-hels-hatred .tech-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+body.page-hels-hatred .tech-category h3 {
+  margin: 0 0 0.55rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5ad7e8;
+}
+body.page-hels-hatred .tech-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+body.page-hels-hatred .tech-list li {
+  margin: 0 !important;
+  padding: 0.35rem 0.85rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #f7f6f0 !important;
+  background-color: #14181b;
+  border: 1px solid rgba(90, 215, 232, 0.35);
+  border-left: 3px solid #5ad7e8;
+  clip-path: polygon(0 0, 100% 0, 96% 100%, 0 100%);
+  cursor: default;
+}
+body.page-hels-hatred .team-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+body.page-hels-hatred .team-members .team-category {
+  background-color: #14181b;
+  border: 1px solid rgba(247, 246, 240, 0.12);
+  border-left: 3px solid #5ad7e8;
+  padding: 0.95rem 1.2rem;
+}
+body.page-hels-hatred .team-members .team-category h3 {
+  margin-top: 0;
+  color: #5ad7e8;
+}
+body.page-hels-hatred .team-members .team-category ul {
+  list-style: none;
+  padding: 0;
+}
+body.page-hels-hatred .team-members .team-category ul li {
+  font-family: "Oswald", "Roboto", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  color: #f7f6f0;
+  margin-bottom: 0.35rem;
+}
+body.page-hels-hatred .image-gallery,
+body.page-hels-hatred .project-gallery,
+body.page-hels-hatred #projectGallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.25rem;
+}
+body.page-hels-hatred .image-gallery .gallery-item,
+body.page-hels-hatred .project-gallery .gallery-item,
+body.page-hels-hatred #projectGallery .gallery-item {
+  position: relative;
+  background-color: #14181b;
+  border: 2px solid rgba(247, 246, 240, 0.18);
+  border-left: 4px solid #5ad7e8;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+body.page-hels-hatred .image-gallery .gallery-item::after,
+body.page-hels-hatred .project-gallery .gallery-item::after,
+body.page-hels-hatred #projectGallery .gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(247, 246, 240, 0.12);
+  pointer-events: none;
+}
+body.page-hels-hatred .image-gallery .gallery-item:hover,
+body.page-hels-hatred .project-gallery .gallery-item:hover,
+body.page-hels-hatred #projectGallery .gallery-item:hover {
+  transform: translate(-2px, -3px);
+  border-color: #5ad7e8;
+  border-left-color: #1e8b8f;
+  box-shadow: 7px 7px 0px #1e8b8f;
+}
+body.page-hels-hatred .image-gallery .gallery-item:hover img,
+body.page-hels-hatred .project-gallery .gallery-item:hover img,
+body.page-hels-hatred #projectGallery .gallery-item:hover img {
+  transform: scale(1.04);
+}
+body.page-hels-hatred .image-gallery .gallery-item img,
+body.page-hels-hatred .project-gallery .gallery-item img,
+body.page-hels-hatred #projectGallery .gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.2s ease;
+}
+body.page-hels-hatred .image-gallery .gallery-item .gallery-caption,
+body.page-hels-hatred .project-gallery .gallery-item .gallery-caption,
+body.page-hels-hatred #projectGallery .gallery-item .gallery-caption {
+  display: block;
+  padding: 0.45rem 0.75rem;
+  background-color: #14181b;
+  border-top: 2px solid #636e27;
+  font-family: "Oswald", "Roboto", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f7f6f0;
+}
+body.page-hels-hatred .project-links {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
+body.page-hels-hatred .project-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.65rem 1.35rem;
+  background-color: #0b0d0e;
+  border-left: 4px solid #f7f6f0;
+  font-family: "Oswald", "Roboto", sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #f7f6f0;
+  transition: background-color 0.12s ease, padding-left 0.12s ease;
+}
+body.page-hels-hatred .project-links a:hover {
+  background-color: #1e8b8f;
+  border-left-color: #5ad7e8;
+  padding-left: 1.65rem;
+}/*# sourceMappingURL=hels-hatred.css.map */

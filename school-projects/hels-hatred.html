@@ -4,24 +4,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=JetBrains+Mono:wght@400;600;700&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=JetBrains+Mono:wght@400;600;700&family=Oswald:wght@500;700&family=Roboto:wght@400;700;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../shared-styles.css">
   <link rel="stylesheet" href="../shared-gallery.css">
+  <link rel="stylesheet" href="hels-hatred.css">
   <title>Hel's Hatred</title>
 </head>
 
-<body>
+<body class="page-hels-hatred">
   <div id="site-nav"></div>
 
   <main class="project-detail">
     <div class="project-header">
-      <img class="project-title" src="" alt="Hel's Hatred logo" />
+      <img class="project-title" src="https://lh3.googleusercontent.com/d/1r-D41v8v6IBhdZV4a88-xMWxQvh4JKL4"
+        alt="Hel's Hatred logo" />
     </div>
 
     <div class="project-description-row">
-      <p id="projectDescription" class="project-description">A Hack n' Slash game where you play a corrupt Viking raiding and pillaging a village using superhuman attacks. Made in Unity.</p>
+      <p id="projectDescription" class="project-description">-</p>
       <div class="project-store-actions">
-        <!-- Store action buttons will be populated by JavaScript -->
+        <a class="project-store-btn" href="https://arnodk.itch.io/hels-hatred" target="_blank">Play now</a>
       </div>
     </div>
 
@@ -29,10 +33,6 @@
       <div class="meta-item">
         <div class="meta-label">Project type</div>
         <div id="tags" class="meta-value">School project</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Release Year</div>
-        <div id="releaseYear" class="meta-value">-</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Platforms</div>
@@ -50,26 +50,54 @@
 
       <div class="grid-row">
         <div class="project-section">
-          <h2>What I did</h2>
-          <h3>Development</h3>
+          <h2>Info</h2>
+          <h3>Gameplay</h3>
+          <p>A Hack n' Slash game where you play a corrupt Viking raiding and pillaging a village using superhuman
+            attacks.
+            Made in Unity.</p>
+          <h3>What I did</h3>
           <ul>
-            <li>As a programmer on the team I generally focused on UX which consisted of designing and programming the functionality of: the menus, scoreboard, pickups, player combat and UI.</li>
-            <li>I also put together and polished most of the prototypes that had to be presented on a weekly basis to our teachers, making sure everyone's code functioned as a whole.</li>
+            <li>As a programmer on the team I generally focused on UX which consisted of designing and programming the
+              functionality of: the menus, scoreboard, pickups, player combat and UI.</li>
+            <li>I also put together and polished most of the prototypes that had to be presented on a weekly basis to
+              our teachers, making sure everyone's code functioned as a whole.</li>
           </ul>
         </div>
 
         <div class="project-section">
           <h2>Tech</h2>
-          <ul class="tech-list">
-            <li>Visual Studio 2015</li>
-            <li>Unity (C#)</li>
-            <li>SourceTree</li>
-            <li>FileZilla</li>
-            <li>Adobe Photoshop</li>
-            <li>Audacity</li>
-            <li>Slack</li>
-            <li>Trello</li>
-          </ul>
+          <div class="tech-categories">
+            <div class="tech-category">
+              <h3>Engine &amp; Code</h3>
+              <ul class="tech-list">
+                <li>Unity</li>
+                <li>C#</li>
+                <li>PHP</li>
+                <li>Visual Studio 2015</li>
+              </ul>
+            </div>
+            <div class="tech-category">
+              <h3>Version Control &amp; Deployment</h3>
+              <ul class="tech-list">
+                <li>SourceTree</li>
+                <li>FileZilla</li>
+              </ul>
+            </div>
+            <div class="tech-category">
+              <h3>Art &amp; Audio</h3>
+              <ul class="tech-list">
+                <li>Adobe Photoshop</li>
+                <li>Audacity</li>
+              </ul>
+            </div>
+            <div class="tech-category">
+              <h3>Collaboration</h3>
+              <ul class="tech-list">
+                <li>Slack</li>
+                <li>Trello</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -79,53 +107,53 @@
           <div class="team-category">
             <h3>Artist:</h3>
             <ul>
-              <li>Sidney Olluyn</li>
+              <li><a href="http://sidneyo.be/">Sidney Olluyn</a></li>
             </ul>
           </div>
           <div class="team-category">
             <h3>Programmers:</h3>
             <ul>
-              <li>Brent Op de Beeck</li>
-              <li>Mathias De Potter</li>
-              <li>Elliott van Neste</li>
+              <li><a href="http://brentopdebeeck.com/">Brent Op de Beeck</a></li>
+              <li><a href="http://users.telenet.be/de.potter.mathias">Mathias De Potter</a></li>
+              <li><a href="http://users.telenet.be/Elliott.Van.Neste/">Elliott van Neste</a></li>
             </ul>
           </div>
         </div>
       </div>
 
       <div class="project-section">
-        <h2>Gallery</h2>
-        <div id="projectGallery" class="gallery-grid">
+        <h2>Screenshots</h2>
+        <div id="projectGallery" class="image-gallery project-gallery">
           <div class="gallery-item">
-            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a1.jpg" alt="Hel's Hatred screenshot 1">
-            <span class="gallery-caption">Screenshot 1</span>
+            <img src="https://lh3.googleusercontent.com/d/1eJrxGoHr2Rc2xzYUFqRS2my7F1A8e1Cg"
+              alt="Hel's Hatred screenshot 1">
           </div>
           <div class="gallery-item">
-            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a2.jpg" alt="Hel's Hatred screenshot 2">
-            <span class="gallery-caption">Screenshot 2</span>
+            <img src="https://lh3.googleusercontent.com/d/1yLKIk8xQzDglknSB_cl3qcFvROuYn7XP"
+              alt="Hel's Hatred screenshot 2">
           </div>
           <div class="gallery-item">
-            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a3.jpg" alt="Hel's Hatred screenshot 3">
-            <span class="gallery-caption">Screenshot 3</span>
+            <img src="https://lh3.googleusercontent.com/d/13a_osQVKQhxUFx8fzlDVx7wLlpwAuIjV"
+              alt="Hel's Hatred screenshot 3">
           </div>
           <div class="gallery-item">
-            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a4.jpg" alt="Hel's Hatred screenshot 4">
-            <span class="gallery-caption">Screenshot 4</span>
+            <img src="https://lh3.googleusercontent.com/d/1boS-8KdhErq-gdvSvbN1gE85Kz5jgKvC"
+              alt="Hel's Hatred screenshot 4">
           </div>
           <div class="gallery-item">
-            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a5.jpg" alt="Hel's Hatred screenshot 5">
-            <span class="gallery-caption">Screenshot 5</span>
+            <img src="https://lh3.googleusercontent.com/d/1cIFYKxFrpGMzbKs9RNqydZYDiXijj7IM"
+              alt="Hel's Hatred screenshot 5">
           </div>
           <div class="gallery-item">
-            <img src="https://lh3.googleusercontent.com/d/1X5Q9j7fL2wK8s6v4h3g2f1e0d9c8b7a6.jpg" alt="Hel's Hatred screenshot 6">
-            <span class="gallery-caption">Screenshot 6</span>
+            <img src="https://lh3.googleusercontent.com/d/1eATkYSvjeSzotaZFrZAHZNb4k9r1CGPm"
+              alt="Hel's Hatred screenshot 6">
           </div>
         </div>
       </div>
     </div>
 
     <div class="project-links">
-      <!-- External links will be populated by JavaScript -->
+      <a href="https://daeteam7.wordpress.com/">Development blog</a>
     </div>
   </main>
 
@@ -141,95 +169,20 @@
 
         if (project) {
           // Update title and description
-          document.querySelector('.project-title').src = project.thumbnail || '';
-          document.querySelector('.project-title').alt = project.title + " logo";
           document.getElementById('projectDescription').textContent = project.description || '-';
 
           // Update meta information
-          document.getElementById('releaseYear').textContent = project.release || '-';
           document.getElementById('platforms').textContent = project.platforms ? project.platforms.join(', ') : '-';
-          document.getElementById('company').textContent = project.company || '-';
+
+          const companyEl = document.getElementById('company');
+          if (companyEl) {
+            companyEl.textContent = project.company || '-';
+          }
 
           // Update tags
           const tags = project.tags || [];
-          // Filter out category tags (Personal, Professional, School)
           const techTags = tags.filter(tag => !['Personal', 'Professional', 'School', '2010s', '2020s'].includes(tag));
           document.getElementById('tags').textContent = "School project";
-
-          // Set store action buttons if available
-          const storeActionsContainer = document.querySelector('.project-store-actions');
-          if (project.storeUrls && Array.isArray(project.storeUrls)) {
-            storeActionsContainer.innerHTML = '';
-            project.storeUrls.forEach(store => {
-              const btn = document.createElement('a');
-              btn.href = store.url;
-              btn.textContent = store.name;
-              btn.className = 'project-store-btn';
-              btn.target = '_blank';
-              btn.rel = 'noopener';
-              storeActionsContainer.appendChild(btn);
-            });
-          } else if (project.url && project.url.startsWith('http')) {
-            // Fallback to a single link
-            const btn = document.createElement('a');
-            btn.href = project.url;
-            btn.textContent = 'Play Online';
-            btn.className = 'project-store-btn';
-            btn.target = '_blank';
-            btn.rel = 'noopener';
-            storeActionsContainer.appendChild(btn);
-          }
-
-          // Set links
-          const linksContainer = document.querySelector('.project-links');
-          if (project.links && Array.isArray(project.links)) {
-            linksContainer.innerHTML = '';
-            project.links.forEach(link => {
-              const a = document.createElement('a');
-              a.href = link.url;
-              a.textContent = link.name;
-              a.target = '_blank';
-              a.rel = 'noopener';
-              linksContainer.appendChild(a);
-            });
-          }
-
-          // Update video section if available
-          const iframe = document.querySelector('.yt-embed iframe');
-          if (project.videoUrl) {
-            iframe.src = project.videoUrl;
-            iframe.style.display = "block";
-          } else {
-            iframe.parentElement.style.display = "none";
-          }
-
-          // Update tech list
-          if (techTags.length > 0) {
-            const techList = document.querySelector('.tech-list');
-            techList.innerHTML = '';
-            techTags.forEach(tag => {
-              const li = document.createElement('li');
-              li.textContent = tag;
-              techList.appendChild(li);
-            });
-          }
-
-          // Update development section if available
-          if (project.development) {
-            const devSection = document.querySelector('.project-section h3');
-            if (devSection) {
-              devSection.textContent = project.development.title || "Development";
-              const ul = devSection.nextElementSibling;
-              if (ul && ul.tagName === 'UL') {
-                ul.innerHTML = '';
-                project.development.points.forEach(point => {
-                  const li = document.createElement('li');
-                  li.textContent = point;
-                  ul.appendChild(li);
-                });
-              }
-            }
-          }
         }
       } catch (error) {
         console.error("Error loading project data:", error);
