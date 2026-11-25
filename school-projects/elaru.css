@@ -320,6 +320,34 @@
 .page-elaru .team-members .team-category ul li a:hover {
   color: #d648b8;
 }
+.page-elaru .page-elaru {
+  --gallery-section-bg: #080a0c;
+  --gallery-section-border: 1px solid rgba(27, 247, 235, 0.22);
+  --gallery-section-radius: 0px;
+  --gallery-section-shadow: none;
+  --gallery-heading-color: #ff66de;
+  --gallery-heading-font: "Roboto", system-ui, sans-serif;
+  --gallery-card-bg: #0c181c;
+  --gallery-card-border: 1px solid rgba(27, 247, 235, 0.3);
+  --gallery-card-radius: 0px;
+  --gallery-card-shadow: none;
+  --gallery-card-hover-shadow: 0 0 14px rgba(214, 72, 184, 0.35);
+  --gallery-img-border: none;
+  --gallery-img-radius: 0px;
+  --lightbox-backdrop: rgba(8, 10, 12, 0.94);
+  --lightbox-frame-bg: #080a0c;
+  --lightbox-frame-border: 1px solid rgba(27, 247, 235, 0.75);
+  --lightbox-frame-shadow: 0 0 24px rgba(27, 247, 235, 0.42);
+  --lightbox-btn-bg: #080a0c;
+  --lightbox-btn-color: #1bf7eb;
+  --lightbox-btn-border: 1px solid rgba(27, 247, 235, 0.75);
+  --lightbox-btn-hover-bg: rgba(214, 72, 184, 0.16);
+  --lightbox-btn-hover-color: #ff66de;
+  --lightbox-caption-bg: #080a0c;
+  --lightbox-caption-color: #ff66de;
+  --lightbox-caption-border: 1px solid rgba(214, 72, 184, 0.75);
+  --lightbox-font: "JetBrains Mono", monospace;
+}
 .page-elaru .project-section {
   --gallery-section-bg: #080a0c;
   --gallery-section-border: 1px solid rgba(27, 247, 235, 0.22);
@@ -393,6 +421,9 @@
 .page-elaru .shared-lightbox {
   background-color: rgba(8, 10, 12, 0.94);
   font-family: "JetBrains Mono", monospace;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
 }
 .page-elaru .shared-lightbox .shared-lightbox__img {
   background-color: #080a0c;
