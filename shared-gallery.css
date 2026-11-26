@@ -95,6 +95,7 @@
     padding: 2rem;
     background-color: var(--lightbox-backdrop);
     font-family: var(--lightbox-font);
+    user-select: none;
 }
 
 .shared-lightbox.is-open {
@@ -113,16 +114,23 @@
 
 .shared-lightbox__img {
     max-width: 100%;
-    max-height: 78vh;
+    max-height: var(--lightbox-img-max-height);
     object-fit: contain;
     padding: 0.5rem;
     background-color: var(--lightbox-frame-bg);
     border: var(--lightbox-frame-border);
     border-radius: 12px;
     box-shadow: var(--lightbox-frame-shadow);
+    cursor: zoom-in;
+    transform-origin: center center;
+    transition: transform 0.2s ease;
+    touch-action: none;
+    will-change: transform;
 }
 
 .shared-lightbox__caption {
+    position: relative;
+    z-index: 2;
     padding: 0.4rem 1rem;
     font-size: 0.95rem;
     letter-spacing: 0.03em;
@@ -149,7 +157,7 @@
     border-radius: 999px;
     cursor: pointer;
     transition: transform 0.12s ease, background-color 0.12s ease, color 0.12s ease;
-    z-index: 1;
+    z-index: 3;
 }
 
 .shared-lightbox__btn:hover {
@@ -183,6 +191,7 @@
     border-radius: 999px;
     cursor: pointer;
     transition: transform 0.12s ease, background-color 0.12s ease, color 0.12s ease;
+    z-index: 3;
 }
 
 .shared-lightbox__close:hover {
@@ -191,29 +200,18 @@
     transform: scale(1.06);
 }
 
-/* Click-to-zoom state on the lightbox image */
-.shared-lightbox__img {
-    max-width: 100%;
-    max-height: var(--lightbox-img-max-height);
-    object-fit: contain;
-    padding: 0.5rem;
-    background-color: var(--lightbox-frame-bg);
-    border: var(--lightbox-frame-border);
-    border-radius: 12px;
-    box-shadow: var(--lightbox-frame-shadow);
-    cursor: zoom-in;
-    transition: transform 0.2s ease, max-height 0.2s ease;
+/* Zoomed & dragging states while keeping existing class hooks */
+.shared-lightbox__img.is-zoomed {
+    cursor: grab;
 }
 
-.shared-lightbox__img.is-zoomed {
-    max-width: none;
-    max-height: none;
-    transform: scale(1.45);
-    cursor: zoom-out;
+.shared-lightbox__img.is-dragging {
+    cursor: grabbing;
+    transition: none;
 }
 
 .shared-lightbox.is-zoomed .shared-lightbox__stage {
-    overflow: auto;
+    overflow: visible;
     max-width: 96vw;
     max-height: 92vh;
 }
