@@ -10,9 +10,51 @@
   <link rel="stylesheet" href="../shared-styles.css">
   <link rel="stylesheet" href="../shared-gallery.css">
   <title>Sweet Deceit</title>
+  <style>
+    :root {
+      --hero-bg-url: url('https://lh3.googleusercontent.com/d/1pXURWofLrPp2JKh0C88Mp128WCtdDrj-');
+    }
+
+    body.page-sweet-deceit {
+      position: relative;
+      z-index: 0;
+    }
+
+    body.page-sweet-deceit::before {
+      content: "";
+      position: absolute;
+      /* Cancels body's margin-top: 80px so the image meets the very top edge */
+      top: -80px;
+      left: 0;
+      right: 0;
+      height: 55vw;
+      background-image: var(--hero-bg-url);
+      background-position: top center;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      /* Fades the actual image alpha to transparent so the body's crimson smoke shows through */
+      -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 40%, transparent 80%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Keep page content above the fade layer without creating a dark background wall over it */
+    body.page-sweet-deceit> :not(script):not(style) {
+      position: relative;
+    }
+
+    body.page-sweet-deceit {
+      .shared-lightbox {
+        position: fixed;
+        /* inset: 0; */
+        /* z-index: 9999; */
+      }
+    }
+  </style>
 </head>
 
-<body>
+<body class="page-sweet-deceit">
   <div id="site-nav"></div>
 
   <main class="project-detail">
@@ -60,7 +102,8 @@
 
             Explore a Halloween themed cube world and find your way back home.
           <h3>Development</h3>
-          <p> This was a prototype based on Nintendo's <a href="http://captaintoad.nintendo.com/">Captain Toad: Treasure
+          <p> This was a prototype based on Nintendo's <a href="http://captaintoad.nintendo.com/"
+              target="_blank">Captain Toad: Treasure
               Tracker</a> made in Unity (C#). Finished after 3
             months of development, with 8 to 10 hours spent working each week in between other classes.</p>
         </div>
@@ -114,8 +157,8 @@
             <div class="team-category">
               <h3>Team Members:</h3>
               <ul>
-                <li><a href="http://artstation.com/bramdelaey">Bram Deleay</a></li>
-                <li><a href="http://nickdebreuck.com/">Nick De Breuck</a></li>
+                <li><a href="http://artstation.com/bramdelaey" target="_blank">Bram Deleay</a></li>
+                <li><a href="http://nickdebreuck.com/" target="_blank">Nick De Breuck</a></li>
               </ul>
             </div>
           </div>

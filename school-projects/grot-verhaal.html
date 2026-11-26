@@ -10,14 +10,50 @@
   <link rel="stylesheet" href="../shared-styles.css">
   <link rel="stylesheet" href="../shared-gallery.css">
   <title>Grot Verhaal</title>
+  <style>
+    :root {
+      --hero-bg-url: url('https://lh3.googleusercontent.com/d/1S6kFLPQfihyR2N2Ld0Fqo5Vf7dsBdHtT');
+    }
+
+    body.page-grot-verhaal {
+      position: relative;
+      z-index: 0;
+    }
+
+    body.page-grot-verhaal::before {
+      content: "";
+      position: absolute;
+      /* Cancels body's margin-top: 80px so the image meets the very top edge */
+      top: -80px;
+      left: 0;
+      right: 0;
+      height: 55vw;
+      background-image: var(--hero-bg-url);
+      background-position: center center;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      /* Fades the actual image alpha to transparent so the body's crimson smoke shows through */
+      -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Keep page content above the fade layer without creating a dark background wall over it */
+    body.page-grot-verhaal> :not(script):not(style) {
+      position: relative;
+    }
+  </style>
 </head>
 
-<body>
+<body class="page-grot-verhaal">
   <div id="site-nav"></div>
 
   <main class="project-detail">
     <div class="project-header">
-      <img class="project-title" src="" alt="Grot Verhaal logo" />
+      <img class="project-title" src="https://lh3.googleusercontent.com/d/1kDrFIZQPBKNEgbUc6IeO8fGNm8PjEIW0"
+        alt="Grot Verhaal logo" />
+      <!-- <h1 class="title">Grot Verhaal</h1> -->
     </div>
 
     <div class="project-description-row">
@@ -65,7 +101,8 @@
           <div class="tech-group">
             <span class="tech-category">Engine &amp; code:</span>
             <ul>
-              <li>Visual Studio 2013 (C++)</li>
+              <li>C++</li>
+              <li>Visual Studio 2013</li>
             </ul>
           </div>
           <div class="tech-group">
@@ -100,7 +137,7 @@
 
     <div class="project-links">
       <!-- External links will be populated by JavaScript -->
-      <a href="https://mega.nz/file/DZJE0TRL#TDDBbB70skD8r5XF3L73HqtCFR5A_vwHV0j3FpzpAro" target="_blank">Download
+      <a href="https://mega.nz/#!OIZyELqS!v96tfHg6B4ypfqSa3tyM3sNZ2gsRhxPUM-UaAkq-Yl8" target="_blank">Download
         (Mega.nz)</a>
       <a href="https://sourceforge.net/projects/grot-verhaal/files/latest/download" target="_blank">Download
         (Sourceforge)</a>

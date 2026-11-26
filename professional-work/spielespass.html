@@ -25,6 +25,10 @@
         card/board games.</p>
       <div class="project-store-actions">
         <!-- Store action buttons will be populated by JavaScript -->
+        <a href="https://play.google.com/store/apps/details?id=com.cartamundidigital.raccoon&hl=en" target="_blank"
+          rel="noopener" class="project-store-btn project-store-btn--android big">
+          Download on Google Play
+        </a>
       </div>
     </div>
 
@@ -58,7 +62,6 @@
       <div class="grid-row">
         <div class="project-section">
           <h2>What I did</h2>
-          <h3>Development</h3>
           <ul>
             <li>Gameplay programming</li>
             <ul>
@@ -76,7 +79,7 @@
           <h2>Tech</h2>
 
           <div class="tech-group">
-            <span class="tech-category">Engine &amp; Code:</span>
+            <span class="tech-category">Engine &amp; code:</span>
             <ul>
               <li>C#</li>
               <li>Unity</li>
@@ -140,6 +143,16 @@
             btn.target = '_blank';
             btn.rel = 'noopener';
             storeActionsContainer.appendChild(btn);
+          }
+          // Add the Google Play button if not already present
+          if (!storeActionsContainer.querySelector('.project-store-btn--android.big')) {
+            const playBtn = document.createElement('a');
+            playBtn.href = "https://play.google.com/store/apps/details?id=com.cartamundidigital.raccoon&hl=en";
+            playBtn.target = "_blank";
+            playBtn.rel = "noopener";
+            playBtn.className = "project-store-btn project-store-btn--android big";
+            playBtn.textContent = "Download on Google Play";
+            storeActionsContainer.appendChild(playBtn);
           }
 
           // Set links

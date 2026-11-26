@@ -10,14 +10,49 @@
   <link rel="stylesheet" href="../shared-styles.css">
   <link rel="stylesheet" href="../shared-gallery.css">
   <title>Arnoid</title>
+  <style>
+    :root {
+      --hero-bg-url: url('https://lh3.googleusercontent.com/d/1tUhB2TQ3N0227gkOKSfzpw5PXEzaGt2_');
+    }
+
+    body.page-arnoid {
+      position: relative;
+      z-index: 0;
+    }
+
+    body.page-arnoid::before {
+      content: "";
+      position: absolute;
+      /* Cancels body's margin-top: 80px so the image meets the very top edge */
+      top: -80px;
+      left: 0;
+      right: 0;
+      height: 55vw;
+      background-image: var(--hero-bg-url);
+      background-position: top center;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      /* Fades the actual image alpha to transparent so the body's crimson smoke shows through */
+      -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Keep page content above the fade layer without creating a dark background wall over it */
+    body.page-arnoid> :not(script):not(style) {
+      position: relative;
+    }
+  </style>
 </head>
 
-<body>
+<body class="page-arnoid">
   <div id="site-nav"></div>
 
   <main class="project-detail">
     <div class="project-header">
-      <img class="project-title" src="" alt="Arnoid logo" />
+      <img class="project-title" src="https://lh3.googleusercontent.com/d/1v3QeRVWB6j89DinvZVuLep1s8W9tdOeo"
+        alt="Arnoid logo" />
     </div>
 
     <div class="project-description-row">
@@ -63,7 +98,7 @@
         <div class="project-section tech-tags">
           <h2>Tech</h2>
           <div class="tech-group">
-            <span class="tech-category">Engine &amp; Code:</span>
+            <span class="tech-category">Engine &amp; code:</span>
             <ul>
               <li>Visual Studio 2015</li>
               <li>C++</li>

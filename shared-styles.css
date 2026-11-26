@@ -26,6 +26,9 @@ h1 {
   font-family: "Roboto Black", "Roboto", Arial, sans-serif;
   font-weight: 900;
 }
+h1.title {
+  font-size: 64px;
+}
 
 .company-title {
   font-family: "Roboto Black", "Roboto", Arial, sans-serif;
@@ -586,6 +589,12 @@ h1 {
   padding: 18px 28px;
   font-size: 24px;
   border-width: 2px;
+  display: grid;
+  gap: 4px;
+  text-align: center;
+}
+.project-store-btn.big .play-eyebrow {
+  font-size: 16px;
 }
 .project-store-btn.big:hover {
   box-shadow: inset 0 4px 0 0 black;

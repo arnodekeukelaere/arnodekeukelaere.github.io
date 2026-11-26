@@ -195,6 +195,27 @@ body.page-hels-hatred .project-section ul li:last-child {
 body.page-hels-hatred .project-section ul li::marker {
   color: #5ad7e8;
 }
+/* Fix for tech list bullets */
+body.page-hels-hatred .tech-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0;
+}
+body.page-hels-hatred .tech-list li {
+  margin-bottom: 0.65rem;
+  color: rgba(247, 246, 240, 0.92);
+  list-style: none !important;
+}
+body.page-hels-hatred .tech-list li:last-child {
+  margin-bottom: 0;
+}
+body.page-hels-hatred .tech-list li::marker {
+  color: #5ad7e8;
+}
+/* Fix for lightbox z-index */
+body.page-hels-hatred .shared-lightbox {
+  z-index: 9999 !important;
+}
 body.page-hels-hatred .tech-categories {
   display: flex;
   flex-direction: column;
