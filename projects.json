@@ -59,11 +59,11 @@
     "company": "d3t",
     "tech": [
       {
-        "category": "Engine & code:",
+        "category": "Engine & code",
         "items": ["Unity 6", "C#"]
       },
       {
-        "category": "Tools:",
+        "category": "Tools",
         "items": ["P4V"]
       }
     ]
@@ -200,8 +200,12 @@
     "platforms": ["PC"],
     "tech": [
       {
-        "category": "Engine & code",
+        "category": "Engine",
         "items": ["Stencyl"]
+      },
+      {
+        "category": "Art & audio",
+        "items": ["Adobe Photoshop", "Tiled", "Bfxr", "Audacity"]
       }
     ]
   },
@@ -216,7 +220,7 @@
     "tech": [
       {
         "category": "Engine & code",
-        "items": ["Garry's Mod (Source Engine)", "Lua"]
+        "items": ["Garry's Mod (Source Engine)", "Lua", "Notepad++"]
       }
     ]
   },
@@ -240,7 +244,9 @@
       },
       {
         "category": "Workflow",
-        "items": ["Various AI tools for productivity (ChatGPT & Gemini)"]
+        "items": [
+          "Various AI tools (mostly to help explain how s&box code works)"
+        ]
       }
     ]
   },
@@ -257,6 +263,10 @@
       {
         "category": "Engine & code",
         "items": ["Unity", "C#"]
+      },
+      {
+        "category": "Art",
+        "items": ["Affinity Photo"]
       }
     ]
   },
@@ -271,7 +281,19 @@
     "tech": [
       {
         "category": "Engine & code",
-        "items": ["Unity", "C#"]
+        "items": ["Unity 2017", "C#", "Visual Studio 2017"]
+      },
+      {
+        "category": "Hardware",
+        "items": "HTC Vive"
+      },
+      {
+        "category": "Art & audio",
+        "items": ["Audacity", "Adobe Audition", "Adobe Photoshop"]
+      },
+      {
+        "category": "Project management",
+        "items": ["SourceTree", "Slack", "Trello"]
       }
     ]
   },
@@ -286,7 +308,15 @@
     "tech": [
       {
         "category": "Engine & code",
-        "items": ["Unity", "C#"]
+        "items": ["Unity 5.61f1", "C#", "PHP", "Visual Studio 2015"]
+      },
+      {
+        "category": "Art & audio",
+        "items": ["Adobe Photoshop", "Audacity"]
+      },
+      {
+        "category": "Project management",
+        "items": ["SourceTree", "FileZilla", "Slack", "Trello"]
       }
     ]
   },
@@ -301,7 +331,15 @@
     "tech": [
       {
         "category": "Engine & code",
-        "items": ["Unity", "C#"]
+        "items": ["Unity", "C#", "Visual Studio 2015"]
+      },
+      {
+        "category": "Audio & art",
+        "items": ["Adobe Photoshop", "Audacity", "Bfxr"]
+      },
+      {
+        "category": "Project management",
+        "items": ["SourceTree", "Slack", "Trello"]
       }
     ]
   },
@@ -316,7 +354,11 @@
     "tech": [
       {
         "category": "Engine & code",
-        "items": ["C++"]
+        "items": ["C++", "Visual Studio 2013"]
+      },
+      {
+        "category": "Audio & art",
+        "items": ["Adobe Photoshop, Tiled, Bfxr"]
       }
     ]
   },
@@ -331,7 +373,11 @@
     "tech": [
       {
         "category": "Engine & code",
-        "items": ["Cocos2d-x", "C++"]
+        "items": ["Cocos2d-x", "C++", "Visual Studio 2015"]
+      },
+      {
+        "category": "Tools",
+        "items": ["Android Studio", "TexturePacker"]
       }
     ]
   },
@@ -345,8 +391,12 @@
     "platforms": ["PC"],
     "tech": [
       {
-        "category": "Engine & code",
-        "items": ["Unreal Tournament", "Unreal Engine"]
+        "category": "Engine",
+        "items": ["Unreal Engine 4"]
+      },
+      {
+        "category": "Art & design",
+        "items": ["3dsMax 2016", "Adobe Photoshop", "xNormal"]
       }
     ]
   },
@@ -361,7 +411,16 @@
     "tech": [
       {
         "category": "Engine & code",
-        "items": ["Unreal Engine 4", "Particle Effects"]
+        "items": ["Unreal Engine 4"]
+      },
+      {
+        "category": "Art & design",
+        "items": [
+          "3dsMax 2016",
+          "Adobe Photoshop",
+          "Adobe After Effects",
+          "xNormal"
+        ]
       }
     ]
   },
@@ -371,6 +430,16 @@
     "description": "3dsMax modeling and PBR texturing.",
     "thumbnail": "https://drive.google.com/uc?export=download&id=1idbEudZg0jxJQv0AMACdQIpHIz7Lh_47",
     "driveViewer": "https://drive.google.com/file/d/1idbEudZg0jxJQv0AMACdQIpHIz7Lh_47/view?usp=drive_link",
-    "tags": ["School", "Unreal", "2010s"]
+    "tags": ["School", "Unreal", "2010s"],
+    "tech": [
+      {
+        "category": "Engine",
+        "items": ["Unreal Engine 4"]
+      },
+      {
+        "category": "Art & design",
+        "items": ["3dsMax", "Adobe Photoshop", "Substance Painter", "xNormal"]
+      }
+    ]
   }
 ]
