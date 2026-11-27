@@ -18,7 +18,7 @@
         "items": ["Affinity Photo 2", "Affinity Designer 2", "Audacity"]
       },
       {
-        "category": "Workflow",
+        "category": "Tools",
         "items": ["Various AI tools for productivity (ChatGPT & Gemini)"]
       }
     ]
@@ -34,15 +34,15 @@
     "platforms": ["PC"],
     "tech": [
       {
-        "category": "Engine & Code",
+        "category": "Engine & code",
         "items": ["s&box", "C#", "Razor (HTML + CSS + C#) for UI"]
       },
       {
-        "category": "Art & Audio",
+        "category": "Art & audio",
         "items": ["Affinity Photo 2", "Affinity Designer 2", "Audacity"]
       },
       {
-        "category": "Workflow",
+        "category": "Tools",
         "items": ["Various AI tools (to help with writing code occasionally)"]
       }
     ]
@@ -239,11 +239,11 @@
         "items": ["s&box", "C#"]
       },
       {
-        "category": "Art & Audio",
+        "category": "Art & audio",
         "items": ["Affinity Photo 2", "Affinity Designer 2", "Audacity"]
       },
       {
-        "category": "Workflow",
+        "category": "Tools",
         "items": [
           "Various AI tools (mostly to help explain how s&box code works)"
         ]
@@ -334,7 +334,7 @@
         "items": ["Unity", "C#", "Visual Studio 2015"]
       },
       {
-        "category": "Audio & art",
+        "category": "Art & Audio",
         "items": ["Adobe Photoshop", "Audacity", "Bfxr"]
       },
       {
@@ -357,7 +357,7 @@
         "items": ["C++", "Visual Studio 2013"]
       },
       {
-        "category": "Audio & art",
+        "category": "Art & audio",
         "items": ["Adobe Photoshop, Tiled, Bfxr"]
       }
     ]
@@ -417,8 +417,8 @@
         "category": "Art & design",
         "items": [
           "3dsMax 2016",
-          "Adobe Photoshop",
           "Adobe After Effects",
+          "Adobe Photoshop",
           "xNormal"
         ]
       }
