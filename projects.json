@@ -7,7 +7,21 @@
     "thumbnail": "https://drive.google.com/uc?export=download&id=1i0pCcS4fYZoEkFPuInzMYv4g3Dl1udzo",
     "driveViewer": "https://drive.google.com/file/d/1i0pCcS4fYZoEkFPuInzMYv4g3Dl1udzo/view",
     "tags": ["Personal", "C#", "s&box", "2020s"],
-    "platforms": ["PC"]
+    "platforms": ["PC"],
+    "tech": [
+      {
+        "category": "Engine & code",
+        "items": ["s&box", "C#", "Razor (HTML + CSS + C#) for UI"]
+      },
+      {
+        "category": "Art & Audio",
+        "items": ["Affinity Photo 2", "Affinity Designer 2", "Audacity"]
+      },
+      {
+        "category": "Workflow",
+        "items": ["Various AI tools for productivity (ChatGPT & Gemini)"]
+      }
+    ]
   },
   {
     "title": "Keep Munching Y’all",
@@ -17,7 +31,21 @@
     "thumbnail": "https://drive.google.com/uc?export=view&id=1s6aYkBtUPTVOWzwGixSMWN9kXoZDb0Wb",
     "driveViewer": "https://drive.google.com/file/d/1s6aYkBtUPTVOWzwGixSMWN9kXoZDb0Wb/view",
     "tags": ["Personal", "C#", "s&box", "2020s"],
-    "platforms": ["PC"]
+    "platforms": ["PC"],
+    "tech": [
+      {
+        "category": "Engine & Code",
+        "items": ["s&box", "C#", "Razor (HTML + CSS + C#) for UI"]
+      },
+      {
+        "category": "Art & Audio",
+        "items": ["Affinity Photo 2", "Affinity Designer 2", "Audacity"]
+      },
+      {
+        "category": "Workflow",
+        "items": ["Various AI tools (to help with writing code occasionally)"]
+      }
+    ]
   },
   {
     "title": "Fifa Heroes",
@@ -28,7 +56,17 @@
     "driveViewer": "https://drive.google.com/file/d/1t76t_ePveabrVbXau5uhEcKRNH4sYs5H/view",
     "tags": ["Professional", "C#", "Unity", "2020s"],
     "platforms": ["Mobile"],
-    "company": "d3t"
+    "company": "d3t",
+    "tech": [
+      {
+        "category": "Engine & code:",
+        "items": ["Unity 6", "C#"]
+      },
+      {
+        "category": "Tools:",
+        "items": ["P4V"]
+      }
+    ]
   },
   {
     "title": "Vampire: The Masquerade - Bloodhunt",
@@ -39,7 +77,21 @@
     "driveViewer": "https://drive.google.com/file/d/1G_RjQ7v68WaMPw2m0nbQo_YXP7MF6sKR/view",
     "tags": ["Professional", "C++", "Unreal", "2020s"],
     "platforms": ["PC", "Console"],
-    "company": "d3t"
+    "company": "d3t",
+    "tech": [
+      {
+        "category": "Engine & code",
+        "items": ["C++", "Unreal Engine 4"]
+      },
+      {
+        "category": "Tools",
+        "items": ["P4V"]
+      },
+      {
+        "category": "Platforms",
+        "items": ["PC", "PlayStation 5"]
+      }
+    ]
   },
   {
     "title": "Mafia II: Definitive Edition",
@@ -50,7 +102,21 @@
     "driveViewer": "https://drive.google.com/file/d/1pOwXrDkbjVrzr9DrUZsXCH_zupkAtBfP/view",
     "tags": ["Professional", "C++", "Other", "2020s"],
     "platforms": ["PC", "Console"],
-    "company": "d3t"
+    "company": "d3t",
+    "tech": [
+      {
+        "category": "Engine & code",
+        "items": ["C++", "JSON", "XML", "ImGui"]
+      },
+      {
+        "category": "Tools",
+        "items": ["P4V"]
+      },
+      {
+        "category": "Platforms",
+        "items": ["PC", "PlayStation 4", "Xbox One"]
+      }
+    ]
   },
   {
     "title": "Fundels",
@@ -61,7 +127,13 @@
     "driveViewer": "https://drive.google.com/file/d/1xcSyw_hpPMbwmdsFBM_HjtPPXqZe5zIt/view",
     "tags": ["Professional", "C#", "Unity", "2010s"],
     "platforms": ["Mobile"],
-    "company": "Cartamundi Digtal"
+    "company": "Cartamundi Digtal",
+    "tech": [
+      {
+        "category": "Engine & code",
+        "items": ["C#", "Unity"]
+      }
+    ]
   },
   {
     "title": "Spielespass",
@@ -72,7 +144,13 @@
     "driveViewer": "https://drive.google.com/file/d/1crpPlmteajPE-1GNiSIlbjdzfD5JU1TP/view",
     "tags": ["Professional", "C#", "Unity", "2010s"],
     "platforms": ["Mobile"],
-    "company": "Cartamundi Digtal"
+    "company": "Cartamundi Digtal",
+    "tech": [
+      {
+        "category": "Engine & code",
+        "items": ["C#", "Unity"]
+      }
+    ]
   },
   {
     "title": "De Stemmels",
@@ -83,7 +161,17 @@
     "driveViewer": "https://drive.google.com/file/d/1R5PCZ05WlkIvF7A2GCe8Unqz1yCXgfes/view",
     "tags": ["Professional", "C#", "Unity", "2010s"],
     "platforms": ["Mobile"],
-    "company": "Cartamundi Digtal"
+    "company": "Cartamundi Digtal",
+    "tech": [
+      {
+        "category": "Engine & code",
+        "items": ["C#", "Unity 6"]
+      },
+      {
+        "category": "Tools",
+        "items": ["Vuforia", "Tortoise SVN"]
+      }
+    ]
   },
   {
     "title": "404",
@@ -93,7 +181,13 @@
     "thumbnail": "https://lh3.googleusercontent.com/d/14pYPvhPDQUibD3XiuiLH6E65Y60iHdqF",
     "driveViewer": "https://drive.google.com/file/d/14pYPvhPDQUibD3XiuiLH6E65Y60iHdqF/view",
     "tags": ["Personal", "C#", "Unity", "2010s"],
-    "platforms": ["PC"]
+    "platforms": ["PC"],
+    "tech": [
+      {
+        "category": "Engine & code",
+        "items": ["C#", "Unity"]
+      }
+    ]
   },
   {
     "title": "Neko-Pakku Crash!",
@@ -103,7 +197,13 @@
     "thumbnail": "https://lh3.googleusercontent.com/d/16g6X6TCmK77H9Vt0Oeazs9IRVH-Gs1nO",
     "driveViewer": "https://drive.google.com/file/d/16g6X6TCmK77H9Vt0Oeazs9IRVH-Gs1nO/view?usp=drive_link",
     "tags": ["Personal", "C#", "Stencyl", "2010s"],
-    "platforms": ["PC"]
+    "platforms": ["PC"],
+    "tech": [
+      {
+        "category": "Engine & code",
+        "items": ["Stencyl"]
+      }
+    ]
   },
   {
     "title": "Cinema Utilities",
@@ -112,7 +212,13 @@
     "release": 2013,
     "thumbnail": "",
     "driveViewer": "https://drive.google.com/file/d/1e-GUe1gGQpu7LF8AoG8LffCbXOJpikNv/view?usp=drive_link",
-    "tags": ["Personal", "Lua", "2010s"]
+    "tags": ["Personal", "Lua", "2010s"],
+    "tech": [
+      {
+        "category": "Engine & code",
+        "items": ["Garry's Mod (Source Engine)", "Lua"]
+      }
+    ]
   },
   {
     "title": "Industrial Cleansing",
@@ -122,7 +228,21 @@
     "thumbnail": "https://lh3.googleusercontent.com/d/15V3wha3wV2KCw-Hnm3om08BGbDRjGiy4",
     "driveViewer": "https://drive.google.com/file/d/15V3wha3wV2KCw-Hnm3om08BGbDRjGiy4/view?usp=drive_link",
     "tags": ["Personal", "C#", "s&box", "2020s"],
-    "platforms": ["PC"]
+    "platforms": ["PC"],
+    "tech": [
+      {
+        "category": "Engine & code",
+        "items": ["s&box", "C#"]
+      },
+      {
+        "category": "Art & Audio",
+        "items": ["Affinity Photo 2", "Affinity Designer 2", "Audacity"]
+      },
+      {
+        "category": "Workflow",
+        "items": ["Various AI tools for productivity (ChatGPT & Gemini)"]
+      }
+    ]
   },
   {
     "title": "Labyrinth",
@@ -132,7 +252,13 @@
     "thumbnail": "https://lh3.googleusercontent.com/d/1HfhxB2Cyl2IDerna93NqqUvP-wRUTNqJ",
     "driveViewer": "https://drive.google.com/file/d/1HfhxB2Cyl2IDerna93NqqUvP-wRUTNqJ/view?usp=drive_link",
     "tags": ["Personal", "C#", "Unity", "2020s"],
-    "platforms": ["PC"]
+    "platforms": ["PC"],
+    "tech": [
+      {
+        "category": "Engine & code",
+        "items": ["Unity", "C#"]
+      }
+    ]
   },
   {
     "title": "Elaru",
@@ -141,7 +267,13 @@
     "thumbnail": "https://drive.google.com/uc?export=download&id=1hFT5dwW_7D34Ip7IGmsxZdoIpI0THSiF",
     "driveViewer": "https://drive.google.com/file/d/1hFT5dwW_7D34Ip7IGmsxZdoIpI0THSiF/view?usp=drive_link",
     "tags": ["School", "C#", "Unity", "2010s"],
-    "platforms": ["PC"]
+    "platforms": ["PC"],
+    "tech": [
+      {
+        "category": "Engine & code",
+        "items": ["Unity", "C#"]
+      }
+    ]
   },
   {
     "title": "Hel's Hatred",
@@ -150,7 +282,13 @@
     "thumbnail": "https://drive.google.com/uc?export=download&id=1VGOr2svjamKQNTXzTPJMU17LE5QfIFFV",
     "driveViewer": "https://drive.google.com/file/d/1VGOr2svjamKQNTXzTPJMU17LE5QfIFFV/view?usp=drive_link",
     "tags": ["School", "C#", "Unity", "2010s"],
-    "platforms": ["PC", "Web"]
+    "platforms": ["PC", "Web"],
+    "tech": [
+      {
+        "category": "Engine & code",
+        "items": ["Unity", "C#"]
+      }
+    ]
   },
   {
     "title": "Sweet Deceit",
@@ -159,7 +297,13 @@
     "thumbnail": "https://drive.google.com/uc?export=download&id=1ikww_Yf5S9KgsuvLI_V-50bt1UoHA8J7",
     "driveViewer": "https://drive.google.com/file/d/1ikww_Yf5S9KgsuvLI_V-50bt1UoHA8J7/view?usp=drive_link",
     "tags": ["School", "C#", "Unity", "2010s"],
-    "platforms": ["PC"]
+    "platforms": ["PC"],
+    "tech": [
+      {
+        "category": "Engine & code",
+        "items": ["Unity", "C#"]
+      }
+    ]
   },
   {
     "title": "Grot Verhaal",
@@ -168,7 +312,13 @@
     "thumbnail": "https://drive.google.com/uc?export=download&id=1opELqcTC0D_f86mbsaJf4Iemm7grl05y",
     "driveViewer": "https://drive.google.com/file/d/1opELqcTC0D_f86mbsaJf4Iemm7grl05y/view?usp=drive_link",
     "tags": ["School", "C++", "2010s"],
-    "platforms": ["PC"]
+    "platforms": ["PC"],
+    "tech": [
+      {
+        "category": "Engine & code",
+        "items": ["C++"]
+      }
+    ]
   },
   {
     "title": "Arnoid",
@@ -177,7 +327,13 @@
     "thumbnail": "https://drive.google.com/uc?export=download&id=1C9GLQXAu9doJM8j-U5oDkz_5X0r4hRLv",
     "driveViewer": "https://drive.google.com/file/d/1C9GLQXAu9doJM8j-U5oDkz_5X0r4hRLv/view?usp=drive_link",
     "tags": ["School", "C++", "Unity", "2010s"],
-    "platforms": ["Mobile"]
+    "platforms": ["Mobile"],
+    "tech": [
+      {
+        "category": "Engine & code",
+        "items": ["Cocos2d-x", "C++"]
+      }
+    ]
   },
   {
     "title": "Oil Rig BF9",
@@ -186,7 +342,13 @@
     "thumbnail": "https://drive.google.com/uc?export=download&id=10tfvb72kVSopvWQE45FQNvL2r09Kkq0g",
     "driveViewer": "https://drive.google.com/file/d/10tfvb72kVSopvWQE45FQNvL2r09Kkq0g/view?usp=drive_link",
     "tags": ["School", "Unreal", "2010s"],
-    "platforms": ["PC"]
+    "platforms": ["PC"],
+    "tech": [
+      {
+        "category": "Engine & code",
+        "items": ["Unreal Tournament", "Unreal Engine"]
+      }
+    ]
   },
   {
     "title": "Particle FX Scene",
@@ -195,7 +357,13 @@
     "thumbnail": "https://drive.google.com/uc?export=download&id=167od_hqAxlKsSya-5lxCjPtp2_J8CDVe",
     "driveViewer": "https://drive.google.com/file/d/167od_hqAxlKsSya-5lxCjPtp2_J8CDVe/view?usp=drive_link",
     "tags": ["School", "Unreal", "2010s"],
-    "platforms": ["PC"]
+    "platforms": ["PC"],
+    "tech": [
+      {
+        "category": "Engine & code",
+        "items": ["Unreal Engine 4", "Particle Effects"]
+      }
+    ]
   },
   {
     "title": "3D Models",
