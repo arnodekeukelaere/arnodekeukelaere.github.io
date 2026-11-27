@@ -8,6 +8,10 @@
     "driveViewer": "https://drive.google.com/file/d/1i0pCcS4fYZoEkFPuInzMYv4g3Dl1udzo/view",
     "tags": ["Personal", "C#", "s&box", "2020s"],
     "platforms": ["PC"],
+    "video": {
+      "url": "https://www.youtube.com/embed/wTc95AWDjsw",
+      "type": "youtube"
+    },
     "tech": [
       {
         "category": "Engine & code",
@@ -37,6 +41,10 @@
     "driveViewer": "https://drive.google.com/file/d/1s6aYkBtUPTVOWzwGixSMWN9kXoZDb0Wb/view",
     "tags": ["Personal", "C#", "s&box", "2020s"],
     "platforms": ["PC"],
+    "video": {
+      "url": "https://www.youtube.com/embed/7gtIcd8m6CE",
+      "type": "youtube"
+    },
     "tech": [
       {
         "category": "Engine & code",
@@ -69,6 +77,10 @@
     "tags": ["Professional", "C#", "Unity", "2020s"],
     "platforms": ["Mobile"],
     "company": "d3t",
+    "video": {
+      "url": "https://www.youtube.com/embed/HLcp7ri-XrU",
+      "type": "youtube"
+    },
     "tech": [
       {
         "category": "Engine & code",
@@ -90,6 +102,10 @@
     "tags": ["Professional", "C++", "Unreal", "2020s"],
     "platforms": ["PC", "Console"],
     "company": "d3t",
+    "video": {
+      "url": "https://www.youtube.com/embed/c9TE9vQuVHQ",
+      "type": "youtube"
+    },
     "tech": [
       {
         "category": "Engine & code",
@@ -210,6 +226,10 @@
     "driveViewer": "https://drive.google.com/file/d/16g6X6TCmK77H9Vt0Oeazs9IRVH-Gs1nO/view?usp=drive_link",
     "tags": ["Personal", "C#", "Stencyl", "2010s"],
     "platforms": ["PC"],
+    "video": {
+      "url": "https://www.youtube.com/embed/Ze-tgbXiHPM",
+      "type": "youtube"
+    },
     "tech": [
       {
         "category": "Engine",
@@ -254,6 +274,10 @@
     "driveViewer": "https://drive.google.com/file/d/15V3wha3wV2KCw-Hnm3om08BGbDRjGiy4/view?usp=drive_link",
     "tags": ["Personal", "C#", "s&box", "2020s"],
     "platforms": ["PC"],
+    "video": {
+      "url": "https://www.youtube.com/embed/slYdmt1qO0s",
+      "type": "youtube"
+    },
     "tech": [
       {
         "category": "Engine & code",
@@ -313,6 +337,10 @@
     "driveViewer": "https://drive.google.com/file/d/1hFT5dwW_7D34Ip7IGmsxZdoIpI0THSiF/view?usp=drive_link",
     "tags": ["School", "C#", "Unity", "2010s"],
     "platforms": ["PC"],
+    "video": {
+      "url": "https://www.youtube.com/embed/ODlkUqy7Us4",
+      "type": "youtube"
+    },
     "tech": [
       {
         "category": "Engine & code",
@@ -382,6 +410,10 @@
     "driveViewer": "https://drive.google.com/file/d/1ikww_Yf5S9KgsuvLI_V-50bt1UoHA8J7/view?usp=drive_link",
     "tags": ["School", "C#", "Unity", "2010s"],
     "platforms": ["PC"],
+    "video": {
+      "url": "https://player.vimeo.com/video/202198500",
+      "type": "vimeo"
+    },
     "tech": [
       {
         "category": "Engine & code",
@@ -491,6 +523,10 @@
     "driveViewer": "https://drive.google.com/file/d/167od_hqAxlKsSya-5lxCjPtp2_J8CDVe/view?usp=drive_link",
     "tags": ["School", "Unreal", "2010s"],
     "platforms": ["PC"],
+    "video": {
+      "url": "https://www.youtube.com/embed/12345678911",
+      "type": "youtube"
+    },
     "tech": [
       {
         "category": "Engine & code",
@@ -514,6 +550,10 @@
     "thumbnail": "https://drive.google.com/uc?export=download&id=1idbEudZg0jxJQv0AMACdQIpHIz7Lh_47",
     "driveViewer": "https://drive.google.com/file/d/1idbEudZg0jxJQv0AMACdQIpHIz7Lh_47/view?usp=drive_link",
     "tags": ["School", "Unreal", "2010s"],
+    "video": {
+      "url": "https://www.youtube.com/embed/12345678912",
+      "type": "youtube"
+    },
     "tech": [
       {
         "category": "Engine",
