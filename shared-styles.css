@@ -26,6 +26,7 @@ h1 {
   font-family: "Roboto Black", "Roboto", Arial, sans-serif;
   font-weight: 900;
 }
+
 h1.title {
   font-size: 64px;
 }
@@ -88,31 +89,37 @@ h1.title {
   border: 1px solid #ccc;
   transition: box-shadow 0.125s ease, border-color 0.3s ease;
 }
+
 .project:hover {
   border-color: black;
   box-shadow: inset 0 3px 0 0 black;
 }
+
 .project:hover h2 {
   text-decoration: underline;
   color: darkblue;
 }
+
 .project .category {
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 900;
   color: #000;
 }
+
 .project .thumbnail {
   width: 200px;
   height: 200px;
   background: lightgray;
   flex-shrink: 0;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
+
 .project .project-info {
   flex: 1;
   padding: 8px;
 }
+
 .project h2 {
   margin: 0;
   font-size: 24px;
@@ -126,11 +133,13 @@ h1.title {
   text-align: left;
   text-indent: 0;
 }
+
 .project p {
   margin: 5px 0;
   font-size: 20px;
   color: #000;
 }
+
 .project a {
   color: black;
 }
@@ -144,6 +153,7 @@ h1.title {
   padding-top: 20px;
   border-top: 1px solid #ccc;
 }
+
 .links-section h3 {
   margin-bottom: 15px;
   color: black;
@@ -152,10 +162,12 @@ h1.title {
 .links-list {
   padding-left: 20px;
 }
+
 .links-list li {
   margin-bottom: 10px;
   list-style-type: square;
 }
+
 .links-list a {
   color: black;
   text-decoration: underline;
@@ -163,9 +175,9 @@ h1.title {
 
 .site-footer {
   position: fixed;
-  bottom: 0;
-  right: 0;
-  padding: 5px 25px 5px 5px;
+  bottom: 20px;
+  right: 26px;
+  /* padding: 26px 26px 26px 26px; */
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -175,9 +187,9 @@ h1.title {
 
 .dark-mode-footer {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  padding: 15px;
+  bottom: 20px;
+  left: 24px;
+  /* padding: 15px; */
   z-index: 1002;
   display: flex;
   align-items: center;
@@ -190,10 +202,12 @@ h1.title {
   align-items: center;
   justify-content: flex-end;
 }
+
 .social-links a {
   display: inline-block;
   text-decoration: none;
 }
+
 .social-links img {
   width: 24px;
   height: 24px;
@@ -208,6 +222,7 @@ h1.title {
   align-items: center;
   justify-content: center;
 }
+
 .dark-mode-toggle svg {
   width: 24px;
   height: 24px;
@@ -219,10 +234,12 @@ h1.title {
     flex-direction: column;
     align-items: stretch;
   }
+
   .project .thumbnail {
     width: 100%;
     height: 200px;
   }
+
   .site-footer {
     position: relative;
     bottom: auto;
@@ -232,6 +249,7 @@ h1.title {
     justify-content: flex-end;
   }
 }
+
 .navbar {
   display: flex;
   align-items: center;
@@ -254,6 +272,7 @@ h1.title {
   align-items: center;
   gap: 10px;
 }
+
 .navbar-brand:hover {
   color: darkblue;
   text-decoration: underline;
@@ -270,13 +289,16 @@ h1.title {
   height: 21px;
   color: black;
 }
+
 .hamburger-menu.active .hamburger-icon path:nth-child(1) {
   transform: translateY(5px) rotate(45deg);
   transform-origin: center;
 }
+
 .hamburger-menu.active .hamburger-icon path:nth-child(2) {
   opacity: 0;
 }
+
 .hamburger-menu.active .hamburger-icon path:nth-child(3) {
   transform: translateY(-5px) rotate(-45deg);
   transform-origin: center;
@@ -288,6 +310,7 @@ h1.title {
   display: block;
   overflow: visible;
 }
+
 .hamburger-icon path {
   fill: none;
   stroke: currentColor;
@@ -310,17 +333,21 @@ h1.title {
   overflow-y: auto;
   box-shadow: 2px 0 12px rgba(0, 0, 0, 0.25);
 }
+
 .nav-menu.active {
   left: 0;
 }
+
 .nav-menu ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 .nav-menu li {
   margin-bottom: 2px;
 }
+
 .nav-menu a {
   color: var(--nav-link-fg, black);
   text-decoration: none;
@@ -332,14 +359,17 @@ h1.title {
   padding: 12px 16px 12px 4px;
   transition: color 0.2s ease;
 }
+
 .nav-menu a:hover {
   color: var(--nav-link-hover-fg, black);
   text-decoration: underline;
 }
+
 .nav-menu a.active {
   font-weight: 700;
   color: var(--nav-link-hover-fg, black);
 }
+
 .nav-menu.has-active-indicator a:hover {
   color: darkblue;
 }
@@ -363,9 +393,11 @@ h1.title {
   padding-left: 12px;
   transition: background-color 0.2s ease;
 }
+
 .menu-row:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
+
 .menu-row:has(a.active)::before {
   content: "";
   position: absolute;
@@ -396,16 +428,18 @@ h1.title {
   font-size: 16px;
   border-radius: 4px;
 }
+
 .submenu-toggle:hover {
   background-color: rgba(0, 0, 0, 0.08);
   color: black;
 }
+
 .submenu-toggle .chevron {
   display: inline-block;
   transition: transform 0.2s ease;
 }
 
-.has-submenu.open > .menu-row .chevron {
+.has-submenu.open>.menu-row .chevron {
   transform: rotate(90deg);
 }
 
@@ -415,12 +449,15 @@ h1.title {
   transition: max-height 0.3s ease;
   background-color: var(--submenu-bg, rgba(0, 0, 0, 0.03));
 }
+
 .submenu li {
   position: relative;
 }
+
 .submenu li:hover {
   background-color: var(--submenu-hover-bg, rgba(0, 0, 0, 0.05));
 }
+
 .submenu li:has(a.active)::before {
   content: "";
   position: absolute;
@@ -431,11 +468,12 @@ h1.title {
   background-color: var(--active-indicator-bg, black);
   border-radius: 0 3px 3px 0;
 }
+
 .submenu a {
   padding: 10px 16px 10px 64px;
 }
 
-.has-submenu.open > .submenu {
+.has-submenu.open>.submenu {
   max-height: 500px;
 }
 
@@ -451,6 +489,7 @@ h1.title {
   transition: all 0.3s ease;
   z-index: 1001;
 }
+
 .overlay.active {
   opacity: 1;
   visibility: visible;
@@ -467,6 +506,7 @@ h1.title {
   border: 1px solid #ccc;
   background-color: black;
 }
+
 .video-container iframe,
 .yt-embed iframe {
   position: absolute;
@@ -499,13 +539,14 @@ h1.title {
   padding: 24px;
   padding-top: 10px;
 }
+
 .project-header img.project-title {
   max-width: 90%;
   max-height: 1000px;
   width: auto;
   height: auto;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   display: block;
   margin: 0 auto;
   padding: 0 10px;
@@ -549,6 +590,7 @@ h1.title {
   border: 1px solid #ccc;
   padding: 16px 20px;
 }
+
 .project-description-row .project-description {
   flex: 1 1 auto;
   margin: 0;
@@ -575,16 +617,19 @@ h1.title {
   font-size: 16px;
   transition: box-shadow 0.125s ease, background-color 0.15s ease, color 0.15s ease;
 }
+
 .project-store-btn:hover {
   background-color: white;
   color: black;
   border-color: black;
   box-shadow: inset 0 3px 0 0 black;
 }
+
 .project-store-btn {
   flex-shrink: 0;
   white-space: nowrap;
 }
+
 .project-store-btn.big {
   padding: 18px 28px;
   font-size: 24px;
@@ -593,9 +638,11 @@ h1.title {
   gap: 4px;
   text-align: center;
 }
+
 .project-store-btn.big .play-eyebrow {
   font-size: 16px;
 }
+
 .project-store-btn.big:hover {
   box-shadow: inset 0 4px 0 0 black;
 }
@@ -609,7 +656,7 @@ h1.title {
   border: 1px solid #ccc;
   background-color: lightgray;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .project-meta {
@@ -650,9 +697,11 @@ h1.title {
   align-items: stretch;
   gap: 20px;
 }
+
 .grid-row--2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+
 .grid-row--3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -663,6 +712,7 @@ h1.title {
   border: 1px solid #ccc;
   background-color: white;
 }
+
 .project-section h2 {
   font-family: "Roboto Black", "Roboto", Arial, sans-serif;
   font-weight: 900;
@@ -673,6 +723,7 @@ h1.title {
   padding-bottom: 10px;
   border-bottom: 1px solid #ccc;
 }
+
 .project-section h3 {
   font-family: "Roboto Black", "Roboto", Arial, sans-serif;
   font-weight: 900;
@@ -681,16 +732,19 @@ h1.title {
   color: black;
   margin: 22px 0 10px 0;
 }
+
 .project-section p {
   font-size: 20px;
   line-height: 1.45;
   color: black;
   margin: 0 0 14px 0;
 }
+
 .project-section ul {
   margin: 14px 0;
   padding-left: 22px;
 }
+
 .project-section li {
   list-style-type: square;
   font-size: 20px;
@@ -706,6 +760,7 @@ h1.title {
   margin: 0;
   padding: 0;
 }
+
 .project-section.tech-tags .tech-group {
   display: grid;
   align-items: center;
@@ -713,6 +768,7 @@ h1.title {
   gap: 10px 14px;
   margin-top: 14px;
 }
+
 .project-section.tech-tags .tech-category {
   display: inline-block;
   flex: 0 0 140px;
@@ -722,11 +778,13 @@ h1.title {
   line-height: 1.3;
   color: #000;
 }
+
 .project-section.tech-tags .tech-group ul {
   flex: 1 1 auto;
   margin: 0;
   padding: 0;
 }
+
 .project-section.tech-tags .tech-group li {
   list-style: none;
   display: inline-flex;
@@ -750,6 +808,7 @@ h1.title {
   flex-wrap: wrap;
   gap: 12px;
 }
+
 .project-links a {
   display: inline-block;
   padding: 10px 18px;
@@ -762,6 +821,7 @@ h1.title {
   font-size: 16px;
   transition: box-shadow 0.125s ease, background-color 0.15s ease, color 0.15s ease;
 }
+
 .project-links a:hover {
   background-color: white;
   color: black;
@@ -776,67 +836,82 @@ h1.title {
     max-height: 600px;
     padding: 0 5px;
   }
+
   .project-store-btn.big {
     padding: 14px 20px;
     font-size: 20px;
   }
+
   .grid-row,
   .grid-row--2,
   .grid-row--3 {
     grid-template-columns: 1fr;
   }
+
   .project-title {
     font-size: 32px;
   }
+
   .project-header,
   .project-section,
   .project-meta,
   .project-links {
     padding: 16px;
   }
+
   .project-description-row {
     flex-direction: column;
     align-items: stretch;
     gap: 12px;
   }
+
   .project-description-row .project-description {
     text-align: center;
     margin-bottom: 4px;
   }
+
   .project-store-actions {
     flex-direction: column;
     width: 100%;
   }
+
   .project-meta {
     flex-direction: column;
     gap: 12px;
   }
+
   .project-links a,
   .project-store-btn {
     width: 100%;
     text-align: center;
     box-sizing: border-box;
   }
+
   .project-section.tech-tags .tech-group {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
   }
+
   .project-section.tech-tags .tech-category {
     flex: 0 0 auto;
     min-width: 0;
   }
+
   .project-section.tech-tags .tech-group ul {
     flex: 0 1 auto;
     width: 100%;
   }
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) {
   background-color: #181a1b;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) body {
   background-color: #181a1b;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .project .category,
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .project-info,
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) title,
@@ -847,10 +922,12 @@ html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cle
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) a {
   color: white !important;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) a:hover,
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .project:hover h2 {
   color: lightsteelblue !important;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .project {
   display: flex;
   align-items: flex-start;
@@ -863,38 +940,47 @@ html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cle
   border: 1px solid #464646;
   transition: box-shadow 0.125s ease, border-color 0.3s ease;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .project:hover {
   border-color: white;
   box-shadow: inset 0 3px 0 0 white;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .release-date {
   color: #808080 !important;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .no-results {
   background: #473508 !important;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .no-results p {
   color: #facc15 !important;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .tag {
   background: #272727 !important;
   color: #808080 !important;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .filter-buttons button {
   border: 1px solid #5c5a55 !important;
   border-top: 1px solid #5c5a55 !important;
   color: #818181;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .filter-buttons button:hover {
   border-color: white;
   box-shadow: inset 0 3px 0 0 white;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .filter-buttons button.active {
   background: white;
   color: black;
   border-color: white;
   box-shadow: inset 0 3px 0 0 white;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .project-meta,
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .project-section,
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .project-links,
@@ -902,40 +988,50 @@ html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cle
   background-color: #181a1b;
   border-color: #464646;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) li,
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .meta-value {
   color: white;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .project-section h2 {
   border-bottom-color: #464646;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .project-section.tech-tags .tech-category {
   color: white !important;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .project-section.tech-tags li {
   background-color: #272727 !important;
   border-color: #464646 !important;
   color: #e8e6e3 !important;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .project-subtitle,
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .meta-label {
   color: #b0b0b0 !important;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .project-thumbnail,
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .video-container,
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .yt-embed {
   border-color: #464646;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .project-links a,
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .project-store-btn {
   background-color: white;
   color: black !important;
   border-color: white;
 }
+
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .project-links a:hover,
 html[data-theme=dark]:not(:has(body.page-keep-munching, body.page-industrial-cleansing, body.page-neko-pakku-crash, body.page-labyrinth, body.page-ball-after-life, body.page-vampire-the-masquerade-bloodhunt, body.page-mafia-ii-definitive-edition, body.page-elaru, body.page-hels-hatred)) .project-store-btn:hover {
   background-color: #181a1b;
   color: white !important;
   border-color: white;
   box-shadow: inset 0 3px 0 0 white;
-}/*# sourceMappingURL=shared-styles.css.map */
+}
+
+/*# sourceMappingURL=shared-styles.css.map */
